@@ -1,6 +1,11 @@
 {
   "name": "jukamedia",
   "compatibility_date": "2026-07-12",
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "jukamedia.com", "custom_domain": true },
+    { "pattern": "www.jukamedia.com", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./",
     "not_found_handling": "404-page"
