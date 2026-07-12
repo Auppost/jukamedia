@@ -1,0 +1,16 @@
+{
+  "name": "Juka Media",
+  "short_name": "Juka Media",
+  "description": "Digital-агентство полного цикла: сайты, интернет-магазины, SMM, AI-автоматизация.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0B0F0D",
+  "theme_color": "#0B0F0D",
+  "icons": [
+    {
+      "src": "/assets/icons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

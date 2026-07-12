@@ -1,0 +1,235 @@
+/* ============================================
+   Juka Media - service.css
+   Общие секции для страниц услуг (hero, шаги, крошки, note).
+   ============================================ */
+
+/* ---------- Breadcrumbs ---------- */
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.crumbs__link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.crumbs__link:hover {
+  color: var(--color-accent-soft);
+}
+
+.crumbs__sep {
+  opacity: 0.5;
+}
+
+/* ---------- Service hero ---------- */
+.svc-hero {
+  padding-block: clamp(2.5rem, 7vw, 5rem) clamp(3rem, 8vw, 5.5rem);
+  background:
+    radial-gradient(50rem 30rem at 85% -20%, rgba(29, 158, 117, 0.2), transparent 60%),
+    var(--color-bg);
+}
+
+.svc-hero__inner {
+  max-width: 46rem;
+}
+
+.svc-hero__eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-accent-soft);
+  margin-bottom: 0.9rem;
+}
+
+.svc-hero__title {
+  font-size: clamp(2rem, 5.5vw, 3.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.svc-hero__lead {
+  margin-top: 1.2rem;
+  max-width: 40rem;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  color: var(--color-text-muted);
+}
+
+.svc-hero__actions {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.svc-hero__markers {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1.5rem;
+}
+
+.svc-hero__marker {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.svc-hero__marker::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--color-accent-soft);
+  flex-shrink: 0;
+}
+
+/* ---------- Static card (не ссылка) ---------- */
+.card--static {
+  cursor: default;
+}
+
+.card--static:hover {
+  transform: none;
+  border-color: var(--color-border);
+}
+
+/* ---------- Steps ---------- */
+.steps {
+  display: grid;
+  gap: var(--gap);
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  max-width: 46rem;
+}
+
+.steps__item {
+  display: flex;
+  gap: 1rem;
+  padding: clamp(1.1rem, 3vw, 1.5rem);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  backdrop-filter: blur(18px) saturate(170%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-highlight);
+  border-radius: var(--radius);
+}
+
+.steps__num {
+  flex-shrink: 0;
+  width: 2.1rem;
+  height: 2.1rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(29, 158, 117, 0.18);
+  color: var(--color-accent-soft);
+  font-weight: 700;
+}
+
+.steps__name {
+  font-size: 1.05rem;
+}
+
+.steps__text {
+  margin-top: 0.35rem;
+  color: var(--color-text-muted);
+  font-size: 0.94rem;
+}
+
+/* ---------- Honesty note ---------- */
+.note {
+  max-width: 46rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  backdrop-filter: blur(18px) saturate(170%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-highlight);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius);
+}
+
+.note__title {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.note__text {
+  color: var(--color-text-muted);
+}
+
+/* ---------- CTA (reused from home) ---------- */
+.cta {
+  padding-block: var(--section-pad);
+  background:
+    radial-gradient(50rem 25rem at 50% 120%, rgba(29, 158, 117, 0.22), transparent 65%),
+    var(--color-bg-tint);
+  text-align: center;
+}
+
+.cta__inner {
+  max-width: 40rem;
+  display: grid;
+  justify-items: center;
+  gap: 1.25rem;
+}
+
+.cta__title {
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.cta__text {
+  color: var(--color-text-muted);
+  max-width: 34rem;
+}
+
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  justify-content: center;
+}
+
+/* ---------- Legal (privacy) ---------- */
+.legal {
+  max-width: 46rem;
+}
+
+.legal__title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.15;
+  margin-top: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.legal__updated {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.6rem;
+}
+
+.legal h2 {
+  font-size: 1.25rem;
+  margin-top: 2.2rem;
+}
+
+.legal p {
+  color: var(--color-text-muted);
+  margin-top: 0.8rem;
+  line-height: 1.65;
+}
+
+.legal a {
+  color: var(--color-accent-soft);
+}
