@@ -110,6 +110,36 @@
   color: var(--color-text-muted);
 }
 
+.hero__services {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.hero__chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45em 0.95em;
+  border-radius: 999px;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  backdrop-filter: blur(18px) saturate(170%);
+  border: 1px solid var(--glass-border);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.hero__chip:hover,
+.hero__chip:focus-visible {
+  border-color: var(--color-accent-soft);
+  color: var(--color-accent-soft);
+  background: rgba(93, 202, 165, 0.08);
+}
+
 .hero__actions {
   margin-top: 2rem;
   display: flex;

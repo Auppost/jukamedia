@@ -87,6 +87,7 @@ html {
   /* Остальной hero всплывает мягко */
   .hero__badge,
   .hero__subtitle,
+  .hero__services,
   .hero__actions,
   .hero__markers,
   .teamcard {
@@ -95,8 +96,9 @@ html {
 
   .hero__badge { animation-delay: 0.05s; }
   .hero__subtitle { animation-delay: 0.35s; }
-  .hero__actions { animation-delay: 0.45s; }
-  .hero__markers { animation-delay: 0.55s; }
+  .hero__services { animation-delay: 0.42s; }
+  .hero__actions { animation-delay: 0.5s; }
+  .hero__markers { animation-delay: 0.6s; }
   .teamcard { animation-delay: 0.3s; }
 }
 
