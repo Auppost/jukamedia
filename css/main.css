@@ -90,7 +90,8 @@ html {
   .hero__services,
   .hero__actions,
   .hero__markers,
-  .teamcard {
+  .teamcard,
+  .leadfeed {
     animation: hero-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
@@ -100,6 +101,7 @@ html {
   .hero__actions { animation-delay: 0.5s; }
   .hero__markers { animation-delay: 0.6s; }
   .teamcard { animation-delay: 0.3s; }
+  .leadfeed { animation-delay: 0.3s; }
 }
 
 @keyframes hero-in {

@@ -104,7 +104,7 @@ function initCounters() {
 function initReveal() {
   const selector = [
     '.promo__banner', '.section__title', '.section__subtitle',
-    '.card', '.teamcard', '.stats', '.problem__card', '.problem__foot',
+    '.card', '.teamcard', '.leadfeed', '.stats', '.problem__card', '.problem__foot',
     '.solution__text', '.solution__item', '.case', '.cases__foot',
     '.process__step', '.contactcta__card', '.lead__inner'
   ].join(',');
@@ -347,6 +347,51 @@ function initToTop() {
   }, { passive: true });
 }
 
+/* ============================================================
+   Живая лента заявок в hero: раз в несколько секунд наверх
+   «прилетает» новое уведомление, счётчик за месяц растёт.
+   Тексты берутся из самой разметки, поэтому работает на всех
+   языковых версиях. Скрытые li — запас для ротации.
+   ============================================================ */
+function initLeadFeed() {
+  const list = document.querySelector('[data-leadfeed]');
+  if (!list) return;
+
+  const counter = document.querySelector('[data-leadcount]');
+  const VISIBLE = 4;
+
+  if (reduceMotion) return; // статичная карточка, без ротации
+
+  let inView = true;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+      inView = entries[0].isIntersecting;
+    }, { threshold: 0.2 }).observe(list);
+  }
+
+  setInterval(() => {
+    if (!inView || document.hidden) return;
+
+    const items = Array.from(list.children);
+    const next = items.find((li) => li.hidden) || items[items.length - 1];
+
+    next.hidden = false;
+    next.classList.remove('is-new');
+    list.prepend(next);
+    void next.offsetWidth; // перезапуск анимации
+    next.classList.add('is-new');
+
+    Array.from(list.children).forEach((li, i) => { li.hidden = i >= VISIBLE; });
+
+    if (counter) {
+      counter.textContent = String(parseInt(counter.textContent, 10) + 1);
+      counter.classList.remove('is-bump');
+      void counter.offsetWidth;
+      counter.classList.add('is-bump');
+    }
+  }, 3400);
+}
+
 /* ---------- Запуск ---------- */
 function boot() {
   initToTop();
@@ -356,6 +401,7 @@ function boot() {
   initParallax();
   initHeader();
   initCookieBanner();
+  initLeadFeed();
 }
 
 if (document.readyState !== 'loading') boot();
