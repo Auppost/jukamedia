@@ -105,7 +105,7 @@
           <p class="offer-hero__text">Juka Media помогает малому бизнесу быстро собрать базовую digital-систему без поиска разных специалистов. Один запуск, один подрядчик, одна точка ответственности.</p>
 
           <div class="offer-hero__actions">
-            <a class="btn btn--primary btn--lg" href="../index.html#form">Запустить за €590</a>
+            <a class="btn btn--primary btn--lg" href="#form">Запустить за €590</a>
             <a class="btn btn--ghost btn--lg" href="#included">Что входит в пакет</a>
           </div>
         </div>
@@ -129,7 +129,7 @@
 
           <p class="pack__goal">Цель запуска: первые показы, переходы и обращения из интернета.</p>
 
-          <a class="btn btn--primary btn--lg pack__cta" href="../index.html#form">Запустить бизнес за €590</a>
+          <a class="btn btn--primary btn--lg pack__cta" href="#form">Запустить бизнес за €590</a>
           <p class="pack__note">Когда включённый рекламный бюджет закончится, вы сами решаете, продолжать рекламу или нет.</p>
         </aside>
 
@@ -199,7 +199,7 @@
         <p class="compare__foot">Juka Media работает официально. Вы получаете счёт, который можно передать бухгалтеру и учитывать как маркетинговый расход компании.</p>
 
         <div class="compare__cta">
-          <a class="btn btn--primary btn--lg" href="../index.html#form">Запустить за €590</a>
+          <a class="btn btn--primary btn--lg" href="#form">Запустить за €590</a>
         </div>
       </div>
     </section>
@@ -234,15 +234,31 @@
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta" id="contact" aria-labelledby="cta-title">
-      <div class="container cta__inner">
-        <h2 class="cta__title" id="cta-title">Готовы запустить бизнес в интернете?</h2>
-        <p class="cta__text">Напишите нам. Разберём вашу задачу и подскажем, как лучше стартовать в рамках пакета за €590.</p>
-        <div class="cta__actions">
-          <a class="btn btn--primary btn--lg" href="../index.html#form">Запустить за €590</a>
-          <a class="btn btn--ghost btn--lg" href="../index.html#services">Посмотреть все услуги</a>
-        </div>
+    <!-- Форма заявки -->
+    <section class="lead section" id="form" aria-labelledby="lead-title">
+      <div class="container lead__inner">
+        <p class="eyebrow eyebrow--center">Ответим в течение 24 часов.</p>
+        <h2 class="lead__title" id="lead-title">Запустить бизнес за €590</h2>
+
+        <form class="lead__form" action="https://formspree.io/f/xaqgrrde" method="POST">
+          <input type="hidden" name="_subject" value="Заявка: Старт под ключ за €590">
+          <input type="hidden" name="_next" value="https://jukamedia.com/pages/thanks.html">
+          <input type="hidden" name="service" value="Старт под ключ за €590">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <label class="lead__field">
+            <span class="lead__lbl">Ваше имя</span>
+            <input class="lead__input" type="text" name="name" placeholder="Ваше имя" required>
+          </label>
+          <label class="lead__field">
+            <span class="lead__lbl">Контакт</span>
+            <input class="lead__input" type="text" name="contact" placeholder="Телефон, email или Telegram" required>
+          </label>
+          <label class="lead__field">
+            <span class="lead__lbl">О бизнесе</span>
+            <textarea class="lead__input lead__input--area" name="task" rows="3" placeholder="Пара слов о вашем бизнесе (необязательно)"></textarea>
+          </label>
+          <button class="btn btn--primary btn--lg lead__submit" type="submit">Запустить за €590 →</button>
+        </form>
       </div>
     </section>
 

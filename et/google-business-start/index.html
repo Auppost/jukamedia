@@ -83,7 +83,7 @@
           <p class="offer-hero__text">Juka Media aitab väikeettevõttel kiiresti üles ehitada digitaalse baassüsteemi ilma eri spetsialiste otsimata. Üks start, üks partner, üks vastutuspunkt.</p>
 
           <div class="offer-hero__actions">
-            <a class="btn btn--primary btn--lg" href="../index.html#form">Alusta €590 eest</a>
+            <a class="btn btn--primary btn--lg" href="#form">Alusta €590 eest</a>
             <a class="btn btn--ghost btn--lg" href="#included">Mis paketis sisaldub</a>
           </div>
         </div>
@@ -107,7 +107,7 @@
 
           <p class="pack__goal">Stardi eesmärk: esimesed näitamised, klikid ja pöördumised internetist.</p>
 
-          <a class="btn btn--primary btn--lg pack__cta" href="../index.html#form">Käivita äri €590 eest</a>
+          <a class="btn btn--primary btn--lg pack__cta" href="#form">Käivita äri €590 eest</a>
           <p class="pack__note">Kui paketis sisalduv reklaamieelarve saab otsa, otsustate ise, kas reklaami jätkata.</p>
         </aside>
 
@@ -176,7 +176,7 @@
         <p class="compare__foot">Juka Media töötab ametlikult. Saate arve, mille võite edastada raamatupidajale ja arvestada ettevõtte turunduskuluna.</p>
 
         <div class="compare__cta">
-          <a class="btn btn--primary btn--lg" href="../index.html#form">Alusta €590 eest</a>
+          <a class="btn btn--primary btn--lg" href="#form">Alusta €590 eest</a>
         </div>
       </div>
     </section>
@@ -211,15 +211,31 @@
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta" id="contact" aria-labelledby="cta-title">
-      <div class="container cta__inner">
-        <h2 class="cta__title" id="cta-title">Valmis oma äri internetis käivitama?</h2>
-        <p class="cta__text">Kirjutage meile. Vaatame teie ülesande üle ja soovitame, kuidas €590 paketi raames kõige paremini alustada.</p>
-        <div class="cta__actions">
-          <a class="btn btn--primary btn--lg" href="../index.html#form">Alusta €590 eest</a>
-          <a class="btn btn--ghost btn--lg" href="../index.html#services">Vaata kõiki teenuseid</a>
-        </div>
+    <!-- Päringuvorm -->
+    <section class="lead section" id="form" aria-labelledby="lead-title">
+      <div class="container lead__inner">
+        <p class="eyebrow eyebrow--center">Vastame 24 tunni jooksul.</p>
+        <h2 class="lead__title" id="lead-title">Käivitage oma äri €590 eest</h2>
+
+        <form class="lead__form" action="https://formspree.io/f/xaqgrrde" method="POST">
+          <input type="hidden" name="_subject" value="Päring: Start võtmed kätte €590 (ET)">
+          <input type="hidden" name="_next" value="https://jukamedia.com/et/pages/thanks.html">
+          <input type="hidden" name="service" value="Start võtmed kätte €590">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <label class="lead__field">
+            <span class="lead__lbl">Teie nimi</span>
+            <input class="lead__input" type="text" name="name" placeholder="Teie nimi" required>
+          </label>
+          <label class="lead__field">
+            <span class="lead__lbl">Kontakt</span>
+            <input class="lead__input" type="text" name="contact" placeholder="Telefon, e-post või Telegram" required>
+          </label>
+          <label class="lead__field">
+            <span class="lead__lbl">Teie ärist</span>
+            <textarea class="lead__input lead__input--area" name="task" rows="3" placeholder="Paar sõna teie ärist (pole kohustuslik)"></textarea>
+          </label>
+          <button class="btn btn--primary btn--lg lead__submit" type="submit">Alusta €590 eest →</button>
+        </form>
       </div>
     </section>
 
