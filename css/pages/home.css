@@ -206,6 +206,13 @@
   50%      { box-shadow: 0 0 0 0.45rem rgba(93, 202, 165, 0.08); }
 }
 
+/* Едва заметное «дыхание» карточки. Анимируем отдельное свойство
+   translate, чтобы не конфликтовать с parallax-наклоном (transform). */
+@keyframes leadfeed-breathe {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -0.35rem; }
+}
+
 .leadfeed__title {
   margin-top: 0.75rem;
   font-size: 1.3rem;
@@ -235,7 +242,7 @@
 }
 
 .leadfeed__item.is-new {
-  animation: leadfeed-in 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: leadfeed-in 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   border-color: rgba(93, 202, 165, 0.45);
 }
 

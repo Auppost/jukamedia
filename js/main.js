@@ -389,7 +389,7 @@ function initLeadFeed() {
       void counter.offsetWidth;
       counter.classList.add('is-bump');
     }
-  }, 3400);
+  }, 5000);
 }
 
 /* ---------- Запуск ---------- */
