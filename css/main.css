@@ -1017,3 +1017,21 @@ ol {
     pointer-events: none;
   }
 }
+
+/* Юридические реквизиты в подвале */
+.footer__requisites {
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+.footer__requisites a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer__requisites a:hover {
+  color: var(--color-accent-soft);
+}
