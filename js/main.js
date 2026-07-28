@@ -392,8 +392,21 @@ function initLeadFeed() {
   }, 5000);
 }
 
+/* ============================================================
+   «Настройки куки» в подвале: сбрасывает сохранённый выбор и
+   показывает баннер заново (отзыв согласия по GDPR).
+   ============================================================ */
+function initCookieReset() {
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('[data-cookie-reset]')) return;
+    localStorage.removeItem('jm-cookie-consent');
+    location.reload();
+  });
+}
+
 /* ---------- Запуск ---------- */
 function boot() {
+  initCookieReset();
   initToTop();
   initHeroTitle();
   initCounters();

@@ -882,3 +882,12 @@ ol {
   margin-top: 0.5rem;
   width: 100%;
 }
+
+/* Кнопка «Настройки куки» в подвале — выглядит как обычная ссылка */
+.footer__cookie {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
