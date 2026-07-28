@@ -891,3 +891,95 @@ ol {
   font: inherit;
   cursor: pointer;
 }
+
+/* ---------- Области нажатия >= 44px (WCAG 2.5.8) ----------
+   Увеличиваем отступами, не трогая размер шрифта: визуально ничего
+   не меняется, но палец попадает с первого раза. Отрицательные
+   вертикальные margin компенсируют рост высоты в плотных строках. */
+.nav__link,
+.footer__link,
+.lang__btn,
+.crumbs__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.nav__link {
+  padding-inline: 0.35rem;
+  margin-block: -0.6rem;
+}
+
+.footer__link {
+  margin-block: -0.45rem;
+}
+
+.lang__btn {
+  min-height: 36px; /* внутри капсулы; сама капсула добирает до 44 */
+  margin-block: -0.25rem;
+}
+
+.lang {
+  min-height: 44px;
+  align-items: center;
+}
+
+.crumbs__link {
+  margin-block: -0.6rem;
+}
+
+.footer__bottom .footer__link,
+.footer__cookie {
+  min-height: 44px;
+}
+
+@media (max-width: 62rem) {
+  .nav__link {
+    margin-block: 0;
+    padding-block: 0.4rem;
+  }
+}
+
+/* Мелкие визуальные элементы: расширяем зону нажатия невидимым
+   ::after до 44px, не меняя видимый размер (капсулы и чипы). */
+.header__logo {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  margin-block: -0.4rem;
+}
+
+.header__burger {
+  min-height: 44px;
+  min-width: 44px;
+  justify-content: center;
+}
+
+.lang__btn,
+.hero__chip,
+.cases__link,
+.case__link,
+.topbar,
+.cookiebar__btn,
+.cookiebar__link,
+.cookiebar a,
+.wa-fab,
+.call-fab {
+  position: relative;
+}
+
+.lang__btn::after,
+.hero__chip::after,
+.cases__link::after,
+.case__link::after,
+.cookiebar__btn::after,
+.cookiebar__link::after,
+.cookiebar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 44px;
+  transform: translateY(-50%);
+}
