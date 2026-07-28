@@ -983,3 +983,37 @@ ol {
   height: 44px;
   transform: translateY(-50%);
 }
+
+/* Телефон в шапке (десктоп; на мобильном роль выполняет
+   плавающая кнопка звонка) */
+.header__phone {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.header__phone:hover {
+  color: var(--color-accent-soft);
+}
+
+/* Мобильная панель связи: кнопки звонка и WhatsApp появляются после
+   первого экрана и прячутся, когда видна форма заявки */
+@media (max-width: 62rem) {
+  .call-fab,
+  .wa-fab {
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .call-fab.fab-hidden,
+  .wa-fab.fab-hidden {
+    opacity: 0;
+    transform: translateY(1rem);
+    pointer-events: none;
+  }
+}

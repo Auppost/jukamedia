@@ -404,9 +404,37 @@ function initCookieReset() {
   });
 }
 
+/* ============================================================
+   Мобильная панель связи: кнопки «Позвонить» и WhatsApp видны
+   после прокрутки первого экрана и прячутся у формы заявки,
+   чтобы не перекрывать поля.
+   ============================================================ */
+function initContactFabs() {
+  const fabs = document.querySelectorAll('.call-fab, .wa-fab');
+  if (!fabs.length || !window.matchMedia('(max-width: 62rem)').matches) return;
+
+  let formVisible = false;
+  const form = document.querySelector('.lead');
+  if (form && 'IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+      formVisible = entries[0].isIntersecting;
+      update();
+    }, { threshold: 0.05 }).observe(form);
+  }
+
+  function update() {
+    const past = window.scrollY > window.innerHeight * 0.8;
+    fabs.forEach((f) => f.classList.toggle('fab-hidden', !past || formVisible));
+  }
+
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+}
+
 /* ---------- Запуск ---------- */
 function boot() {
   initCookieReset();
+  initContactFabs();
   initToTop();
   initHeroTitle();
   initCounters();
