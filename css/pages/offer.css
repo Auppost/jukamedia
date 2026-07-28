@@ -350,3 +350,237 @@
   color: var(--color-text-muted);
   font-size: 0.95rem;
 }
+
+/* ============================================
+   Оффер «Интернет-магазин за €990» (/ecommerce-990/)
+   ============================================ */
+
+/* Бейдж ограниченного предложения */
+.o990-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5em 1.1em;
+  margin-bottom: 1.25rem;
+  border-radius: 999px;
+  background: rgba(93, 202, 165, 0.12);
+  border: 1px solid rgba(93, 202, 165, 0.45);
+  color: var(--color-accent-soft);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.o990-badge__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-accent-soft);
+  box-shadow: 0 0 0 0.25rem rgba(93, 202, 165, 0.2);
+}
+
+/* Условия по товарам */
+.o990-terms {
+  max-width: 46rem;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  border-radius: calc(var(--radius) * 1.3);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  backdrop-filter: blur(18px) saturate(170%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-highlight);
+}
+
+.o990-terms__main {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.o990-terms__list {
+  margin-top: 1.1rem;
+  display: grid;
+  gap: 0.6rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.o990-terms__list li {
+  padding-left: 1.4rem;
+  position: relative;
+}
+
+.o990-terms__list li::before {
+  content: "·";
+  position: absolute;
+  left: 0.3rem;
+  color: var(--color-accent-soft);
+  font-weight: 800;
+}
+
+/* Подходит / границы тарифа */
+.o990-fit {
+  display: grid;
+  gap: var(--gap);
+}
+
+@media (min-width: 56rem) {
+  .o990-fit {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.o990-fit__card {
+  padding: clamp(1.4rem, 3vw, 2rem);
+  border-radius: calc(var(--radius) * 1.3);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  backdrop-filter: blur(18px) saturate(170%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-highlight);
+}
+
+.o990-fit__card--yes {
+  border-color: rgba(93, 202, 165, 0.45);
+  background: linear-gradient(160deg, rgba(29, 158, 117, 0.16), rgba(255, 255, 255, 0.04));
+}
+
+.o990-fit__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.o990-fit__list {
+  margin-top: 1.1rem;
+  display: grid;
+  gap: 0.65rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.o990-fit__list li {
+  padding-left: 1.6rem;
+  position: relative;
+}
+
+.o990-fit__list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--color-text-muted);
+}
+
+.o990-fit__list--yes li {
+  color: var(--color-text);
+}
+
+.o990-fit__list--yes li::before {
+  content: "✓";
+  color: var(--color-accent-soft);
+  font-weight: 700;
+}
+
+.o990-fit__note {
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--color-accent-soft);
+}
+
+/* Этапы */
+.o990-steps {
+  display: grid;
+  gap: var(--gap);
+  counter-reset: none;
+}
+
+@media (min-width: 56rem) {
+  .o990-steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.o990-steps__item {
+  padding: 1.25rem 1.25rem 1.4rem;
+  border-radius: var(--radius);
+  background: rgba(11, 15, 13, 0.5);
+  border: 1px solid var(--color-border);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.o990-steps__num {
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  margin-bottom: 0.8rem;
+  border-radius: 50%;
+  background: rgba(93, 202, 165, 0.12);
+  border: 1px solid rgba(93, 202, 165, 0.4);
+  color: var(--color-accent-soft);
+  font-weight: 800;
+}
+
+/* Оплата */
+.o990-pay {
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  max-width: 46rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(29, 158, 117, 0.18), rgba(29, 158, 117, 0.05));
+  border: 1px solid rgba(93, 202, 165, 0.35);
+}
+
+.o990-pay__main {
+  font-weight: 600;
+}
+
+.o990-pay__note {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* Честная приписка после формы */
+.o990-honest {
+  margin-top: 1.25rem;
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+}
+
+/* Липкая мобильная CTA */
+.sticky-cta {
+  display: none;
+}
+
+@media (max-width: 62rem) {
+  .sticky-cta {
+    position: fixed;
+    left: 1rem;
+    right: 5.75rem; /* место для колонки плавающих кнопок (звонок/WhatsApp) */
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.95em 1.5em;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #5DCAA5, #1D9E75 90%);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: #06231A;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.45);
+    transition: opacity 0.25s, transform 0.25s;
+  }
+
+  .sticky-cta--hidden {
+    opacity: 0;
+    transform: translateY(120%);
+    pointer-events: none;
+  }
+}
