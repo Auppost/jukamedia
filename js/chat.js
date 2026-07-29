@@ -72,8 +72,6 @@
         '<button class="aichat__send btn btn--primary" type="submit">' + t.send + '</button>' +
       '</form>' +
     '</section>';
-  // На страницах с липкой мобильной CTA поднимаем кнопку чата выше неё
-  if (document.querySelector('.sticky-cta')) root.classList.add('aichat--lift');
   document.body.appendChild(root);
 
   var launcher = root.querySelector('.aichat__launcher');
