@@ -2,12 +2,17 @@
   "name": "jukamedia",
   "compatibility_date": "2026-07-12",
   "workers_dev": true,
+  "main": "worker.js",
   "routes": [
     { "pattern": "jukamedia.com", "custom_domain": true },
     { "pattern": "www.jukamedia.com", "custom_domain": true }
   ],
   "assets": {
     "directory": "./",
+    "binding": "ASSETS",
     "not_found_handling": "404-page"
+  },
+  "ai": {
+    "binding": "AI"
   }
 }
