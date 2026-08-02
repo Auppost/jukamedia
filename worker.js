@@ -28,6 +28,16 @@ const SYSTEM_PROMPT = `Ты — Juka, AI-консультант маркетин
 5. Не отвечай на вопросы, не связанные с Juka Media и маркетингом, — вежливо возвращай разговор к делу.
 6. Ты — живое демо услуги «AI-автоматизация»: если спросят, скажи, что такого же ассистента Juka Media может сделать и для их бизнеса.`;
 
+// Старые русские URL, переехавшие в /ru/ при переходе на английский корень.
+// 301, чтобы не терять позиции в Google и не отдавать 404.
+const REDIRECTS = {
+  '/ecommerce-990/': '/ru/ecommerce-990/',
+  '/ecommerce-990/index.html': '/ru/ecommerce-990/',
+  '/blog/skolko-stoit-sait.html': '/ru/blog/skolko-stoit-sait.html',
+  '/blog/reklama-v-google.html': '/ru/blog/reklama-v-google.html',
+  '/blog/sait-ili-instagram.html': '/ru/blog/sait-ili-instagram.html'
+};
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -38,6 +48,9 @@ export default {
       }
       return handleChat(request, env);
     }
+
+    const to = REDIRECTS[url.pathname];
+    if (to) return Response.redirect(url.origin + to, 301);
 
     // Всё остальное, что не совпало с ассетами, — 404 от ассет-роутера
     return env.ASSETS ? env.ASSETS.fetch(request) : new Response('Not found', { status: 404 });
