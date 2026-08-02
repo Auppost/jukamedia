@@ -230,4 +230,19 @@
     <lastmod>2026-07-19</lastmod>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://jukamedia.com/de/</loc>
+    <lastmod>2026-07-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jukamedia.com/fr/</loc>
+    <lastmod>2026-07-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jukamedia.com/es/</loc>
+    <lastmod>2026-07-19</lastmod>
+    <priority>0.8</priority>
+  </url>
 </urlset>
