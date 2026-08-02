@@ -1251,3 +1251,31 @@ ol {
 .header__cta {
   white-space: nowrap;
 }
+
+/* ---------- Строка доверия перед формой (конверсия) ---------- */
+.trustbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem 1.4rem;
+  max-width: 40rem;
+  margin: 1.5rem auto 0;
+}
+
+.trustbar__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.trustbar__item::before {
+  content: "";
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: none;
+  background: var(--color-accent-soft);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 6 9 17l-5-5' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 6 9 17l-5-5' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+}
