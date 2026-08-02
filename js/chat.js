@@ -43,9 +43,45 @@
       wa: 'Ava WhatsApp',
       close: 'Sulge vestlus',
       demo: 'Sama AI-assistendi teeme ka teie ettevõttele — küsige, kuidas.'
+    },
+    de: {
+      launcher: 'KI fragen',
+      title: 'Juka · KI-Assistent',
+      status: 'Online · antwortet sofort',
+      hello: 'Hallo! Ich bin Juka, der KI-Assistent von Juka Media. Fragen Sie mich zu Leistungen, Preisen und Terminen — Webseite, Onlineshop ab €990 oder Google Ads. Wie kann ich helfen?',
+      placeholder: 'Ihre Frage…',
+      send: 'Senden',
+      error: 'Verbindung zum Server fehlgeschlagen. Schreiben Sie uns per WhatsApp — wir antworten schnell:',
+      wa: 'WhatsApp öffnen',
+      close: 'Chat schließen',
+      demo: 'Denselben KI-Assistenten bauen wir auch für Ihr Unternehmen — fragen Sie wie.'
+    },
+    fr: {
+      launcher: 'Demander à l’IA',
+      title: 'Juka · assistant IA',
+      status: 'En ligne · réponse immédiate',
+      hello: 'Bonjour ! Je suis Juka, l’assistant IA de Juka Media. Posez-moi vos questions sur les services, les prix et les délais — site web, boutique en ligne dès 590 € ou Google Ads. Comment puis-je aider ?',
+      placeholder: 'Votre question…',
+      send: 'Envoyer',
+      error: 'Impossible de joindre le serveur. Écrivez-nous sur WhatsApp — nous répondons vite :',
+      wa: 'Ouvrir WhatsApp',
+      close: 'Fermer le chat',
+      demo: 'Nous pouvons créer le même assistant IA pour votre entreprise — demandez comment.'
+    },
+    es: {
+      launcher: 'Preguntar a la IA',
+      title: 'Juka · asistente IA',
+      status: 'En línea · responde al instante',
+      hello: '¡Hola! Soy Juka, el asistente de IA de Juka Media. Pregúntame sobre servicios, precios y plazos — sitio web, tienda online desde 590 € o Google Ads. ¿En qué puedo ayudarte?',
+      placeholder: 'Tu pregunta…',
+      send: 'Enviar',
+      error: 'No se pudo conectar con el servidor. Escríbenos por WhatsApp — respondemos rápido:',
+      wa: 'Abrir WhatsApp',
+      close: 'Cerrar chat',
+      demo: 'Podemos crear el mismo asistente de IA para tu negocio — pregunta cómo.'
     }
   };
-  var t = I18N[lang] || I18N.ru;
+  var t = I18N[lang] || I18N.en;
 
   var history = []; // {role, content}
   var busy = false;
