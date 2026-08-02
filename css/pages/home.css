@@ -13,19 +13,6 @@
     var(--color-bg);
 }
 
-/* Едва заметная сетка на фоне hero */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(93, 202, 165, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(93, 202, 165, 0.05) 1px, transparent 1px);
-  background-size: 3.5rem 3.5rem;
-  mask-image: radial-gradient(80% 60% at 50% 0%, #000 40%, transparent 100%);
-  pointer-events: none;
-}
-
 /* Плавающие свечения на фоне hero */
 .hero::after {
   content: "";
