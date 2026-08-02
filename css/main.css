@@ -1313,3 +1313,18 @@ ol {
   font-size: 0.78rem;
   font-weight: 700;
 }
+
+/* ---------- Кнопка WhatsApp у формы ---------- */
+.lead__wa {
+  margin-top: 0.75rem;
+  width: 100%;
+  gap: 0.55rem;
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.5);
+  color: #25D366;
+}
+
+.lead__wa:hover {
+  background: rgba(37, 211, 102, 0.2);
+  border-color: rgba(37, 211, 102, 0.7);
+}
