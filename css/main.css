@@ -132,11 +132,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Цветное амбиентное свечение — без него стекло не читается */
+/* Цветное амбиентное свечение — без него стекло не читается.
+   Очень медленный дрейф (аврора): фон «дышит», не отвлекая. */
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
+  inset: -15%;
   z-index: -1;
   pointer-events: none;
   background:
@@ -144,6 +145,18 @@ body::before {
     radial-gradient(50rem 34rem at 88% 30%, rgba(29, 130, 158, 0.24), transparent 65%),
     radial-gradient(44rem 32rem at 30% 78%, rgba(29, 158, 117, 0.22), transparent 62%),
     radial-gradient(36rem 26rem at 80% 95%, rgba(120, 200, 170, 0.16), transparent 60%);
+  will-change: transform;
+  animation: aurora 32s ease-in-out infinite alternate;
+}
+
+@keyframes aurora {
+  0%   { transform: translate3d(-2%, -1.5%, 0) scale(1); }
+  50%  { transform: translate3d(2%, 1%, 0) scale(1.06); }
+  100% { transform: translate3d(-1%, 2%, 0) scale(1.03); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; }
 }
 
 img,
