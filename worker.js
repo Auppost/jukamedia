@@ -52,6 +52,15 @@ export default {
     const to = REDIRECTS[url.pathname];
     if (to) return Response.redirect(url.origin + to, 301);
 
+    // Английская версия переехала из /en/ в корень — 301 со старых адресов,
+    // структура внутри /en/ совпадала с нынешним корнем один в один.
+    if (url.pathname === '/en' || url.pathname === '/en/') {
+      return Response.redirect(url.origin + '/', 301);
+    }
+    if (url.pathname.startsWith('/en/')) {
+      return Response.redirect(url.origin + url.pathname.slice(3) + url.search, 301);
+    }
+
     // Всё остальное, что не совпало с ассетами, — 404 от ассет-роутера
     return env.ASSETS ? env.ASSETS.fetch(request) : new Response('Not found', { status: 404 });
   }
