@@ -42,6 +42,14 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    // Канонический хост: www и workers.dev отдают 301 на голый домен,
+    // чтобы Google не считал их дублями (assets.run_worker_first = true,
+    // иначе статика уходила бы в обход этой проверки).
+    if (url.hostname === 'www.jukamedia.com' || url.hostname === 'jukamedia.auppost.workers.dev') {
+      url.hostname = 'jukamedia.com';
+      return Response.redirect(url.toString(), 301);
+    }
+
     if (url.pathname === '/api/chat') {
       if (request.method !== 'POST') {
         return json({ error: 'method_not_allowed' }, 405);
