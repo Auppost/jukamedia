@@ -1255,7 +1255,7 @@ ol {
   white-space: nowrap;
 }
 
-@media (max-width: 80rem) {
+@media (max-width: 94rem) {
   .header__phone {
     display: none;
   }
