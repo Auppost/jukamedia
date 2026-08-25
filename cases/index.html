@@ -87,8 +87,47 @@
         <h1 class="section__title" id="cases-title">Real businesses. Real results.</h1>
         <p class="section__subtitle">Projects for businesses in Europe and North America: from refreshed online presence to multiplied reach.</p>
 
+        <div class="cases__filters" role="group" aria-label="Filter projects by type" data-case-filters>
+          <button class="cases__filter cases__filter--active" type="button" data-filter="all">All</button>
+          <button class="cases__filter" type="button" data-filter="travel">Travel &amp; HoReCa</button>
+          <button class="cases__filter" type="button" data-filter="construction">Construction &amp; home</button>
+          <button class="cases__filter" type="button" data-filter="ecommerce">E-commerce</button>
+          <button class="cases__filter" type="button" data-filter="other">Other</button>
+        </div>
+
         <div class="cases__grid">
-          <article class="case">
+          <article class="case case--flagship" id="tinelly" data-cat="travel">
+            <div class="case__media">
+              <span class="case__badge case__badge--accent">Flagship project</span>
+              <span class="case__badge case__badge--geo">EE Estonia · worldwide clients</span>
+              <div class="case__tinelly" role="img" aria-label="Tinelly Private Travel wordmark">
+                <span class="case__tinelly-mark">TINELLY</span>
+                <span class="case__tinelly-sub">Private Travel</span>
+              </div>
+            </div>
+            <div class="case__body">
+              <p class="case__tag">Premium travel · Private advisor</p>
+              <h3 class="case__title">Tinelly Private Travel</h3>
+              <p class="case__meta">Website · Brand · SEO · tinelly.com</p>
+
+              <p class="case__label">The starting point:</p>
+              <p class="case__desc">A private travel advisor working with high-net-worth clients — stays at Aman, Four Seasons, Rosewood and Mandarin Oriental level, over 5,000 luxury properties. The service is premium; the online presence had to match it, so clients see the level they expect before the first conversation.</p>
+
+              <p class="case__label">What we did:</p>
+              <ul class="case__chips">
+                <li class="case__chip">Website built from scratch</li>
+                <li class="case__chip">Brand identity</li>
+                <li class="case__chip">SEO foundation</li>
+              </ul>
+
+              <ul class="case__stats">
+                <li><span class="case__stat-num">5,000+</span><span class="case__stat-cap">luxury stays served by the site</span></li>
+                <li><span class="case__stat-num">2026</span><span class="case__stat-cap">launched — results ahead</span></li>
+              </ul>
+              <a class="case__visit" href="https://tinelly.com" target="_blank" rel="noopener noreferrer" data-ev="case_visit_tinelly">Visit site ↗<span class="case__visit-domain">tinelly.com</span></a>
+            </div>
+          </article>
+          <article class="case" id="terrak" data-cat="travel">
             <div class="case__media">
               <span class="case__badge case__badge--accent">Case study</span>
               <span class="case__badge case__badge--geo">NO Norway</span>
@@ -112,10 +151,12 @@
                 <li><span class="case__stat-num">+</span><span class="case__stat-cap">customer attention</span></li>
                 <li><span class="case__stat-num">6</span><span class="case__stat-cap">website languages</span></li>
               </ul>
+            
+              <a class="case__visit" href="https://terrak.no" target="_blank" rel="noopener noreferrer" data-ev="case_visit_terrak">Visit site ↗<span class="case__visit-domain">terrak.no</span></a>
             </div>
           </article>
 
-          <article class="case">
+          <article class="case" id="dostoevsky" data-cat="travel">
             <div class="case__media">
               <span class="case__badge case__badge--geo">DE Germany</span>
               <picture><source type="image/webp" srcset="../../assets/images/case-dostoevsky-562.webp 562w, ../../assets/images/case-dostoevsky-1124.webp 1024w" sizes="(max-width: 40rem) 100vw, 562px"><img class="case__img" src="/assets/images/case-dostoevsky.jpg" alt="Restaurant Dostoevsky logo: engraved portrait, samovar, EST. 2013" style="object-fit: contain; background: #f0e6cd;" loading="lazy" width="1024" height="1024" decoding="async"></picture>
@@ -131,9 +172,11 @@
                 <li><span class="case__stat-num">From zero</span><span class="case__stat-cap">brand and identity</span></li>
                 <li><span class="case__stat-num">2</span><span class="case__stat-cap">content languages</span></li>
               </ul>
+            
+              <p class="case__nolink">Branding project — delivered to the client</p>
             </div>
           </article>
-          <article class="case">
+          <article class="case" id="denko" data-cat="construction">
             <div class="case__media">
               <span class="case__badge case__badge--geo">EE Estonia</span>
               <picture><source type="image/webp" srcset="../../assets/images/case-denko-562.webp 562w, ../../assets/images/case-denko-1124.webp 1124w" sizes="(max-width: 40rem) 100vw, 562px"><img class="case__img" src="/assets/images/case-denko.png" alt="Construction company website: building and renovation in Tallinn" loading="lazy" width="1440" height="892" decoding="async"></picture>
@@ -149,10 +192,12 @@
                 <li><span class="case__stat-num">2</span><span class="case__stat-cap">languages: ET, RU</span></li>
                 <li><span class="case__stat-num">From zero</span><span class="case__stat-cap">a lead-generating site</span></li>
               </ul>
+            
+              <a class="case__visit" href="https://denko.ee" target="_blank" rel="noopener noreferrer" data-ev="case_visit_denko">Visit site ↗<span class="case__visit-domain">denko.ee</span></a>
             </div>
           </article>
 
-          <article class="case">
+          <article class="case" id="tireprice" data-cat="ecommerce">
             <div class="case__media">
               <span class="case__badge case__badge--geo">CA Canada</span>
               <picture><source type="image/webp" srcset="../../assets/images/case-tireprice-562.webp 562w, ../../assets/images/case-tireprice-1124.webp 1124w" sizes="(max-width: 40rem) 100vw, 562px"><img class="case__img" src="/assets/images/case-tireprice.jpg" alt="Tire and wheel marketplace in Canada: search by vehicle and price comparison" loading="lazy" width="1200" height="648" decoding="async"></picture>
@@ -168,10 +213,12 @@
                 <li><span class="case__stat-num">~4,000</span><span class="case__stat-cap">catalog items</span></li>
                 <li><span class="case__stat-num">22</span><span class="case__stat-cap">tire brands</span></li>
               </ul>
+            
+              <p class="case__nolink">Development project — not a live store</p>
             </div>
           </article>
 
-          <article class="case">
+          <article class="case" id="autism" data-cat="other">
             <div class="case__media">
               <span class="case__badge case__badge--accent">Pro bono</span>
               <span class="case__badge case__badge--geo">EE Estonia</span>
@@ -188,9 +235,11 @@
                 <li><span class="case__stat-num">3</span><span class="case__stat-cap">languages: RU, UK, EN</span></li>
                 <li><span class="case__stat-num">12</span><span class="case__stat-cap">step-by-step guides</span></li>
               </ul>
+            
+              <a class="case__visit" href="https://autismabroad.org" target="_blank" rel="noopener noreferrer" data-ev="case_visit_autism">Visit site ↗<span class="case__visit-domain">autismabroad.org</span></a>
             </div>
           </article>
-          <article class="case">
+          <article class="case" id="fleetpilot" data-cat="other">
             <div class="case__media">
               <span class="case__badge case__badge--geo">EE Estonia</span>
               <picture><source type="image/webp" srcset="../../assets/images/case-fleetpilot-562.webp 562w, ../../assets/images/case-fleetpilot-1124.webp 1124w" sizes="(max-width: 40rem) 100vw, 562px"><img class="case__img" src="/assets/images/case-fleetpilot.png" alt="FleetPilot dispatch system: trip calendar with conflict detection, fleet and drivers" loading="lazy" width="1999" height="1249" decoding="async"></picture>
@@ -206,6 +255,25 @@
                 <li><span class="case__stat-num">3</span><span class="case__stat-cap">roles: dispatcher, driver, client</span></li>
                 <li><span class="case__stat-num">14</span><span class="case__stat-cap">days of trips on one screen</span></li>
               </ul>
+            
+              <p class="case__nolink">Internal system — no public site</p>
+            </div>
+          </article>
+
+          <article class="case" id="homeandyard" data-cat="construction">
+            <div class="case__media">
+              <span class="case__badge case__badge--geo">EE Estonia</span>
+              <div class="case__tinelly case__tinelly--hy" role="img" aria-label="Home &amp; Yard wordmark">
+                <span class="case__tinelly-mark case__tinelly-mark--hy">HOME &amp; YARD</span>
+                <span class="case__tinelly-sub">homeandyard.org</span>
+              </div>
+            </div>
+            <div class="case__body">
+              <p class="case__tag">Home services</p>
+              <h3 class="case__title">Home &amp; Yard</h3>
+              <p class="case__meta">Website · homeandyard.org</p>
+              <p class="case__desc">A website for a home and yard services business: what they do, how to reach them and a way to request a quote.</p>
+              <a class="case__visit" href="https://homeandyard.org" target="_blank" rel="noopener noreferrer" data-ev="case_visit_homeandyard">Visit site ↗<span class="case__visit-domain">homeandyard.org</span></a>
             </div>
           </article>
         </div>
@@ -266,5 +334,23 @@
   <a class="wa-fab" href="https://wa.me/37257494989" aria-label="Message us on WhatsApp">
     <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1 3.7 3.8-1A10 10 0 1 0 12 2Zm5.6 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.2-.7-2.7-1.1-4.5-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.2c.1.2.1.4 0 .6l-.4.6-.5.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .8-.3 1.5Z"/></svg>
   </a>
+
+  <script>
+  (function () {
+    var bar = document.querySelector('[data-case-filters]');
+    if (!bar) return;
+    bar.addEventListener('click', function (e) {
+      var btn = e.target.closest('.cases__filter');
+      if (!btn) return;
+      var f = btn.getAttribute('data-filter');
+      bar.querySelectorAll('.cases__filter').forEach(function (b) {
+        b.classList.toggle('cases__filter--active', b === btn);
+      });
+      document.querySelectorAll('.cases__grid .case').forEach(function (c) {
+        c.hidden = f !== 'all' && c.getAttribute('data-cat') !== f;
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

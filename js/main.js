@@ -431,6 +431,21 @@ function initContactFabs() {
   window.addEventListener('scroll', update, { passive: true });
 }
 
+
+/* ---------- Лента проектов: стрелки на десктопе ---------- */
+function initProjStrip() {
+  const strip = document.querySelector('[data-projstrip]');
+  if (!strip) return;
+  const step = () => {
+    const card = strip.querySelector('.projcard');
+    return card ? card.getBoundingClientRect().width + 16 : 320;
+  };
+  const prev = document.querySelector('[data-strip-prev]');
+  const next = document.querySelector('[data-strip-next]');
+  if (prev) prev.addEventListener('click', () => strip.scrollBy({ left: -step(), behavior: 'smooth' }));
+  if (next) next.addEventListener('click', () => strip.scrollBy({ left: step(), behavior: 'smooth' }));
+}
+
 /* ---------- Запуск ---------- */
 function boot() {
   initCookieReset();
@@ -443,6 +458,7 @@ function boot() {
   initHeader();
   initCookieBanner();
   initLeadFeed();
+  initProjStrip();
 }
 
 if (document.readyState !== 'loading') boot();
