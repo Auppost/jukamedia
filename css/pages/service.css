@@ -233,3 +233,24 @@
 .legal a {
   color: var(--color-accent-soft);
 }
+
+/* Цена в hero страницы услуги */
+.svc-hero__price {
+  margin-top: 1.1rem;
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+}
+
+.svc-hero__price b {
+  color: var(--color-accent-soft);
+  font-weight: 800;
+  font-size: 1.15em;
+}
+
+.svc-hero__price a {
+  margin-left: 0.5rem;
+  color: var(--color-accent-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
