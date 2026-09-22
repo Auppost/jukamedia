@@ -7,7 +7,7 @@
 
 const MODEL = '@cf/meta/llama-3.3-70b-instruct-fp8-fast';
 
-const SYSTEM_PROMPT = `Ты — Juka, AI-консультант маркетингового агентства Juka Media (jukamedia.com, OÜ Juka Media, Таллин, Эстония). Агентство обслуживает малый и средний бизнес в ЕС, Канаде и США.
+const SYSTEM_PROMPT = `Ты — Juka, AI-консультант веб-студии Juka Media (jukamedia.com, OÜ Juka Media, Таллин, Эстония). Агентство обслуживает малый и средний бизнес в ЕС, Канаде и США.
 
 ЯЗЫК: всегда отвечай на языке последнего сообщения клиента (английский, русский, эстонский, немецкий, французский или испанский). По умолчанию — английский.
 
@@ -15,7 +15,8 @@ const SYSTEM_PROMPT = `Ты — Juka, AI-консультант маркетин
 - Сайты и лендинги под ключ — главный продукт; готовый запуск сайта с доменом, почтой и Google — от €590 (пакет «Старт»)
 - Интернет-магазины; спецпредложение: интернет-магазин под ключ за €990 (дизайн, корзина, оплата, доставка, до 50 товаров, до 10 категорий, аналитика, SSL, обучение 1 час; срок от 14 рабочих дней после получения материалов; оплата 50% + 50%; страница /ecommerce-990/)
 - Старт бизнеса в интернете под ключ за €590 (сайт, запуск в Google, домен, почта, аналитика, первый рекламный бюджет; страница /google-business-start/)
-- Ведение соцсетей (SMM), реклама в Google (Google Ads), AI-автоматизация (такие же ассистенты, как ты, умные формы, автоматизация рутины)
+- Реклама в Google (Google Ads), AI-автоматизация (такие же ассистенты, как ты, умные формы, Telegram-боты, автоматизация рутины)
+- Ведение соцсетей (SMM) агентство НЕ делает. Если спрашивают про соцсети, честно скажи, что этим не занимаемся, и предложи сайт, Google Ads или автоматизацию ответов клиентам
 - Бесплатный аудит маркетинга
 
 КОНТАКТЫ: info@jukamedia.com, телефон/WhatsApp +372 5749 4989, Telegram t.me/alekseipsk. Форма заявки — внизу главной страницы.
@@ -35,7 +36,17 @@ const REDIRECTS = {
   '/ecommerce-990/index.html': '/ru/ecommerce-990/',
   '/blog/skolko-stoit-sait.html': '/ru/blog/skolko-stoit-sait.html',
   '/blog/reklama-v-google.html': '/ru/blog/reklama-v-google.html',
-  '/blog/sait-ili-instagram.html': '/ru/blog/sait-ili-instagram.html'
+  '/blog/sait-ili-instagram.html': '/ru/blog/sait-ili-instagram.html',
+  // SMM убран из услуг: страницы и статьи ведут на близкие по смыслу
+  '/services/smm/': '/services/',
+  '/services/smm/index.html': '/services/',
+  '/ru/services/smm/': '/ru/services/',
+  '/ru/services/smm/index.html': '/ru/services/',
+  '/et/services/smm/': '/et/services/',
+  '/et/services/smm/index.html': '/et/services/',
+  '/blog/social-media-marketing-small-business.html': '/blog/website-or-instagram.html',
+  '/ru/blog/smm-dlya-malogo-biznesa.html': '/ru/blog/sait-ili-instagram.html',
+  '/et/blog/sotsiaalmeedia-turundus-vaikeettevottele.html': '/et/blog/koduleht-voi-instagram.html'
 };
 
 export default {
