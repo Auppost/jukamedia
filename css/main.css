@@ -1354,3 +1354,23 @@ body::after {
     linear-gradient(90deg, rgba(93, 202, 165, 0.045) 1px, transparent 1px);
   background-size: 3.5rem 3.5rem;
 }
+
+/* Блок цитируемых фактов (для ИИ-поиска и людей) */
+.factlist {
+  list-style: none;
+  margin: 1.6rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 0.75rem;
+}
+
+.factlist li {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: var(--glass-bg);
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
