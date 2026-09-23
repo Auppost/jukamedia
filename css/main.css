@@ -639,7 +639,7 @@ ol {
   height: 3.5rem;
   border-radius: 50%;
   background: #25D366;
-  color: #fff;
+  color: #06231A;
   box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -661,7 +661,7 @@ ol {
   height: 3.5rem;
   border-radius: 50%;
   background: var(--color-accent);
-  color: #fff;
+  color: #06231A;
   box-shadow: 0 6px 24px rgba(29, 158, 117, 0.4);
   transition: transform 0.2s, box-shadow 0.2s;
 }

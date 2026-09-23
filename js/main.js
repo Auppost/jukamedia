@@ -272,13 +272,13 @@ function initCookieBanner() {
       save: 'Salvesta valik', label: 'Küpsiste nõusolek'
     }
   };
-  const t = i18n[lang] || i18n.ru;
+  const t = i18n[lang] || i18n.en;
 
   // Путь к корню сайта: берём из относительной ссылки на manifest
   const mf = document.querySelector('link[rel="manifest"]');
   const root = mf ? mf.getAttribute('href').replace('manifest.webmanifest', '') : '';
   // Локализованная политика для en/et
-  const privacyHref = (lang === 'en' || lang === 'et')
+  const privacyHref = (lang === 'ru' || lang === 'et')
     ? root + lang + '/pages/privacy.html'
     : root + 'pages/privacy.html';
 
@@ -290,7 +290,7 @@ function initCookieBanner() {
     '<p class="cookiebar__text">' + t.text + ' <a href="' + privacyHref + '">' + t.more + '</a></p>' +
     '<div class="cookiebar__settings" hidden>' +
       '<label class="cookiebar__opt"><input type="checkbox" checked disabled> ' + t.necessary + '</label>' +
-      '<label class="cookiebar__opt"><input type="checkbox" id="jm-cookie-analytics" checked> ' + t.analytics + '</label>' +
+      '<label class="cookiebar__opt"><input type="checkbox" id="jm-cookie-analytics"> ' + t.analytics + '</label>' +
       '<button class="btn btn--primary cookiebar__btn" type="button" data-cookie-save>' + t.save + '</button>' +
     '</div>' +
     '<div class="cookiebar__actions">' +
