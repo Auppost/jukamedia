@@ -5,17 +5,17 @@
 > managers. Clients across the EU, Canada and the US. Websites are delivered
 > in up to six languages: English, Russian, Estonian, German, French, Spanish.
 
-## Services and prices (international, USD)
+## Services and prices (international, EUR)
 
-- One-page website: from $990, ready in 3-5 days
-- Business website: from $2,400, 7-10 days
-- Premium custom website: from $4,500, 2-3 weeks
-- Online store: from $2,990, 3-4 weeks
+- One-page website: from €690, ready in 3-5 days
+- Business website: from €1,690, 7-10 days
+- Premium custom website: from €3,900, 2-3 weeks
+- Online store: from €2,490, 3-4 weeks
 - Turnkey business launch (website + domain + email + Google Business
-  Profile + analytics): $990, 5-7 days
-- Google Ads: setup $590, management $390/month
-- AI assistant on the website: from $990, plus $49/month support
-- Website care plans: $59-$390/month
+  Profile + analytics): €890, 5-7 days
+- Google Ads: setup €390, management €250/month
+- AI assistant on the website: from €790, plus €39/month support
+- Website care plans: €49-€349/month
 
 Prices for Estonia and the EU are published in EUR: https://jukamedia.com/ru/pricing/
 (websites from 690 €, turnkey launch 890 €, stores from 2,490 €).
@@ -38,4 +38,4 @@ contracts; the client owns the domain, hosting and all accounts.
 ## Contact
 
 info@jukamedia.com · +372 5749 4989 (phone/WhatsApp) · Kopli tn 23,
-10412 Tallinn, Estonia
+10120 Tallinn, Estonia
