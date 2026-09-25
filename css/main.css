@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap");
+
 /* ============================================
    Juka Media - main.css
    Токены, reset, типографика, компоненты, header/footer.
@@ -15,20 +17,37 @@
   --color-text: #E9F1ED;
   --color-text-muted: #9AB0A6;
 
-  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-base: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-display: "Unbounded", "Manrope", system-ui, sans-serif;
 
   --container: 72rem;
-  --radius: 1.4rem;
+  --radius: 1rem;
   --glass-bg: linear-gradient(160deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.04) 42%, rgba(255, 255, 255, 0.07));
   --glass-bg-strong: linear-gradient(160deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.07) 45%, rgba(255, 255, 255, 0.10));
-  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-border: rgba(255, 255, 255, 0.11);
   --glass-highlight:
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
-    inset 1px 0 0 rgba(255, 255, 255, 0.07);
-  --glass-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.02),
+    inset 1px 0 0 rgba(255, 255, 255, 0.03);
+  --glass-shadow: 0 10px 26px rgba(0, 0, 0, 0.26);
   --gap: clamp(1rem, 2.5vw, 1.5rem);
   --section-pad: clamp(3.5rem, 8vw, 7rem);
+}
+
+/* Типографика заголовков: плотнее и характернее */
+h1, h2, h3 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  overflow-wrap: break-word;
+}
+
+/* Крупные цифры и логотип — акцидентный шрифт */
+.header__logo, .footer__logo,
+.projcard__num, .tier__price, .price-feature__price, .pack__price,
+.case__stat-num, .compare__total-new, .leadfeed__count {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 /* ---------- Reset ---------- */
@@ -141,10 +160,10 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(42rem 30rem at 12% 8%, rgba(93, 202, 165, 0.28), transparent 62%),
-    radial-gradient(50rem 34rem at 88% 30%, rgba(29, 130, 158, 0.24), transparent 65%),
-    radial-gradient(44rem 32rem at 30% 78%, rgba(29, 158, 117, 0.22), transparent 62%),
-    radial-gradient(36rem 26rem at 80% 95%, rgba(120, 200, 170, 0.16), transparent 60%);
+    radial-gradient(42rem 30rem at 12% 8%, rgba(93, 202, 165, 0.15), transparent 62%),
+    radial-gradient(50rem 34rem at 88% 30%, rgba(29, 130, 158, 0.12), transparent 65%),
+    radial-gradient(44rem 32rem at 30% 78%, rgba(29, 158, 117, 0.11), transparent 62%),
+    radial-gradient(36rem 26rem at 80% 95%, rgba(120, 200, 170, 0.08), transparent 60%);
   will-change: transform;
   animation: aurora 32s ease-in-out infinite alternate;
 }
@@ -227,10 +246,10 @@ ol {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.8em 1.6em;
-  border-radius: 999px;
+  padding: 0.8em 1.5em;
+  border-radius: 0.85rem;
   border: 1px solid transparent;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.95rem;
   text-decoration: none;
   transition: background-color 0.25s, border-color 0.25s, color 0.25s,
@@ -247,18 +266,16 @@ ol {
 }
 
 .btn--primary {
-  background: linear-gradient(135deg, #5DCAA5, #1D9E75 90%);
-  border-color: rgba(255, 255, 255, 0.22);
+  background: var(--color-accent-soft);
+  border-color: transparent;
   color: #06231A;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35),
-              0 0.5rem 1.5rem rgba(29, 158, 117, 0.28);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 
 .btn--primary:hover {
-  background: linear-gradient(135deg, #6FD6B3, #23B083 90%);
+  background: #74dcb8;
   color: #06231A;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45),
-              0 0.6rem 1.8rem rgba(29, 158, 117, 0.38);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
 .btn--solid {
@@ -294,9 +311,10 @@ ol {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
+  font-family: var(--font-display);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-accent-soft);
   margin-bottom: 1.1rem;
@@ -1350,9 +1368,9 @@ body::after {
   z-index: -1;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(93, 202, 165, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(93, 202, 165, 0.045) 1px, transparent 1px);
-  background-size: 3.5rem 3.5rem;
+    linear-gradient(rgba(93, 202, 165, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(93, 202, 165, 0.022) 1px, transparent 1px);
+  background-size: 4.5rem 4.5rem;
 }
 
 /* Блок цитируемых фактов (для ИИ-поиска и людей) */
