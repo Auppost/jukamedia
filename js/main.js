@@ -446,6 +446,40 @@ function initProjStrip() {
   if (next) next.addEventListener('click', () => strip.scrollBy({ left: step(), behavior: 'smooth' }));
 }
 
+
+/* ---------- Прожектор: свечение сетки следует за курсором ---------- */
+function initCursorGlow() {
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const layer = document.createElement('div');
+  layer.className = 'cursor-glow';
+  layer.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(layer);
+
+  let tx = innerWidth / 2, ty = innerHeight / 3; // цель
+  let x = tx, y = ty;                            // текущее (с запаздыванием)
+  let raf = null;
+
+  const tick = () => {
+    x += (tx - x) * 0.12;
+    y += (ty - y) * 0.12;
+    layer.style.setProperty('--mx', x + 'px');
+    layer.style.setProperty('--my', y + 'px');
+    if (Math.abs(tx - x) > 0.3 || Math.abs(ty - y) > 0.3) {
+      raf = requestAnimationFrame(tick);
+    } else {
+      raf = null;
+    }
+  };
+
+  window.addEventListener('pointermove', (e) => {
+    tx = e.clientX;
+    ty = e.clientY;
+    if (!raf) raf = requestAnimationFrame(tick);
+  }, { passive: true });
+}
+
 /* ---------- Запуск ---------- */
 function boot() {
   initCookieReset();
@@ -459,6 +493,7 @@ function boot() {
   initCookieBanner();
   initLeadFeed();
   initProjStrip();
+  initCursorGlow();
 }
 
 if (document.readyState !== 'loading') boot();
