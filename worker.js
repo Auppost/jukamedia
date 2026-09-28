@@ -34,9 +34,9 @@ const SYSTEM_PROMPT = `Ты — Juka, AI-консультант веб-студ�
 const REDIRECTS = {
   '/ecommerce-990/': '/ru/ecommerce-990/',
   '/ecommerce-990/index.html': '/ru/ecommerce-990/',
-  '/blog/skolko-stoit-sait.html': '/ru/blog/skolko-stoit-sait.html',
-  '/blog/reklama-v-google.html': '/ru/blog/reklama-v-google.html',
-  '/blog/sait-ili-instagram.html': '/ru/blog/sait-ili-instagram.html',
+  '/blog/skolko-stoit-sait.html': '/ru/blog/skolko-stoit-sait',
+  '/blog/reklama-v-google.html': '/ru/blog/reklama-v-google',
+  '/blog/sait-ili-instagram.html': '/ru/blog/sait-ili-instagram',
   // SMM убран из услуг: страницы и статьи ведут на близкие по смыслу
   '/services/smm/': '/services/',
   '/services/smm/index.html': '/services/',
@@ -44,40 +44,52 @@ const REDIRECTS = {
   '/ru/services/smm/index.html': '/ru/services/',
   '/et/services/smm/': '/et/services/',
   '/et/services/smm/index.html': '/et/services/',
-  '/blog/social-media-marketing-small-business.html': '/blog/website-or-instagram.html',
-  '/ru/blog/smm-dlya-malogo-biznesa.html': '/ru/blog/sait-ili-instagram.html',
-  '/et/blog/sotsiaalmeedia-turundus-vaikeettevottele.html': '/et/blog/koduleht-voi-instagram.html'
+  '/blog/social-media-marketing-small-business.html': '/blog/website-or-instagram',
+  '/ru/blog/smm-dlya-malogo-biznesa.html': '/ru/blog/sait-ili-instagram',
+  '/et/blog/sotsiaalmeedia-turundus-vaikeettevottele.html': '/et/blog/koduleht-voi-instagram',
+  '/blog/skolko-stoit-sait': '/ru/blog/skolko-stoit-sait',
+  '/blog/reklama-v-google': '/ru/blog/reklama-v-google',
+  '/blog/sait-ili-instagram': '/ru/blog/sait-ili-instagram',
+  '/blog/social-media-marketing-small-business': '/blog/website-or-instagram',
+  '/ru/blog/smm-dlya-malogo-biznesa': '/ru/blog/sait-ili-instagram',
+  '/et/blog/sotsiaalmeedia-turundus-vaikeettevottele': '/et/blog/koduleht-voi-instagram'
 };
+
+const CANONICAL_ORIGIN = 'https://jukamedia.com';
+const PROD_HOSTS = ['jukamedia.com', 'www.jukamedia.com', 'jukamedia.auppost.workers.dev'];
+
+// Канонический путь: старые адреса, /en/ и хвосты .html / index.html.
+// Ассет-роутер Cloudflare сам отдаёт 307 с .html на адрес без расширения —
+// делаем это здесь постоянным 301 и одним прыжком вместе с остальным.
+function canonicalPath(pathname) {
+  let p = REDIRECTS[pathname] || pathname;
+  if (p === '/en' || p === '/en/') p = '/';
+  else if (p.startsWith('/en/')) p = p.slice(3);
+  if (p.endsWith('/index.html')) p = p.slice(0, -'index.html'.length);
+  else if (p.endsWith('.html') && p !== '/404.html') p = p.slice(0, -'.html'.length);
+  return p;
+}
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    // Канонический хост: www и workers.dev отдают 301 на голый домен,
-    // чтобы Google не считал их дублями (assets.run_worker_first = true,
-    // иначе статика уходила бы в обход этой проверки).
-    if (url.hostname === 'www.jukamedia.com' || url.hostname === 'jukamedia.auppost.workers.dev') {
-      url.hostname = 'jukamedia.com';
-      return Response.redirect(url.toString(), 301);
-    }
+    const isProd = PROD_HOSTS.includes(url.hostname);
 
-    if (url.pathname === '/api/chat') {
+    if (url.pathname === '/api/chat' && (!isProd || url.hostname === 'jukamedia.com')) {
       if (request.method !== 'POST') {
         return json({ error: 'method_not_allowed' }, 405);
       }
       return handleChat(request, env);
     }
 
-    const to = REDIRECTS[url.pathname];
-    if (to) return Response.redirect(url.origin + to, 301);
-
-    // Английская версия переехала из /en/ в корень — 301 со старых адресов,
-    // структура внутри /en/ совпадала с нынешним корнем один в один.
-    if (url.pathname === '/en' || url.pathname === '/en/') {
-      return Response.redirect(url.origin + '/', 301);
-    }
-    if (url.pathname.startsWith('/en/')) {
-      return Response.redirect(url.origin + url.pathname.slice(3) + url.search, 301);
+    // Один 301 на всё: http → https, www/workers.dev → голый домен,
+    // старые пути и .html — без цепочек редиректов. Query сохраняется (UTM).
+    const path = canonicalPath(url.pathname);
+    const wrongOrigin = isProd && (url.protocol !== 'https:' || url.hostname !== 'jukamedia.com');
+    if (wrongOrigin || path !== url.pathname) {
+      const origin = isProd ? CANONICAL_ORIGIN : url.origin;
+      return Response.redirect(origin + path + url.search, 301);
     }
 
     // Всё остальное, что не совпало с ассетами, — 404 от ассет-роутера

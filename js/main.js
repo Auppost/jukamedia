@@ -279,8 +279,8 @@ function initCookieBanner() {
   const root = mf ? mf.getAttribute('href').replace('manifest.webmanifest', '') : '';
   // Локализованная политика для en/et
   const privacyHref = (lang === 'ru' || lang === 'et')
-    ? root + lang + '/pages/privacy.html'
-    : root + 'pages/privacy.html';
+    ? root + lang + '/pages/privacy'
+    : root + 'pages/privacy';
 
   const bar = document.createElement('div');
   bar.className = 'cookiebar';
