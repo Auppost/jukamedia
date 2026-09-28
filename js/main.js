@@ -480,6 +480,74 @@ function initCursorGlow() {
   }, { passive: true });
 }
 
+
+/* ---------- Аналитика: лиды и контакты (GA4, только после согласия) ---------- */
+function initAnalytics() {
+  const ssGet = (k) => { try { return sessionStorage.getItem(k); } catch (e) { return null; } };
+  const ssSet = (k, v) => { try { sessionStorage.setItem(k, v); } catch (e) { /* приватный режим */ } };
+  const ssDel = (k) => { try { sessionStorage.removeItem(k); } catch (e) { /* ignore */ } };
+  const send = (name, params) => {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', name, Object.assign({ transport_type: 'beacon' }, params || {}));
+    }
+  };
+
+  // UTM и gclid с первой страницы визита — чтобы заявка знала свой источник
+  const q = new URLSearchParams(location.search);
+  const attrKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
+  if (attrKeys.some((k) => q.get(k))) {
+    const attr = {};
+    attrKeys.forEach((k) => { if (q.get(k)) attr[k] = q.get(k); });
+    attr.landing_page = location.pathname;
+    ssSet('jm_attr', JSON.stringify(attr));
+  }
+
+  // Клики по каналам связи и главным CTA
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('a, button');
+    if (!el) return;
+    const href = el.getAttribute('href') || '';
+    const ev = el.getAttribute('data-ev') || '';
+    const where = { link_url: href, page_path: location.pathname };
+    if (/^https:\/\/(wa\.me|api\.whatsapp\.com)\//.test(href)) send('click_whatsapp', where);
+    else if (href.startsWith('tel:')) send('click_phone', where);
+    else if (href.startsWith('mailto:')) send('click_email', where);
+    if (/book_call|consult/.test(ev)) send('book_call', { cta: ev, page_path: location.pathname });
+  }, { passive: true });
+
+  // Отправка формы: form_submit сразу, generate_lead — на странице «спасибо»,
+  // то есть только когда Formspree реально принял заявку
+  document.querySelectorAll('form[action*="formspree.io"]').forEach((form) => {
+    form.addEventListener('submit', () => {
+      const subj = form.querySelector('input[name="_subject"]');
+      const formId = subj ? subj.value : location.pathname;
+      const attr = ssGet('jm_attr');
+      if (attr) {
+        try {
+          Object.entries(JSON.parse(attr)).forEach(([k, v]) => {
+            if (form.querySelector('input[name="' + k + '"]')) return;
+            const i = document.createElement('input');
+            i.type = 'hidden'; i.name = k; i.value = v;
+            form.appendChild(i);
+          });
+        } catch (err) { /* битый JSON — пропускаем */ }
+      }
+      send('form_submit', { form_id: formId, page_path: location.pathname });
+      ssSet('jm_lead_pending', formId);
+    });
+  });
+
+  if (/\/pages\/thanks\/?$/.test(location.pathname)) {
+    const pending = ssGet('jm_lead_pending');
+    if (pending) {
+      const fire = () => send('generate_lead', { form_id: pending });
+      if (typeof window.gtag === 'function') fire();
+      else window.addEventListener('load', fire);
+      ssDel('jm_lead_pending');
+    }
+  }
+}
+
 /* ---------- Запуск ---------- */
 function boot() {
   initCookieReset();
@@ -494,6 +562,7 @@ function boot() {
   initLeadFeed();
   initProjStrip();
   initCursorGlow();
+  initAnalytics();
 }
 
 if (document.readyState !== 'loading') boot();

@@ -33,3 +33,12 @@
 - Готовые компоненты (21st.dev и аналоги) использовать без лишних вопросов,
   адаптируя под дизайн-токены сайта.
 - Дизайнерские решения принимать самостоятельно, с кратким обоснованием в отчёте.
+
+## URL-правило (SEO, с 28.09.2026)
+- Публичные адреса — БЕЗ `.html` и без `index.html`: `/blog/website-cost`, `/services/`.
+  Файлы при этом остаются `*.html` (Cloudflare отдаёт их по адресу без расширения).
+- canonical, hreflang, og:url, JSON-LD, sitemap и все href — только в этой форме.
+- worker.js делает один 301 на всё: http→https, www→apex, старые пути, .html → без .html.
+- sitemap.xml генерируется из индексируемых самоканонических страниц.
+- GA4-события (js/main.js, initAnalytics): click_whatsapp, click_phone, click_email,
+  book_call, form_submit, generate_lead (на странице «спасибо»); UTM уходят в формы.
