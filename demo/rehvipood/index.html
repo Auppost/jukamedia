@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="et">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Rehvipood demo</title>
+<meta name="description" content="Rehvide e-poe demo Eesti turule: mõõdu ja auto järgi otsing, ELi rehvimärgis, rehvivahetuse broneerimine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&family=Tektur:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#E8EBEE; --paper:#F7F8F9; --ink:#15171A; --ink-2:#4B525B; --line:#CCD2D8;
+  --rubber:#1F2226; --rubber-2:#2B2F35; --emboss:#3A3F46; --emboss-hi:#565C64;
+  --yellow:#FFC400; --yellow-deep:#E0AC00; --on-yellow:#15171A;
+  --blue:#0068BD; --ok:#1C7C3F; --warn:#9A5B00;
+  --shadow:0 10px 30px -12px rgba(21,23,26,.28);
+  --r:14px;
+  --f-display:"Tektur", "Arial Black", sans-serif;
+  --f-body:"Commissioner", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#101215; --paper:#181B1F; --ink:#ECEEF0; --ink-2:#A9B0B8; --line:#2D3238;
+    --rubber:#0B0C0E; --rubber-2:#1A1D21; --emboss:#2A2E34; --emboss-hi:#454B53;
+    --blue:#5AAEF5; --ok:#5CC585; --warn:#E6A640;
+    --shadow:0 10px 30px -12px rgba(0,0,0,.7);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101215; --paper:#181B1F; --ink:#ECEEF0; --ink-2:#A9B0B8; --line:#2D3238;
+  --rubber:#0B0C0E; --rubber-2:#1A1D21; --emboss:#2A2E34; --emboss-hi:#454B53;
+  --blue:#5AAEF5; --ok:#5CC585; --warn:#E6A640;
+  --shadow:0 10px 30px -12px rgba(0,0,0,.7);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 16px/1.55 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+button,select,input{font:inherit;color:inherit}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+@media (max-width:640px){.wrap{padding:0 16px}}
+.num{font-variant-numeric:tabular-nums}
+
+/* demo strip */
+.demo{background:var(--rubber);color:#E8EBEE;font-size:13px}
+.demo .wrap{display:flex;gap:16px;align-items:center;justify-content:space-between;min-height:38px}
+.demo b{color:var(--yellow);font-weight:600;letter-spacing:.02em}
+.langs{display:flex;gap:2px}
+.langs button{background:none;border:0;color:#AEB5BD;padding:6px 9px;border-radius:6px;cursor:pointer;font-weight:600;font-size:13px}
+.langs button[aria-pressed="true"]{color:var(--rubber);background:var(--yellow)}
+
+/* header */
+header.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--ground) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:28px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand svg{flex:none}
+.brand span{font:800 17px/1 var(--f-display);letter-spacing:-.01em}
+.brand small{display:block;font:600 10px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-top:4px}
+nav.main{display:flex;gap:22px;margin-left:8px}
+nav.main a{color:var(--ink);text-decoration:none;font-weight:500;font-size:15px}
+nav.main a:hover{color:var(--blue)}
+.cartbtn{margin-left:auto;display:flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);border:0;border-radius:999px;padding:10px 16px 10px 14px;cursor:pointer;font-weight:600}
+.cartbtn .count{min-width:22px;height:22px;border-radius:11px;background:var(--yellow);color:var(--on-yellow);font-size:12px;display:grid;place-items:center;padding:0 6px}
+@media (max-width:900px){nav.main{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;padding-top:56px;padding-bottom:64px;align-items:start}
+.hero h1{font:800 clamp(34px,4.6vw,60px)/1.02 var(--f-display);letter-spacing:-.03em;margin:0 0 18px;text-wrap:balance}
+.hero .lead{font-size:18px;color:var(--ink-2);max-width:52ch;margin:0 0 22px}
+.season-note{display:flex;align-items:center;gap:12px;margin:0 0 26px;font-size:15px}
+.season-note .days{font:800 22px/1 var(--f-display);color:var(--blue);letter-spacing:-.02em}
+.season-note .sub{color:var(--ink-2);display:block;font-size:13.5px}
+
+.finder{background:var(--yellow);color:var(--on-yellow);border-radius:20px;padding:22px;box-shadow:var(--shadow)}
+.tabs{display:inline-flex;background:rgba(21,23,26,.1);border-radius:999px;padding:4px;margin-bottom:18px}
+.tabs button{border:0;background:none;padding:8px 16px;border-radius:999px;font-weight:600;font-size:14px;cursor:pointer;color:var(--on-yellow)}
+.tabs button[aria-selected="true"]{background:var(--on-yellow);color:var(--yellow)}
+.sizeline{display:flex;align-items:flex-end;gap:8px;flex-wrap:wrap}
+.seg{display:flex;flex-direction:column;gap:6px}
+.seg label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.seg select{appearance:none;-webkit-appearance:none;border:2px solid var(--on-yellow);background:#FFF6D6;border-radius:12px;font:800 28px/1 var(--f-display);padding:12px 34px 12px 14px;cursor:pointer;color:#15171A;letter-spacing:-.02em;background-image:linear-gradient(45deg,transparent 50%,#15171A 50%),linear-gradient(135deg,#15171A 50%,transparent 50%);background-position:calc(100% - 17px) 55%,calc(100% - 11px) 55%;background-size:6px 6px;background-repeat:no-repeat}
+.sep{font:800 28px/1 var(--f-display);padding-bottom:16px}
+.seasons{display:flex;gap:8px;margin:18px 0 18px;flex-wrap:wrap}
+.seasons button{display:flex;align-items:center;gap:8px;border:2px solid var(--on-yellow);background:transparent;border-radius:999px;padding:9px 14px;font-weight:600;cursor:pointer;color:var(--on-yellow);font-size:14.5px}
+.seasons button[aria-pressed="true"]{background:var(--on-yellow);color:#FFF6D6}
+.go{width:100%;border:0;border-radius:14px;background:var(--on-yellow);color:var(--yellow);font:700 17px/1 var(--f-body);padding:17px;cursor:pointer;display:flex;justify-content:center;align-items:center;gap:10px;transition:transform .2s cubic-bezier(.16,1,.3,1)}
+.go:hover{transform:translateY(-1px)}
+.go:active{transform:translateY(1px)}
+.carpick{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.carpick select{appearance:none;-webkit-appearance:none;width:100%;border:2px solid var(--on-yellow);background:#FFF6D6;border-radius:12px;font:600 16px/1 var(--f-body);padding:14px;color:#15171A}
+.carsizes{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px}
+.carsizes button{border:2px solid var(--on-yellow);background:#FFF6D6;border-radius:10px;padding:8px 12px;font:700 15px/1 var(--f-display);cursor:pointer;color:#15171A}
+.carsizes button[aria-pressed="true"]{background:var(--on-yellow);color:#FFF6D6}
+[hidden]{display:none!important}
+
+.tire-art{position:relative;height:560px;margin-right:-120px}
+.tire-art svg{position:absolute;left:0;top:0;width:640px;height:640px;max-width:none}
+.roll{transform-box:view-box;transform-origin:320px 320px}
+.roll.go-roll{animation:roll .9s cubic-bezier(.16,1,.3,1)}
+@keyframes roll{from{transform:rotate(-26deg)}to{transform:rotate(0)}}
+@media (prefers-reduced-motion: reduce){.roll.go-roll{animation:none}html{scroll-behavior:auto}}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:0;gap:0}
+  .tire-art{order:-1;height:210px;margin:0 -16px 0;overflow:hidden}
+  .tire-art svg{width:420px;height:420px;left:50%;transform:translateX(-50%);top:14px}
+  .hero h1{margin-top:4px}
+}
+
+/* results */
+section{scroll-margin-top:80px}
+.results{padding:56px 0 72px;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rhead{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 24px;justify-content:space-between;margin-bottom:22px}
+.rhead h2{font:800 clamp(24px,3vw,34px)/1.1 var(--f-display);letter-spacing:-.02em;margin:0}
+.rhead h2 .sz{color:var(--ink-2)}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.chip{border:1px solid var(--line);background:var(--ground);border-radius:999px;padding:7px 13px;font-weight:600;font-size:14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.controls select{border:1px solid var(--line);background:var(--ground);border-radius:10px;padding:8px 10px;font-weight:500;font-size:14px}
+.toggle{display:flex;gap:8px;align-items:center;font-size:14px;font-weight:500;cursor:pointer}
+.toggle input{width:18px;height:18px;accent-color:var(--ink)}
+
+.list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:76px minmax(0,1.5fr) minmax(0,1.1fr) minmax(0,1fr) auto;gap:22px;align-items:center;padding:18px 4px;border-bottom:1px solid var(--line);animation:rowin .5s cubic-bezier(.16,1,.3,1) both}
+@keyframes rowin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.row{animation:none}}
+.row .thumb{width:76px;height:76px}
+.pname b{display:block;font:800 13px/1.2 var(--f-display);letter-spacing:.04em;color:var(--ink-2)}
+.pname span{display:block;font-weight:700;font-size:18px;margin-top:3px}
+.pname em{font-style:normal;font-size:14px;color:var(--ink-2)}
+.eu{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.eu .tag{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-2);font-weight:500}
+.eu .l{width:24px;height:24px;border-radius:6px;display:grid;place-items:center;font:800 12px/1 var(--f-display);color:#15171A}
+.eu .db{font:700 13px/1 var(--f-body);color:var(--ink);background:var(--ground);border:1px solid var(--line);border-radius:6px;padding:5px 6px}
+.stock{font-size:14px;font-weight:600;display:flex;gap:7px;align-items:center}
+.stock i{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none}
+.stock.no{color:var(--warn)} .stock.no i{background:var(--warn)}
+.stock.yes{color:var(--ok)}
+.price{text-align:right}
+.price .p{font:800 22px/1 var(--f-display);letter-spacing:-.02em}
+.price .p small{font:500 13px var(--f-body);color:var(--ink-2);margin-left:3px}
+.price .set{font-size:13px;color:var(--ink-2);margin-top:6px}
+.buy{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-top:10px}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:var(--ground)}
+.qty button{border:0;background:none;width:32px;height:38px;cursor:pointer;font-size:18px;font-weight:600}
+.qty span{min-width:22px;text-align:center;font-weight:700}
+.add{border:0;background:var(--yellow);color:var(--on-yellow);font-weight:700;border-radius:10px;padding:0 16px;height:40px;cursor:pointer;white-space:nowrap;transition:background .2s}
+.add:hover{background:var(--yellow-deep)}
+.add.done{background:var(--ink);color:var(--paper)}
+.emptyres{padding:40px 4px;color:var(--ink-2);font-size:17px;max-width:60ch}
+@media (max-width:980px){
+  .row{grid-template-columns:64px 1fr auto;gap:10px 16px}
+  .row .thumb{width:64px;height:64px;grid-row:span 2}
+  .row .eu{grid-column:2/4}
+  .row .stock{grid-column:2/3}
+  .row .price{grid-column:1/4;display:flex;justify-content:space-between;align-items:center;text-align:left;gap:12px;flex-wrap:wrap}
+  .row .buy{margin-top:0}
+}
+
+/* service */
+.service{padding:80px 0}
+.service .grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:56px;align-items:start}
+.service h2,.read h2{font:800 clamp(26px,3.4vw,40px)/1.05 var(--f-display);letter-spacing:-.025em;margin:0 0 16px}
+.service p{color:var(--ink-2);max-width:48ch}
+.hotel{margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+.hotel h3{font:700 19px/1.2 var(--f-display);margin:0 0 8px;letter-spacing:-.01em}
+.board{background:var(--rubber);color:#E8EBEE;border-radius:20px;padding:22px;box-shadow:var(--shadow)}
+.board .bh{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:12px;flex-wrap:wrap}
+.board .bh b{font:700 15px/1 var(--f-display);letter-spacing:.02em;color:var(--yellow)}
+.board .bh span{font-size:13px;color:#AEB5BD}
+.days{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.day h4{margin:0 0 8px;font:600 12px/1.3 var(--f-body);color:#AEB5BD;text-transform:uppercase;letter-spacing:.06em}
+.day h4 b{display:block;font:800 18px/1.1 var(--f-display);color:#fff;letter-spacing:-.01em;text-transform:none}
+.slot{display:block;width:100%;margin-bottom:6px;border:1px solid #3A4048;background:#23272C;color:#E8EBEE;border-radius:8px;padding:7px 0;font:600 13px/1 var(--f-body);cursor:pointer;font-variant-numeric:tabular-nums}
+.slot:hover:not(:disabled){border-color:var(--yellow)}
+.slot:disabled{background:transparent;color:#5E656E;border-style:dashed;cursor:not-allowed;text-decoration:line-through}
+.slot[aria-pressed="true"]{background:var(--yellow);color:#15171A;border-color:var(--yellow)}
+.picked{margin-top:14px;font-size:14px;color:var(--yellow);min-height:21px;font-weight:600}
+@media (max-width:900px){.service .grid{grid-template-columns:1fr;gap:30px}.days{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* read */
+.read{padding:80px 0;background:var(--rubber);color:#E8EBEE}
+.read h2{color:#fff}
+.read .hint{color:#AEB5BD;margin:0 0 30px}
+.code{display:flex;flex-wrap:wrap;gap:6px 4px;font:800 clamp(40px,8.5vw,112px)/1 var(--f-display);letter-spacing:-.03em}
+.code button{background:none;border:0;color:#5E656E;font:inherit;letter-spacing:inherit;cursor:pointer;padding:6px 4px;border-radius:10px;transition:color .25s}
+.code button:hover{color:#9AA2AB}
+.code button[aria-pressed="true"]{color:var(--yellow)}
+.code .gap{width:.3em}
+.explain{margin-top:26px;font-size:clamp(18px,2vw,22px);max-width:40ch;min-height:3.2em;color:#fff}
+
+footer{padding:40px 0 60px;font-size:14px;color:var(--ink-2)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between}
+footer p{margin:0;max-width:62ch}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(10,11,13,.45);opacity:0;pointer-events:none;transition:opacity .3s;z-index:40}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{visibility:hidden;position:fixed;top:0;right:0;height:100%;width:min(440px,100%);background:var(--paper);z-index:50;transform:translateX(100%);transition:transform .45s cubic-bezier(.16,1,.3,1),visibility 0s linear .45s;display:flex;flex-direction:column;box-shadow:-20px 0 40px -20px rgba(0,0,0,.35)}
+.drawer.on{transform:none;visibility:visible;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}
+.dh h2{margin:0;font:800 20px/1 var(--f-display)}
+.x{border:0;background:var(--ground);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:20px;line-height:1}
+.dbody{flex:1;overflow:auto;padding:8px 22px 22px}
+.ci{display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.ci .thumb{width:48px;height:48px}
+.ci b{display:block;font-size:15px}
+.ci small{color:var(--ink-2)}
+.ci .rm{background:none;border:0;color:var(--ink-2);text-decoration:underline;cursor:pointer;font-size:13px;padding:0;margin-top:4px}
+.ci .sum{font-weight:700}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.opt input{width:20px;height:20px;accent-color:var(--ink);margin-top:2px}
+.opt div{flex:1}
+.opt small{display:block;color:var(--ink-2)}
+.slotline{padding:16px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:center}
+.slotline small{display:block;color:var(--ink-2)}
+.slotline a{font-weight:600;font-size:14px}
+.dfoot{padding:18px 22px 22px;border-top:1px solid var(--line)}
+.tot{display:flex;justify-content:space-between;align-items:baseline}
+.tot b{font:800 26px/1 var(--f-display);letter-spacing:-.02em}
+.vat{font-size:13px;color:var(--ink-2);margin:4px 0 14px}
+.pay{font-size:13px;color:var(--ink-2);margin-top:10px;text-align:center}
+.demptiness{padding:30px 0;color:var(--ink-2)}
+.thanks{background:var(--ground);border-radius:12px;padding:14px;margin-top:12px;font-size:14px;font-weight:500}
+@media (max-width:640px){
+  .demo .wrap{font-size:12px;line-height:1.35;padding-top:6px;padding-bottom:6px}
+  .brand span{white-space:nowrap;font-size:15px}
+  .cartbtn [data-i18n="cart"]{display:none}
+  .cartbtn{padding:10px 12px}
+  .hero h1{margin-top:22px}
+  .finder{padding:16px;border-radius:18px}
+  .sizeline{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:6px;align-items:end}
+  .seg select{width:100%;font-size:21px;padding:12px 22px 12px 10px;background-position:calc(100% - 14px) 55%,calc(100% - 9px) 55%}
+  .sep{font-size:20px;padding-bottom:15px}
+  .seasons button{padding:8px 11px;font-size:13.5px}
+}
+</style>
+</head>
+<body>
+
+<div class="demo"><div class="wrap">
+  <span><b>DEMO</b> · <span data-i18n="demo"></span></span>
+  <div class="langs" role="group" aria-label="Keel">
+    <button data-lang="et">ET</button><button data-lang="ru">RU</button><button data-lang="en">EN</button>
+  </div>
+</div></div>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="#" aria-label="Sinu Rehvipood">
+    <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="var(--ink)"/><circle cx="17" cy="17" r="9" fill="var(--yellow)"/><circle cx="17" cy="17" r="3.2" fill="var(--ink)"/></svg>
+    <div><span>Sinu Rehvipood</span><small data-i18n="logoHere"></small></div>
+  </a>
+  <nav class="main">
+    <a href="#results" data-i18n="navTires"></a>
+    <a href="#service" data-i18n="navChange"></a>
+    <a href="#service" data-i18n="navHotel"></a>
+    <a href="#read" data-i18n="navRead"></a>
+  </nav>
+  <button class="cartbtn" id="openCart" aria-haspopup="dialog">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 4h2.5l2.2 11h10.6L21 7H7"/><circle cx="9.5" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/></svg>
+    <span data-i18n="cart"></span><span class="count num" id="cartCount">0</span>
+  </button>
+</div></header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1 data-i18n="h1"></h1>
+      <p class="lead" data-i18n="lead"></p>
+      <p class="season-note" id="seasonNote"></p>
+
+      <div class="finder">
+        <div class="tabs" role="tablist">
+          <button role="tab" id="tabSize" aria-selected="true" data-i18n="tabSize"></button>
+          <button role="tab" id="tabCar" aria-selected="false" data-i18n="tabCar"></button>
+        </div>
+        <div id="paneSize">
+          <div class="sizeline">
+            <div class="seg"><label for="w" data-i18n="width"></label><select id="w"></select></div>
+            <span class="sep">/</span>
+            <div class="seg"><label for="p" data-i18n="profile"></label><select id="p"></select></div>
+            <span class="sep">R</span>
+            <div class="seg"><label for="r" data-i18n="rim"></label><select id="r"></select></div>
+          </div>
+        </div>
+        <div id="paneCar" hidden>
+          <div class="carpick">
+            <select id="make" aria-label="Mark"></select>
+            <select id="model" aria-label="Mudel"></select>
+          </div>
+          <div class="carsizes" id="carSizes"></div>
+        </div>
+        <div class="seasons" id="seasons" role="group"></div>
+        <button class="go" id="go"><span data-i18n="search"></span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+
+    <div class="tire-art" aria-hidden="true">
+      <svg viewBox="0 0 640 640" id="tireSvg"></svg>
+    </div>
+  </div>
+</section>
+
+<section class="results" id="results">
+  <div class="wrap">
+    <div class="rhead">
+      <h2 id="resTitle"></h2>
+      <div class="controls">
+        <div id="brandChips" class="controls"></div>
+        <label class="toggle"><input type="checkbox" id="inStock"><span data-i18n="inStock"></span></label>
+        <select id="sort" aria-label="Sort"></select>
+      </div>
+    </div>
+    <div class="list" id="list"></div>
+  </div>
+</section>
+
+<section class="service" id="service">
+  <div class="wrap grid">
+    <div>
+      <h2 data-i18n="svcH"></h2>
+      <p data-i18n="svcP"></p>
+      <div class="hotel">
+        <h3 data-i18n="hotelH"></h3>
+        <p data-i18n="hotelP"></p>
+      </div>
+    </div>
+    <div class="board">
+      <div class="bh"><b data-i18n="boardH"></b><span data-i18n="boardSub"></span></div>
+      <div class="days" id="days"></div>
+      <div class="picked" id="picked" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="read" id="read">
+  <div class="wrap">
+    <h2 data-i18n="readH"></h2>
+    <p class="hint" data-i18n="readHint"></p>
+    <div class="code" id="code" role="group"></div>
+    <p class="explain" id="explain" aria-live="polite"></p>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <p data-i18n="foot"></p>
+  <p><span data-i18n="madeBy"></span> <a href="https://jukamedia.com" target="_blank" rel="noopener">Juka Media</a></p>
+</div></footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" aria-hidden="true">
+  <div class="dh"><h2 id="dTitle" data-i18n="cart"></h2><button class="x" id="closeCart" aria-label="Close">×</button></div>
+  <div class="dbody" id="dbody"></div>
+  <div class="dfoot" id="dfoot"></div>
+</aside>
+
+<script>
+const I18N = {
+  et:{
+    demo:"Siia tulevad teie logo, tooted ja hinnad. Kaubamärgid ja hinnad on näidised.",
+    logoHere:"teie logo siia", navTires:"Rehvid", navChange:"Rehvivahetus", navHotel:"Rehvihotell", navRead:"Rehvi märgistus", cart:"Ostukorv",
+    h1:"Uued rehvid alla juba sel nädalal",
+    lead:"Sisestage mõõt rehvi küljelt või valige auto. Kohe näete, mis on laos ja palju maksab komplekt.",
+    tabSize:"Mõõdu järgi", tabCar:"Auto järgi", width:"Laius", profile:"Profiil", rim:"Velg",
+    stud:"Naastrehvid", friction:"Lamellrehvid", summer:"Suverehvid", search:"Näita rehve",
+    carSizes:"Tehase mõõdud:",
+    studSoon:"päeva naastrehvide hooajani", studSoonSub:"Naastrehvidega võib sõita alates 15. oktoobrist. Oktoobris on töökodades pikad järjekorrad, broneerige aeg varakult.",
+    studOn:"Naastrehvide hooaeg", studOnSub:"Naastrehvid on lubatud kuni 31. märtsini. Talverehvid on kohustuslikud 1. detsembrist 1. märtsini.",
+    summerOn:"Suvehooaeg", summerOnSub:"Naastrehvid tuleb maha võtta 1. aprilliks.",
+    found:"{n} rehvi", inStock:"Ainult laos", all:"Kõik",
+    sortCheap:"Odavaim enne", sortExp:"Kallim enne", sortQuiet:"Vaiksem enne", sortWet:"Parem märghaardumine",
+    stockYes:"Laos {n} tk", stockNo:"Tellimisel, 3–5 päeva",
+    perTire:"/ tk", set4:"4 tk: {p}", add:"Lisa korvi", added:"Korvis ✓",
+    fuel:"Kütus", wet:"Märg tee", noise:"Müra",
+    empty:"Selles mõõdus praegu midagi pole. Helistage, tellime hankijalt.",
+    svcH:"Rehvivahetus", svcP:"Valige vaba aeg kohe tellimuse juurde. Kui tulete, on rehvid juba töökojas olemas.",
+    hotelH:"Rehvihotell", hotelP:"Hoiame teie rehve järgmise hooajani. Peseme, kontrollime ja mõõdame mustri sügavuse. Kui on aeg uued osta, ütleme ette.",
+    boardH:"VABAD AJAD", boardSub:"Rehvivahetus · 40 min",
+    picked:"Valitud: {d} kell {t}",
+    readH:"Kuidas rehvi küljelt mõõtu lugeda", readHint:"Vajutage märgistuse osale.",
+    pw:"205: rehvi laius millimeetrites.",
+    pp:"55: külje kõrgus protsendina laiusest. Mida väiksem number, seda madalam külg.",
+    pR:"R: radiaalrehv. Selline on peaaegu iga tänapäeva sõiduauto rehv.",
+    pr:"16: velje läbimõõt tollides. Peab klappima teie veljega.",
+    pl:"91: koormusindeks: kuni 615 kg rehvi kohta.",
+    ps:"T: kiirusindeks: kuni 190 km/h. Talverehvil võib see olla madalam kui suverehvil.",
+    install:"Paigaldus ja tasakaalustamine", installNote:"4 rehvi töökojas · 40 €",
+    slot:"Vahetuse aeg", noSlot:"Aeg on valimata", pickSlot:"Vali aeg",
+    total:"Kokku", vat:"sh käibemaks 24%: {v}", checkout:"Vormista tellimus",
+    pay:"Pangalink (Swedbank, SEB, LHV, Luminor), kaardimakse või järelmaks",
+    emptyCart:"Korv on tühi. Valige mõõt ja lisage rehvid.", remove:"Eemalda",
+    thanks:"Aitäh! Tellimus on vastu võetud. See on demo, raha ei liikunud.",
+    foot:"Näidispood. Kaubamärgid, hinnad ja laoseisud on väljamõeldud. Päris poes tulevad need automaatselt teie hankija failist.",
+    madeBy:"Poe tegi",
+    days:["P","E","T","K","N","R","L"]
+  },
+  ru:{
+    demo:"Здесь будут ваш логотип, товары и цены. Бренды и цены условные.",
+    logoHere:"ваш логотип", navTires:"Шины", navChange:"Шиномонтаж", navHotel:"Шинный отель", navRead:"Маркировка", cart:"Корзина",
+    h1:"Новые шины поставим уже на этой неделе",
+    lead:"Введите размер с боковины шины или выберите машину. Сразу видно, что есть на складе и сколько стоит комплект.",
+    tabSize:"По размеру", tabCar:"По машине", width:"Ширина", profile:"Профиль", rim:"Диск",
+    stud:"Шипованные", friction:"Нешипованные", summer:"Летние", search:"Показать шины",
+    carSizes:"Заводские размеры:",
+    studSoon:"дней до сезона шипов", studSoonSub:"На шипах можно ездить с 15 октября. В октябре на шиномонтаж очереди, лучше записаться заранее.",
+    studOn:"Сезон шипованных шин", studOnSub:"Шипы разрешены до 31 марта. Зимние шины обязательны с 1 декабря по 1 марта.",
+    summerOn:"Летний сезон", summerOnSub:"Шипованные шины нужно снять до 1 апреля.",
+    found:"{n} шин", inStock:"Только в наличии", all:"Все",
+    sortCheap:"Сначала дешёвые", sortExp:"Сначала дорогие", sortQuiet:"Сначала тихие", sortWet:"Лучше на мокрой",
+    stockYes:"В наличии {n} шт", stockNo:"Под заказ, 3–5 дней",
+    perTire:"/ шт", set4:"4 шт: {p}", add:"В корзину", added:"В корзине ✓",
+    fuel:"Расход", wet:"Мокрая дорога", noise:"Шум",
+    empty:"В этом размере сейчас ничего нет. Позвоните, закажем у поставщика.",
+    svcH:"Шиномонтаж", svcP:"Выберите время сразу при заказе. Приезжаете, а шины уже в мастерской.",
+    hotelH:"Шинный отель", hotelP:"Храним ваши шины до следующего сезона. Моем, проверяем, меряем протектор. Если пора менять, скажем заранее.",
+    boardH:"СВОБОДНОЕ ВРЕМЯ", boardSub:"Смена шин · 40 мин",
+    picked:"Выбрано: {d} в {t}",
+    readH:"Как прочитать размер на боковине", readHint:"Нажмите на часть маркировки.",
+    pw:"205: ширина шины в миллиметрах.",
+    pp:"55: высота боковины в процентах от ширины. Чем меньше число, тем ниже боковина.",
+    pR:"R: радиальная шина. Такие почти на всех современных легковых машинах.",
+    pr:"16: диаметр диска в дюймах. Должен совпадать с вашим диском.",
+    pl:"91: индекс нагрузки: до 615 кг на одну шину.",
+    ps:"T: индекс скорости: до 190 км/ч. У зимней шины он может быть ниже, чем у летней.",
+    install:"Установка и балансировка", installNote:"4 шины в мастерской · 40 €",
+    slot:"Время шиномонтажа", noSlot:"Время не выбрано", pickSlot:"Выбрать",
+    total:"Итого", vat:"в т.ч. НДС 24%: {v}", checkout:"Оформить заказ",
+    pay:"Оплата через интернет-банк (Swedbank, SEB, LHV, Luminor), картой или в рассрочку",
+    emptyCart:"Корзина пуста. Выберите размер и добавьте шины.", remove:"Убрать",
+    thanks:"Спасибо! Заказ принят. Это демо, деньги не списаны.",
+    foot:"Демо-магазин. Бренды, цены и остатки выдуманы. В настоящем магазине они загружаются сами из файла вашего поставщика.",
+    madeBy:"Магазин сделал",
+    days:["Вс","Пн","Вт","Ср","Чт","Пт","Сб"]
+  },
+  en:{
+    demo:"Your logo, products and prices go here. Brands and prices are samples.",
+    logoHere:"your logo here", navTires:"Tyres", navChange:"Tyre change", navHotel:"Tyre hotel", navRead:"Sidewall guide", cart:"Cart",
+    h1:"New tyres fitted this week",
+    lead:"Enter the size from your sidewall or pick your car. You see right away what is in stock and what a set costs.",
+    tabSize:"By size", tabCar:"By car", width:"Width", profile:"Profile", rim:"Rim",
+    stud:"Studded", friction:"Studless winter", summer:"Summer", search:"Show tyres",
+    carSizes:"Factory sizes:",
+    studSoon:"days until stud season", studSoonSub:"Studded tyres are allowed from 15 October. Book your change before the queues.",
+    studOn:"Stud season", studOnSub:"Studded tyres are allowed until 31 March. Winter tyres are mandatory 1 December to 1 March.",
+    summerOn:"Summer season", summerOnSub:"Studded tyres must come off by 1 April.",
+    found:"{n} tyres", inStock:"In stock only", all:"All",
+    sortCheap:"Cheapest first", sortExp:"Priciest first", sortQuiet:"Quietest first", sortWet:"Best wet grip",
+    stockYes:"{n} in stock", stockNo:"On order, 3–5 days",
+    perTire:"/ tyre", set4:"Set of 4: {p}", add:"Add to cart", added:"In cart ✓",
+    fuel:"Fuel", wet:"Wet road", noise:"Noise",
+    empty:"Nothing in this size right now. Call us and we will order it from the supplier.",
+    svcH:"Tyre change", svcP:"Pick a time when you order. When you arrive, the tyres are already at the workshop.",
+    hotelH:"Tyre hotel", hotelP:"We keep your tyres until next season. Washed, checked, tread measured. If it is time for new ones, we tell you in advance.",
+    boardH:"FREE SLOTS", boardSub:"Tyre change · 40 min",
+    picked:"Selected: {d} at {t}",
+    readH:"How to read the size on the sidewall", readHint:"Tap a part of the marking.",
+    pw:"205: tyre width in millimetres.",
+    pp:"55: sidewall height as a percentage of the width. Lower number, lower sidewall.",
+    pR:"R: radial construction. Almost every modern car tyre is radial.",
+    pr:"16: rim diameter in inches. Must match your wheel.",
+    pl:"91: load index: up to 615 kg per tyre.",
+    ps:"T: speed index: up to 190 km/h. Winter tyres may carry a lower one than summer tyres.",
+    install:"Fitting and balancing", installNote:"4 tyres at the workshop · 40 €",
+    slot:"Change slot", noSlot:"No slot selected", pickSlot:"Pick a slot",
+    total:"Total", vat:"incl. VAT 24%: {v}", checkout:"Place order",
+    pay:"Bank link (Swedbank, SEB, LHV, Luminor), card or instalments",
+    emptyCart:"Your cart is empty. Pick a size and add tyres.", remove:"Remove",
+    thanks:"Thank you! Order received. This is a demo, no money moved.",
+    foot:"Demo shop. Brands, prices and stock are invented. In a real shop they load automatically from your supplier's file.",
+    madeBy:"Shop built by",
+    days:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+  }
+};
+let lang = "et";
+try{ const s = localStorage.getItem("rp-lang"); if(s && I18N[s]) lang = s; }catch(e){}
+const t = (k, v={}) => (I18N[lang][k] ?? k).replace(/\{(\w+)\}/g,(_,x)=>v[x]);
+const eur = n => new Intl.NumberFormat(lang==="en"?"en-IE":lang==="ru"?"ru-RU":"et-EE",{style:"currency",currency:"EUR",minimumFractionDigits:n%1?2:0,maximumFractionDigits:2}).format(n);
+
+/* ---------- demo catalogue (synthetic) ---------- */
+const SIZES = ["195/65R15","205/55R16","215/60R16","205/60R16","225/45R17","215/55R17","215/65R17","225/60R17","225/65R17","235/55R18","235/60R18"];
+const LOAD = {"195/65R15":"91","205/55R16":"91","215/60R16":"99","205/60R16":"96","225/45R17":"94","215/55R17":"98","215/65R17":"103","225/60R17":"103","225/65R17":"106","235/55R18":"104","235/60R18":"107"};
+const LINES = {
+  stud:[["KARGE","Naast S3",1.08,"T"],["TUISK","Ice Grip 2",0.94,"T"],["PÕHJALA","Jää 9",1.22,"T"],["VIRMA","Stud Pro",0.86,"T"],["HALLA","N7",1.0,"T"]],
+  friction:[["KARGE","Lumi L2",1.06,"R"],["TUISK","Nordic Soft",0.9,"R"],["PÕHJALA","Härm",1.2,"R"],["VIRMA","Frost 5",0.84,"R"],["HALLA","L5",0.98,"R"]],
+  summer:[["KARGE","Suvi 4",1.02,"V"],["TUISK","Aqua Line",0.88,"V"],["PÕHJALA","Rand",1.18,"W"],["RAJU","UHP 3",1.1,"W"],["VIRMA","Road 2",0.82,"H"]]
+};
+function rng(seed){ let h=2166136261; for(const c of seed){h^=c.charCodeAt(0);h=Math.imul(h,16777619)} return ()=>{h+=0x6D2B79F5;let x=h;x=Math.imul(x^x>>>15,x|1);x^=x+Math.imul(x^x>>>7,x|61);return((x^x>>>14)>>>0)/4294967296} }
+const RIMBASE = {15:58,16:69,17:86,18:109};
+const PRODUCTS = [];
+for(const size of SIZES){
+  const [w,rest]=size.split("/"); const [p,r]=rest.split("R");
+  for(const season of Object.keys(LINES)){
+    for(const [brand,model,mult,speed] of LINES[season]){
+      const R = rng(size+season+model);
+      const base = RIMBASE[r]*(1+(+w-205)/260)*(season==="stud"?1.12:season==="summer"?0.9:1)*mult;
+      const price = Math.round(base)-0.1;
+      const wetL = season==="summer" ? "ABBC"[Math.floor(R()*4)] : "BCCD"[Math.floor(R()*4)];
+      const fuelL = "BCCDE"[Math.floor(R()*5)];
+      const noise = 67+Math.floor(R()*6);
+      const stock = R()<0.2 ? 0 : 4+Math.floor(R()*28);
+      PRODUCTS.push({id:(brand+model+size).replace(/\W/g,""),brand,model,season,size,w,p,r,load:LOAD[size],speed,price,wet:wetL,fuel:fuelL,noise,stock,xl:+LOAD[size]>=103});
+    }
+  }
+}
+const CARS = {
+  "Škoda":{"Octavia":["205/55R16","225/45R17"],"Kodiaq":["215/65R17","235/55R18"],"Fabia":["195/65R15","205/55R16"]},
+  "Toyota":{"Corolla":["205/55R16","225/45R17"],"RAV4":["225/65R17","235/55R18"],"C-HR":["215/60R16","225/45R17"]},
+  "Volkswagen":{"Golf":["205/55R16","225/45R17"],"Passat":["215/55R17","235/55R18"],"Tiguan":["215/65R17","235/55R18"]},
+  "Volvo":{"V60":["215/60R16","235/55R18"],"XC60":["235/60R18","235/55R18"]},
+  "Kia":{"Ceed":["205/55R16","225/45R17"],"Sportage":["225/60R17","235/55R18"]},
+  "BMW":{"3. seeria":["205/60R16","225/45R17"],"X3":["225/60R17","235/55R18"]}
+};
+
+/* ---------- state ---------- */
+const now = new Date();
+const m = now.getMonth()+1, d = now.getDate();
+const studSeason = (m>=11 || m<=3 || (m===10 && d>=15));
+const summerTime = (m>=4 && m<=8);
+const state = {
+  size:"205/55R16",
+  season: summerTime ? "summer" : "stud",
+  brand:null, inStock:false, sort:"cheap",
+  cart:[], install:true, slot:null, ordered:false, car:["Škoda","Octavia"]
+};
+
+/* ---------- tire svg ---------- */
+const NS="http://www.w3.org/2000/svg";
+function el(tag,attrs={},parent){const e=document.createElementNS(NS,tag);for(const k in attrs){const v=String(attrs[k]);if(v.startsWith("var(")&&/^(fill|stroke|stop-color)$/.test(k))e.style.setProperty(k,v);else e.setAttribute(k,v)}if(parent)parent.appendChild(e);return e}
+function buildTire(){
+  const svg=document.getElementById("tireSvg"); svg.innerHTML="";
+  const defs=el("defs",{},svg);
+  const rg=el("radialGradient",{id:"sw",cx:"50%",cy:"50%",r:"50%"},defs);
+  el("stop",{offset:"58%","stop-color":"var(--rubber-2)"},rg);
+  el("stop",{offset:"82%","stop-color":"var(--rubber)"},rg);
+  el("stop",{offset:"100%","stop-color":"var(--rubber-2)"},rg);
+  const rim=el("radialGradient",{id:"rimg",cx:"40%",cy:"35%",r:"70%"},defs);
+  el("stop",{offset:"0%","stop-color":"#E4E8EC"},rim);
+  el("stop",{offset:"100%","stop-color":"#8C949D"},rim);
+  el("path",{id:"arc",d:"M 320,320 m -238,0 a 238,238 0 1,1 476,0 a 238,238 0 1,1 -476,0",fill:"none"},defs);
+  const f=el("filter",{id:"emb",x:"-10%",y:"-10%",width:"120%",height:"120%"},defs);el("feDropShadow",{dx:0,dy:2,stdDeviation:0.6,"flood-color":"#000","flood-opacity":0.85},f);el("feDropShadow",{dx:0,dy:-1,stdDeviation:0.3,"flood-color":"#fff","flood-opacity":0.12},f);
+  el("path",{id:"arc2",d:"M 320,320 m -222,0 a 222,222 0 1,1 444,0 a 222,222 0 1,1 -444,0",fill:"none"},defs);
+  const g=el("g",{class:"roll",id:"roll"},svg);
+  el("circle",{cx:320,cy:320,r:314,fill:"var(--rubber)"},g);
+  // tread blocks
+  for(let i=0;i<72;i++){
+    const a=i*5; const alt=i%2;
+    el("rect",{x:316,y:6+alt*4,width:9,height:22-alt*4,rx:2,fill:"var(--rubber-2)",transform:`rotate(${a} 320 320)`},g);
+  }
+  el("circle",{cx:320,cy:320,r:286,fill:"url(#sw)"},g);
+  el("circle",{cx:320,cy:320,r:286,fill:"none",stroke:"var(--emboss)","stroke-width":2},g);
+  el("circle",{cx:320,cy:320,r:190,fill:"none",stroke:"var(--emboss)","stroke-width":2},g);
+  // embossed size
+  const txt=(id,fs,off,content,fill,dy)=>{const tx=el("text",{"font-family":"Tektur, sans-serif","font-weight":800,"font-size":fs,"letter-spacing":"1",fill,dy:dy||0,"text-anchor":"middle",filter:"url(#emb)"},g);const tp=el("textPath",{href:"#"+id,startOffset:off},tx);tp.textContent=content;return tp};
+  const s=fmtSize(state.size);
+  window._sizeText=txt("arc2",40,"25%",s,"var(--emboss-hi)");
+  txt("arc",14,"7.5%","TUBELESS · RADIAL","var(--emboss-hi)",0);
+  window._msText=txt("arc",14,"43.5%",state.season==="summer"?"":"M+S","var(--emboss-hi)",0);
+  // 3PMSF badge
+  const th=(180-0.395*360)*Math.PI/180; const bx=320+214*Math.cos(th), by=320-214*Math.sin(th);
+  const b=el("g",{transform:`translate(${bx} ${by}) rotate(${90-(180-0.395*360)})`,id:"pmsf"},g);
+  el("path",{d:"M-16 10 L-4 -10 L2 -1 L7 -7 L17 10 Z",fill:"none",stroke:"var(--emboss-hi)","stroke-width":2.4,"stroke-linejoin":"round"},b);
+  for(let k=0;k<3;k++) el("line",{x1:0,y1:-4,x2:0,y2:6,stroke:"var(--emboss-hi)","stroke-width":1.8,transform:`translate(0 3) rotate(${k*60})`},b);
+  b.style.display=state.season==="summer"?"none":"";
+  // rim
+  el("circle",{cx:320,cy:320,r:186,fill:"url(#rimg)"},g);
+  el("circle",{cx:320,cy:320,r:168,fill:"#2A2E34"},g);
+  for(let k=0;k<5;k++){
+    el("path",{d:"M 309 282 L 292 172 Q 320 164 348 172 L 331 282 Z",fill:"url(#rimg)",transform:`rotate(${k*72} 320 320)`},g);el("path",{d:"M 314 262 L 306 186 L 334 186 L 326 262 Z",fill:"#2A2E34",transform:`rotate(${k*72} 320 320)`},g);
+  }
+  el("circle",{cx:320,cy:320,r:44,fill:"url(#rimg)",stroke:"#6E767F","stroke-width":2},g);
+  el("circle",{cx:320,cy:320,r:16,fill:"var(--yellow)"},g);
+}
+function fmtSize(s){const [w,rest]=s.split("/");const [p,r]=rest.split("R");const pr=PRODUCTS.find(x=>x.size===s);return `${w}/${p} R${r} ${LOAD[s]||""}${pr?"T":""}`.trim()}
+function rollTo(){
+  const g=document.getElementById("roll"); if(!g) return;
+  window._sizeText.textContent=fmtSize(state.size);
+    window._msText.textContent=state.season==="summer"?"":"M+S";
+  document.getElementById("pmsf").style.display=state.season==="summer"?"none":"";
+  g.classList.remove("go-roll"); void g.getBBox(); g.classList.add("go-roll");
+}
+
+/* ---------- tread thumbnails ---------- */
+function thumb(season){
+  const id="t"+Math.random().toString(36).slice(2,7);
+  let pat="";
+  if(season==="stud") pat=`<path d="M8 0 L20 10 L8 20" stroke="#0E1012" stroke-width="3" fill="none"/><path d="M40 0 L28 10 L40 20" stroke="#0E1012" stroke-width="3" fill="none"/><circle cx="14" cy="15" r="1.8" fill="#C9CED4"/><circle cx="34" cy="5" r="1.8" fill="#C9CED4"/>`;
+  else if(season==="friction") pat=`<path d="M4 3 l3 2 l3 -2 l3 2 l3 -2 M28 3 l3 2 l3 -2 l3 2 l3 -2 M4 12 l3 2 l3 -2 l3 2 l3 -2 M28 12 l3 2 l3 -2 l3 2 l3 -2" stroke="#0E1012" stroke-width="1.3" fill="none"/><path d="M24 0 V20" stroke="#0E1012" stroke-width="3"/>`;
+  else pat=`<path d="M12 0 V20 M24 0 V20 M36 0 V20" stroke="#0E1012" stroke-width="3.2"/><path d="M0 6 L6 10 M42 12 L48 16" stroke="#0E1012" stroke-width="1.5"/>`;
+  return `<svg class="thumb" viewBox="0 0 80 80" aria-hidden="true"><defs><pattern id="${id}" width="48" height="20" patternUnits="userSpaceOnUse" x="16">${pat}</pattern></defs><rect x="14" y="2" width="52" height="76" rx="14" fill="#262A2F"/><rect x="18" y="4" width="44" height="72" rx="11" fill="url(#${id})"/><rect x="14" y="2" width="52" height="76" rx="14" fill="none" stroke="#15171A" stroke-width="2"/></svg>`;
+}
+const EUC={A:"#00A651",B:"#50B848",C:"#BFD730",D:"#FFF200",E:"#FDB913"};
+
+/* ---------- render ---------- */
+function applyStatic(){
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i18n]").forEach(e=>e.textContent=t(e.dataset.i18n));
+  document.querySelectorAll(".langs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===lang));
+  // season note
+  const note=document.getElementById("seasonNote");
+  const icon=`<svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="none" stroke="var(--blue)" stroke-width="2"/><g stroke="var(--blue)" stroke-width="2" stroke-linecap="round"><path d="M20 9v22M10.5 14.5l19 11M10.5 25.5l19-11"/></g></svg>`;
+  if(!studSeason && !summerTime){
+    const target=new Date(now.getFullYear(),9,15); const days=Math.max(0,Math.ceil((target-now)/86400000));
+    note.innerHTML=`${icon}<span><span class="days num">${days}</span> ${t("studSoon")}<span class="sub">${t("studSoonSub")}</span></span>`;
+  } else if(studSeason){
+    note.innerHTML=`${icon}<span><strong>${t("studOn")}</strong><span class="sub">${t("studOnSub")}</span></span>`;
+  } else {
+    note.innerHTML=`${icon}<span><strong>${t("summerOn")}</strong><span class="sub">${t("summerOnSub")}</span></span>`;
+  }
+  // seasons
+  const S=document.getElementById("seasons");
+  const ico={stud:`<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg>`,
+    friction:`<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 1v14M2 4.5l12 7M2 11.5l12-7"/></g></svg>`,
+    summer:`<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.2" fill="currentColor"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6L13 13M3 13l1.4-1.4M11.6 4.4L13 3"/></g></svg>`};
+  S.innerHTML=["stud","friction","summer"].map(s=>`<button data-season="${s}" aria-pressed="${state.season===s}">${ico[s]}${t(s)}</button>`).join("");
+  S.querySelectorAll("button").forEach(b=>b.onclick=()=>{state.season=b.dataset.season;state.brand=null;applyStatic();rollTo();renderList()});
+  // sort
+  const so=document.getElementById("sort");
+  so.innerHTML=[["cheap","sortCheap"],["exp","sortExp"],["quiet","sortQuiet"],["wet","sortWet"]].map(([v,k])=>`<option value="${v}" ${state.sort===v?"selected":""}>${t(k)}</option>`).join("");
+  renderCarSizes(); renderList(); renderDays(); renderCode(); renderCart();
+}
+function fillSizeSelects(){
+  const W=[...new Set(SIZES.map(s=>s.split("/")[0]))].sort();
+  const cur=state.size.split(/[\/R]/);
+  const P=[...new Set(SIZES.filter(s=>s.startsWith(cur[0]+"/")).map(s=>s.split("/")[1].split("R")[0]))].sort();
+  const Rr=[...new Set(SIZES.filter(s=>s.startsWith(cur[0]+"/"+cur[1]+"R")).map(s=>s.split("R")[1]))].sort();
+  const opt=(arr,v)=>arr.map(x=>`<option ${x===v?"selected":""}>${x}</option>`).join("");
+  w.innerHTML=opt(W,cur[0]); p.innerHTML=opt(P,cur[1]); r.innerHTML=opt(Rr,cur[2]);
+}
+function setFromSelects(changed){
+  let W=w.value,P=p.value,Rv=r.value;
+  let cand=SIZES.filter(s=>s.startsWith(W+"/"));
+  if(changed==="w"){ if(!cand.some(s=>s.startsWith(W+"/"+P+"R"))) P=cand[0].split("/")[1].split("R")[0]; }
+  cand=SIZES.filter(s=>s.startsWith(W+"/"+P+"R"));
+  if(!cand.includes(`${W}/${P}R${Rv}`)) Rv=cand[0].split("R")[1];
+  state.size=`${W}/${P}R${Rv}`; state.brand=null;
+  fillSizeSelects(); rollTo(); renderList(); renderCode();
+}
+const w=document.getElementById("w"),p=document.getElementById("p"),r=document.getElementById("r");
+w.onchange=()=>setFromSelects("w"); p.onchange=()=>setFromSelects("p"); r.onchange=()=>setFromSelects("r");
+
+function renderCarSizes(){
+  const mk=document.getElementById("make"), md=document.getElementById("model");
+  mk.innerHTML=Object.keys(CARS).map(x=>`<option ${x===state.car[0]?"selected":""}>${x}</option>`).join("");
+  md.innerHTML=Object.keys(CARS[state.car[0]]).map(x=>`<option ${x===state.car[1]?"selected":""}>${x}</option>`).join("");
+  const sizes=CARS[state.car[0]][state.car[1]];
+  const box=document.getElementById("carSizes");
+  box.innerHTML=`<span>${t("carSizes")}</span>`+sizes.map(s=>`<button data-s="${s}" aria-pressed="${state.size===s}">${s.replace("R"," R")}</button>`).join("");
+  box.querySelectorAll("button").forEach(b=>b.onclick=()=>{state.size=b.dataset.s;state.brand=null;fillSizeSelects();rollTo();renderCarSizes();renderList();renderCode()});
+  mk.onchange=()=>{state.car=[mk.value,Object.keys(CARS[mk.value])[0]];renderCarSizes()};
+  md.onchange=()=>{state.car=[mk.value,md.value];renderCarSizes()};
+}
+const tabSize=document.getElementById("tabSize"),tabCar=document.getElementById("tabCar");
+tabSize.onclick=()=>{tabSize.setAttribute("aria-selected","true");tabCar.setAttribute("aria-selected","false");paneSize.hidden=false;paneCar.hidden=true};
+tabCar.onclick=()=>{tabCar.setAttribute("aria-selected","true");tabSize.setAttribute("aria-selected","false");paneSize.hidden=true;paneCar.hidden=false;renderCarSizes()};
+
+function currentList(){
+  let L=PRODUCTS.filter(x=>x.size===state.size && x.season===state.season);
+  if(state.brand) L=L.filter(x=>x.brand===state.brand);
+  if(state.inStock) L=L.filter(x=>x.stock>0);
+  const s={cheap:(a,b)=>a.price-b.price,exp:(a,b)=>b.price-a.price,quiet:(a,b)=>a.noise-b.noise||a.price-b.price,wet:(a,b)=>a.wet.localeCompare(b.wet)||a.price-b.price}[state.sort];
+  return L.sort(s);
+}
+const qtyMap={};
+function renderList(){
+  const all=PRODUCTS.filter(x=>x.size===state.size && x.season===state.season);
+  const brands=[...new Set(all.map(x=>x.brand))];
+  const bc=document.getElementById("brandChips");
+  bc.innerHTML=`<button class="chip" aria-pressed="${!state.brand}" data-b="">${t("all")}</button>`+brands.map(b=>`<button class="chip" aria-pressed="${state.brand===b}" data-b="${b}">${b}</button>`).join("");
+  bc.querySelectorAll("button").forEach(b=>b.onclick=()=>{state.brand=b.dataset.b||null;renderList()});
+  const L=currentList();
+  const n=L.length;let fnd=t("found",{n});
+  if(lang==="ru"){const m10=n%10,m100=n%100;fnd=n+" "+(m10===1&&m100!==11?"шина":(m10>=2&&m10<=4&&(m100<10||m100>=20))?"шины":"шин")}
+  if(lang==="et"&&n===1)fnd="1 rehv"; if(lang==="en"&&n===1)fnd="1 tyre";
+  document.getElementById("resTitle").innerHTML=`${t(state.season)} <span class="sz num">${state.size.replace("R"," R")}</span> · <span class="num">${fnd}</span>`;
+  const list=document.getElementById("list");
+  if(!L.length){list.innerHTML=`<p class="emptyres">${t("empty")}</p>`;return}
+  list.innerHTML=L.map((x,i)=>{
+    const q=qtyMap[x.id]??4; const inCart=state.cart.find(c=>c.id===x.id);
+    return `<div class="row" style="animation-delay:${Math.min(i,8)*40}ms">
+      ${thumb(x.season)}
+      <div class="pname"><b>${x.brand}</b><span>${x.model}</span><em class="num">${x.size.replace("R"," R")} ${x.load}${x.speed}${x.xl?" XL":""}</em></div>
+      <div class="eu">
+        <span class="tag"><span class="l" style="background:${EUC[x.fuel]}">${x.fuel}</span>${t("fuel")}</span>
+        <span class="tag"><span class="l" style="background:${EUC[x.wet]}">${x.wet}</span>${t("wet")}</span>
+        <span class="tag"><span class="db num">${x.noise} dB</span>${t("noise")}</span>
+      </div>
+      <div class="stock ${x.stock?"yes":"no"}"><i></i>${x.stock?t("stockYes",{n:x.stock}):t("stockNo")}</div>
+      <div class="price">
+        <div><div class="p num">${eur(x.price)}<small>${t("perTire")}</small></div><div class="set num">${t("set4",{p:eur(+(x.price*4).toFixed(2))})}</div></div>
+        <div class="buy">
+          <div class="qty"><button data-q="-1" data-id="${x.id}" aria-label="−">−</button><span class="num" id="q-${x.id}">${q}</span><button data-q="1" data-id="${x.id}" aria-label="+">+</button></div>
+          <button class="add ${inCart?"done":""}" data-add="${x.id}">${inCart?t("added"):t("add")}</button>
+        </div>
+      </div>
+    </div>`}).join("");
+  list.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{const id=b.dataset.id;qtyMap[id]=Math.max(1,Math.min(8,(qtyMap[id]??4)+ +b.dataset.q));document.getElementById("q-"+id).textContent=qtyMap[id]});
+  list.querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>{
+    const id=b.dataset.add; const q=qtyMap[id]??4; const ex=state.cart.find(c=>c.id===id);
+    if(ex) ex.qty=q; else state.cart.push({id,qty:q});
+    state.ordered=false; b.classList.add("done"); b.textContent=t("added"); renderCart(); bump();
+  });
+}
+function bump(){const c=document.getElementById("cartCount");c.animate([{transform:"scale(1)"},{transform:"scale(1.35)"},{transform:"scale(1)"}],{duration:450,easing:"cubic-bezier(.16,1,.3,1)"})}
+document.getElementById("inStock").onchange=e=>{state.inStock=e.target.checked;renderList()};
+document.getElementById("sort").onchange=e=>{state.sort=e.target.value;renderList()};
+document.getElementById("go").onclick=()=>{renderList();document.getElementById("results").scrollIntoView()};
+
+/* slots */
+const SLOT_DAYS=(()=>{const out=[];const dt=new Date(now);dt.setHours(0,0,0,0);while(out.length<6){dt.setDate(dt.getDate()+1);if(dt.getDay()!==0)out.push(new Date(dt))}return out})();
+const TIMES=["09:00","10:00","11:00","12:00","14:00","15:00","16:00","17:00"];
+function dayLabel(dt){return `${I18N[lang].days[dt.getDay()]} ${dt.getDate()}.${dt.getMonth()+1}`}
+function renderDays(){
+  const box=document.getElementById("days");
+  box.innerHTML=SLOT_DAYS.map((dt,i)=>{
+    const R=rng("slot"+dt.toDateString());
+    const fill=Math.min(0.85,0.35+i*0.02+(i<2?0.25:0));
+    return `<div class="day"><h4>${I18N[lang].days[dt.getDay()]}<b class="num">${dt.getDate()}.${dt.getMonth()+1}</b></h4>${TIMES.map(tm=>{const taken=R()<fill;const key=i+"|"+tm;return `<button class="slot" data-k="${key}" ${taken?"disabled":""} aria-pressed="${state.slot===key}">${tm}</button>`}).join("")}</div>`}).join("");
+  box.querySelectorAll(".slot:not(:disabled)").forEach(b=>b.onclick=()=>{state.slot=b.dataset.k;state.ordered=false;renderDays();renderCart()});
+  const pk=document.getElementById("picked");
+  if(state.slot){const [i,tm]=state.slot.split("|");pk.textContent=t("picked",{d:dayLabel(SLOT_DAYS[i]),t:tm})}else pk.textContent="";
+}
+
+/* sidewall code */
+function renderCode(){
+  const [W,rest]=state.size.split("/");const [P,R]=rest.split("R");
+  const parts=[["w",W],["p","/"+P],["gap",""],["R","R"],["r",R],["gap",""],["l",LOAD[state.size]],["s","T"]];
+  const box=document.getElementById("code");
+  const cur=box.dataset.sel||"w";
+  box.innerHTML=parts.map(([k,v])=>k==="gap"?`<span class="gap"></span>`:`<button data-k="${k}" aria-pressed="${cur===k}" class="num">${v}</button>`).join("");
+  box.querySelectorAll("button").forEach(b=>b.onclick=()=>{box.dataset.sel=b.dataset.k;renderCode()});
+  const map={w:"pw",p:"pp",R:"pR",r:"pr",l:"pl",s:"ps"};
+  let txt=t(map[cur]);
+  // swap sample numbers for the current size
+  if(cur==="w") txt=txt.replace("205",W); if(cur==="p") txt=txt.replace("55",P); if(cur==="r") txt=txt.replace("16",R);
+  if(cur==="l"){const kg={91:615,94:670,96:710,98:750,99:775,103:875,104:900,106:950,107:975}[LOAD[state.size]];txt=txt.replace("91",LOAD[state.size]).replace("615",kg)}
+  document.getElementById("explain").textContent=txt;
+}
+
+/* cart */
+const INSTALL=40;
+function renderCart(){
+  const items=state.cart.map(c=>({...PRODUCTS.find(p=>p.id===c.id),qty:c.qty}));
+  const n=items.reduce((a,b)=>a+b.qty,0);
+  document.getElementById("cartCount").textContent=n;
+  const body=document.getElementById("dbody"),foot=document.getElementById("dfoot");
+  if(!items.length){body.innerHTML=`<p class="demptiness">${t("emptyCart")}</p>`;foot.innerHTML="";return}
+  let sub=items.reduce((a,b)=>a+b.price*b.qty,0);
+  const total=sub+(state.install?INSTALL:0);
+  let slotTxt=t("noSlot");
+  if(state.slot){const [i,tm]=state.slot.split("|");slotTxt=`${dayLabel(SLOT_DAYS[i])}, ${tm}`}
+  body.innerHTML=items.map(x=>`<div class="ci">${thumb(x.season)}<div><b>${x.brand} ${x.model}</b><small class="num">${x.size.replace("R"," R")} · ${x.qty} × ${eur(x.price)}</small><br><button class="rm" data-rm="${x.id}">${t("remove")}</button></div><div class="sum num">${eur(+(x.price*x.qty).toFixed(2))}</div></div>`).join("")+
+   `<label class="opt"><input type="checkbox" id="inst" ${state.install?"checked":""}><div><b>${t("install")}</b><small>${t("installNote")}</small></div></label>
+    <div class="slotline"><div><b>${t("slot")}</b><small>${slotTxt}</small></div><a href="#service" id="toSlots">${t("pickSlot")}</a></div>`+
+   (state.ordered?`<div class="thanks">${t("thanks")}</div>`:"");
+  foot.innerHTML=`<div class="tot"><span>${t("total")}</span><b class="num">${eur(+total.toFixed(2))}</b></div><div class="vat num">${t("vat",{v:eur(+(total*24/124).toFixed(2))})}</div><button class="go" id="checkout" style="background:var(--yellow);color:var(--on-yellow)">${t("checkout")}</button><div class="pay">${t("pay")}</div>`;
+  body.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{state.cart=state.cart.filter(c=>c.id!==b.dataset.rm);renderCart();renderList()});
+  document.getElementById("inst").onchange=e=>{state.install=e.target.checked;renderCart()};
+  document.getElementById("toSlots").onclick=()=>closeCart();
+  document.getElementById("checkout").onclick=()=>{state.ordered=true;renderCart()};
+}
+const drawer=document.getElementById("drawer"),scrim=document.getElementById("scrim");
+let lastFocus=null;
+function openCart(){lastFocus=document.activeElement;drawer.classList.add("on");scrim.classList.add("on");drawer.setAttribute("aria-hidden","false");document.getElementById("closeCart").focus()}
+function closeCart(){drawer.classList.remove("on");scrim.classList.remove("on");drawer.setAttribute("aria-hidden","true");if(lastFocus)lastFocus.focus()}
+document.getElementById("openCart").onclick=openCart;
+document.getElementById("closeCart").onclick=closeCart;
+scrim.onclick=closeCart;
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&drawer.classList.contains("on"))closeCart()});
+
+document.querySelectorAll(".langs button").forEach(b=>b.onclick=()=>{lang=b.dataset.lang;try{localStorage.setItem("rp-lang",lang)}catch(e){};applyStatic()});
+
+fillSizeSelects(); buildTire(); applyStatic();
+</script>
+</body>
+</html>

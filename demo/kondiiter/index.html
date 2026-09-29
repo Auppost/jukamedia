@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Склад кондитера демо</title>
+<meta name="description" content="Демо интернет-магазина кондитерского сырья: фасовки от килограмма до мешка, оптовые цены для кондитерских, повтор заказа.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Yeseva+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#FBF5F2; --paper:#FFFFFF; --ink:#3A2219; --ink-2:#7A5E53; --line:#EFE2DC;
+  --blush:#F8E1E3; --blush-2:#F2CDD2;
+  --rasp:#C3355D; --rasp-deep:#A82A4E; --on-rasp:#FFFFFF;
+  --pist:#DDEBC2; --pist-ink:#4E6B1F;
+  --choc:#4A2A1F; --ok:#4E7A22;
+  --shadow:0 14px 34px -18px rgba(122,62,70,.45);
+  --r:16px;
+  --f-display:"Yeseva One", Georgia, serif;
+  --f-body:"Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#1B1316; --paper:#241A1D; --ink:#F6E9EA; --ink-2:#C6ABAE; --line:#3A2B2F;
+    --blush:#2E1F23; --blush-2:#3E2A30; --rasp:#E0557D; --rasp-deep:#C9446B;
+    --pist:#33401F; --pist-ink:#C9E39A; --choc:#F6E9EA; --ok:#9BCB6A;
+    --shadow:0 14px 34px -18px rgba(0,0,0,.7); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#1B1316; --paper:#241A1D; --ink:#F6E9EA; --ink-2:#C6ABAE; --line:#3A2B2F;
+  --blush:#2E1F23; --blush-2:#3E2A30; --rasp:#E0557D; --rasp-deep:#C9446B;
+  --pist:#33401F; --pist-ink:#C9E39A; --choc:#F6E9EA; --ok:#9BCB6A;
+  --shadow:0 14px 34px -18px rgba(0,0,0,.7); color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 16px/1.55 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+button,select,input{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rasp);outline-offset:2px;border-radius:8px}
+.wrap{max-width:1220px;margin:0 auto;padding:0 24px}
+@media (max-width:640px){.wrap{padding:0 16px}}
+.num{font-variant-numeric:tabular-nums}
+[hidden]{display:none!important}
+
+.demo{background:var(--choc);color:#F3DDE0;font-size:13px}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .demo{background:#120C0E}}
+.demo .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;min-height:36px}
+.demo b{color:#F7B9C8;font-weight:800}
+.langs{display:flex;gap:2px}
+.langs button{background:none;border:0;color:#F3DDE0;padding:6px 10px;border-radius:999px;cursor:pointer;font-weight:700;font-size:13px}
+.langs button[aria-pressed="true"]{background:#F7B9C8;color:#3A2219}
+
+header.top{background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(10px);position:sticky;top:0;z-index:30;border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:26px;height:70px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand b{font:400 24px/1 var(--f-display);color:var(--ink)}
+.brand small{display:block;font-size:11px;color:var(--ink-2);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;font-weight:700}
+.search{flex:1;max-width:460px;position:relative}
+.search input{width:100%;border:1px solid var(--line);border-radius:999px;background:var(--ground);color:var(--ink);padding:11px 16px 11px 42px;font-size:15px}
+.search input::placeholder{color:var(--ink-2)}
+.search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--ink-2)}
+.cartbtn{margin-left:auto;display:flex;gap:10px;align-items:center;border:0;border-radius:999px;background:var(--rasp);color:var(--on-rasp);padding:11px 16px;font-weight:800;cursor:pointer}
+.cartbtn .count{background:#fff;color:var(--rasp);border-radius:999px;min-width:24px;height:24px;display:grid;place-items:center;font-size:13px;padding:0 7px}
+@media (max-width:760px){.search{display:none}.cartbtn .lbl{display:none}.brand b{font-size:19px;white-space:nowrap}.sacks{height:220px}}
+
+.hero{background:var(--blush);overflow:hidden;position:relative}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:28px;background:radial-gradient(circle at 14px -4px,transparent 16px,var(--ground) 17px) repeat-x;background-size:28px 28px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:30px;padding-top:58px;padding-bottom:44px;align-items:center}
+.hero h1{font:400 clamp(40px,5.2vw,70px)/1.04 var(--f-display);margin:0 0 18px;text-wrap:balance;color:var(--ink)}
+.hero h1 em{font-style:normal;color:var(--rasp)}
+.hero p.lead{color:var(--ink-2);font-size:18.5px;max-width:46ch;margin:0 0 26px}
+.who{display:inline-flex;background:var(--paper);border-radius:20px;padding:6px;gap:4px;margin-bottom:14px;box-shadow:var(--shadow)}
+.who button{border:0;background:none;color:var(--ink);padding:11px 18px;border-radius:15px;font-weight:800;cursor:pointer;text-align:left;line-height:1.2}
+.who button small{display:block;font-weight:600;font-size:12.5px;color:var(--ink-2);margin-top:3px}
+.who button[aria-pressed="true"]{background:var(--rasp);color:var(--on-rasp)}
+.who button[aria-pressed="true"] small{color:#FBD9E2}
+.perks{display:flex;flex-wrap:wrap;gap:8px 22px;margin:14px 0 20px;padding:0;list-style:none;color:var(--ink-2);font-size:15px;font-weight:600}
+.perks li{display:flex;gap:8px;align-items:center}
+.perks li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--rasp)}
+.sacks{position:relative;height:420px}
+.sacks svg{position:absolute;right:-10px;top:50%;transform:translateY(-54%);width:580px;max-width:none;height:auto}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:34px;padding-bottom:40px}
+  .sacks{height:250px;order:-1}
+  .sacks svg{width:330px;right:50%;top:auto;bottom:-20px;transform:translateX(50%)}
+}
+
+.cats{background:var(--ground);position:sticky;top:70px;z-index:20}
+.cats .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-top:14px;padding-bottom:12px}
+.cats .wrap::-webkit-scrollbar{display:none}
+.cats button{flex:none;border:1px solid var(--line);background:var(--paper);padding:9px 16px;border-radius:999px;cursor:pointer;font-weight:700;font-size:14.5px;color:var(--ink);white-space:nowrap}
+.cats button span{font-weight:600;color:var(--ink-2);margin-left:5px;font-size:13px}
+.cats button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.cats button[aria-pressed="true"] span{color:var(--blush-2)}
+
+.main{padding:26px 0 70px}
+.maingrid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:36px;align-items:start}
+@media (max-width:1020px){.maingrid{grid-template-columns:1fr}}
+.listhead{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:10px}
+.listhead h2{font:400 34px/1.1 var(--f-display);margin:0}
+.listhead .note{color:var(--ink-2);font-size:14px;font-weight:600}
+.prow{display:grid;grid-template-columns:76px minmax(0,1fr) auto;gap:8px 22px;padding:22px 0;border-bottom:1px solid var(--line);align-items:start}
+.prow .th{width:76px;height:76px}
+.pinfo small{display:block;font:800 11.5px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--rasp);margin-bottom:6px}
+.pinfo h3{margin:0;font-size:18.5px;font-weight:800;line-height:1.3}
+.pinfo .spec{color:var(--ink-2);font-size:14.5px;margin-top:3px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tags span{font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--pist);color:var(--pist-ink)}
+.ladder{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.ladder button{border:1.5px solid var(--line);background:var(--paper);border-radius:14px;padding:8px 13px;cursor:pointer;text-align:left;min-width:108px;transition:border-color .2s,background .2s}
+.ladder button:hover{border-color:var(--blush-2)}
+.ladder button b{display:block;font:800 16px/1.1 var(--f-body)}
+.ladder button span{display:block;font-size:12.5px;color:var(--ink-2);margin-top:3px;font-weight:600}
+.ladder button[aria-pressed="true"]{border-color:var(--rasp);background:var(--rasp);color:var(--on-rasp)}
+.ladder button[aria-pressed="true"] span{color:#FBD9E2}
+.pbuy{text-align:right;min-width:170px}
+.pbuy .pr{font:400 28px/1 var(--f-display)}
+.pbuy .unit{font-size:13px;color:var(--ink-2);margin-top:6px;font-weight:600}
+.pbuy .save{display:inline-block;margin-top:6px;font-size:12.5px;font-weight:800;color:var(--ok);min-height:18px}
+.pbuy .ctl{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:var(--paper)}
+.qty button{border:0;background:none;width:34px;height:42px;cursor:pointer;font-size:18px;font-weight:700}
+.qty span{min-width:20px;text-align:center;font-weight:800}
+.add{border:0;border-radius:999px;background:var(--rasp);color:var(--on-rasp);font-weight:800;padding:0 18px;height:44px;cursor:pointer;white-space:nowrap}
+.add:hover{background:var(--rasp-deep)}
+.add.done{background:var(--pist);color:var(--pist-ink)}
+@media (max-width:640px){
+  .prow{grid-template-columns:56px 1fr}
+  .prow .th{width:56px;height:56px}
+  .pbuy{grid-column:1/3;display:flex;justify-content:space-between;align-items:center;text-align:left;flex-wrap:wrap;gap:8px}
+  .pbuy .ctl{margin-top:0}
+  .ladder{margin-left:-78px}
+  .ladder button{min-width:0;flex:1;padding:8px 9px}
+  .ladder button span{white-space:nowrap;font-size:12px}
+}
+.emptyl{padding:30px 0;color:var(--ink-2)}
+
+aside.side{position:sticky;top:140px;display:flex;flex-direction:column;gap:16px}
+.box{background:var(--paper);border-radius:20px;padding:20px;box-shadow:var(--shadow)}
+.box h3{margin:0 0 4px;font:400 22px/1.2 var(--f-display)}
+.box p{margin:0 0 12px;color:var(--ink-2);font-size:14px}
+.reorder li{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding:8px 0;border-top:1px dashed var(--line)}
+.reorder ul{list-style:none;margin:0 0 14px;padding:0}
+.reorder li span:last-child{color:var(--ink-2);white-space:nowrap;font-weight:600}
+.btn2{width:100%;border:0;border-radius:999px;background:var(--ink);color:var(--paper);font-weight:800;padding:13px;cursor:pointer}
+.btn2.done{background:var(--pist);color:var(--pist-ink)}
+.deliv{list-style:none;margin:0;padding:0;font-size:14px}
+.deliv li{padding:8px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px}
+.deliv li:first-child{border-top:0}
+.deliv li span:last-child{font-weight:800;white-space:nowrap}
+@media (max-width:1020px){aside.side{position:static}}
+
+footer{background:var(--blush);color:var(--ink-2);padding:36px 0 50px;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 40px}
+footer p{margin:0;max-width:64ch}
+footer a{color:var(--rasp);font-weight:700}
+
+.scrim{position:fixed;inset:0;background:rgba(58,34,25,.4);opacity:0;pointer-events:none;transition:opacity .3s;z-index:40}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{visibility:hidden;position:fixed;top:0;right:0;height:100%;width:min(440px,100%);background:var(--paper);z-index:50;transform:translateX(100%);transition:transform .45s cubic-bezier(.16,1,.3,1),visibility 0s linear .45s;display:flex;flex-direction:column;box-shadow:-20px 0 40px -20px rgba(0,0,0,.3)}
+.drawer.on{visibility:visible;transform:none;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid var(--line)}
+.dh h2{margin:0;font:400 26px/1 var(--f-display)}
+.x{border:0;background:var(--ground);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:20px}
+.dbody{flex:1;overflow:auto;padding:6px 22px 20px}
+.ci{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}
+.ci .th{width:44px;height:44px}
+.ci b{display:block;font-size:14.5px;font-weight:800}
+.ci small{color:var(--ink-2);font-weight:600}
+.ci .rm{background:none;border:0;padding:0;margin-top:3px;font-size:13px;color:var(--ink-2);text-decoration:underline;cursor:pointer}
+.ci .sum{font-weight:800}
+.opt{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);cursor:pointer;align-items:flex-start}
+.opt input{width:19px;height:19px;margin-top:2px;accent-color:var(--rasp)}
+.opt small{display:block;color:var(--ink-2)}
+.dfoot{padding:16px 22px 22px;border-top:1px solid var(--line)}
+.tot{display:flex;justify-content:space-between;align-items:baseline}
+.tot b{font:400 32px/1 var(--f-display)}
+.vat{font-size:13px;color:var(--ink-2);margin:4px 0 14px}
+.go{width:100%;border:0;border-radius:999px;background:var(--rasp);color:var(--on-rasp);font-weight:800;font-size:16px;padding:16px;cursor:pointer}
+.thanks{background:var(--pist);color:var(--pist-ink);border-radius:14px;padding:14px;margin-top:12px;font-size:14px;font-weight:700}
+.emptyc{padding:28px 0;color:var(--ink-2)}
+</style>
+</head>
+<body>
+
+<div class="demo"><div class="wrap">
+  <span><b>ДЕМО</b> · <span data-i18n="demo"></span></span>
+  <div class="langs" role="group" aria-label="Язык"><button data-lang="ru">RU</button><button data-lang="et">ET</button></div>
+</div></div>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="#">
+    <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><ellipse cx="18" cy="12" rx="13" ry="6.5" fill="#F2A7B8"/><rect x="6" y="15" width="24" height="5" rx="2.5" fill="#FFF3E6"/><ellipse cx="18" cy="24" rx="13" ry="6.5" fill="#F2A7B8"/></svg>
+    <div><b data-i18n="brand"></b><small data-i18n="logoHere"></small></div>
+  </a>
+  <label class="search"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+    <input id="q" type="search" autocomplete="off"></label>
+  <button class="cartbtn" id="openCart"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 4h2.5l2.2 11h10.6L21 7H7"/><circle cx="9.5" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/></svg><span class="lbl" data-i18n="cart"></span><span class="count num" id="cartCount">0</span></button>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <h1 id="h1"></h1>
+    <p class="lead" data-i18n="lead"></p>
+    <div class="who" role="group" id="who">
+      <button data-who="pro"><span data-i18n="pro"></span><small data-i18n="proSub"></small></button>
+      <button data-who="home"><span data-i18n="home"></span><small data-i18n="homeSub"></small></button>
+    </div>
+    <ul class="perks"><li data-i18n="perk1"></li><li data-i18n="perk2"></li><li data-i18n="perk3"></li></ul>
+  </div>
+  <div class="sacks" aria-hidden="true"><svg id="sacks" viewBox="0 0 560 430"></svg></div>
+</div></section>
+
+<nav class="cats" aria-label="Категории"><div class="wrap" id="cats"></div></nav>
+
+<div class="main"><div class="wrap maingrid">
+  <section>
+    <div class="listhead"><h2 id="catTitle"></h2><span class="note" id="priceNote"></span></div>
+    <div id="list"></div>
+  </section>
+  <aside class="side">
+    <div class="box reorder">
+      <h3 data-i18n="reH"></h3>
+      <p data-i18n="reP"></p>
+      <ul id="reList"></ul>
+      <button class="btn2" id="reBtn"></button>
+    </div>
+    <div class="box">
+      <h3 data-i18n="delH"></h3>
+      <ul class="deliv" id="deliv"></ul>
+    </div>
+  </aside>
+</div></div>
+
+<footer><div class="wrap">
+  <p data-i18n="foot"></p>
+  <p><span data-i18n="madeBy"></span> <a href="https://jukamedia.com" target="_blank" rel="noopener">Juka Media</a></p>
+</div></footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dT" aria-hidden="true">
+  <div class="dh"><h2 id="dT" data-i18n="cart"></h2><button class="x" id="closeCart" aria-label="Закрыть">×</button></div>
+  <div class="dbody" id="dbody"></div>
+  <div class="dfoot" id="dfoot"></div>
+</aside>
+
+<script>
+const I18N={
+ ru:{
+  demo:"Здесь будут ваш логотип, товары и цены. Бренды и цены условные.",
+  brand:"Кондитерская лавка", logoHere:"ваш логотип", cart:"Корзина", search:"Кувертюр, мука T55, фисташковая паста…",
+  h1:"Сырьё для кондитеров <em>от килограмма до мешка</em>",
+  lead:"Шоколад, мука, пасты и упаковка для кондитерских и тех, кто печёт дома. Чем больше фасовка, тем дешевле килограмм.",
+  pro:"Я кондитерская", proSub:"оптовые цены, счёт на фирму", home:"Пеку дома", homeSub:"розница, оплата картой",
+  perk1:"Доставка по Таллину на следующий день", perk2:"Самовывоз со склада", perk3:"Оплата по счёту для фирм",
+  all:"Всё", choc:"Шоколад и какао", flour:"Мука и смеси", sugar:"Сахар и сиропы", nuts:"Орехи и пасты", color:"Красители", decor:"Декор", pack:"Упаковка",
+  found:"{n} товаров", priceB2B:"Цены без НДС, для кондитерских", priceB2C:"Цены с НДС 24%",
+  perKg:"{p} / кг", perPc:"{p} / шт", perKgShort:"/кг", perPcShort:"/шт",
+  save:"Экономия {p} против 1 кг", savePc:"Экономия {p} против поштучно",
+  add:"В корзину", added:"В корзине ✓",
+  kg:"кг", pcs:"шт",
+  reH:"Повторить заказ", reP:"Прошлый заказ от 22 сентября. Добавьте всё одной кнопкой и поменяйте, что нужно.", reBtn:"Добавить всё в корзину", reDone:"Добавлено ✓",
+  delH:"Доставка",
+  d1:"Таллин, заказ до 16:00", d1v:"завтра", d2:"Вся Эстония, DPD", d2v:"1–2 дня", d3:"Самовывоз, Пярну мнт.", d3v:"сегодня", d4:"Бесплатно от", d4v:"150 €",
+  empty:"Ничего не нашлось. Попробуйте другое слово или напишите нам, закажем.",
+  cartEmpty:"Корзина пуста.", remove:"Убрать",
+  invoice:"Счёт на фирму", invoiceSub:"Оплата в течение 7 дней, счёт придёт на почту",
+  delivery:"Доставка по Таллину", deliverySub:"Завтра до 12:00 · 7 €, от 150 € бесплатно",
+  total:"Итого", vatIncl:"в т.ч. НДС 24%: {v}", vatExcl:"без НДС: {a} · НДС 24%: {v}",
+  checkout:"Оформить заказ", thanks:"Спасибо! Заказ принят. Это демо, деньги не списаны.",
+  foot:"Демо-магазин. Бренды, товары, цены и адрес выдуманы. В настоящем магазине каталог и остатки загружаются из вашего прайса или файла поставщика.",
+  madeBy:"Магазин сделал"
+ },
+ et:{
+  demo:"Siia tulevad teie logo, tooted ja hinnad. Kaubamärgid ja hinnad on näidised.",
+  brand:"Kondiitri pood", logoHere:"teie logo", cart:"Ostukorv", search:"Kuvertüür, jahu T55, pistaatsiapasta…",
+  h1:"Kondiitri tooraine <em>kilost kotini</em>",
+  lead:"Šokolaad, jahu, pastad ja pakendid kondiitritele ja kodustele küpsetajatele. Mida suurem pakend, seda odavam kilo.",
+  pro:"Olen kondiiter", proSub:"hulgihinnad, arve firmale", home:"Küpsetan kodus", homeSub:"jaehind, kaardimakse",
+  perk1:"Tallinnas kohale järgmisel päeval", perk2:"Järeletulemine laost", perk3:"Firmadele arvega",
+  all:"Kõik", choc:"Šokolaad ja kakao", flour:"Jahu ja segud", sugar:"Suhkur ja siirupid", nuts:"Pähklid ja pastad", color:"Toiduvärvid", decor:"Dekoor", pack:"Pakendid",
+  found:"{n} toodet", priceB2B:"Hinnad ilma käibemaksuta, kondiitritele", priceB2C:"Hinnad koos käibemaksuga 24%",
+  perKg:"{p} / kg", perPc:"{p} / tk", perKgShort:"/kg", perPcShort:"/tk",
+  save:"Säästate {p} võrreldes 1 kg-ga", savePc:"Säästate {p} võrreldes tükikaupa",
+  add:"Lisa korvi", added:"Korvis ✓",
+  kg:"kg", pcs:"tk",
+  reH:"Korda tellimust", reP:"Eelmine tellimus 22. septembrist. Lisage kõik ühe nupuga ja muutke vajadusel.", reBtn:"Lisa kõik korvi", reDone:"Lisatud ✓",
+  delH:"Tarne",
+  d1:"Tallinn, tellimus kuni 16:00", d1v:"homme", d2:"Kogu Eesti, DPD", d2v:"1–2 päeva", d3:"Järeletulemine, Pärnu mnt", d3v:"täna", d4:"Tasuta alates", d4v:"150 €",
+  empty:"Midagi ei leitud. Proovige teist sõna või kirjutage meile, tellime.",
+  cartEmpty:"Korv on tühi.", remove:"Eemalda",
+  invoice:"Arve firmale", invoiceSub:"Maksetähtaeg 7 päeva, arve tuleb meilile",
+  delivery:"Kohaletoimetamine Tallinnas", deliverySub:"Homme kuni 12:00 · 7 €, alates 150 € tasuta",
+  total:"Kokku", vatIncl:"sh käibemaks 24%: {v}", vatExcl:"ilma km-ta: {a} · km 24%: {v}",
+  checkout:"Vormista tellimus", thanks:"Aitäh! Tellimus on vastu võetud. See on demo, raha ei liikunud.",
+  foot:"Näidispood. Kaubamärgid, tooted, hinnad ja aadress on väljamõeldud. Päris poes tulevad kataloog ja laoseis teie hinnakirjast või hankija failist.",
+  madeBy:"Poe tegi"
+ }
+};
+let lang="ru"; try{const s=localStorage.getItem("kd-lang");if(s&&I18N[s])lang=s}catch(e){}
+const t=(k,v={})=>(I18N[lang][k]??k).replace(/\{(\w+)\}/g,(_,x)=>v[x]);
+const eur=n=>new Intl.NumberFormat(lang==="et"?"et-EE":"ru-RU",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
+
+/* synthetic catalogue: prices are retail incl. VAT per unit at each pack size */
+const P=[
+ {id:"c54",cat:"choc",brand:"KAKAOMAJA",ru:"Кувертюр тёмный 54%",et:"Tume kuvertüür 54%",sru:"Каллеты, вязкость ●●●○○",set:"Kalletid, voolavus ●●●○○",u:"kg",tiers:[[1,16.9],[5,14.6],[10,13.2]],tags:["callets"]},
+ {id:"c33",cat:"choc",brand:"KAKAOMAJA",ru:"Кувертюр молочный 33%",et:"Piimakuvertüür 33%",sru:"Каллеты, для муссов и ганаша",set:"Kalletid, vahude ja ganache'i jaoks",u:"kg",tiers:[[1,17.4],[5,15.1],[10,13.8]]},
+ {id:"c28",cat:"choc",brand:"KAKAOMAJA",ru:"Кувертюр белый 28%",et:"Valge kuvertüür 28%",sru:"Каллеты, мягкий сливочный вкус",set:"Kalletid, pehme koorene maitse",u:"kg",tiers:[[1,17.9],[5,15.5],[10,14.2]]},
+ {id:"cp",cat:"choc",brand:"KAKAOMAJA",ru:"Какао-порошок 22–24%",et:"Kakaopulber 22–24%",sru:"Алкализованный, тёмный цвет",set:"Alkaliseeritud, tume värv",u:"kg",tiers:[[1,12.5],[5,10.9]]},
+ {id:"cb",cat:"choc",brand:"KAKAOMAJA",ru:"Какао-масло",et:"Kakaovõi",sru:"Дропсы, для темперирования",set:"Tilgad, temperimiseks",u:"kg",tiers:[[1,24.9],[3,22.4]]},
+ {id:"t55",cat:"flour",brand:"VESKI",ru:"Мука пшеничная T55",et:"Nisujahu T55",sru:"Для круассанов и бриошей, белок 11,5%",set:"Croissant'ide ja brioche'i jaoks, valk 11,5%",u:"kg",tiers:[[1,1.9],[10,1.35],[25,1.05]]},
+ {id:"alm",cat:"flour",brand:"VESKI",ru:"Мука миндальная",et:"Mandlijahu",sru:"Бланшированная, мелкий помол, для макаронс",set:"Blanšeeritud, peen, macaron'ide jaoks",u:"kg",tiers:[[1,15.9],[5,13.9],[10,12.6]],tags:["nogluten"]},
+ {id:"bis",cat:"flour",brand:"VESKI",ru:"Смесь для бисквита",et:"Biskviidisegu",sru:"Добавить только яйца и воду",set:"Lisada ainult munad ja vesi",u:"kg",tiers:[[1,4.9],[5,4.1],[15,3.5]]},
+ {id:"cr",cat:"flour",brand:"VESKI",ru:"Смесь для заварного крема",et:"Keedukreemisegu",sru:"Холодного приготовления",set:"Külmvalmistusega",u:"kg",tiers:[[1,7.9],[5,6.7]]},
+ {id:"pud",cat:"sugar",brand:"SUHKRUMAJA",ru:"Сахарная пудра",et:"Tuhksuhkur",sru:"С крахмалом 3%",set:"Tärklisega 3%",u:"kg",tiers:[[1,2.4],[10,1.75],[25,1.45]]},
+ {id:"iso",cat:"sugar",brand:"SUHKRUMAJA",ru:"Изомальт",et:"Isomalt",sru:"Для карамельного декора",set:"Karamelldekoori jaoks",u:"kg",tiers:[[1,11.9],[5,10.2]]},
+ {id:"glu",cat:"sugar",brand:"SUHKRUMAJA",ru:"Глюкозный сироп",et:"Glükoosisiirup",sru:"Ведро, DE 42",set:"Ämber, DE 42",u:"kg",tiers:[[1,5.9],[7,4.6]]},
+ {id:"inv",cat:"sugar",brand:"SUHKRUMAJA",ru:"Инвертный сахар",et:"Invertsuhkur",sru:"Удерживает влагу в начинках",set:"Hoiab täidised niisked",u:"kg",tiers:[[1,6.9],[7,5.4]]},
+ {id:"pis",cat:"nuts",brand:"PÄHKEL & CO",ru:"Паста фисташковая 100%",et:"Pistaatsiapasta 100%",sru:"Без сахара и красителей",set:"Ilma suhkru ja värvaineteta",u:"kg",tiers:[[0.5,29.9],[1,27.5],[3,24.9]]},
+ {id:"pra",cat:"nuts",brand:"PÄHKEL & CO",ru:"Пралине фундук 50%",et:"Sarapuupähkli praliin 50%",sru:"Для начинок и глазурей",set:"Täidiste ja glasuuride jaoks",u:"kg",tiers:[[1,18.9],[5,16.4]]},
+ {id:"almf",cat:"nuts",brand:"PÄHKEL & CO",ru:"Миндальные лепестки",et:"Mandlilaastud",sru:"Натуральные, 1 мм",set:"Naturaalsed, 1 mm",u:"kg",tiers:[[1,14.5],[5,12.6]]},
+ {id:"gel",cat:"color",brand:"VÄRV",ru:"Гелевые красители, набор 12 цветов",et:"Geelvärvid, 12 värvi komplekt",sru:"По 20 г, для крема и мастики",set:"20 g kaupa, kreemi ja suhkrumassi jaoks",u:"pcs",tiers:[[1,24.9],[5,21.5]]},
+ {id:"fat",cat:"color",brand:"VÄRV",ru:"Жирорастворимый краситель, красный",et:"Rasvlahustuv värv, punane",sru:"Для шоколада и какао-масла, 50 г",set:"Šokolaadi ja kakaovõi jaoks, 50 g",u:"pcs",tiers:[[1,8.9],[10,7.4]]},
+ {id:"gold",cat:"color",brand:"VÄRV",ru:"Кандурин, золото",et:"Kandurin, kuld",sru:"Сухой блеск, 25 г",set:"Kuiv sära, 25 g",u:"pcs",tiers:[[1,9.9],[10,8.2]]},
+ {id:"pearl",cat:"decor",brand:"DEKOOR",ru:"Сахарные жемчужины, белые 4 мм",et:"Suhkrupärlid, valged 4 mm",sru:"Банка 1 кг",set:"Purk 1 kg",u:"kg",tiers:[[1,13.9],[3,12.2]]},
+ {id:"drop",cat:"decor",brand:"DEKOOR",ru:"Шоколадные капли для выпечки",et:"Šokolaaditilgad küpsetamiseks",sru:"Не тают в духовке",set:"Ei sula ahjus",u:"kg",tiers:[[1,9.9],[5,8.4],[10,7.6]]},
+ {id:"box",cat:"pack",brand:"PAKEND",ru:"Коробка для торта 30×30×20 см",et:"Tordikarp 30×30×20 cm",sru:"С окном, белая",set:"Aknaga, valge",u:"pcs",tiers:[[10,2.2],[50,1.7],[100,1.4]]},
+ {id:"board",cat:"pack",brand:"PAKEND",ru:"Подложка золотая, круг 28 см",et:"Kuldne alus, ring 28 cm",sru:"Толщина 3 мм",set:"Paksus 3 mm",u:"pcs",tiers:[[10,0.9],[50,0.65],[100,0.52]]},
+ {id:"mac",cat:"pack",brand:"PAKEND",ru:"Коробка для макаронс, 12 шт",et:"Macaron'i karp, 12 tk",sru:"Прозрачная, с ложементом",set:"Läbipaistev, alusega",u:"pcs",tiers:[[10,1.3],[50,1.0],[100,0.82]]}
+];
+const TAGS={ru:{callets:"хит для кондитерских",nogluten:"без глютена"},et:{callets:"kondiitrite lemmik",nogluten:"gluteenivaba"}};
+const CATS=["all","choc","flour","sugar","nuts","color","decor","pack"];
+const B2B=0.88; // pros get 12% off, shown without VAT
+const state={who:"pro",cat:"all",q:"",sel:{},qty:{},cart:[],invoice:true,delivery:true,ordered:false,reDone:false};
+const unitPrice=(pr,tier)=>state.who==="pro"? pr.tiers[tier][1]*B2B/1.24 : pr.tiers[tier][1];
+
+/* thumbnails */
+const TH={choc:["#5A3322","#8A5A3E"],flour:["#C9A57A","#E6D2B5"],sugar:["#E9E6E1","#FFFFFF"],nuts:["#7FA24A","#B7D07A"],color:["#B8264F","#F0A5BC"],decor:["#C49A3A","#EBD28C"],pack:["#DAD5CE","#F6F3EF"]};
+function thumb(cat){
+  const [a,b]=TH[cat];
+  if(cat==="pack") return `<svg class="th" viewBox="0 0 72 72" aria-hidden="true"><rect x="10" y="22" width="52" height="40" rx="4" fill="${a}"/><path d="M10 22 L22 12 H50 L62 22 Z" fill="${b}"/><rect x="24" y="32" width="24" height="16" rx="2" fill="#fff" opacity=".7"/></svg>`;
+  if(cat==="color") return `<svg class="th" viewBox="0 0 72 72" aria-hidden="true"><rect x="14" y="20" width="14" height="40" rx="4" fill="#B8264F"/><rect x="30" y="14" width="14" height="46" rx="4" fill="#E6A93A"/><rect x="46" y="24" width="14" height="36" rx="4" fill="#3F7FBF"/><rect x="14" y="16" width="14" height="7" rx="2" fill="#2E1B13"/><rect x="30" y="10" width="14" height="7" rx="2" fill="#2E1B13"/><rect x="46" y="20" width="14" height="7" rx="2" fill="#2E1B13"/></svg>`;
+  return `<svg class="th" viewBox="0 0 72 72" aria-hidden="true"><path d="M14 20c0-5 4-7 8-4 4-3 24-3 28 0 4-3 8-1 8 4v38a6 6 0 0 1-6 6H20a6 6 0 0 1-6-6Z" fill="${a}"/><rect x="21" y="32" width="30" height="20" rx="3" fill="${b}"/><path d="M26 39h20M26 45h13" stroke="#2E1B13" stroke-width="2.2" stroke-linecap="round" opacity=".7"/></svg>`;
+}
+
+/* hero sacks */
+function buildSacks(){
+  const jar=lang==="et"?["PISTAATSIA","100%"]:["ФИСТАШКА","100%"];
+  const mac=(cx,cy,w,shell,cream)=>{const h=w*.34;const n=8,step=(w-10)/n;let ruf=`M${cx-w/2+5} ${cy+h*.62}`;for(let i=0;i<n;i++)ruf+=` q ${step/2} ${-h*.12} ${step} 0`;return `<g>
+    <ellipse cx="${cx}" cy="${cy+h*.9}" rx="${w/2}" ry="${h*.42}" fill="${shell}"/>
+    <rect x="${cx-w/2+7}" y="${cy+h*.22}" width="${w-14}" height="${h*.38}" rx="${h*.19}" fill="${cream}"/>
+    <path d="${ruf}" fill="none" stroke="${shell}" stroke-width="3.5" stroke-linecap="round"/>
+    <ellipse cx="${cx}" cy="${cy}" rx="${w/2}" ry="${h*.52}" fill="${shell}"/>
+    <ellipse cx="${cx-w*.17}" cy="${cy-h*.2}" rx="${w*.15}" ry="${h*.13}" fill="#fff" opacity=".35"/>
+  </g>`};
+  document.getElementById("sacks").innerHTML=`
+   <ellipse cx="270" cy="410" rx="250" ry="10" fill="#7A3E46" opacity=".12"/>
+   <g>
+     <rect x="250" y="150" width="250" height="255" rx="10" fill="#FFFFFF"/>
+     <rect x="240" y="126" width="270" height="44" rx="10" fill="#FFF7F4"/>
+     <rect x="360" y="126" width="30" height="279" fill="#C3355D"/>
+     <rect x="250" y="250" width="250" height="26" fill="#C3355D"/>
+     <path d="M375 128 C 330 70 300 110 360 124 Z M375 128 C 420 70 450 110 390 124 Z" fill="#A82A4E"/>
+     <circle cx="375" cy="126" r="11" fill="#C3355D"/>
+   </g>
+   <g>
+     <rect x="150" y="230" width="120" height="170" rx="26" fill="#FFFFFF" opacity=".55" stroke="#E7C9CE" stroke-width="3"/>
+     <rect x="158" y="268" width="104" height="124" rx="20" fill="#9DBE5A"/>
+     <rect x="146" y="206" width="128" height="34" rx="10" fill="#4A2A1F"/>
+     <rect x="162" y="300" width="96" height="58" rx="8" fill="#FFF7F4"/>
+     <text x="210" y="327" text-anchor="middle" font-family="Yeseva One, serif" font-size="12.5" fill="#4A2A1F">${jar[0]}</text>
+     <text x="210" y="347" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="800" font-size="13" fill="#C3355D" letter-spacing="1">${jar[1]}</text>
+   </g>
+   ${mac(92,352,132,"#E9C46A","#FFF3E0")}
+   ${mac(95,292,124,"#9DBE5A","#FFF7EC")}
+   ${mac(90,235,118,"#F2A7B8","#FFFFFF")}
+   ${mac(96,180,112,"#6B3B2A","#F4DCC4")}
+   ${mac(91,127,106,"#C9B6E4","#FFFFFF")}
+  `;
+}
+
+function applyStatic(){
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i18n]").forEach(e=>e.textContent=t(e.dataset.i18n));
+  document.getElementById("h1").innerHTML=t("h1");
+  document.getElementById("q").placeholder=t("search");
+  document.querySelectorAll(".langs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===lang));
+  document.querySelectorAll("#who button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.who===state.who));
+  const dl=[["d1","d1v"],["d2","d2v"],["d3","d3v"],["d4","d4v"]];
+  document.getElementById("deliv").innerHTML=dl.map(([a,b])=>`<li><span>${t(a)}</span><span>${t(b)}</span></li>`).join("");
+  buildSacks(); renderCats(); renderList(); renderRe(); renderCart();
+}
+function renderCats(){
+  const box=document.getElementById("cats");
+  box.innerHTML=CATS.map(c=>{const n=c==="all"?P.length:P.filter(p=>p.cat===c).length;return `<button data-c="${c}" aria-pressed="${state.cat===c}">${t(c)}<span class="num">${n}</span></button>`}).join("");
+  box.querySelectorAll("button").forEach(b=>b.onclick=()=>{state.cat=b.dataset.c;renderCats();renderList()});
+}
+function unitLbl(pr,q){return pr.u==="kg"? (q<1? (q*1000)+" g" : q+" "+t("kg")) : q+" "+t("pcs")}
+function renderList(){
+  const q=state.q.trim().toLowerCase();
+  let L=P.filter(p=>(state.cat==="all"||p.cat===state.cat)&&(!q||(p.ru+" "+p.et+" "+p.brand).toLowerCase().includes(q)));
+  document.getElementById("catTitle").textContent=q?`«${state.q}»`:t(state.cat);
+  document.getElementById("priceNote").textContent=`${t("found",{n:L.length})} · ${state.who==="pro"?t("priceB2B"):t("priceB2C")}`;
+  const list=document.getElementById("list");
+  if(!L.length){list.innerHTML=`<p class="emptyl">${t("empty")}</p>`;return}
+  list.innerHTML=L.map(pr=>{
+    const sel=state.sel[pr.id]??(state.who==="pro"?pr.tiers.length-1:0);
+    const qty=state.qty[pr.id]??1;
+    const inCart=state.cart.some(c=>c.id===pr.id);
+    const tags=(pr.tags||[]).map(k=>`<span>${TAGS[lang][k]}</span>`).join("");
+    const ladder=pr.tiers.map((tr,i)=>`<button data-id="${pr.id}" data-tier="${i}" aria-pressed="${i===sel}"><b class="num">${unitLbl(pr,tr[0])}</b><span class="num">${eur(unitPrice(pr,i))}${pr.u==="kg"?t("perKgShort"):t("perPcShort")}</span></button>`).join("");
+    return `<article class="prow" id="row-${pr.id}">
+      ${thumb(pr.cat)}
+      <div class="pinfo"><small>${pr.brand}</small><h3>${pr[lang]}</h3><div class="spec">${lang==="ru"?pr.sru:pr.set}</div>${tags?`<div class="tags">${tags}</div>`:""}<div class="ladder" role="group">${ladder}</div></div>
+      <div class="pbuy" id="buy-${pr.id}">${buyHtml(pr,sel,qty,inCart)}</div>
+    </article>`}).join("");
+  list.querySelectorAll(".ladder button").forEach(b=>b.onclick=()=>{
+    const pr=P.find(x=>x.id===b.dataset.id); const prev=state.sel[pr.id]??(state.who==="pro"?pr.tiers.length-1:0);
+    state.sel[pr.id]=+b.dataset.tier;
+    b.parentElement.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));
+    const box=document.getElementById("buy-"+pr.id);
+    box.innerHTML=buyHtml(pr,state.sel[pr.id],state.qty[pr.id]??1,state.cart.some(c=>c.id===pr.id));
+    tick(box.querySelector(".pr"),packPrice(pr,prev),packPrice(pr,state.sel[pr.id]));
+    wireBuy(box,pr);
+  });
+  L.forEach(pr=>wireBuy(document.getElementById("buy-"+pr.id),pr));
+}
+const packPrice=(pr,i)=>unitPrice(pr,i)*pr.tiers[i][0];
+function buyHtml(pr,sel,qty,inCart){
+  const up=unitPrice(pr,sel), base=unitPrice(pr,0), amt=pr.tiers[sel][0];
+  const saving=(base-up)*amt;
+  const saveTxt=sel>0&&saving>0.5? t(pr.u==="kg"?"save":"savePc",{p:eur(saving)}) : "";
+  return `<div class="pr num">${eur(up*amt)}</div>
+    <div class="unit num">${unitLbl(pr,amt)} · ${t(pr.u==="kg"?"perKg":"perPc",{p:eur(up)})}</div>
+    <span class="save">${saveTxt}</span>
+    <div class="ctl"><div class="qty"><button data-q="-1" aria-label="−">−</button><span class="num">${qty}</span><button data-q="1" aria-label="+">+</button></div>
+    <button class="add ${inCart?"done":""}">${inCart?t("added"):t("add")}</button></div>`;
+}
+function wireBuy(box,pr){
+  box.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{state.qty[pr.id]=Math.max(1,Math.min(20,(state.qty[pr.id]??1)+ +b.dataset.q));box.querySelector(".qty span").textContent=state.qty[pr.id]});
+  box.querySelector(".add").onclick=e=>{
+    const sel=state.sel[pr.id]??(state.who==="pro"?pr.tiers.length-1:0), qty=state.qty[pr.id]??1;
+    const ex=state.cart.find(c=>c.id===pr.id); if(ex){ex.tier=sel;ex.qty=qty}else state.cart.push({id:pr.id,tier:sel,qty});
+    state.ordered=false; e.target.classList.add("done"); e.target.textContent=t("added"); renderCart(); bump();
+  };
+}
+function tick(el,from,to){
+  if(!el||matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const t0=performance.now(),d=550;
+  const step=n=>{const k=Math.min(1,(n-t0)/d);const e=1-Math.pow(1-k,4);el.textContent=eur(from+(to-from)*e);if(k<1)requestAnimationFrame(step)};
+  requestAnimationFrame(step);
+}
+function bump(){document.getElementById("cartCount").animate([{transform:"scale(1)"},{transform:"scale(1.35)"},{transform:"scale(1)"}],{duration:450,easing:"cubic-bezier(.16,1,.3,1)"})}
+
+const RE=[["c54",2,1],["t55",2,2],["pud",1,1],["box",1,1]];
+function renderRe(){
+  document.getElementById("reList").innerHTML=RE.map(([id,tier,q])=>{const pr=P.find(p=>p.id===id);return `<li><span>${pr[lang]}</span><span class="num">${q} × ${unitLbl(pr,pr.tiers[tier][0])}</span></li>`}).join("");
+  const b=document.getElementById("reBtn"); b.textContent=state.reDone?t("reDone"):t("reBtn"); b.classList.toggle("done",state.reDone);
+  b.onclick=()=>{RE.forEach(([id,tier,q])=>{const ex=state.cart.find(c=>c.id===id);if(ex){ex.tier=tier;ex.qty=q}else state.cart.push({id,tier,qty:q})});state.reDone=true;state.ordered=false;renderRe();renderCart();renderList();bump()};
+}
+
+function renderCart(){
+  const items=state.cart.map(c=>{const pr=P.find(p=>p.id===c.id);return {...c,pr,line:packPrice(pr,c.tier)*c.qty}});
+  document.getElementById("cartCount").textContent=items.reduce((a,b)=>a+b.qty,0);
+  const body=document.getElementById("dbody"),foot=document.getElementById("dfoot");
+  if(!items.length){body.innerHTML=`<p class="emptyc">${t("cartEmpty")}</p>`;foot.innerHTML="";return}
+  const sub=items.reduce((a,b)=>a+b.line,0);
+  const ship=state.delivery?(sub>=(state.who==="pro"?150/1.24:150)?0:(state.who==="pro"?7/1.24:7)):0;
+  const net=sub+ship;
+  body.innerHTML=items.map(x=>`<div class="ci">${thumb(x.pr.cat)}<div><b>${x.pr[lang]}</b><small class="num">${x.qty} × ${unitLbl(x.pr,x.pr.tiers[x.tier][0])}</small><br><button class="rm" data-rm="${x.id}">${t("remove")}</button></div><div class="sum num">${eur(x.line)}</div></div>`).join("")+
+   `<label class="opt"><input type="checkbox" id="dl" ${state.delivery?"checked":""}><div><b>${t("delivery")}</b><small>${t("deliverySub")}</small></div></label>`+
+   (state.who==="pro"?`<label class="opt"><input type="checkbox" id="inv" ${state.invoice?"checked":""}><div><b>${t("invoice")}</b><small>${t("invoiceSub")}</small></div></label>`:"")+
+   (state.ordered?`<div class="thanks">${t("thanks")}</div>`:"");
+  let total,vatLine;
+  if(state.who==="pro"){total=net*1.24;vatLine=t("vatExcl",{a:eur(net),v:eur(net*0.24)})}
+  else{total=net;vatLine=t("vatIncl",{v:eur(net*24/124)})}
+  foot.innerHTML=`<div class="tot"><span>${t("total")}</span><b class="num">${eur(total)}</b></div><div class="vat num">${vatLine}</div><button class="go" id="checkout">${t("checkout")}</button>`;
+  body.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{state.cart=state.cart.filter(c=>c.id!==b.dataset.rm);renderCart();renderList()});
+  document.getElementById("dl").onchange=e=>{state.delivery=e.target.checked;renderCart()};
+  const inv=document.getElementById("inv"); if(inv) inv.onchange=e=>{state.invoice=e.target.checked};
+  document.getElementById("checkout").onclick=()=>{state.ordered=true;renderCart()};
+}
+
+const drawer=document.getElementById("drawer"),scrim=document.getElementById("scrim");let lastF=null;
+function openCart(){lastF=document.activeElement;drawer.classList.add("on");scrim.classList.add("on");drawer.setAttribute("aria-hidden","false");document.getElementById("closeCart").focus()}
+function closeCart(){drawer.classList.remove("on");scrim.classList.remove("on");drawer.setAttribute("aria-hidden","true");if(lastF)lastF.focus()}
+document.getElementById("openCart").onclick=openCart;document.getElementById("closeCart").onclick=closeCart;scrim.onclick=closeCart;
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&drawer.classList.contains("on"))closeCart()});
+document.querySelectorAll("#who button").forEach(b=>b.onclick=()=>{state.who=b.dataset.who;state.sel={};applyStatic()});
+document.querySelectorAll(".langs button").forEach(b=>b.onclick=()=>{lang=b.dataset.lang;try{localStorage.setItem("kd-lang",lang)}catch(e){};applyStatic()});
+document.getElementById("q").oninput=e=>{state.q=e.target.value;renderList()};
+applyStatic();
+</script>
+</body>
+</html>
