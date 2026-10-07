@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сбор на дроны для Кайтселийта</title>
+<meta name="description" content="Сбор Алексея Павлова: два тяжёлых дрона и станция управления для отделения ударных беспилотников Таллиннского батальона Кайтселийта. Деньги идут на счёт Tallinna Kaitsekoostöö MTÜ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: one narrow column, a heavy headline up top, the donation block set like a bank slip */
+:root {
+  --bg: #f3f4f2;
+  --surface: #ffffff;
+  --fg: #101a24;
+  --muted: #55626e;
+  --line: #d3d8d6;
+  --accent: #0b5cad;
+  --accent-fg: #ffffff;
+  --signal: #c2410c;
+  --track: #dfe4e2;
+  --font-display: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1620;
+    --surface: #14212d;
+    --fg: #e8edf0;
+    --muted: #9aa8b3;
+    --line: #26384a;
+    --accent: #5aa2e8;
+    --accent-fg: #07131e;
+    --signal: #f08a4b;
+    --track: #223445;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1620;
+  --surface: #14212d;
+  --fg: #e8edf0;
+  --muted: #9aa8b3;
+  --line: #26384a;
+  --accent: #5aa2e8;
+  --accent-fg: #07131e;
+  --signal: #f08a4b;
+  --track: #223445;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  padding-inline: 1rem;
+  padding-block: 0 4rem;
+}
+.wrap { max-width: 44rem; margin-inline: auto; }
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.notice {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+  padding-block: 0.75rem;
+}
+.notice strong { color: var(--fg); font-weight: 600; }
+
+header { padding-block: 3rem 2rem; }
+
+header { position: relative; isolation: isolate; }
+.drone-bg {
+  position: absolute; z-index: -1; pointer-events: none;
+  right: -4rem; top: 0.5rem; width: min(40rem, 135vw); height: auto;
+  color: var(--accent); opacity: 0.2;
+}
+@media (min-width: 52rem) { .drone-bg { right: -9rem; opacity: 0.26; } }
+
+.fly { position: absolute; z-index: -1; pointer-events: none; top: 11rem; left: 0; width: 5.5rem; height: auto; color: var(--signal); opacity: 0.45; }
+.rotor { transform-box: fill-box; transform-origin: center; }
+@media (prefers-reduced-motion: no-preference) {
+  .drone-bg { animation: hover 6s ease-in-out infinite; }
+  .fly { animation: cross 26s linear infinite, bob 3s ease-in-out infinite; }
+  .rotor { animation: spin 0.14s linear infinite; }
+}
+@keyframes hover { 0%, 100% { transform: translateY(0) rotate(-0.6deg); } 50% { transform: translateY(-0.6rem) rotate(0.6deg); } }
+@keyframes cross { from { left: -7rem; } to { left: 100%; } }
+@keyframes bob { 0%, 100% { margin-top: 0; } 50% { margin-top: -0.9rem; } }
+@keyframes spin { 0%, 100% { transform: scaleX(1); } 50% { transform: scaleX(0.82); } }
+
+.sky { position: relative; height: 9.5rem; margin-block: 1rem 0; overflow: hidden; border-top: 1px solid var(--line); color: var(--accent); }
+.sky-route { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.35; }
+.sky-ground { position: absolute; left: 0; right: 0; bottom: 1.1rem; border-bottom: 2px solid var(--fg); opacity: 0.5; }
+.sky-pad { position: absolute; left: 3.5rem; bottom: 0.75rem; width: 4.5rem; border-bottom: 5px solid var(--fg); opacity: 0.6; }
+.sky-cap { position: absolute; left: 0; top: 0.9rem; margin: 0; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.takeoff { position: absolute; left: 3.25rem; bottom: 1.25rem; width: 5rem; height: auto; color: var(--signal); transform-origin: center; }
+@media (prefers-reduced-motion: no-preference) {
+  .takeoff { animation: takeoff 9s cubic-bezier(.45,.05,.4,1) infinite; }
+}
+@media (prefers-reduced-motion: reduce) { .takeoff { transform: translate(260%, -90%) scale(.55); } }
+@keyframes takeoff {
+  0%, 8% { transform: translate(0, 0) scale(1); opacity: 1; }
+  30% { transform: translate(60%, -140%) scale(.9); opacity: 1; }
+  75% { transform: translate(430%, -150%) scale(.32); opacity: .8; }
+  100% { transform: translate(560%, -210%) scale(.12); opacity: 0; }
+}
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin: 0 0 1rem;
+}
+h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 7vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25rem;
+  text-wrap: balance;
+}
+.lead { font-size: 1.1875rem; max-width: 36rem; margin: 0 0 2rem; }
+
+.goal { border-top: 2px solid var(--fg); padding-top: 1rem; }
+.goal-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1rem; }
+.goal-num { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.75rem, 7vw, 2.5rem); font-variant-numeric: tabular-nums; }
+.goal-label { color: var(--muted); font-size: 0.9375rem; }
+.bar { height: 0.625rem; background: var(--track); margin-top: 0.75rem; overflow: hidden; }
+.bar > i { display: block; height: 100%; background: var(--accent); width: 0; }
+.goal-note { font-size: 0.8125rem; color: var(--muted); margin: 0.5rem 0 0; }
+
+section { padding-block: 2.25rem; border-top: 1px solid var(--line); }
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.375rem, 4.6vw, 1.75rem);
+  line-height: 1.2;
+  margin: 0 0 1.25rem;
+  text-wrap: balance;
+}
+p { margin: 0 0 1rem; max-width: 40rem; }
+p:last-child { margin-bottom: 0; }
+
+.specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-block: 1.5rem; }
+.spec { background: var(--surface); padding: 1rem 1.125rem; min-width: 0; }
+.spec dt { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.375rem; }
+.spec dd { margin: 0; font-weight: 500; line-height: 1.35; }
+.src { font-size: 0.8125rem; color: var(--muted); }
+
+.flow { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+.flow li { display: grid; grid-template-columns: 1.25rem 1fr; gap: 0 1rem; }
+.flow li::before { content: ""; width: 0.75rem; height: 0.75rem; margin-top: 0.5rem; border: 2px solid var(--accent); border-radius: 50%; }
+.flow b { display: block; font-weight: 600; }
+.flow span { color: var(--muted); }
+
+.slip { background: var(--surface); border: 1px solid var(--fg); }
+.slip-head { padding: 1rem 1.25rem; border-bottom: 1px dashed var(--line); }
+.slip-head h2 { margin: 0; }
+.rows { margin: 0; padding: 0 1.25rem; }
+.row { padding-block: 0.875rem; border-bottom: 1px solid var(--line); display: grid; gap: 0.25rem; }
+.row:last-child { border-bottom: 0; }
+.row dt { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.row dd { margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; align-items: center; justify-content: space-between; min-width: 0; }
+.val { font-family: var(--font-mono); font-size: 1rem; overflow-wrap: anywhere; min-width: 0; }
+.val.big { font-size: clamp(0.9375rem, 3.9vw, 1.25rem); font-weight: 500; }
+.copy {
+  font: inherit; font-size: 0.8125rem; font-weight: 600;
+  background: transparent; color: var(--accent);
+  border: 1px solid var(--accent); padding: 0.375rem 0.75rem; cursor: pointer;
+}
+.copy:hover { background: var(--accent); color: var(--accent-fg); }
+.copy.done { background: var(--accent); color: var(--accent-fg); }
+.actions { padding: 1.25rem; border-top: 1px dashed var(--line); display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn {
+  display: inline-block; font: inherit; font-weight: 600; text-decoration: none; text-align: center;
+  padding: 0.8125rem 1.25rem; border: 2px solid var(--accent); cursor: pointer;
+}
+.btn.primary { background: var(--accent); color: var(--accent-fg); }
+.btn.ghost { background: transparent; color: var(--accent); }
+.small { font-size: 0.875rem; color: var(--muted); }
+
+.about { display: grid; gap: 1rem; }
+footer { border-top: 2px solid var(--fg); padding-top: 1.5rem; font-size: 0.8125rem; color: var(--muted); }
+footer p { max-width: 40rem; }
+@media (prefers-reduced-motion: no-preference) { .bar > i { transition: width 0.8s ease; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="notice">
+    <strong>Это страница частного сбора Алексея Павлова, а не официальный сайт организации.</strong>
+    Деньги поступают на счёт Tallinna Kaitsekoostöö MTÜ, мне они не попадают.
+    Сайт организации: <a href="https://tallinnakaitse.ee/" rel="noopener">tallinnakaitse.ee</a>
+  </div>
+
+  <header>
+  <svg class="drone-bg" viewBox="0 0 600 300" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- six long carbon arms -->
+    <path d="M252 134 L50 122 M348 134 L550 122 M272 126 L158 88 M328 126 L442 88 M266 148 L138 170 M334 148 L462 170"/>
+    <!-- motors in guard cages with spinning rotor discs -->
+    <g>
+      <rect x="38" y="118" width="18" height="24" rx="3"/><ellipse class="rotor" cx="47" cy="108" rx="54" ry="5" opacity=".7"/>
+      <rect x="544" y="118" width="18" height="24" rx="3"/><ellipse class="rotor" cx="553" cy="108" rx="54" ry="5" opacity=".7"/>
+      <rect x="148" y="84" width="18" height="22" rx="3"/><ellipse class="rotor" cx="157" cy="75" rx="52" ry="5" opacity=".7"/>
+      <rect x="434" y="84" width="18" height="22" rx="3"/><ellipse class="rotor" cx="443" cy="75" rx="52" ry="5" opacity=".7"/>
+      <rect x="128" y="166" width="18" height="24" rx="3"/><ellipse class="rotor" cx="137" cy="156" rx="54" ry="5" opacity=".7"/>
+      <rect x="454" y="166" width="18" height="24" rx="3"/><ellipse class="rotor" cx="463" cy="156" rx="54" ry="5" opacity=".7"/>
+    </g>
+    <!-- fuselage with domed antenna and radio mast -->
+    <rect x="244" y="122" width="112" height="44" rx="10"/>
+    <path d="M266 122 Q300 80 334 122"/>
+    <path d="M300 94 L300 76 M292 76 L308 76"/>
+    <!-- battery pack under the body -->
+    <rect x="258" y="166" width="84" height="18" rx="4"/>
+    <!-- two skid legs -->
+    <path d="M266 166 L230 238 M230 238 L206 238 M334 166 L370 238 M370 238 L394 238"/>
+    <path d="M248 202 L352 202" opacity=".6"/>
+    <!-- four payload release mounts and day/night camera -->
+    <path d="M272 184 L272 206 M292 184 L292 206 M308 184 L308 206 M328 184 L328 206"/>
+    <rect x="266" y="206" width="12" height="18" rx="3"/><rect x="286" y="206" width="12" height="18" rx="3"/>
+    <rect x="302" y="206" width="12" height="18" rx="3"/><rect x="322" y="206" width="12" height="18" rx="3"/>
+    <circle cx="300" cy="244" r="11"/><circle cx="300" cy="244" r="4"/>
+  </svg>
+  <svg class="fly" viewBox="0 0 120 50" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M44 24 L14 14 M76 24 L106 14 M44 28 L16 38 M76 28 L104 38"/>
+    <rect x="44" y="20" width="32" height="12" rx="4"/>
+    <ellipse class="rotor" cx="14" cy="9" rx="13" ry="2.5"/><ellipse class="rotor" cx="106" cy="9" rx="13" ry="2.5"/>
+    <ellipse class="rotor" cx="16" cy="33" rx="13" ry="2.5"/><ellipse class="rotor" cx="104" cy="33" rx="13" ry="2.5"/>
+    <circle cx="60" cy="38" r="3.5"/>
+  </svg>
+  <p class="eyebrow">Сбор для Кайтселийта · Таллинн</p>
+    <h1>Два дрона для Таллиннского батальона Кайтселийта</h1>
+    <p class="lead">Отделению ударных беспилотников нужны тяжёлые мультикоптеры и станция управления. Своих дронов у ребят пока нет.</p>
+
+    <div class="goal">
+      <div class="goal-row">
+        <span class="goal-num" id="goalNum">35 000 €</span>
+        <span class="goal-label" id="goalLabel">цель сбора</span>
+      </div>
+      <div class="bar" id="bar" hidden role="progressbar" aria-valuemin="0" aria-valuemax="35000" aria-label="Собрано"><i id="barFill"></i></div>
+      <p class="goal-note">На эту сумму можно купить два дрона и оборудование управления. В идеале у отделения их должно быть минимум три.</p>
+    </div>
+  </header>
+
+  <section>
+    <h2>Почему я это делаю</h2>
+    <div class="about">
+      <p>Меня зовут Алексей Павлов. Я русскоязычный блогер, делаю антивоенный и антипутинский контент. В России я занимался оппозиционной деятельностью. В Эстонии живу с октября 2021 года. Последний раз я был в России 25 февраля 2022 года, и она осталась позади.</p>
+      <p>Мою родину захватили бандиты, вернуться туда я не могу. Эстония стала домом для меня и моей семьи, и я с самого начала на стороне её независимости. Россия сегодня прямо угрожает Эстонии. Паниковать не нужно, но готовиться нужно заранее, пока есть время.</p>
+      <p>В случае нападения Таллинн будут защищать добровольцы из Кайтселийта. Я хочу, чтобы у них было чем это делать.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Что покупаем</h2>
+    <p>Дроны типа «Баба-Яга» или «Вампир». Это большие мультикоптеры. Они наносят удары, а ещё возят снаряжение, боеприпасы и даже еду туда, куда людям не добраться.</p>
+    <dl class="specs">
+      <div class="spec"><dt>Тип</dt><dd>Тяжёлый мультикоптер</dd></div>
+      <div class="spec"><dt>Груз</dt><dd>до 15–20 кг</dd></div>
+      <div class="spec"><dt>Камера</dt><dd>Для работы днём и ночью</dd></div>
+      <div class="spec"><dt>Цена одного</dt><dd>от 15 000 €</dd></div>
+      <div class="spec"><dt>В комплекте к сбору</dt><dd>Наземная станция управления, связь через Starlink</dd></div>
+      <div class="spec"><dt>Получатель</dt><dd>Отделение ударных беспилотников Таллиннского батальона Кайтселийта (Tallinna malev)</dd></div>
+    </dl>
+    <p class="src">Характеристики и цена приведены по данным подразделения, окончательную модель определяют они.</p>
+  </section>
+
+  <section>
+    <h2>Как идут деньги</h2>
+    <ol class="flow">
+      <li><div><b>Вы переводите на счёт НКО</b><span>Tallinna Kaitsekoostöö MTÜ, регистрационный код 80667528. Это зарегистрированное некоммерческое объединение, которое работает вместе с Кайтселийтом.</span></div></li>
+      <li><div><b>НКО закупает оборудование</b><span>Дроны и станцию управления покупает организация, а затем передаёт их подразделению. У меня к деньгам доступа нет.</span></div></li>
+      <li><div><b>Вы видите результат</b><span>Подразделение подготовит публичное видео с благодарностью, передачу оформят документами. Организация публикует отчёты об использовании пожертвований два раза в год, а по закупкам рассказывает отдельно по каждому проекту.</span></div></li>
+    </ol>
+  </section>
+
+  <div class="sky" aria-hidden="true">
+    <p class="sky-cap">Каждый перевод приближает взлёт</p>
+    <svg class="sky-route" viewBox="0 0 700 150" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 9" stroke-linecap="round">
+      <path d="M70 120 C 140 30, 300 20, 420 60 S 620 70, 700 30" vector-effect="non-scaling-stroke"/>
+    </svg>
+    <div class="sky-ground"></div>
+    <div class="sky-pad"></div>
+    <svg class="takeoff" viewBox="0 0 120 50" focusable="false" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M44 24 L14 14 M76 24 L106 14 M44 28 L16 38 M76 28 L104 38"/>
+      <rect x="44" y="20" width="32" height="12" rx="4"/>
+      <ellipse class="rotor" cx="14" cy="9" rx="13" ry="2.5"/><ellipse class="rotor" cx="106" cy="9" rx="13" ry="2.5"/>
+      <ellipse class="rotor" cx="16" cy="33" rx="13" ry="2.5"/><ellipse class="rotor" cx="104" cy="33" rx="13" ry="2.5"/>
+      <path d="M52 32 L48 44 M68 32 L72 44"/>
+    </svg>
+  </div>
+
+  <section id="donate">
+    <div class="slip">
+      <div class="slip-head"><h2>Поддержать сбор</h2></div>
+      <dl class="rows">
+        <div class="row">
+          <dt>Получатель</dt>
+          <dd><span class="val">Tallinna Kaitsekoostöö MTÜ</span><button class="copy" type="button" data-copy="Tallinna Kaitsekoostöö MTÜ">Копировать</button></dd>
+        </div>
+        <div class="row">
+          <dt>IBAN</dt>
+          <dd><span class="val big">EE377700771012640732</span><button class="copy" type="button" data-copy="EE377700771012640732">Копировать</button></dd>
+        </div>
+        <div class="row">
+          <dt>Банк</dt>
+          <dd><span class="val">LHV Pank</span></dd>
+        </div>
+        <div class="row">
+          <dt>Пояснение к платежу</dt>
+          <dd><span class="val">Ударные дроны, Таллинн</span><button class="copy" type="button" data-copy="Ударные дроны, Таллинн">Копировать</button></dd>
+        </div>
+      </dl>
+      <div class="actions">
+        <a class="btn primary" id="cardBtn" href="#" rel="noopener" hidden>Оплатить картой</a>
+        <a class="btn ghost" href="https://tallinnakaitse.ee/#toeta" rel="noopener">Страница НКО</a>
+      </div>
+    </div>
+    <p class="small" style="margin-top:1rem">Организация входит в список НКО с налоговой льготой Налогово-таможенного департамента Эстонии. Условия вычета зависят от закона и вашей ситуации, подробности смотрите на сайте организации и в условиях пожертвований.</p>
+  </section>
+
+  <section>
+    <h2>Если не можете помочь деньгами</h2>
+    <p>Перешлите эту страницу тем, кто может. Для сбора это не меньше, чем перевод.</p>
+  </section>
+
+  <footer>
+    <p>Страницу ведёт Алексей Павлов, Juka Media OÜ, Таллинн. Это независимый сбор, организация Tallinna Kaitsekoostöö MTÜ не отвечает за содержание страницы. Подтверждённые реквизиты и условия пожертвований публикуются на сайте организации <a href="https://tallinnakaitse.ee/" rel="noopener">tallinnakaitse.ee</a>, сверяйте IBAN с ним.</p>
+  </footer>
+</div>
+
+<script>
+/* Настройки сбора. Меняйте здесь, остальное страница подхватит сама. */
+var GOAL = 35000;       // цель, евро
+var RAISED = null;      // сколько собрано, евро. null скрывает шкалу
+var CARD_URL = '';      // ссылка на оплату картой, которую создаёт НКО. Пусто скрывает кнопку
+
+(function () {
+  var fmt = function (n) { return n.toLocaleString('ru-RU').replace(/ /g, ' ') + ' €'; };
+
+  if (typeof RAISED === 'number') {
+    var pct = Math.max(0, Math.min(100, RAISED / GOAL * 100));
+    document.getElementById('goalNum').textContent = fmt(RAISED);
+    document.getElementById('goalLabel').textContent = 'собрано из ' + fmt(GOAL);
+    var bar = document.getElementById('bar');
+    bar.hidden = false;
+    bar.setAttribute('aria-valuemax', GOAL);
+    bar.setAttribute('aria-valuenow', RAISED);
+    requestAnimationFrame(function () { document.getElementById('barFill').style.width = pct + '%'; });
+  }
+
+  if (CARD_URL) {
+    var cb = document.getElementById('cardBtn');
+    cb.href = CARD_URL;
+    cb.hidden = false;
+  }
+
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  document.querySelectorAll('.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.getAttribute('data-copy');
+      var ok = function () {
+        var old = btn.textContent;
+        btn.textContent = 'Скопировано';
+        btn.classList.add('done');
+        setTimeout(function () { btn.textContent = old; btn.classList.remove('done'); }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(ok, function () { fallbackCopy(text); ok(); });
+      } else { fallbackCopy(text); ok(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
