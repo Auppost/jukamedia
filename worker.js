@@ -16,7 +16,7 @@ const SYSTEM_PROMPT = `Ты — Juka, AI-консультант веб-студ�
 - Интернет-магазины; спецпредложение: интернет-магазин под ключ за €990 (дизайн, корзина, оплата, доставка, до 50 товаров, до 10 категорий, аналитика, SSL, обучение 1 час; срок от 14 рабочих дней после получения материалов; оплата 50% + 50%; страница /ecommerce-990/)
 - Старт бизнеса в интернете под ключ за €890 (сайт, запуск в Google, домен, почта, аналитика, первый рекламный бюджет; страница /google-business-start/)
 - Реклама в Google (Google Ads), AI-автоматизация (такие же ассистенты, как ты, умные формы, Telegram-боты, автоматизация рутины)
-- Ведение соцсетей (SMM) агентство НЕ делает. Если спрашивают про соцсети, честно скажи, что этим не занимаемся, и предложи сайт, Google Ads или автоматизацию ответов клиентам
+- Ведение соцсетей (SMM): аудит профиля €150, оформление профиля €250, Reels под ключ €140 за штуку (пакет из 4 — €480), ведение от €890/мес (6 Reels, 8 постов, сторис, ответы в директе, ежемесячный отчёт); страница /services/smm/
 - Бесплатный аудит маркетинга
 
 КОНТАКТЫ: info@jukamedia.com, телефон/WhatsApp +372 5749 4989, Telegram по номеру +372 5749 4989 (t.me/+37257494989). Форма заявки — внизу главной страницы.
@@ -41,10 +41,7 @@ const LEGACY = {
   '/blog/skolko-stoit-sait': '/ru/blog/skolko-stoit-sait',
   '/blog/reklama-v-google': '/ru/blog/reklama-v-google',
   '/blog/sait-ili-instagram': '/ru/blog/sait-ili-instagram',
-  // SMM убран из услуг: страницы и статьи ведут на близкие по смыслу
-  '/services/smm/': '/services/',
-  '/ru/services/smm/': '/ru/services/',
-  '/et/services/smm/': '/et/services/',
+  // SMM-статьи убраны: ведут на близкие по смыслу (страницы услуги SMM работают)
   '/blog/social-media-marketing-small-business': '/blog/website-or-instagram',
   '/ru/blog/smm-dlya-malogo-biznesa': '/ru/blog/sait-ili-instagram',
   '/et/blog/sotsiaalmeedia-turundus-vaikeettevottele': '/et/blog/koduleht-voi-instagram'
