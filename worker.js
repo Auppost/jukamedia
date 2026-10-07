@@ -29,27 +29,22 @@ const SYSTEM_PROMPT = `Ты — Juka, AI-консультант веб-студ�
 5. Не отвечай на вопросы, не связанные с Juka Media и маркетингом, — вежливо возвращай разговор к делу.
 6. Ты — живое демо услуги «AI-автоматизация»: если спросят, скажи, что такого же ассистента Juka Media может сделать и для их бизнеса.`;
 
-// Старые русские URL, переехавшие в /ru/ при переходе на английский корень.
-// 301, чтобы не терять позиции в Google и не отдавать 404.
-const REDIRECTS = {
+// Канон: https://jukamedia.com, без www. Страницы-каталоги — со слэшем (/services/),
+// страницы-файлы (статьи блога) — без расширения и без слэша (/blog/website-cost).
+// Любой другой адрес получает ОДИН постоянный 301 сразу на итоговый адрес:
+// протокол, хост, /en/, .html, index.html и слэш разрешаются за один прыжок.
+
+// Удалённые и переехавшие страницы. Ключи — в нормализованном виде
+// (без /en, без index.html и .html); слэш на конце при поиске не важен.
+const LEGACY = {
   '/ecommerce-990/': '/ru/ecommerce-990/',
-  '/ecommerce-990/index.html': '/ru/ecommerce-990/',
-  '/blog/skolko-stoit-sait.html': '/ru/blog/skolko-stoit-sait',
-  '/blog/reklama-v-google.html': '/ru/blog/reklama-v-google',
-  '/blog/sait-ili-instagram.html': '/ru/blog/sait-ili-instagram',
-  // SMM убран из услуг: страницы и статьи ведут на близкие по смыслу
-  '/services/smm/': '/services/',
-  '/services/smm/index.html': '/services/',
-  '/ru/services/smm/': '/ru/services/',
-  '/ru/services/smm/index.html': '/ru/services/',
-  '/et/services/smm/': '/et/services/',
-  '/et/services/smm/index.html': '/et/services/',
-  '/blog/social-media-marketing-small-business.html': '/blog/website-or-instagram',
-  '/ru/blog/smm-dlya-malogo-biznesa.html': '/ru/blog/sait-ili-instagram',
-  '/et/blog/sotsiaalmeedia-turundus-vaikeettevottele.html': '/et/blog/koduleht-voi-instagram',
   '/blog/skolko-stoit-sait': '/ru/blog/skolko-stoit-sait',
   '/blog/reklama-v-google': '/ru/blog/reklama-v-google',
   '/blog/sait-ili-instagram': '/ru/blog/sait-ili-instagram',
+  // SMM убран из услуг: страницы и статьи ведут на близкие по смыслу
+  '/services/smm/': '/services/',
+  '/ru/services/smm/': '/ru/services/',
+  '/et/services/smm/': '/et/services/',
   '/blog/social-media-marketing-small-business': '/blog/website-or-instagram',
   '/ru/blog/smm-dlya-malogo-biznesa': '/ru/blog/sait-ili-instagram',
   '/et/blog/sotsiaalmeedia-turundus-vaikeettevottele': '/et/blog/koduleht-voi-instagram'
@@ -58,22 +53,23 @@ const REDIRECTS = {
 const CANONICAL_ORIGIN = 'https://jukamedia.com';
 const PROD_HOSTS = ['jukamedia.com', 'www.jukamedia.com', 'jukamedia.auppost.workers.dev'];
 
-// Канонический путь: старые адреса, /en/ и хвосты .html / index.html.
-// Ассет-роутер Cloudflare сам отдаёт 307 с .html на адрес без расширения —
-// делаем это здесь постоянным 301 и одним прыжком вместе с остальным.
-function canonicalPath(pathname) {
-  let p = REDIRECTS[pathname] || pathname;
+const hasExtension = (p) => /\.[a-z0-9]+$/i.test(p.slice(p.lastIndexOf('/') + 1));
+
+// Приводит путь к каноническому виду, кроме слэша: его решает наличие файла (см. ниже).
+// Порядок важен: сначала /en/ и .html, потом таблица старых адресов — иначе цепочка из двух 301.
+function normalizePath(pathname) {
+  let p = pathname;
   if (p === '/en' || p === '/en/') p = '/';
   else if (p.startsWith('/en/')) p = p.slice(3);
   if (p.endsWith('/index.html')) p = p.slice(0, -'index.html'.length);
   else if (p.endsWith('.html') && p !== '/404.html') p = p.slice(0, -'.html'.length);
-  return p;
+  const other = p.endsWith('/') ? p.slice(0, -1) : p + '/';
+  return LEGACY[p] || LEGACY[other] || p;
 }
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-
     const isProd = PROD_HOSTS.includes(url.hostname);
 
     if (url.pathname === '/api/chat' && (!isProd || url.hostname === 'jukamedia.com')) {
@@ -83,16 +79,34 @@ export default {
       return handleChat(request, env);
     }
 
-    // Один 301 на всё: http → https, www/workers.dev → голый домен,
-    // старые пути и .html — без цепочек редиректов. Query сохраняется (UTM).
-    const path = canonicalPath(url.pathname);
+    let path = normalizePath(url.pathname);
+
+    // Слэш: каталог без слэша и страница-файл со слэшем ассет-роутер Cloudflare сам
+    // отправляет редиректом 307 (временным!). Узнаём итоговый путь у него же и
+    // отдаём один постоянный 301 вместе с остальными исправлениями.
+    let served = null;
+    if (env.ASSETS && !hasExtension(path)) {
+      for (let i = 0; i < 2; i++) {
+        const probe = await env.ASSETS.fetch(new Request(url.origin + path + url.search, {
+          method: request.method,
+          headers: request.headers,
+          redirect: 'manual'
+        }));
+        const loc = probe.status >= 300 && probe.status < 400 ? probe.headers.get('location') : null;
+        if (!loc) { served = probe; break; }
+        path = normalizePath(new URL(loc, url.origin).pathname);
+      }
+    }
+
+    // http → https и www/workers.dev → голый домен. Query сохраняется (UTM, gclid).
     const wrongOrigin = isProd && (url.protocol !== 'https:' || url.hostname !== 'jukamedia.com');
     if (wrongOrigin || path !== url.pathname) {
       const origin = isProd ? CANONICAL_ORIGIN : url.origin;
       return Response.redirect(origin + path + url.search, 301);
     }
 
-    // Всё остальное, что не совпало с ассетами, — 404 от ассет-роутера
+    // Остальное — статика; несуществующие пути получает 404-страница ассет-роутера
+    if (served) return served;
     return env.ASSETS ? env.ASSETS.fetch(request) : new Response('Not found', { status: 404 });
   }
 };

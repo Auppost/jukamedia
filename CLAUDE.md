@@ -38,7 +38,9 @@
 - Публичные адреса — БЕЗ `.html` и без `index.html`: `/blog/website-cost`, `/services/`.
   Файлы при этом остаются `*.html` (Cloudflare отдаёт их по адресу без расширения).
 - canonical, hreflang, og:url, JSON-LD, sitemap и все href — только в этой форме.
-- worker.js делает один 301 на всё: http→https, www→apex, старые пути, .html → без .html.
+- worker.js делает один 301 на всё: http→https, www→apex, /en/, .html/index.html, слэш, старые пути (таблица LEGACY).
+  Слэш: каталоги (/services/) — со слэшем, статьи (/blog/x) — без; без слэша каталог получает 301, а не 307.
+  Удалённую страницу — добавлять в LEGACY (ключ без /en, .html и index.html), не писать отдельные правила.
 - sitemap.xml генерируется из индексируемых самоканонических страниц.
 - GA4-события (js/main.js, initAnalytics): click_whatsapp, click_phone, click_email,
   book_call, form_submit, generate_lead (на странице «спасибо»); UTM уходят в формы.
