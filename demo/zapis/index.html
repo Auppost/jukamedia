@@ -141,8 +141,8 @@ function addMsg(o,isNew){
   <div class="btns"><button type="button">Подтвердить</button><button type="button">Перенести</button></div><div class="status" hidden></div><time>${o.at}</time>`;
   const dd=m.querySelectorAll("dd");[o.svc,o.master,o.when,o.name,o.phone].forEach((v,i)=>dd[i].textContent=v);
   const st=m.querySelector(".status"),bs=m.querySelectorAll(".btns button");
-  bs[0].onclick=()=>{st.textContent="Подтверждено. Клиенту ушло подтверждение.";st.hidden=false;m.querySelector(".btns").hidden=true};
-  bs[1].onclick=()=>{st.textContent="Клиенту отправлено предложение выбрать другое время.";st.hidden=false;m.querySelector(".btns").hidden=true};
+  bs[0].onclick=()=>{st.textContent="Подтверждено. Запись в вашем списке.";st.hidden=false;m.querySelector(".btns").hidden=true};
+  bs[1].onclick=()=>{st.textContent="Свяжитесь с клиентом по телефону из заявки и предложите другое время.";st.hidden=false;m.querySelector(".btns").hidden=true};
   chat.appendChild(m);chat.scrollTop=chat.scrollHeight;
 }
 addMsg({svc:"Стрижка + борода · 50 €",master:"Денис",when:"Пн, 12 октября, 11:00",name:"Максим",phone:"+372 5560 1122",at:"09:42"});
