@@ -242,8 +242,10 @@ function resize(){var w=host.clientWidth,h=host.clientHeight;renderer.setSize(w,
   var panelH=document.querySelector('.panel').offsetHeight+20,topH=w<600?90:0;camera.fov=camera.aspect<1?Math.min(58,20/camera.aspect):32;camera.setViewOffset(w,h,0,(panelH-topH)*0.5-10,w,h);camera.updateProjectionMatrix();}
 window.addEventListener("resize",resize);resize();
 
+window.__kova={wheel:wheel,camera:camera,controls:controls,finish:finish,setMount:setMount,hold:false,render:function(){controls.update();renderer.render(scene,camera);}};
 var last=performance.now();
 function loop(now){
+  if(window.__kova.hold){requestAnimationFrame(loop);return;}
   var dt=Math.min(.05,(now-last)/1000);last=now;
   if(spinning)wheel.rotation.z-=dt*1.6;
   if(tween)tween(now);
