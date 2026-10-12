@@ -84,10 +84,10 @@ var camera=new THREE.PerspectiveCamera(32,1,0.05,100);
   var room=new THREE.Mesh(new THREE.BoxGeometry(20,10,20),new THREE.MeshBasicMaterial({color:0x111316,side:THREE.BackSide}));
   room.position.y=3;env.add(room);
   function box(w,h,x,y,z,ry,c){var m=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:c,side:THREE.DoubleSide}));m.position.set(x,y,z);m.rotation.y=ry||0;env.add(m);return m;}
-  box(8,1.2,0,6,-6,0,0xffffff);box(14,0.5,0,2.5,-9,0,0xffffff);box(0.6,7,-5,4,-8,0,0xf0f0f0);box(0.6,7,5,4,-8,0,0xf0f0f0);box(12,0.5,0,1.5,9,Math.PI,0xffffff);
+  box(8,1.2,0,6,-6,0,0xffffff);box(14,0.5,0,2.5,-9,0,0xffffff);box(12,0.5,0,1.5,9,Math.PI,0xffffff);
   box(6,0.8,-7,4,1,Math.PI/2,0xf4f4f4);
   box(6,0.8,7,4,-1,-Math.PI/2,0xdedede);
-  var top=box(9,1.2,0,7.9,0,0,0xffffff);box(0.7,9,-8,4,-3,Math.PI/2.5,0xffffff);box(0.7,9,8,4,-3,-Math.PI/2.5,0xffffff);top.rotation.x=Math.PI/2;
+  var top=box(9,1.2,0,7.9,0,0,0xffffff);box(16,0.25,0,5,-9.5,0,0xffffff);box(16,0.25,0,3.6,-9.5,0,0xffffff);box(16,0.3,0,6,9.5,Math.PI,0xffffff);box(9,0.9,-8,6,-3,Math.PI/2.5,0xffffff);box(9,0.9,8,6,-3,-Math.PI/2.5,0xffffff);top.rotation.x=Math.PI/2;
   var floor=new THREE.Mesh(new THREE.PlaneGeometry(20,20),new THREE.MeshBasicMaterial({color:0x2a2c30}));floor.rotation.x=-Math.PI/2;floor.position.y=-1.9;env.add(floor);
   var pm=new THREE.PMREMGenerator(renderer);
   scene.environment=pm.fromScene(env,0.03).texture;
@@ -102,7 +102,7 @@ var wheel=new THREE.Group();   // spins around its axle (z)
 var car=new THREE.Group();     // holds wheel and the parts that do not spin
 car.add(wheel);scene.add(car);
 
-var finish=new THREE.MeshPhysicalMaterial({color:0x021009,metalness:.2,roughness:.38,clearcoat:1,clearcoatRoughness:.015,envMapIntensity:1.2,side:THREE.DoubleSide});
+var finish=new THREE.MeshPhysicalMaterial({color:0x021009,metalness:.45,roughness:.3,clearcoat:1,clearcoatRoughness:0,envMapIntensity:1.7,side:THREE.DoubleSide});
 var lipMat=new THREE.MeshStandardMaterial({color:0xe2e4e6,metalness:1,roughness:.12,side:THREE.DoubleSide});
 var darkMetal=new THREE.MeshStandardMaterial({color:0x2b2d30,metalness:.8,roughness:.45,side:THREE.DoubleSide});
 var rubber=new THREE.MeshStandardMaterial({color:0x0b0c0d,metalness:0,roughness:.95,envMapIntensity:.12,side:THREE.DoubleSide});
@@ -153,7 +153,7 @@ faceGeo=tessellate(faceGeo,0.035);
 (function(){var p=faceGeo.attributes.position,nm=faceGeo.attributes.normal,v=new THREE.Vector3(),n=new THREE.Vector3(),span=0.84-HUBR;
   for(var i=0;i<p.count;i++){v.fromBufferAttribute(p,i);n.fromBufferAttribute(nm,i);
     var r=Math.max(1e-4,Math.sqrt(v.x*v.x+v.y*v.y));var t=Math.min(1,Math.max(0,(r-HUBR)/span));
-    var f=-CONC*Math.pow(1-t,1.6), fp=(t>0&&t<1)?CONC*1.6*Math.pow(1-t,0.6)/span:0;
+    var f=-CONC*(1-t)*(1-t)*(1+2*t), fp=CONC*6*t*(1-t)/span;
     p.setXYZ(i,v.x,v.y,v.z+FACEZ+f);
     n.set(n.x-fp*v.x/r*n.z,n.y-fp*v.y/r*n.z,n.z).normalize();nm.setXYZ(i,n.x,n.y,n.z);}
   p.needsUpdate=true;nm.needsUpdate=true;})();
@@ -162,7 +162,7 @@ var face=new THREE.Mesh(faceGeo,finish);face.castShadow=true;face.receiveShadow=
 wheel.add(lathe([[0.90,FACEZ-0.03],[0.915,FACEZ+0.012],[0.94,FACEZ+0.02],[0.99,FACEZ+0.035],[1.035,FACEZ+0.058],[1.058,FACEZ+0.07],[1.068,FACEZ+0.055],[1.06,FACEZ+0.0],[1.035,FACEZ-0.06]],finish));
 /* machined ring around the centre-lock bore */
 var hubZ0=FACEZ-CONC;
-wheel.add(lathe([[0.146,hubZ0-0.02],[0.146,hubZ0+0.05],[0.154,hubZ0+0.058],[0.19,hubZ0+0.056],[0.198,hubZ0+0.045],[0.198,hubZ0+0.02]],lipMat,96));
+wheel.add(lathe([[0.146,hubZ0-0.02],[0.146,hubZ0+0.05],[0.154,hubZ0+0.058],[0.19,hubZ0+0.056],[0.198,hubZ0+0.045],[0.205,hubZ0-0.02]],lipMat,96));
 
 /* behind the bore: the car hub with a centre-lock spline */
 var hubZ=hubZ0;
@@ -217,11 +217,11 @@ var spinning=!reduce;var spinBtn=document.getElementById("spin");spinBtn.setAttr
 spinBtn.onclick=function(){spinning=!spinning;spinBtn.setAttribute("aria-pressed",String(spinning));};
 
 /* finishes: colours are approximate, as on the main page */
-var FIN=[["Зелёный глянец, как на фото","#021009",.38,"linear-gradient(135deg,#24503a,#0a1a12)",.2,1],
+var FIN=[["Зелёный глянец, как на фото","#021009",.3,"linear-gradient(135deg,#24503a,#0a1a12)",.45,1],
          ["Прозрачный брашинг","#c9ccd0",.28,"linear-gradient(135deg,#d9dadb,#a9abad 60%,#e4e5e6)",1,.4],
          ["Графит","#3e4146",.3,"linear-gradient(135deg,#5b5e62,#3b3e42)",.8,1],
          ["Матовый чёрный","#141516",.7,"linear-gradient(135deg,#2a2b2d,#111214)",.4,0],
-         ["Глянцевый чёрный","#0b0c0d",.25,"linear-gradient(135deg,#3a3b3d,#050506)",.5,1],
+         ["Глянцевый чёрный","#0b0c0d",.22,"linear-gradient(135deg,#3a3b3d,#050506)",.5,1],
          ["Бронза","#6e4f2c",.3,"linear-gradient(135deg,#8a6a43,#5e452a)",1,1],
          ["Королевское золото","#b48a3e",.26,"linear-gradient(135deg,#d8b56a,#a9843f)",1,1],
          ["Глянцевый белый","#e9eae7",.2,"linear-gradient(135deg,#f3f3f1,#d5d6d3)",.1,1]];
@@ -234,7 +234,7 @@ function swatches(el,list,apply,first){
     el.appendChild(b);
   });
 }
-swatches(document.getElementById("fin"),FIN,function(f){finish.color.set(f[1]);finish.roughness=f[2];finish.metalness=f[4];finish.clearcoat=f[5];},0);
+swatches(document.getElementById("fin"),FIN,function(f){finish.color.set(f[1]);finish.roughness=f[2];finish.metalness=f[4];finish.clearcoat=f[5];finish.clearcoatRoughness=f[5]?0:.3;},0);
 swatches(document.getElementById("cal"),CAL,function(c){caliperMat.color.set(c[1]);},0);
 
 
