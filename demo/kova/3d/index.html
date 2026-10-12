@@ -39,7 +39,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--bronze);outline-off
 <div class="top">
   <div>
     <a class="mark" href="/demo/kova/">Kova</a>
-    <h1>Диск в 3D, пример</h1>
+    <h1>Диск в 3D по вашему фото</h1>
     <p class="lead">Крутите мышью или пальцем, колёсиком или щипком приближайте. Выберите отделку и цвет суппорта</p>
   </div>
   <a class="back" href="/demo/kova/">Вернуться на сайт</a>
@@ -54,7 +54,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--bronze);outline-off
     <button class="btn" type="button" id="vSide">Профиль</button>
     <button class="btn" type="button" id="spin" aria-pressed="true">Вращение</button>
   </div>
-  <p class="note">Модель собрана кодом для примера: моноблок 20″ с пятью сдвоенными спицами и вогнутым профилем. Это не копия конкретного диска</p>
+  <p class="note">Модель собрана кодом по фото: моноблок под центральную гайку, пять пар спиц с развилкой у обода, тёмно-зелёный глянец. Близко к оригиналу, но не точная копия: глубину и профиль спиц по фото видно не полностью</p>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -101,61 +101,70 @@ var wheel=new THREE.Group();   // spins around its axle (z)
 var car=new THREE.Group();     // holds wheel and the parts that do not spin
 car.add(wheel);scene.add(car);
 
-var finish=new THREE.MeshStandardMaterial({color:0xc9ccd0,metalness:1,roughness:.32,side:THREE.DoubleSide});
+var finish=new THREE.MeshPhysicalMaterial({color:0x0c2116,metalness:.45,roughness:.2,clearcoat:1,clearcoatRoughness:.06,side:THREE.DoubleSide});
 var lipMat=new THREE.MeshStandardMaterial({color:0xe2e4e6,metalness:1,roughness:.12,side:THREE.DoubleSide});
 var darkMetal=new THREE.MeshStandardMaterial({color:0x2b2d30,metalness:.8,roughness:.45,side:THREE.DoubleSide});
 var rubber=new THREE.MeshStandardMaterial({color:0x0c0d0e,metalness:0,roughness:.86,envMapIntensity:.35,side:THREE.DoubleSide});
 var discMat=new THREE.MeshStandardMaterial({color:0x5f6267,metalness:1,roughness:.5});
-var caliperMat=new THREE.MeshStandardMaterial({color:0xb5282a,metalness:0,roughness:.3,envMapIntensity:.6});
+var caliperMat=new THREE.MeshStandardMaterial({color:0x8a1216,metalness:0,roughness:.4,envMapIntensity:.2});
 
 function lathe(points,mat,seg){var g=new THREE.LatheGeometry(points.map(function(p){return new THREE.Vector2(p[0],p[1]);}),seg||160);g.rotateX(Math.PI/2);var m=new THREE.Mesh(g,mat);m.castShadow=true;m.receiveShadow=true;return m;}
 
 /* barrel: profile in (radius, z). z>0 faces the viewer. width about 0.9 */
-wheel.add(lathe([[0.86,-0.42],[0.93,-0.44],[1.0,-0.45],[1.04,-0.44],[1.04,-0.40],[1.0,-0.39],[0.99,-0.30],[0.92,-0.22],[0.90,0.0],[0.92,0.12],[0.99,0.17],[1.0,0.24]],darkMetal));
-/* front lip, polished, step down into the face */
-wheel.add(lathe([[0.94,0.18],[0.98,0.235],[1.0,0.26],[1.045,0.27],[1.06,0.285],[1.045,0.30],[1.0,0.302],[0.965,0.29],[0.95,0.27]],lipMat));
+wheel.add(lathe([[0.86,-0.42],[0.93,-0.44],[1.0,-0.45],[1.04,-0.44],[1.04,-0.40],[1.0,-0.39],[0.99,-0.30],[0.92,-0.22],[0.90,0.0],[0.92,0.08],[0.96,0.12],[0.97,0.15]],darkMetal));
+/* front flange, painted like the face, rounded edge meeting the tyre */
+wheel.add(lathe([[0.955,0.15],[0.99,0.155],[1.02,0.19],[1.05,0.25],[1.065,0.28],[1.05,0.30],[1.0,0.29],[0.975,0.25],[0.96,0.18]],finish));
 /* tyre: 275/35 R20-ish, sidewall bulge */
 wheel.add(lathe([[1.03,0.30],[1.10,0.33],[1.22,0.35],[1.33,0.34],[1.40,0.29],[1.43,0.18],[1.44,0.0],[1.43,-0.20],[1.40,-0.31],[1.33,-0.37],[1.22,-0.38],[1.10,-0.36],[1.03,-0.33]],rubber,120));
 
-/* face: 5 split spokes, built as flat shapes then bent into a concave dish */
-var HUB=0.30, RIM=0.965, CONC=0.20, FACEZ=0.06;
-function spokeShape(a0,w0,w1){
-  // one spoke from hub to rim along angle a0, half widths w0 (hub) and w1 (rim)
-  var s=new THREE.Shape(),n=14,i,pts=[];
-  for(i=0;i<=n;i++){var t=i/n,r=HUB+(RIM-HUB)*t,w=w0+(w1-w0)*Math.pow(t,1.4);var ang=a0+w/r;pts.push([r*Math.cos(ang),r*Math.sin(ang)]);}
-  for(i=n;i>=0;i--){var t2=i/n,r2=HUB+(RIM-HUB)*t2,w2=w0+(w1-w0)*Math.pow(t2,1.4);var ang2=a0-w2/r2;pts.push([r2*Math.cos(ang2),r2*Math.sin(ang2)]);}
-  s.moveTo(pts[0][0],pts[0][1]);for(i=1;i<pts.length;i++)s.lineTo(pts[i][0],pts[i][1]);s.closePath();return s;
+/* face: 5 Y-spokes (stem splits into two arms, 10 ends at the rim), centre-lock hub, shallow concave */
+var HUB=0.27, RIM=0.97, CONC=0.09, FACEZ=0.13, RF=0.68, FORK=0.075;
+/* 10 spokes in 5 pairs: each pair leaves the hub side by side and opens into a U,
+   each spoke forks into two short prongs near the rim (the small triangles in the photo) */
+function P(r,a){return new THREE.Vector2(r*Math.cos(a),r*Math.sin(a));}
+function ease(u){return u*u*(3-2*u);}
+function spokeShape(a0,side){
+  var d0=0.17,d1=Math.PI/10;
+  function c(r){var u=Math.min(1,(r-HUB)/(RF-HUB));return a0+side*(d0+(d1-d0)*(0.35*u+0.65*ease(u)));}
+  function w(r){var u=Math.min(1,(r-HUB)/(RF-HUB));return 0.058-0.012*u;}
+  function f(r){var u=(r-RF)/(RIM-RF);return FORK*Math.pow(u,0.7);}
+  function wp(r){return 0.031;}
+  var pts=[],i,n=12,m=10,r;
+  for(i=0;i<=n;i++){r=HUB+(RF-HUB)*i/n;pts.push(P(r,c(r)+w(r)/r));}
+  for(i=1;i<=m;i++){r=RF+(RIM-RF)*i/m;pts.push(P(r,c(r)+f(r)+wp(r)/r));}
+  var inner=[],cr=RF;
+  for(i=m;i>=0;i--){r=RF+(RIM-RF)*i/m;var q=f(r)-wp(r)/r;if(q<=0.003){cr=r;break;}inner.push([r,q]);}
+  inner.forEach(function(x){pts.push(P(x[0],c(x[0])+x[1]));});
+  pts.push(P(cr,c(cr)));
+  for(i=inner.length-1;i>=0;i--){pts.push(P(inner[i][0],c(inner[i][0])-inner[i][1]));}
+  for(i=m;i>=1;i--){r=RF+(RIM-RF)*i/m;pts.push(P(r,c(r)-f(r)-wp(r)/r));}
+  for(i=n;i>=0;i--){r=HUB+(RF-HUB)*i/n;pts.push(P(r,c(r)-w(r)/r));}
+  var s=new THREE.Shape();s.moveTo(pts[0].x,pts[0].y);
+  for(i=1;i<pts.length-1;i++){var mm=new THREE.Vector2().addVectors(pts[i],pts[i+1]).multiplyScalar(.5);s.quadraticCurveTo(pts[i].x,pts[i].y,mm.x,mm.y);}
+  s.lineTo(pts[pts.length-1].x,pts[pts.length-1].y);s.closePath();return s;
 }
 function bend(geo){
   var p=geo.attributes.position,v=new THREE.Vector3();
   for(var i=0;i<p.count;i++){v.fromBufferAttribute(p,i);var r=Math.sqrt(v.x*v.x+v.y*v.y);var t=Math.min(1,Math.max(0,(r-HUB)/(RIM-HUB)));
-    v.z=v.z+FACEZ-CONC*(1-Math.pow(t,0.8))-0.02*Math.sin(t*Math.PI);p.setXYZ(i,v.x,v.y,v.z);}
+    v.z=v.z+FACEZ-CONC*Math.pow(1-t,1.6);p.setXYZ(i,v.x,v.y,v.z);}
   geo.computeVertexNormals();return geo;
 }
 var shapes=[];
-for(var k=0;k<5;k++){
-  var base=k*2*Math.PI/5+Math.PI/2;
-  shapes.push(spokeShape(base-0.115,0.062,0.040));
-  shapes.push(spokeShape(base+0.115,0.062,0.040));
-}
-var spokeGeo=new THREE.ExtrudeGeometry(shapes,{depth:0.11,bevelEnabled:true,bevelThickness:0.018,bevelSize:0.012,bevelSegments:3,curveSegments:4});
-spokeGeo.translate(0,0,-0.11);
+for(var k=0;k<5;k++){var pa=k*2*Math.PI/5+Math.PI/2;shapes.push(spokeShape(pa,1));shapes.push(spokeShape(pa,-1));}
+var spokeGeo=new THREE.ExtrudeGeometry(shapes,{depth:0.13,bevelEnabled:true,bevelThickness:0.022,bevelSize:0.016,bevelSegments:4,curveSegments:3});
+spokeGeo.translate(0,0,-0.13);
 spokeGeo=bend(spokeGeo);
 var spokes=new THREE.Mesh(spokeGeo,finish);spokes.castShadow=true;spokes.receiveShadow=true;wheel.add(spokes);
 
-/* ring where spokes meet the barrel */
-var ring=lathe([[0.90,FACEZ-0.10],[0.975,FACEZ-0.06],[0.975,FACEZ+0.02],[0.93,FACEZ+0.03],[0.90,FACEZ-0.02]],finish);wheel.add(ring);
+/* outer face ring the spoke ends run into */
+var ring=lathe([[0.85,FACEZ-0.12],[0.985,FACEZ-0.10],[0.985,FACEZ+0.02],[0.955,FACEZ+0.025],[0.88,FACEZ-0.008],[0.85,FACEZ-0.03]],finish);wheel.add(ring);
 
-/* hub: recessed mounting face with 5 lug bolts and a centre cap */
+/* centre-lock hub: painted boss, machined bore ring, the car hub with drive pins inside */
 var hubZ=FACEZ-CONC;
-wheel.add(lathe([[0.0,hubZ+0.02],[0.20,hubZ+0.03],[0.31,hubZ+0.06],[0.34,hubZ-0.02],[0.34,hubZ-0.10],[0.0,hubZ-0.10]],finish));
-var boltG=new THREE.CylinderGeometry(0.032,0.032,0.06,6);boltG.rotateX(Math.PI/2);
-var seatG=new THREE.CylinderGeometry(0.05,0.05,0.02,24);seatG.rotateX(Math.PI/2);
-for(var b=0;b<5;b++){var a=b*2*Math.PI/5+Math.PI/2+Math.PI/5,r0=0.165;
-  var seat=new THREE.Mesh(seatG,darkMetal);seat.position.set(r0*Math.cos(a),r0*Math.sin(a),hubZ+0.035);wheel.add(seat);
-  var bolt=new THREE.Mesh(boltG,lipMat);bolt.position.set(r0*Math.cos(a),r0*Math.sin(a),hubZ+0.06);wheel.add(bolt);}
-var cap=lathe([[0.0,hubZ+0.075],[0.07,hubZ+0.072],[0.095,hubZ+0.06],[0.10,hubZ+0.03],[0.0,hubZ+0.03]],darkMetal,64);wheel.add(cap);
-var capRing=new THREE.Mesh(new THREE.TorusGeometry(0.085,0.006,8,64),lipMat);capRing.position.z=hubZ+0.07;wheel.add(capRing);
+wheel.add(lathe([[0.125,hubZ+0.085],[0.20,hubZ+0.08],[0.28,hubZ+0.05],[0.30,hubZ-0.02],[0.30,hubZ-0.10],[0.125,hubZ-0.10]],finish));
+wheel.add(lathe([[0.083,hubZ+0.095],[0.122,hubZ+0.095],[0.13,hubZ+0.085],[0.13,hubZ+0.06],[0.083,hubZ+0.06]],lipMat,96));
+var bore=new THREE.Mesh(new THREE.CylinderGeometry(0.083,0.083,0.06,48).rotateX(Math.PI/2),darkMetal);bore.position.z=hubZ+0.03;wheel.add(bore);
+var spline=new THREE.Mesh(new THREE.CylinderGeometry(0.05,0.05,0.07,24).rotateX(Math.PI/2),lipMat);spline.position.z=hubZ+0.05;wheel.add(spline);
 
 /* brake disc and caliper behind the spokes (do not spin with the wheel visually for the caliper) */
 var discG=new THREE.CylinderGeometry(0.80,0.80,0.06,96);discG.rotateX(Math.PI/2);
@@ -196,13 +205,14 @@ var spinning=!reduce;var spinBtn=document.getElementById("spin");spinBtn.setAttr
 spinBtn.onclick=function(){spinning=!spinning;spinBtn.setAttribute("aria-pressed",String(spinning));};
 
 /* finishes: colours are approximate, as on the main page */
-var FIN=[["Прозрачный брашинг","#c9ccd0",.30,"linear-gradient(135deg,#d9dadb,#a9abad 60%,#e4e5e6)"],
-         ["Графит","#4c4f54",.36,"linear-gradient(135deg,#5b5e62,#3b3e42)"],
-         ["Матовый чёрный","#1a1b1d",.62,"linear-gradient(135deg,#2a2b2d,#111214)"],
-         ["Бронза","#7a5a33",.34,"linear-gradient(135deg,#8a6a43,#5e452a)"],
-         ["Королевское золото","#c39a4a",.28,"linear-gradient(135deg,#d8b56a,#a9843f)"],
-         ["Глянцевый белый","#ecedea",.18,"linear-gradient(135deg,#f3f3f1,#d5d6d3)"]];
-var CAL=[["Красный","#b5282a"],["Жёлтый","#d9a419"],["Чёрный","#1d1e20"],["Синий","#1f4f9c"]];
+var FIN=[["Тёмно-зелёный глянец","#0c2116",.2,"linear-gradient(135deg,#24503a,#0a1a12)",.45,1],
+         ["Прозрачный брашинг","#c9ccd0",.30,"linear-gradient(135deg,#d9dadb,#a9abad 60%,#e4e5e6)",1,0],
+         ["Графит","#4c4f54",.36,"linear-gradient(135deg,#5b5e62,#3b3e42)",1,.3],
+         ["Матовый чёрный","#1a1b1d",.62,"linear-gradient(135deg,#2a2b2d,#111214)",.6,0],
+         ["Бронза","#7a5a33",.34,"linear-gradient(135deg,#8a6a43,#5e452a)",1,.3],
+         ["Королевское золото","#c39a4a",.28,"linear-gradient(135deg,#d8b56a,#a9843f)",1,.3],
+         ["Глянцевый белый","#ecedea",.18,"linear-gradient(135deg,#f3f3f1,#d5d6d3)",.2,1]];
+var CAL=[["Красный","#8a1216"],["Жёлтый","#d9a419"],["Чёрный","#1d1e20"],["Синий","#1f4f9c"]];
 function swatches(el,list,apply,first){
   list.forEach(function(f,i){
     var b=document.createElement("button");b.type="button";b.className="sw";b.setAttribute("aria-pressed",String(i===first));
@@ -211,7 +221,7 @@ function swatches(el,list,apply,first){
     el.appendChild(b);
   });
 }
-swatches(document.getElementById("fin"),FIN,function(f){finish.color.set(f[1]);finish.roughness=f[2];finish.metalness=f[0]==="Глянцевый белый"?0.2:1;},0);
+swatches(document.getElementById("fin"),FIN,function(f){finish.color.set(f[1]);finish.roughness=f[2];finish.metalness=f[4];finish.clearcoat=f[5];},0);
 swatches(document.getElementById("cal"),CAL,function(c){caliperMat.color.set(c[1]);},0);
 finish.color.set(FIN[0][1]);
 
