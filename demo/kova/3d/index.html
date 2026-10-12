@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kova 3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400..700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--alloy:#E9EAEC;--mist:#F5F5F6;--steel:#C7CACE;--machined:#5E646B;--ink:#121417;--bronze:#7E531F;--display:"Geologica",system-ui,sans-serif;--body:"Onest",system-ui,sans-serif;color-scheme:light}
+html,body{height:100%}
+body{margin:0;background:var(--alloy);color:var(--ink);font-family:var(--body);font-size:15px;overflow:hidden}
+#stage{position:fixed;inset:0;touch-action:none}
+#stage canvas{display:block;width:100%;height:100%;cursor:grab}
+#stage canvas:active{cursor:grabbing}
+.top{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:22px 24px;pointer-events:none}
+.top>*{pointer-events:auto}
+.mark{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:-.03em;color:var(--ink);text-decoration:none}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(22px,3vw,34px);line-height:1.1;letter-spacing:-.02em;margin:14px 0 6px;max-width:16ch;text-wrap:balance}
+.lead{margin:0;color:var(--machined);max-width:34ch;line-height:1.45}
+.back{font-size:14px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--steel);padding-bottom:2px;white-space:nowrap}
+.panel{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));width:min(720px,calc(100% - 32px));background:rgba(245,245,246,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--steel);border-radius:18px;padding:14px 16px;display:grid;gap:12px;box-sizing:border-box}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.row>span{font-size:13px;color:var(--machined);min-width:64px}
+.sw{display:flex;align-items:center;gap:7px;border:1px solid var(--steel);background:#fff;border-radius:999px;padding:5px 11px 5px 5px;font:500 13px var(--body);color:var(--ink);cursor:pointer}
+.sw i{width:20px;height:20px;border-radius:50%;display:block;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.sw[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.btn{border:1px solid var(--steel);background:#fff;border-radius:999px;padding:7px 13px;font:500 13px var(--body);color:var(--ink);cursor:pointer}
+.btn[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.note{font-size:12.5px;color:var(--machined);line-height:1.4;margin:0}
+button:focus-visible,a:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+@media(max-width:600px){.top{padding:16px}.lead{display:none}h1{font-size:22px}.panel{padding:10px 10px 12px;gap:8px}.row{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.row::-webkit-scrollbar{display:none}.row>span{display:none}.sw,.btn{flex:none}.note{font-size:11.5px}}
+</style>
+</head>
+<body>
+<div id="stage" aria-label="3D-модель диска, крутите мышью или пальцем"></div>
+<div class="top">
+  <div>
+    <a class="mark" href="/demo/kova/">Kova</a>
+    <h1>Диск в 3D, пример</h1>
+    <p class="lead">Крутите мышью или пальцем, колёсиком или щипком приближайте. Выберите отделку и цвет суппорта</p>
+  </div>
+  <a class="back" href="/demo/kova/">Вернуться на сайт</a>
+</div>
+
+<div class="panel">
+  <div class="row" id="fin"><span>Отделка</span></div>
+  <div class="row" id="cal"><span>Суппорт</span></div>
+  <div class="row"><span>Вид</span>
+    <button class="btn" type="button" id="vFront">Анфас</button>
+    <button class="btn" type="button" id="vThree">Три четверти</button>
+    <button class="btn" type="button" id="vSide">Профиль</button>
+    <button class="btn" type="button" id="spin" aria-pressed="true">Вращение</button>
+  </div>
+  <p class="note">Модель собрана кодом для примера: моноблок 20″ с пятью сдвоенными спицами и вогнутым профилем. Это не копия конкретного диска</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+"use strict";
+var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+var host=document.getElementById("stage");
+var renderer=new THREE.WebGLRenderer({antialias:true,alpha:false});
+renderer.setPixelRatio(Math.min(2,window.devicePixelRatio||1));
+renderer.outputEncoding=THREE.sRGBEncoding;
+renderer.toneMapping=THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure=0.92;
+renderer.shadowMap.enabled=true;
+renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+host.appendChild(renderer.domElement);
+
+var scene=new THREE.Scene();
+scene.background=new THREE.Color(0xE9EAEC);
+var camera=new THREE.PerspectiveCamera(32,1,0.05,100);
+
+/* studio environment for metal reflections: a room with soft boxes, baked to PMREM */
+(function(){
+  var env=new THREE.Scene();
+  var room=new THREE.Mesh(new THREE.BoxGeometry(20,10,20),new THREE.MeshBasicMaterial({color:0x3c4045,side:THREE.BackSide}));
+  room.position.y=3;env.add(room);
+  function box(w,h,x,y,z,ry,c){var m=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:c,side:THREE.DoubleSide}));m.position.set(x,y,z);m.rotation.y=ry||0;env.add(m);return m;}
+  box(8,2.2,0,6,-6,0,0xffffff);
+  box(6,1.6,-7,4,1,Math.PI/2,0xf4f4f4);
+  box(6,1.6,7,4,-1,-Math.PI/2,0xdedede);
+  var top=box(10,4,0,7.9,0,0,0xffffff);top.rotation.x=Math.PI/2;
+  var floor=new THREE.Mesh(new THREE.PlaneGeometry(20,20),new THREE.MeshBasicMaterial({color:0x2a2c30}));floor.rotation.x=-Math.PI/2;floor.position.y=-1.9;env.add(floor);
+  var pm=new THREE.PMREMGenerator(renderer);
+  scene.environment=pm.fromScene(env,0.03).texture;
+})();
+
+var key=new THREE.DirectionalLight(0xffffff,1.1);key.position.set(3,5,4);key.castShadow=true;
+key.shadow.mapSize.set(1024,1024);key.shadow.camera.left=-3;key.shadow.camera.right=3;key.shadow.camera.top=3;key.shadow.camera.bottom=-3;key.shadow.radius=6;
+scene.add(key);scene.add(new THREE.HemisphereLight(0xffffff,0x9aa0a6,0.35));
+
+/* ---------- geometry, units: 1 = rim bead-seat radius (20 inch wheel) ---------- */
+var wheel=new THREE.Group();   // spins around its axle (z)
+var car=new THREE.Group();     // holds wheel and the parts that do not spin
+car.add(wheel);scene.add(car);
+
+var finish=new THREE.MeshStandardMaterial({color:0xc9ccd0,metalness:1,roughness:.32,side:THREE.DoubleSide});
+var lipMat=new THREE.MeshStandardMaterial({color:0xe2e4e6,metalness:1,roughness:.12,side:THREE.DoubleSide});
+var darkMetal=new THREE.MeshStandardMaterial({color:0x2b2d30,metalness:.8,roughness:.45,side:THREE.DoubleSide});
+var rubber=new THREE.MeshStandardMaterial({color:0x0c0d0e,metalness:0,roughness:.86,envMapIntensity:.35,side:THREE.DoubleSide});
+var discMat=new THREE.MeshStandardMaterial({color:0x5f6267,metalness:1,roughness:.5});
+var caliperMat=new THREE.MeshStandardMaterial({color:0xb5282a,metalness:0,roughness:.3,envMapIntensity:.6});
+
+function lathe(points,mat,seg){var g=new THREE.LatheGeometry(points.map(function(p){return new THREE.Vector2(p[0],p[1]);}),seg||160);g.rotateX(Math.PI/2);var m=new THREE.Mesh(g,mat);m.castShadow=true;m.receiveShadow=true;return m;}
+
+/* barrel: profile in (radius, z). z>0 faces the viewer. width about 0.9 */
+wheel.add(lathe([[0.86,-0.42],[0.93,-0.44],[1.0,-0.45],[1.04,-0.44],[1.04,-0.40],[1.0,-0.39],[0.99,-0.30],[0.92,-0.22],[0.90,0.0],[0.92,0.12],[0.99,0.17],[1.0,0.24]],darkMetal));
+/* front lip, polished, step down into the face */
+wheel.add(lathe([[0.94,0.18],[0.98,0.235],[1.0,0.26],[1.045,0.27],[1.06,0.285],[1.045,0.30],[1.0,0.302],[0.965,0.29],[0.95,0.27]],lipMat));
+/* tyre: 275/35 R20-ish, sidewall bulge */
+wheel.add(lathe([[1.03,0.30],[1.10,0.33],[1.22,0.35],[1.33,0.34],[1.40,0.29],[1.43,0.18],[1.44,0.0],[1.43,-0.20],[1.40,-0.31],[1.33,-0.37],[1.22,-0.38],[1.10,-0.36],[1.03,-0.33]],rubber,120));
+
+/* face: 5 split spokes, built as flat shapes then bent into a concave dish */
+var HUB=0.30, RIM=0.965, CONC=0.20, FACEZ=0.06;
+function spokeShape(a0,w0,w1){
+  // one spoke from hub to rim along angle a0, half widths w0 (hub) and w1 (rim)
+  var s=new THREE.Shape(),n=14,i,pts=[];
+  for(i=0;i<=n;i++){var t=i/n,r=HUB+(RIM-HUB)*t,w=w0+(w1-w0)*Math.pow(t,1.4);var ang=a0+w/r;pts.push([r*Math.cos(ang),r*Math.sin(ang)]);}
+  for(i=n;i>=0;i--){var t2=i/n,r2=HUB+(RIM-HUB)*t2,w2=w0+(w1-w0)*Math.pow(t2,1.4);var ang2=a0-w2/r2;pts.push([r2*Math.cos(ang2),r2*Math.sin(ang2)]);}
+  s.moveTo(pts[0][0],pts[0][1]);for(i=1;i<pts.length;i++)s.lineTo(pts[i][0],pts[i][1]);s.closePath();return s;
+}
+function bend(geo){
+  var p=geo.attributes.position,v=new THREE.Vector3();
+  for(var i=0;i<p.count;i++){v.fromBufferAttribute(p,i);var r=Math.sqrt(v.x*v.x+v.y*v.y);var t=Math.min(1,Math.max(0,(r-HUB)/(RIM-HUB)));
+    v.z=v.z+FACEZ-CONC*(1-Math.pow(t,0.8))-0.02*Math.sin(t*Math.PI);p.setXYZ(i,v.x,v.y,v.z);}
+  geo.computeVertexNormals();return geo;
+}
+var shapes=[];
+for(var k=0;k<5;k++){
+  var base=k*2*Math.PI/5+Math.PI/2;
+  shapes.push(spokeShape(base-0.115,0.062,0.040));
+  shapes.push(spokeShape(base+0.115,0.062,0.040));
+}
+var spokeGeo=new THREE.ExtrudeGeometry(shapes,{depth:0.11,bevelEnabled:true,bevelThickness:0.018,bevelSize:0.012,bevelSegments:3,curveSegments:4});
+spokeGeo.translate(0,0,-0.11);
+spokeGeo=bend(spokeGeo);
+var spokes=new THREE.Mesh(spokeGeo,finish);spokes.castShadow=true;spokes.receiveShadow=true;wheel.add(spokes);
+
+/* ring where spokes meet the barrel */
+var ring=lathe([[0.90,FACEZ-0.10],[0.975,FACEZ-0.06],[0.975,FACEZ+0.02],[0.93,FACEZ+0.03],[0.90,FACEZ-0.02]],finish);wheel.add(ring);
+
+/* hub: recessed mounting face with 5 lug bolts and a centre cap */
+var hubZ=FACEZ-CONC;
+wheel.add(lathe([[0.0,hubZ+0.02],[0.20,hubZ+0.03],[0.31,hubZ+0.06],[0.34,hubZ-0.02],[0.34,hubZ-0.10],[0.0,hubZ-0.10]],finish));
+var boltG=new THREE.CylinderGeometry(0.032,0.032,0.06,6);boltG.rotateX(Math.PI/2);
+var seatG=new THREE.CylinderGeometry(0.05,0.05,0.02,24);seatG.rotateX(Math.PI/2);
+for(var b=0;b<5;b++){var a=b*2*Math.PI/5+Math.PI/2+Math.PI/5,r0=0.165;
+  var seat=new THREE.Mesh(seatG,darkMetal);seat.position.set(r0*Math.cos(a),r0*Math.sin(a),hubZ+0.035);wheel.add(seat);
+  var bolt=new THREE.Mesh(boltG,lipMat);bolt.position.set(r0*Math.cos(a),r0*Math.sin(a),hubZ+0.06);wheel.add(bolt);}
+var cap=lathe([[0.0,hubZ+0.075],[0.07,hubZ+0.072],[0.095,hubZ+0.06],[0.10,hubZ+0.03],[0.0,hubZ+0.03]],darkMetal,64);wheel.add(cap);
+var capRing=new THREE.Mesh(new THREE.TorusGeometry(0.085,0.006,8,64),lipMat);capRing.position.z=hubZ+0.07;wheel.add(capRing);
+
+/* brake disc and caliper behind the spokes (do not spin with the wheel visually for the caliper) */
+var discG=new THREE.CylinderGeometry(0.80,0.80,0.06,96);discG.rotateX(Math.PI/2);
+var disc=new THREE.Mesh(discG,discMat);disc.position.z=-0.22;wheel.add(disc);
+var holeG=new THREE.CylinderGeometry(0.018,0.018,0.07,10);holeG.rotateX(Math.PI/2);var holeM=new THREE.MeshBasicMaterial({color:0x111214});
+for(var hr=0;hr<3;hr++){for(var hi=0;hi<18;hi++){var ha=hi*2*Math.PI/18+hr*0.12,rr=0.5+hr*0.09;var hole=new THREE.Mesh(holeG,holeM);hole.position.set(rr*Math.cos(ha),rr*Math.sin(ha),-0.215);wheel.add(hole);}}
+var hat=new THREE.Mesh(new THREE.CylinderGeometry(0.36,0.36,0.12,48).rotateX(Math.PI/2),darkMetal);hat.position.z=-0.16;wheel.add(hat);
+/* caliper: a curved block hugging the disc edge, 6-piston size */
+var cs=new THREE.Shape();var ca0=0.35,ca1=1.25,ri=0.60,ro=0.85;
+cs.absarc(0,0,ro,ca0,ca1,false);cs.absarc(0,0,ri,ca1,ca0,true);cs.closePath();
+var calG=new THREE.ExtrudeGeometry(cs,{depth:0.16,bevelEnabled:true,bevelThickness:0.025,bevelSize:0.025,bevelSegments:3,curveSegments:24});
+var caliper=new THREE.Mesh(calG,caliperMat);caliper.position.z=-0.25;caliper.castShadow=true;car.add(caliper);
+
+/* soft contact shadow under the tyre */
+var shC=document.createElement("canvas");shC.width=shC.height=128;var sx=shC.getContext("2d");
+var gr=sx.createRadialGradient(64,64,4,64,64,64);gr.addColorStop(0,"rgba(0,0,0,.45)");gr.addColorStop(1,"rgba(0,0,0,0)");sx.fillStyle=gr;sx.fillRect(0,0,128,128);
+var ground=new THREE.Mesh(new THREE.PlaneGeometry(3.6,1.6),new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(shC),transparent:true,depthWrite:false}));
+ground.rotation.x=-Math.PI/2;ground.position.y=-1.445;scene.add(ground);
+var floorShadow=new THREE.Mesh(new THREE.PlaneGeometry(8,8),new THREE.ShadowMaterial({opacity:.12}));floorShadow.rotation.x=-Math.PI/2;floorShadow.position.y=-1.446;floorShadow.receiveShadow=true;scene.add(floorShadow);
+
+/* ---------- controls ---------- */
+var controls=new THREE.OrbitControls(camera,renderer.domElement);
+controls.enableDamping=true;controls.dampingFactor=.08;controls.enablePan=false;
+controls.minDistance=3;controls.maxDistance=13;controls.maxPolarAngle=Math.PI*0.62;
+controls.target.set(0,0,0);
+
+var views={front:[0,0.15,8.2],three:[5.0,1.2,6.4],side:[8.2,0.4,0.2]};
+var tween=null;
+function goView(name){
+  var to=new THREE.Vector3().fromArray(views[name]),from=camera.position.clone(),t0=performance.now(),dur=reduce?1:900;
+  tween=function(now){var t=Math.min(1,(now-t0)/dur);var e=t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;camera.position.lerpVectors(from,to,e);if(t>=1)tween=null;};
+}
+camera.position.fromArray(views.three);
+document.getElementById("vFront").onclick=function(){goView("front");};
+document.getElementById("vThree").onclick=function(){goView("three");};
+document.getElementById("vSide").onclick=function(){goView("side");};
+var spinning=!reduce;var spinBtn=document.getElementById("spin");spinBtn.setAttribute("aria-pressed",String(spinning));
+spinBtn.onclick=function(){spinning=!spinning;spinBtn.setAttribute("aria-pressed",String(spinning));};
+
+/* finishes: colours are approximate, as on the main page */
+var FIN=[["Прозрачный брашинг","#c9ccd0",.30,"linear-gradient(135deg,#d9dadb,#a9abad 60%,#e4e5e6)"],
+         ["Графит","#4c4f54",.36,"linear-gradient(135deg,#5b5e62,#3b3e42)"],
+         ["Матовый чёрный","#1a1b1d",.62,"linear-gradient(135deg,#2a2b2d,#111214)"],
+         ["Бронза","#7a5a33",.34,"linear-gradient(135deg,#8a6a43,#5e452a)"],
+         ["Королевское золото","#c39a4a",.28,"linear-gradient(135deg,#d8b56a,#a9843f)"],
+         ["Глянцевый белый","#ecedea",.18,"linear-gradient(135deg,#f3f3f1,#d5d6d3)"]];
+var CAL=[["Красный","#b5282a"],["Жёлтый","#d9a419"],["Чёрный","#1d1e20"],["Синий","#1f4f9c"]];
+function swatches(el,list,apply,first){
+  list.forEach(function(f,i){
+    var b=document.createElement("button");b.type="button";b.className="sw";b.setAttribute("aria-pressed",String(i===first));
+    var dot=document.createElement("i");dot.style.background=f[3]||f[1];b.appendChild(dot);b.appendChild(document.createTextNode(f[0]));
+    b.onclick=function(){el.querySelectorAll(".sw").forEach(function(x){x.setAttribute("aria-pressed","false");});b.setAttribute("aria-pressed","true");apply(f);};
+    el.appendChild(b);
+  });
+}
+swatches(document.getElementById("fin"),FIN,function(f){finish.color.set(f[1]);finish.roughness=f[2];finish.metalness=f[0]==="Глянцевый белый"?0.2:1;},0);
+swatches(document.getElementById("cal"),CAL,function(c){caliperMat.color.set(c[1]);},0);
+finish.color.set(FIN[0][1]);
+
+function resize(){var w=host.clientWidth,h=host.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;
+  var panelH=document.querySelector('.panel').offsetHeight+20,topH=w<600?90:0;camera.fov=camera.aspect<1?Math.min(58,20/camera.aspect):32;camera.setViewOffset(w,h,0,(panelH-topH)*0.5-10,w,h);camera.updateProjectionMatrix();}
+window.addEventListener("resize",resize);resize();
+
+var last=performance.now();
+function loop(now){
+  var dt=Math.min(.05,(now-last)/1000);last=now;
+  if(spinning)wheel.rotation.z-=dt*1.6;
+  if(tween)tween(now);
+  controls.update();renderer.render(scene,camera);requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
