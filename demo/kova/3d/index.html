@@ -126,6 +126,28 @@ FACE.holes.forEach(function(h){faceShape.holes.push(new THREE.Path(h.map(functio
 var DEPTH=0.20;
 var faceGeo=new THREE.ExtrudeGeometry(faceShape,{depth:DEPTH,bevelEnabled:true,bevelThickness:0.014,bevelSize:0.008,bevelOffset:-0.008,bevelSegments:3,curveSegments:1});
 faceGeo.translate(0,0,-DEPTH);
+/* split long triangles so the dished surface bends smoothly (long thin triangles showed as creases in the gloss) */
+function tessellate(geo,L){
+  var P=geo.attributes.position.array,N=geo.attributes.normal.array,out=[],nout=[],stack=[],i;
+  for(i=0;i<P.length;i+=9){stack.push([P.slice(i,i+9),N.slice(i,i+9)]);}
+  var L2=L*L,guard=0;
+  while(stack.length&&guard<400000){guard++;var t=stack.pop(),p=t[0],n=t[1];
+    var d01=(p[0]-p[3])*(p[0]-p[3])+(p[1]-p[4])*(p[1]-p[4]),d12=(p[3]-p[6])*(p[3]-p[6])+(p[4]-p[7])*(p[4]-p[7]),d20=(p[6]-p[0])*(p[6]-p[0])+(p[7]-p[1])*(p[7]-p[1]);
+    var m=Math.max(d01,d12,d20);
+    if(m<=L2){for(i=0;i<9;i++){out.push(p[i]);nout.push(n[i]);}continue;}
+    var a0,a1,a2; if(m===d01){a0=0;a1=1;a2=2;}else if(m===d12){a0=1;a1=2;a2=0;}else{a0=2;a1=0;a2=1;}
+    function V(arr,k){return [arr[k*3],arr[k*3+1],arr[k*3+2]];}
+    var pa=V(p,a0),pb=V(p,a1),pc=V(p,a2),na=V(n,a0),nb=V(n,a1),nc=V(n,a2);
+    var pm=[(pa[0]+pb[0])/2,(pa[1]+pb[1])/2,(pa[2]+pb[2])/2],nm=[(na[0]+nb[0])/2,(na[1]+nb[1])/2,(na[2]+nb[2])/2];
+    stack.push([[].concat(pa,pm,pc),[].concat(na,nm,nc)]);
+    stack.push([[].concat(pm,pb,pc),[].concat(nm,nb,nc)]);
+  }
+  var g=new THREE.BufferGeometry();
+  g.setAttribute("position",new THREE.Float32BufferAttribute(out,3));
+  g.setAttribute("normal",new THREE.Float32BufferAttribute(nout,3));
+  return g;
+}
+faceGeo=tessellate(faceGeo,0.035);
 /* dish the face: hub sits deep, spokes sweep forward to the rim. Normals are transformed
    analytically so the painted surfaces stay perfectly smooth (no facets in the reflections) */
 (function(){var p=faceGeo.attributes.position,nm=faceGeo.attributes.normal,v=new THREE.Vector3(),n=new THREE.Vector3(),span=0.84-HUBR;
