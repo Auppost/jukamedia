@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-<url><loc>https://nordvelg.com/</loc><lastmod>2026-10-13</lastmod></url>
-<url><loc>https://nordvelg.com/et/</loc><lastmod>2026-10-13</lastmod></url>
-<url><loc>https://nordvelg.com/en/</loc><lastmod>2026-10-13</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url><loc>https://nordvelg.com/</loc><lastmod>2026-10-13</lastmod>
+<xhtml:link rel="alternate" hreflang="ru" href="https://nordvelg.com/"/><xhtml:link rel="alternate" hreflang="et" href="https://nordvelg.com/et/"/><xhtml:link rel="alternate" hreflang="en" href="https://nordvelg.com/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://nordvelg.com/"/>
+<image:image><image:loc>https://nordvelg.com/img/og-nordvelg.jpg</image:loc></image:image></url>
+<url><loc>https://nordvelg.com/et/</loc><lastmod>2026-10-13</lastmod>
+<xhtml:link rel="alternate" hreflang="ru" href="https://nordvelg.com/"/><xhtml:link rel="alternate" hreflang="et" href="https://nordvelg.com/et/"/><xhtml:link rel="alternate" hreflang="en" href="https://nordvelg.com/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://nordvelg.com/"/>
+<image:image><image:loc>https://nordvelg.com/img/og-nordvelg.jpg</image:loc></image:image></url>
+<url><loc>https://nordvelg.com/en/</loc><lastmod>2026-10-13</lastmod>
+<xhtml:link rel="alternate" hreflang="ru" href="https://nordvelg.com/"/><xhtml:link rel="alternate" hreflang="et" href="https://nordvelg.com/et/"/><xhtml:link rel="alternate" hreflang="en" href="https://nordvelg.com/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://nordvelg.com/"/>
+<image:image><image:loc>https://nordvelg.com/img/og-nordvelg.jpg</image:loc></image:image></url>
 </urlset>

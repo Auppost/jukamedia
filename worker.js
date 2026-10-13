@@ -125,6 +125,7 @@ async function handleNordvelg(request, env, url) {
   if (url.protocol !== 'https:' || url.hostname !== 'nordvelg.com' || path !== url.pathname) {
     return Response.redirect(NORDVELG_ORIGIN + path + url.search, 301);
   }
+  if (path.startsWith('/tools/')) return notFound(request, env, url, '/nordvelg/404.html');
   const res = await env.ASSETS.fetch(new Request(url.origin + '/nordvelg' + path + url.search, {
     method: request.method,
     headers: request.headers,
@@ -135,6 +136,12 @@ async function handleNordvelg(request, env, url) {
     return Response.redirect(NORDVELG_ORIGIN + loc + url.search, 301);
   }
   if (res.status === 404) return notFound(request, env, url, '/nordvelg/404.html');
+  // Картинки, шрифты и скрипты не меняются под тем же именем: кэшируем надолго
+  if (/^\/(img|fonts|js|icons)\//.test(path)) {
+    const out = new Response(res.body, res);
+    out.headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+    return out;
+  }
   return res;
 }
 
