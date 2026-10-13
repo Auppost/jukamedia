@@ -67,7 +67,13 @@ function normalizePath(pathname) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (NORDVELG_HOSTS.includes(url.hostname)) return handleNordvelg(request, env, url);
     const isProd = PROD_HOSTS.includes(url.hostname);
+
+    // Файлы Nordvelg лежат в /nordvelg/, но на jukamedia.com их не показываем
+    if (url.pathname === '/nordvelg' || url.pathname.startsWith('/nordvelg/')) {
+      return notFound(request, env, url, '/404.html');
+    }
 
     if (url.pathname === '/api/chat' && (!isProd || url.hostname === 'jukamedia.com')) {
       if (request.method !== 'POST') {
@@ -107,6 +113,35 @@ export default {
     return env.ASSETS ? env.ASSETS.fetch(request) : new Response('Not found', { status: 404 });
   }
 };
+
+// Nordvelg (nordvelg.com) живёт в этом же воркере: файлы в /nordvelg/, канон https://nordvelg.com без www.
+const NORDVELG_HOSTS = ['nordvelg.com', 'www.nordvelg.com'];
+const NORDVELG_ORIGIN = 'https://nordvelg.com';
+
+async function handleNordvelg(request, env, url) {
+  let path = url.pathname;
+  if (path.endsWith('/index.html')) path = path.slice(0, -'index.html'.length);
+  else if (path.endsWith('.html') && path !== '/404.html') path = path.slice(0, -'.html'.length);
+  if (url.protocol !== 'https:' || url.hostname !== 'nordvelg.com' || path !== url.pathname) {
+    return Response.redirect(NORDVELG_ORIGIN + path + url.search, 301);
+  }
+  const res = await env.ASSETS.fetch(new Request(url.origin + '/nordvelg' + path + url.search, {
+    method: request.method,
+    headers: request.headers,
+    redirect: 'manual'
+  }));
+  if (res.status >= 300 && res.status < 400) {
+    const loc = new URL(res.headers.get('location') || '/', url.origin).pathname.replace(/^\/nordvelg/, '') || '/';
+    return Response.redirect(NORDVELG_ORIGIN + loc + url.search, 301);
+  }
+  if (res.status === 404) return notFound(request, env, url, '/nordvelg/404.html');
+  return res;
+}
+
+async function notFound(request, env, url, page) {
+  const res = await env.ASSETS.fetch(new Request(url.origin + page, { headers: request.headers }));
+  return new Response(res.body, { status: 404, headers: res.headers });
+}
 
 async function handleChat(request, env) {
   // Принимаем запросы только со своего сайта

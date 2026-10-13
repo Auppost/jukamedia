@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="et">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordvelg: sepistatud veljed teie autole, Tallinn</title>
+<meta name="description" content="Sepistatud veljed BC Forged, Brixton Forged ja MV Forged konkreetsele autole. Sobivuse kontroll, eskiis 48 tunniga, valmistamine alates 4 nädalast, tarne Tallinnasse">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nordvelg: sepistatud veljed teie autole">
+<meta property="og:description" content="Valime veljed teie autole, eskiis 48 tunniga, tarne Tallinnasse">
+<meta property="og:image" content="https://baanvelgen.com/cdn/shop/collections/Brixton_forged_PF7_ferrari_812_gts_22_inch.jpg?v=1673537685&width=1600">
+<meta name="theme-color" content="#E9EAEC">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23121417'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23C8965A' stroke-width='2'/%3E%3Cg stroke='%23E9EAEC' stroke-width='2.4' stroke-linecap='round'%3E%3Cline x1='16' y1='6' x2='16' y2='12'/%3E%3Cline x1='25.5' y1='13' x2='20' y2='15'/%3E%3Cline x1='22' y1='24' x2='18.5' y2='19.5'/%3E%3Cline x1='10' y1='24' x2='13.5' y2='19.5'/%3E%3Cline x1='6.5' y1='13' x2='12' y2='15'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="canonical" href="https://nordvelg.com/et/">
+<meta property="og:url" content="https://nordvelg.com/et/">
+<link rel="alternate" hreflang="x-default" href="https://nordvelg.com/">
+<link rel="alternate" hreflang="ru" href="https://nordvelg.com/">
+<link rel="alternate" hreflang="et" href="https://nordvelg.com/et/">
+<link rel="alternate" hreflang="en" href="https://nordvelg.com/en/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght,SHRP@300..800,0..100&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Store","name":"Nordvelg","description":"Sepistatud veljed BC Forged, Brixton Forged ja MV Forged tellimusel","areaServed":"EE","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressCountry":"EE"},"telephone":"+37257494989","priceRange":"€€€€","brand":[{"@type":"Brand","name":"BC Forged"},{"@type":"Brand","name":"Brixton Forged"},{"@type":"Brand","name":"MV Forged"},{"@type":"Brand","name":"BBS"},{"@type":"Brand","name":"OZ Racing"}]}
+</script>
+<style>
+/* Layout: split hero with a real car photo, then a light "machined aluminium" catalogue; one interactive moment, the spinning wheel */
+:root{
+  --alloy:#E9EAEC;    /* page: brushed aluminium */
+  --mist:#F5F5F6;     /* raised surfaces */
+  --white:#FFFFFF;    /* product stage */
+  --steel:#C7CACE;    /* rules, borders */
+  --machined:#5E646B; /* secondary text, AA on alloy */
+  --graphite:#24272B; /* dark blocks, body text 2 */
+  --ink:#121417;      /* text */
+  --bronze:#7E531F;   /* satin bronze: the one accent, AA on alloy */
+  --bronze-l:#C8965A; /* bronze on dark surfaces */
+  --display:"Geologica","Onest",system-ui,sans-serif;
+  --body:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden;max-width:100%}
+body{background:var(--alloy);color:var(--ink);font-family:var(--body);font-size:clamp(15.5px,1.05vw,17px);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--bronze);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);font-variation-settings:"SHRP" 60;letter-spacing:-.02em;line-height:1.05;font-weight:600;text-wrap:balance}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:24px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:10px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:8px}
+
+/* top bar sits over the light column only */
+.bar{position:absolute;top:0;left:0;width:41.667%;z-index:10}
+.bar .in{display:flex;align-items:center;gap:32px;height:76px;padding-left:max(24px,calc((100vw - 1240px)/2 + 24px));padding-right:24px}
+.mark{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:-.03em;text-decoration:none;font-variation-settings:"SHRP" 100}
+.bar nav{display:flex;gap:24px;font-size:15px}
+.bar nav a{text-decoration:none;color:var(--graphite)}
+.bar nav a:hover{color:var(--bronze)}
+.bar .call{display:none}
+@media(max-width:1100px){.bar nav{gap:16px;font-size:14px}}
+@media(max-width:900px){.bar{width:100%}.bar nav{display:none}.bar .mark{color:#fff}.bar .call{display:inline;margin-left:auto;color:#fff;text-decoration:none;border-bottom:1px solid #fff;padding-bottom:2px;font-size:15px}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);min-height:min(100svh,940px)}
+.hero-copy{padding:140px 48px 56px max(24px,calc((100vw - 1240px)/2 + 24px));display:flex;flex-direction:column}
+.hero h1{font-size:clamp(40px,5vw,76px);font-weight:500;max-width:13ch}
+.hero .sub{margin-top:26px;max-width:42ch;font-size:clamp(16px,1.25vw,19px);color:var(--graphite)}
+.pick{margin-top:40px;background:var(--mist);border:1px solid var(--steel);border-radius:14px;padding:8px;display:grid;grid-template-columns:1.1fr 1fr auto;gap:8px;max-width:520px}
+.pick select,.pick input{border:0;background:transparent;padding:14px 12px;font:inherit;color:var(--ink);min-width:0;appearance:none;-webkit-appearance:none}
+.pick select:focus,.pick input:focus{outline:none;background:var(--white);border-radius:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;font:600 16px/1 var(--body);text-decoration:none;padding:16px 22px;border-radius:10px;transition:background .2s,color .2s}
+.btn-ink{background:var(--ink);color:var(--alloy)}
+.btn-ink:hover{background:var(--bronze)}
+.btn-ghost{border:1px solid var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--alloy)}
+.hero-note{margin-top:auto;padding-top:48px;display:flex;gap:40px;flex-wrap:wrap;font-size:14.5px;color:var(--machined)}
+.hero-note strong{display:block;color:var(--ink);font-family:var(--display);font-size:26px;font-weight:500;letter-spacing:-.02em}
+.hero-photo{position:relative;background:var(--graphite);overflow:hidden}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 55%}
+.hero-photo figcaption{position:absolute;left:24px;bottom:22px;color:#fff;font-size:14px;background:rgba(18,20,23,.6);backdrop-filter:blur(6px);padding:8px 12px;border-radius:8px}
+@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:0}.hero-photo{height:62vw;min-height:260px;order:-1}.hero-copy{padding:36px 24px 48px}.pick{grid-template-columns:1fr}}
+
+section{padding-block:110px}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:48px}
+.head h2{font-size:clamp(32px,3.8vw,56px);font-weight:500;max-width:15ch}
+.head p{max-width:46ch;color:var(--graphite)}
+@media(max-width:860px){.head{grid-template-columns:1fr;gap:16px}section{padding-block:76px}}
+
+/* catalogue: every product on the same white stage, same size, same baseline */
+.cat{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}
+.w{background:var(--mist);border-radius:18px;padding:16px 16px 20px;display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.stage{background:var(--white);border-radius:12px;aspect-ratio:1;display:grid;place-items:center;overflow:hidden;margin-bottom:16px}
+.stage img{width:82%;height:82%;object-fit:contain;mix-blend-mode:multiply;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.w:hover .stage img{transform:rotate(-24deg)}
+.w .brand{font-size:13.5px;color:var(--bronze);font-weight:500}
+.w h3{font-size:21px;margin-top:2px}
+.w .spec{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px;font-size:14px;color:var(--machined)}
+.w.mid{grid-column:span 3}
+.feature{grid-column:span 6;grid-row:span 2;background:var(--ink);color:var(--alloy);border-radius:18px;padding:24px;display:flex;flex-direction:column}
+.feature .stage{background:radial-gradient(closest-side,#2c3036,#121417);flex:1;aspect-ratio:auto;min-height:340px;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.feature .stage:active{cursor:grabbing}
+.feature .stage img{width:78%;height:78%;mix-blend-mode:normal;transition:none;pointer-events:none}
+.feature .brand{color:var(--bronze-l)}
+.feature .spec{color:#a7acb2}
+.feature .hint{font-size:13.5px;color:#a7acb2;margin-top:10px}
+@media(max-width:1000px){.feature{grid-column:span 12}.w.mid{grid-column:span 6}}
+@media(max-width:520px){.w.mid{grid-column:span 12}}
+.cat-foot{margin-top:22px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;color:var(--machined);font-size:14.5px}
+
+/* BC Forged facts */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--steel);border:1px solid var(--steel);border-radius:16px;overflow:hidden}
+.fact{background:var(--alloy);padding:26px 22px}
+.fact b{display:block;font-family:var(--display);font-size:clamp(26px,2.6vw,36px);font-weight:500;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.fact span{color:var(--graphite);font-size:15px}
+@media(max-width:900px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.lines{margin-top:56px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.line h3{font-size:22px}
+.line .meta{color:var(--bronze);font-size:14.5px;margin:6px 0 10px;font-variant-numeric:tabular-nums}
+.line p{color:var(--graphite);font-size:15.5px}
+@media(max-width:860px){.lines{grid-template-columns:1fr}}
+
+/* finishes */
+.fin{margin-top:56px}
+.fin h3{font-size:22px;margin-bottom:6px}
+.fin .note{color:var(--machined);font-size:14.5px;margin-bottom:18px}
+.sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:14px}
+.sw div{font-size:14px;color:var(--graphite)}
+.sw i{display:block;aspect-ratio:1.6;border-radius:10px;margin-bottom:8px;border:1px solid rgba(0,0,0,.08)}
+
+/* build types table */
+.types{width:100%;border-collapse:collapse;font-size:16px;min-width:620px}
+.types th,.types td{text-align:left;padding:18px 16px 18px 0;border-bottom:1px solid var(--steel);vertical-align:top}
+.types th{font-weight:500;color:var(--machined);font-size:14px}
+.types td:first-child{font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:-.02em;white-space:nowrap}
+.tw{overflow-x:auto}
+
+/* proof band */
+.proof{background:var(--graphite);color:var(--alloy);padding:0;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.proof figure{position:relative;min-height:520px;background:#1a1c1f}
+.proof img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.proof .txt{padding:80px 48px;display:flex;flex-direction:column;justify-content:center}
+.proof h2{font-size:clamp(30px,3.4vw,50px);font-weight:500;max-width:13ch}
+.proof p{margin-top:22px;color:#c3c7cc;max-width:40ch}
+.proof .btn{margin-top:34px;align-self:flex-start;background:var(--alloy);color:var(--ink)}
+.proof .btn:hover{background:var(--bronze-l)}
+@media(max-width:900px){.proof{grid-template-columns:1fr}.proof figure{min-height:300px}.proof .txt{padding:48px 24px}}
+
+/* timeline drawn to scale: weeks 0..8 for BC Forged */
+.scale{position:relative;margin-top:8px}
+.track{position:relative;height:14px;background:var(--mist);border-radius:7px}
+.seg{position:absolute;top:0;bottom:0;border-radius:7px;background:var(--steel)}
+.seg.prod{background:linear-gradient(90deg,var(--bronze),var(--bronze-l))}
+.ticks{position:relative;height:24px;margin-top:8px;font-size:13px;color:var(--machined);font-variant-numeric:tabular-nums}
+.ticks span{position:absolute;transform:translateX(-50%)}
+.ticks span:first-child{transform:none}
+.ticks span:last-child{transform:translateX(-100%)}
+.scale-note{font-size:14px;color:var(--machined);margin-top:6px}
+.phases{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;margin-top:40px}
+.ph .n{font-family:var(--display);color:var(--bronze);font-size:15px;font-weight:600}
+.ph h3{font-size:18px;margin:6px 0}
+.ph p{font-size:15px;color:var(--graphite)}
+.ph .t{font-size:14px;color:var(--machined);margin-top:8px}
+@media(max-width:900px){.phases{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.phases{grid-template-columns:1fr}.ticks span:nth-child(even){display:none}}
+
+/* quote */
+.quote-sec{background:var(--mist)}
+.quote{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:start}
+.quote .lead h2{font-size:clamp(32px,3.8vw,56px);font-weight:500;max-width:12ch}
+.quote .lead p{margin-top:20px;color:var(--graphite);max-width:38ch}
+.quote .lead ul{list-style:none;margin-top:28px;display:grid;gap:12px}
+.quote .lead li{padding-left:22px;position:relative}
+.quote .lead li:before{content:"";position:absolute;left:0;top:11px;width:10px;height:2px;background:var(--bronze)}
+.form{background:var(--white);border:1px solid var(--steel);border-radius:20px;padding:30px;min-width:0}
+.prog{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:26px}
+.prog span{height:3px;border-radius:2px;background:var(--steel)}
+.prog span.on{background:var(--ink)}
+.fs{display:none;min-width:0;padding:0}
+.fs.on{display:block}
+.fs h3{font-size:24px}
+.fs .hint{color:var(--machined);font-size:15px;margin:6px 0 20px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.form input,.form select{width:100%;border:1px solid var(--steel);border-radius:10px;background:var(--mist);padding:14px;font:inherit;color:var(--ink);appearance:none;-webkit-appearance:none;min-width:0}
+.form input:focus,.form select:focus{outline:2px solid var(--ink);outline-offset:-1px;background:var(--white)}
+.q{margin-top:20px}
+.q > span{display:block;font-size:14.5px;color:var(--graphite);margin-bottom:10px;font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--steel);background:var(--mist);border-radius:999px;padding:10px 16px;font:inherit;font-size:15px;cursor:pointer;color:var(--ink)}
+.chip:hover{border-color:var(--machined)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.summary{white-space:pre-line;background:var(--mist);border-radius:12px;padding:16px;font-size:15px;color:var(--graphite);margin-top:12px;overflow-wrap:anywhere}
+.send{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.privacy{font-size:13px;color:var(--machined);margin-top:12px}
+.fnav{display:flex;justify-content:space-between;align-items:center;margin-top:28px}
+.back{background:none;border:0;font:inherit;color:var(--machined);cursor:pointer;padding:8px 0}
+.back:hover{color:var(--ink)}
+@media(max-width:900px){.quote{grid-template-columns:1fr}.fields,.send{grid-template-columns:1fr}.form{padding:22px}}
+
+/* faq */
+.faq{max-width:820px}
+details{border-top:1px solid var(--steel);padding:22px 0}
+details:last-child{border-bottom:1px solid var(--steel)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:24px;font-family:var(--display);font-size:20px;font-weight:500;letter-spacing:-.01em}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";color:var(--bronze);font-size:26px;line-height:1;transition:transform .25s}
+details[open] summary:after{transform:rotate(45deg)}
+details p{margin-top:12px;color:var(--graphite);max-width:64ch}
+
+footer{background:var(--ink);color:#a7acb2;padding:56px 0 40px;font-size:14.5px}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
+footer .mark{color:var(--alloy)}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+.foot-end{margin-top:40px;border-top:1px solid #2a2d31;padding-top:20px;font-size:13px}
+@media(max-width:760px){.foot{grid-template-columns:1fr}}
+
+.wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:20;width:56px;height:56px;border-radius:50%;background:var(--ink);display:grid;place-items:center;box-shadow:0 12px 30px rgba(18,20,23,.3)}
+.wa svg{width:26px;height:26px}
+
+
+/* by-car picker */
+.makes{display:flex;flex-wrap:wrap;gap:8px}
+.makes button,.models button{border:1px solid var(--steel);background:var(--mist);border-radius:999px;padding:10px 16px;font:inherit;font-size:15px;cursor:pointer;color:var(--ink)}
+.makes button[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.models{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid var(--steel)}
+.models button{background:transparent;font-size:14.5px;padding:8px 14px}
+.models button[aria-pressed="true"]{border-color:var(--ink);background:var(--white);font-weight:600}
+.fit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:26px}
+.fit .w{grid-column:auto}
+.fit .tag{font-size:12.5px;color:var(--white);background:var(--bronze);border-radius:999px;padding:3px 9px;align-self:flex-start;margin-bottom:6px}
+.fit .price{margin-top:auto;padding-top:10px;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.fit-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:22px;padding:18px 20px;background:var(--mist);border-radius:14px}
+.fit-cta span{font-family:var(--display);font-size:20px;font-weight:500}
+@media(max-width:1000px){.fit{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* brands */
+.bgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;grid-auto-flow:row dense}
+.bcard.wide{grid-column:span 2}
+.bcard{background:var(--mist);border-radius:18px;padding:18px;display:flex;flex-direction:column}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.thumbs img.gone,.fit img.gone{visibility:hidden}
+.thumbs img{aspect-ratio:1;width:100%;object-fit:contain;background:var(--white);border-radius:10px;padding:6px;mix-blend-mode:multiply}
+.bcard h3{font-size:22px}
+.bcard p{color:var(--graphite);font-size:15px;margin-top:6px}
+.bcard .price{margin-top:auto;padding-top:12px;font-weight:600;font-variant-numeric:tabular-nums}
+@media(max-width:900px){.bgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.bgrid{grid-template-columns:1fr}.bcard.wide{grid-column:auto}.fit{gap:10px}.fit .w{padding:12px}.fit .w h3{font-size:16px}.fit .tag{font-size:11px}}
+
+.lang{position:absolute;top:0;right:0;z-index:11;display:flex;align-items:center;gap:2px;height:76px;padding-right:max(24px,calc((100vw - 1240px)/2 + 24px))}
+.lang a{color:#fff;text-decoration:none;font-size:14px;font-weight:500;padding:6px 9px;border-radius:999px;background:rgba(18,20,23,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.lang a[aria-current]{background:#fff;color:var(--ink)}
+@media(max-width:900px){.bar .in{padding-right:150px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#quote">Liigu hinnapäringu juurde</a>
+
+<header class="bar">
+  <div class="in">
+    <a class="mark" href="#top">Nordvelg</a>
+    <nav aria-label="Jaotised"><a href="#cars">Auto järgi</a><a href="#models">Mudelid</a><a href="#brands">Brändid</a><a href="#process">Tähtajad</a><a href="#faq">KKK</a></nav>
+    <a class="call" href="#quote">Küsi hinda</a>
+  </div>
+</header>
+
+<nav class="lang" aria-label="Keel"><a href="/" hreflang="ru" lang="ru">RU</a><a href="/et/" hreflang="et" lang="et" aria-current="page">ET</a><a href="/en/" hreflang="en" lang="en">EN</a></nav>
+<main id="top">
+<section class="hero" style="padding:0">
+  <div class="hero-copy">
+    <h1 class="rise">Sepistatud veljed, mis tehakse ühele autole</h1>
+    <p class="sub rise">BC Forged, Brixton, BBS, OZ ja veel kuus brändi. Valime teie autole mõõdu, ET ja istuvuse, näitame eskiisi enne maksmist ja toome komplekti Tallinnasse</p>
+    <form class="pick rise" id="pick" aria-label="Kiire valik">
+      <select id="pMake" aria-label="Automark"><option value="">Mark</option></select>
+      <input id="pModel" placeholder="Mudel" aria-label="Mudel" autocomplete="off">
+      <button class="btn btn-ink" type="submit">Arvuta</button>
+    </form>
+    <div class="hero-note rise">
+      <div><strong>48 tundi</strong>ja näete eskiisi oma autol</div>
+      <div><strong>alates 4 760 €</strong>BC Forged komplekt</div>
+    </div>
+  </div>
+  <figure class="hero-photo clip">
+    <img src="https://baanvelgen.com/cdn/shop/collections/Brixton_forged_PF7_ferrari_812_gts_22_inch.jpg?v=1673537685&width=1800" alt="Ferrari 812 GTS sepistatud velgedel Brixton Forged PF7, 22 tolli" fetchpriority="high" referrerpolicy="no-referrer">
+    <figcaption>Ferrari 812 GTS, Brixton Forged PF7, 22″</figcaption>
+  </figure>
+</section>
+
+<section id="models">
+  <div class="wrap">
+    <div class="head">
+      <h2>Kõige sagedamini tellitud mudelid</h2>
+      <p>See on väike osa kataloogist: ainuüksi BC Forgedil on üle 400 disaini. Iga mudel tehakse vajalikus läbimõõdus, laiuses ja ET-ga, mis tahes viimistlusega</p>
+    </div>
+    <div class="cat">
+      <div class="feature">
+        <div class="stage" id="spin" role="img" aria-label="BC Forged KL01, velge saab sõrme või hiirega keerutada">
+          <img src="https://www.bcforged.com.tw/upload_image/product/product_42844.png" data-alt="https://baanvelgen.com/cdn/shop/files/BC-Forged-KL01-royal-gold-satin.webp?v=1759137800&width=1200" alt="" draggable="false" referrerpolicy="no-referrer">
+        </div>
+        <div class="brand" style="margin-top:16px">BC Forged</div>
+        <h3>KL01</h3>
+        <div class="spec"><span>monoblokk</span><span>18-24″</span><span>laius 5-13″</span><span>Porsche GT3 RS-ile</span></div>
+        <p class="hint">Keerutage velge sõrme või hiirega</p>
+      </div>
+      <a class="w mid" href="#quote" data-model="BC Forged HCA197S"><div class="stage"><img loading="lazy" src="https://www.bcforged.com.tw/upload_image/productHidden/productHidden_37631.png" data-alt="https://baanvelgen.com/cdn/shop/files/BC-Forged-HCA197-brushed-grey-bronze.webp?v=1747594444&width=700" alt="BC Forged HCA197S" referrerpolicy="no-referrer"></div><span class="brand">BC Forged</span><h3>HCA197S</h3><div class="spec"><span>kaheosaline</span><span>18-23″</span></div></a>
+      <a class="w mid" href="#quote" data-model="BC Forged TH09"><div class="stage"><img loading="lazy" src="https://www.bcforged.com.tw/upload_image/product/product_37655.png" data-alt="https://baanvelgen.com/cdn/shop/files/BC-Forged-TH09-dark-brushed-black.webp?v=1747594445&width=700" alt="BC Forged TH09" referrerpolicy="no-referrer"></div><span class="brand">BC Forged</span><h3>TH09</h3><div class="spec"><span>monoblokk</span><span>17-22″</span></div></a>
+      <a class="w mid" href="#quote" data-model="BC Forged KL52"><div class="stage"><img loading="lazy" src="https://www.bcforged.com.tw/upload_image/product/product_38174.png" data-alt="https://baanvelgen.com/cdn/shop/files/BC-Forged-KL52-clear-brushed.webp?v=1747594445&width=700" alt="BC Forged KL52" referrerpolicy="no-referrer"></div><span class="brand">BC Forged</span><h3>KL52</h3><div class="spec"><span>monoblokk</span><span>18-24″</span></div></a>
+      <a class="w mid" href="#quote" data-model="BC Forged RZ25"><div class="stage"><img loading="lazy" src="https://www.bcforged.com.tw/upload_image/product/product_39349.png" data-alt="https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=700" alt="BC Forged RZ25" referrerpolicy="no-referrer"></div><span class="brand">BC Forged</span><h3>RZ25</h3><div class="spec"><span>monoblokk</span><span>17-24″</span></div></a>
+      <a class="w mid" href="#quote" data-model="BC Forged AF55"><div class="stage"><img loading="lazy" src="https://www.bcforged.com.tw/upload_image/product/product_43878.png" data-alt="https://baanvelgen.com/cdn/shop/files/bc-forged-af55-gloss-black.webp?v=1788953575&width=700" alt="BC Forged AF55" referrerpolicy="no-referrer"></div><span class="brand">BC Forged</span><h3>AF55</h3><div class="spec"><span>monoblokk</span><span>18-24″</span></div></a>
+      <a class="w mid" href="#quote" data-model="BC Forged EH361"><div class="stage"><img loading="lazy" src="https://www.bcforged.com.tw/upload_image/product/product_42376.png" data-alt="https://baanvelgen.com/cdn/shop/files/BC-Forged-EH361-antracite-Front-diamond-cut_d4504d83-acfe-42fe-b773-8be385093a8c.webp?v=1747682986&width=700" alt="BC Forged EH361" referrerpolicy="no-referrer"></div><span class="brand">BC Forged</span><h3>EH361</h3><div class="spec"><span>monoblokk</span><span>18-24″</span></div></a>
+      <a class="w mid" href="#quote" data-model="Brixton Forged FDE11"><div class="stage"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/files/brixton-forged-fde11-monoblock-wheel-5-lug.webp?v=1738162214&width=700" alt="Brixton Forged FDE11" referrerpolicy="no-referrer"></div><span class="brand">Brixton Forged</span><h3>FDE11</h3><div class="spec"><span>monoblokk</span><span>autole mõõdus</span></div></a>
+      <a class="w mid" href="#quote" data-model="Brixton Forged PF9 Carbon+"><div class="stage"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/products/brixton-forged-pf9-2p-carbon-series1.jpg?v=1671471198&width=700" alt="Brixton Forged PF9 Carbon+" referrerpolicy="no-referrer"></div><span class="brand">Brixton Forged</span><h3>PF9 Carbon+</h3><div class="spec"><span>sepistatud keskosa</span><span>süsinikkiust velg</span></div></a>
+    </div>
+    <div class="cat-foot"><span>Klõpsake mudelil ja see lisatakse päringusse</span><span>MV Forged ja AL13 päringu peale</span></div>
+  </div>
+</section>
+
+
+<section id="cars" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <h2>Valik auto järgi</h2>
+      <p>Valige auto ja näitame, mida sellele tavaliselt pannakse. Esimesena on mudelid, mis on tehtud just sellele autole. Hinnad on ligikaudsed</p>
+    </div>
+    <div class="makes" id="makes" role="tablist" aria-label="Mark"></div>
+    <div class="models" id="models2" aria-label="Mudel"></div>
+    <div class="fit" id="fit" aria-live="polite"></div>
+    <div class="fit-cta"><span id="fitCar"></span><a class="btn btn-ink" href="#quote" id="fitGo">Küsi hinda sellele autole</a></div>
+  </div>
+</section>
+
+<section id="bc" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <h2>Mis on BC Forged</h2>
+      <p>Taiwani sepistatud velgede tootja oma tehasega. Iga velg freesitakse sepistatud toorikust konkreetse auto jaoks, ka poldimuster ja keskava tehakse teie auto järgi</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>6061-T6</b><span>lennundusalumiinium, T6 karastus</span></div>
+      <div class="fact"><b>10 000 t</b><span>pressi jõud sepistamisel</span></div>
+      <div class="fact"><b>3 + 1 aasta</b><span>garantii konstruktsioonile ja viimistlusele</span></div>
+      <div class="fact"><b>JWL ja VIA</b><span>Jaapani löögi- ja väsimustestid</span></div>
+    </div>
+    <div class="lines">
+      <div class="line"><h3>Monoblokk</h3><div class="meta">19 seeriat, 17-24″</div><p>Ühest toorikust valmistatud terviklik velg. Kõige kergem ja jäigem. Seeriad KL, RZ, EH, TH, AF ja teised</p></div>
+      <div class="line"><h3>Kaheosalised</h3><div class="meta">11 seeriat, 17-23″</div><p>Sepistatud keskosa kinnitatakse velje külge poltidega. Sügav äär ja lai velg, poltide värv omal valikul. Seeriad HCA, HCS, LE, HC</p></div>
+      <div class="line"><h3>Süsinikkiud</h3><div class="meta">seeria CFN, 20-22″</div><p>Hübriidkonstruktsioon süsinikkiust veljega, et kaal oleks minimaalne</p></div>
+    </div>
+    <div class="fin">
+      <h3>Viimistlus</h3>
+      <p class="note">Umbes 40 varianti. Siin on populaarseimad, värvid ekraanil on ligikaudsed</p>
+      <div class="sw">
+        <div><i style="background:linear-gradient(135deg,#d9dadb,#a9abad 60%,#e4e5e6)"></i>Läbipaistev harjatud</div>
+        <div><i style="background:linear-gradient(135deg,#5b5e62,#3b3e42)"></i>Grafiit</div>
+        <div><i style="background:linear-gradient(135deg,#2a2b2d,#111214)"></i>Matt must</div>
+        <div><i style="background:linear-gradient(135deg,#8a6a43,#5e452a)"></i>Pronks</div>
+        <div><i style="background:linear-gradient(135deg,#d8b56a,#a9843f)"></i>Kuninglik kuld</div>
+        <div><i style="background:linear-gradient(135deg,#b97a4a,#7d4a2a)"></i>Vask</div>
+        <div><i style="background:linear-gradient(135deg,#25344d,#121b2b)"></i>Tumesinine</div>
+        <div><i style="background:linear-gradient(135deg,#f3f3f1,#d5d6d3)"></i>Läikiv valge</div>
+      </div>
+      <p class="note" style="margin-top:18px">Lisavalikud: keskmutter (centerlock), rehvi istumispinna rihveldus, et rehv ei pöörleks, teemantlõikega esipind, kahe viimistluse kombinatsioon. Komplektis on freesitud kesksiil ja alumiiniumventiil</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="brands" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <h2>Kõik brändid, mida toome</h2>
+      <p>Kümme brändi Euroopa edasimüüja kaudu: taskukohastest OZ-ist ja BBS Performance'ist kuni ainueksemplaridena valmivate ANRKY veljedeni. Kui vajalikku brändi nimekirjas pole, küsige, sageli saab ka seda tellida</p>
+    </div>
+    <div class="bgrid"><article class="bcard wide"><div class="thumbs"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/files/bc-forged-af55-gloss-black.webp?v=1788953575&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/files/bc-forged-hca196-forged-wheel-detail.webp?v=1770146864&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/files/BC-Forged-HCA197-brushed-grey-bronze.webp?v=1747594444&width=600" alt="" referrerpolicy="no-referrer"></div><h3>BC Forged</h3><p>Taiwan. Üle 400 disaini: monoblokid, kaheosalised ja süsinikkiust, valmistamine 4-6 nädalat</p><div class="price">alates 4 760 € komplekt</div></article><article class="bcard wide"><div class="thumbs"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/files/Brixton-Forged-CM5-R-ultrasport-porsche-gt3-rs.webp?v=1759138409&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/files/brixton-forged-fde11-monoblock-wheel-5-lug.webp?v=1738162214&width=600" alt="" referrerpolicy="no-referrer"></div><h3>Brixton Forged</h3><p>USA. Monoblokid, kahe- ja kolmeosalised, süsinikkiust ja magneesiumist seeriad</p><div class="price">päringu peale</div></article><article class="bcard"><div class="thumbs"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/products/bbs_fi-r_satin_black.jpg?v=1669213822&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/products/bbs_lm-r_diamond_silver_wheel.jpg?v=1669224558&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/products/bbs_lm_dsk-p_3.jpg?v=1669278404&width=600" alt="" referrerpolicy="no-referrer"></div><h3>BBS Forged</h3><p>Saksamaa. Sepistatud FI-R, LM-R ja legendaarne LM</p><div class="price">alates 1 060 € velg</div></article><article class="bcard"><div class="thumbs"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/files/BBS-RT88-gold-BMW-G8X-M3-M4.webp?v=1740463802&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/files/BBS-E88-BMW-G8X-M3_M4-gold.webp?v=1744624127&width=600" alt="" referrerpolicy="no-referrer"></div><h3>BBS Motorsport</h3><p>Saksamaa. Võidusõidu sepistatud veljed, ka keskmutriga. Valmistamine 90-110 päeva</p><div class="price">alates 6 950 €</div></article><article class="bcard"><div class="thumbs"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/products/bbs-chr_all_3_1.jpg?v=1670860221&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/products/bbs-cc-r-satin-black.jpg?v=1669231977&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/products/bbs-chr_bs_5_2.jpg?v=1669202967&width=600" alt="" referrerpolicy="no-referrer"></div><h3>BBS Performance</h3><p>Saksamaa. Flow formed tehnoloogiaga valuveljed, seeriad CH-R, CC-R</p><div class="price">alates 547 € velg</div></article><article class="bcard"><div class="thumbs"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/products/oz-ultraleggera-hlt-colors-wheels.jpg?v=1671464995&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/products/oz-ultraleggera-hlt-satin-black.jpg?v=1669209079&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/products/oz-ultraleggera-hlt-central-lock-colors.jpg?v=1671465026&width=600" alt="" referrerpolicy="no-referrer"></div><h3>OZ Racing</h3><p>Itaalia. Kerged Ultraleggera HLT ja sepistatud Superleggera</p><div class="price">alates 425 € velg</div></article><article class="bcard"><div class="thumbs"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/products/vorsteiner-vff107-carbon-graphite-side-view_7.jpg?v=1669224285&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/products/vorsteiner_venom_rex_601_flow_forged_wheels_1_1.jpg?v=1669227403&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/products/vorsteiner-nero-forged-wheel-3p-vfn-518-step-lip_1.jpg?v=1671472546&width=600" alt="" referrerpolicy="no-referrer"></div><h3>Vorsteiner</h3><p>USA. Monoblokid, astmelise äärega kolmeosalised Nero ja flow forged veljed</p><div class="price">alates 2 990 €</div></article><article class="bcard"><div class="thumbs"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/files/anrky-s3-x0-wheels.jpg?v=1727204542&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/files/ANRKY-S1-X3-satin-black-finish.jpg?v=1726042934&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/files/ANRKY_XR-205_XR-205_Brushed_Clear_finish.jpg?v=1713189525&width=600" alt="" referrerpolicy="no-referrer"></div><h3>ANRKY</h3><p>USA. Ainueksemplaridena valmivad monoblokid ja kolmeosalised, turu tipp</p><div class="price">alates 12 000 €</div></article><article class="bcard"><div class="thumbs"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/files/a13c8118fe4883fb06476fa1e65308b867c3dff4-2000x2000.png?v=1785105040&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/files/44b269299ab6be39fdc341e880768b70a471adc5-2000x2000.png?v=1785104742&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/files/43555f0ef7535e08d8d74bb4ecc368c422d67010-2000x2000.png?v=1785104356&width=600" alt="" referrerpolicy="no-referrer"></div><h3>Apex</h3><p>USA. Kerged flow formed ja sepistatud veljed rajale ja igapäevaseks sõiduks</p><div class="price">alates 520 € velg</div></article><article class="bcard"><div class="thumbs"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/products/IPE_MFR02_magnesium_wheel_indigo_blue.png?v=1677504615&width=600" alt="" referrerpolicy="no-referrer"><img loading="lazy" src="https://baanvelgen.com/cdn/shop/products/ipe_wheels_magnesium_mfr_01_indigo_blue.jpg?v=1671480436&width=600" alt="" referrerpolicy="no-referrer"></div><h3>iPE</h3><p>Taiwan. Magneesiumveljed Porsche GT3 ja GT3 RS jaoks</p><div class="price">alates 16 250 €</div></article></div>
+    <p class="scale-note" style="margin-top:16px">Hinnad on ligikaudsed, edasimüüja jaehinna järgi. Osa brändide puhul on hind velje kohta, osal komplekti kohta. Täpse summa koos tarnega ütleme pärast valikut. Tellida saab ka: Vossen, HRE, ADV.1, PUR ning tuuningustuudiod Novitec, Brabus, Manthey Racing</p>
+  </div>
+</section>
+
+<section id="types" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <h2>Monoblokk või mitmeosaline</h2>
+      <p>Peamine valik pärast disaini. Erinevus on kaalus, ääre sügavuses ja hinnas</p>
+    </div>
+    <div class="tw">
+      <table class="types">
+        <thead><tr><th scope="col">Konstruktsioon</th><th scope="col">Kuidas tehtud</th><th scope="col">Kellele sobib</th><th scope="col">Hind</th></tr></thead>
+        <tbody>
+          <tr><td>Monoblokk</td><td>Freesitakse ühest sepistatud toorikust</td><td>Kui olulised on kergus ja jäikus: sportautod, BMW M, AMG</td><td>alates 4 760 €</td></tr>
+          <tr><td>Kaheosaline</td><td>Sepistatud keskosa kinnitatakse velje külge poltidega</td><td>Kui vaja on sügavat äärt või ebatavalist laiust</td><td>alates 6 030 €</td></tr>
+          <tr><td>Kolmeosaline</td><td>Keskosa ja kaks veljepoolt (Brixton)</td><td>Kui soovite sügavat poleeritud äärt: G-Class, Range Rover, Rolls-Royce</td><td>päringu peale</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="scale-note" style="margin-top:14px">Hinnad on ligikaudsed, 4 BC Forged velje komplekt koos käibemaksuga. Täpne hind sõltub läbimõõdust, laiusest ja viimistlusest</p>
+  </div>
+</section>
+
+<section class="proof">
+  <figure><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0627/9590/7277/files/BC-Forged-HCA386-S-porsche-992-2-GTS.webp" alt="Porsche 992 GTS BC Forged HCA386-S velgedel" referrerpolicy="no-referrer"></figure>
+  <div class="txt">
+    <h2>Kõigepealt eskiis, siis otsus</h2>
+    <p>Saatke meile auto mudel ja värv. 48 tunni jooksul valime 2-3 õige istuvusega varianti ja näitame, kuidas need teie autol välja näevad. Enne tootmist saadame kinnitamiseks velje läbilõike joonise</p>
+    <a class="btn" href="#quote">Soovin eskiisi</a>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="head">
+      <h2>Tähtajad, joonistatud mõõtkavas</h2>
+      <p>Peaaegu kogu aeg kulub sepistamisele ja töötlemisele tehases. Ülejäänu teeme kiiresti</p>
+    </div>
+    <div class="scale" aria-hidden="true">
+      <div class="track">
+        <div class="seg" style="left:0;width:3.5%"></div>
+        <div class="seg" style="left:4%;width:6%"></div>
+        <div class="seg prod" style="left:10.5%;width:64.5%"></div>
+        <div class="seg" style="left:75.5%;width:12%"></div>
+      </div>
+      <div class="ticks"><span style="left:0">0</span><span style="left:12.5%">1 näd</span><span style="left:25%">2</span><span style="left:37.5%">3</span><span style="left:50%">4</span><span style="left:62.5%">5</span><span style="left:75%">6</span><span style="left:87.5%">7</span><span style="left:100%">8 näd</span></div>
+    </div>
+    <p class="scale-note">Näide BC Forgedi kohta, tootmine kuni 6 nädalat. Brixtonil kestab tootmine 7-10 nädalat</p>
+    <div class="phases">
+      <div class="ph"><div class="n">1</div><h3>Vestlus</h3><p>Auto, stiil, eelarve</p><div class="t">päringu päeval</div></div>
+      <div class="ph"><div class="n">2</div><h3>Valik ja eskiis</h3><p>Poldimuster, ET, koormus, pidurid, visualiseerimine</p><div class="t">kuni 48 tundi</div></div>
+      <div class="ph"><div class="n">3</div><h3>Joonis ja ettemaks</h3><p>Kinnitame läbilõike joonise, 50% ettemaks, tootmise algus</p><div class="t">2-3 päeva</div></div>
+      <div class="ph"><div class="n">4</div><h3>Valmistamine</h3><p>Sepistamine, kuumtöötlus, freesimine ja värvimine tehases</p><div class="t">4-6 nädalat</div></div>
+      <div class="ph"><div class="n">5</div><h3>Tarne ja paigaldus</h3><p>Ülejäänud makse, tarne Tallinnasse, paigaldus ja tasakaalustamine partnerite juures</p><div class="t">umbes nädal</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-sec" id="quote">
+  <div class="wrap quote">
+    <div class="lead">
+      <h2>Hinnapakkumine teie autole</h2>
+      <p>Neli lühikest sammu. Päring jõuab meieni Telegrami või WhatsAppi kaudu, vastame päeva jooksul eesti, vene või inglise keeles</p>
+      <ul>
+        <li>istuvuse kontroll teie autole</li>
+        <li>eskiis enne igasugust makset</li>
+        <li>hind koos tarnega ühe summana</li>
+        <li>õiged kinnitusdetailid komplektis</li>
+      </ul>
+    </div>
+
+    <form class="form" id="form" novalidate>
+      <div class="prog" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span></div>
+
+      <fieldset class="fs on" data-s="1" style="border:0">
+        <h3>Teie auto</h3><p class="hint">Et kohe kontrollida istuvust ja pidureid</p>
+        <div class="fields">
+          <select id="fMake" aria-label="Mark"><option value="">Mark</option></select>
+          <input id="fModel" placeholder="Mudel ja versioon" aria-label="Mudel ja versioon" maxlength="60" autocomplete="off">
+          <input id="fYear" placeholder="Väljalaskeaasta" inputmode="numeric" aria-label="Väljalaskeaasta" maxlength="4" autocomplete="off">
+          <input id="fColor" placeholder="Kere värv" aria-label="Kere värv" maxlength="40" autocomplete="off">
+        </div>
+        <div class="q"><span>Pidurid</span><div class="chips" data-k="brakes"><button type="button" class="chip">Tehase omad</button><button type="button" class="chip">Süsinikkeraamilised</button><button type="button" class="chip">Tuuning</button></div></div>
+        <div class="q"><span>Vedrustus</span><div class="chips" data-k="ride"><button type="button" class="chip">Standardne</button><button type="button" class="chip">Madaldatud</button><button type="button" class="chip">Õhkvedrustus</button></div></div>
+      </fieldset>
+
+      <fieldset class="fs" data-s="2" style="border:0">
+        <h3>Milline stiil meeldib</h3><p class="hint">Võite valida mitu või selle sammu vahele jätta</p>
+        <div class="q"><span>Bränd</span><div class="chips" data-k="brand" data-multi><button type="button" class="chip">BC Forged</button><button type="button" class="chip">Brixton Forged</button><button type="button" class="chip">MV Forged või AL13</button><button type="button" class="chip">BBS, OZ või muu</button><button type="button" class="chip">Soovitage</button></div></div>
+        <div class="q"><span>Konstruktsioon</span><div class="chips" data-k="build" data-multi><button type="button" class="chip">Monoblokk</button><button type="button" class="chip">Kaheosaline</button><button type="button" class="chip">Kolmeosaline</button><button type="button" class="chip">Ei tea veel</button></div></div>
+        <div class="q"><span>Viimistlus</span><div class="chips" data-k="finish" data-multi><button type="button" class="chip">Harjatud</button><button type="button" class="chip">Grafiit</button><button type="button" class="chip">Must</button><button type="button" class="chip">Pronks</button><button type="button" class="chip">Kuld</button><button type="button" class="chip">Kere värvi</button></div></div>
+        <div class="q"><span>Mudel kataloogist</span><input id="fWheel" placeholder="Näiteks BC Forged KL52" aria-label="Velgede mudel" maxlength="60" autocomplete="off"></div>
+      </fieldset>
+
+      <fieldset class="fs" data-s="3" style="border:0">
+        <h3>Mõõt ja aeg</h3><p class="hint">Ligikaudu, täpsemalt arvutame ise</p>
+        <div class="q"><span>Läbimõõt</span><div class="chips" data-k="size"><button type="button" class="chip">19″</button><button type="button" class="chip">20″</button><button type="button" class="chip">21″</button><button type="button" class="chip">22″</button><button type="button" class="chip">23″ ja suurem</button><button type="button" class="chip">Nagu praegu</button></div></div>
+        <div class="q"><span>Laius ees ja taga</span><div class="chips" data-k="setup"><button type="button" class="chip">Ühesugune</button><button type="button" class="chip">Taga laiem</button><button type="button" class="chip">Nagu tehasest</button></div></div>
+        <div class="q"><span>Eelarve komplektile</span><div class="chips" data-k="budget"><button type="button" class="chip">kuni 5 000 €</button><button type="button" class="chip">5 000-7 000 €</button><button type="button" class="chip">7 000-10 000 €</button><button type="button" class="chip">üle 10 000 €</button></div></div>
+        <div class="q"><span>Millal soovite tellida</span><div class="chips" data-k="when"><button type="button" class="chip">Kohe</button><button type="button" class="chip">Kuu aja jooksul</button><button type="button" class="chip">Kevadeks</button><button type="button" class="chip">Alles vaatan ringi</button></div></div>
+      </fieldset>
+
+      <fieldset class="fs" data-s="4" style="border:0">
+        <h3>Kuhu pakkumine saata</h3><p class="hint">Kontrollige päringut ja valige sõnumirakendus. Auto foto saate lisada vestluses</p>
+        <div class="fields">
+          <input id="fName" placeholder="Teie nimi" aria-label="Nimi" maxlength="40" autocomplete="given-name">
+          <input id="fNote" placeholder="Kommentaar" aria-label="Kommentaar" maxlength="200" autocomplete="off">
+        </div>
+        <div class="summary" id="sum" aria-live="polite"></div>
+        <div class="send">
+          <a class="btn btn-ink" id="sendTg" target="_blank" rel="noopener noreferrer">Saada Telegrami</a>
+          <a class="btn btn-ghost" id="sendWa" target="_blank" rel="noopener noreferrer">Saada WhatsAppi</a>
+        </div>
+        <p class="privacy">Sait ei salvesta midagi: päringu tekst avaneb valitud sõnumirakenduses ja teie otsustate, kas selle saata</p>
+      </fieldset>
+
+      <div class="fnav">
+        <button type="button" class="back" id="prev" hidden>Tagasi</button>
+        <span></span>
+        <button type="button" class="btn btn-ink" id="next">Edasi</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="head"><h2>Korduma kippuvad küsimused</h2><p>Kui teie küsimust siin pole, kirjutage meile</p></div>
+    <div class="faq">
+      <details><summary>Kui palju komplekt maksab?</summary><p>BC Forgedi puhul ligikaudu: monoblokk alates 4 760 €, kaheosalised alates 6 030 € komplekt. Hind kasvab koos läbimõõdu, laiuse ja viimistluse keerukusega. Hinnad sisaldavad käibemaksu, tarne Eestis on hinna sees. Täpse summa ütleme pärast valikut, enne igasugust makset</p></details>
+      <details><summary>Miks see nii kaua võtab?</summary><p>Komplekt sepistatakse ja töödeldakse teie auto jaoks: mõõt, ET, poldimuster, keskava ja viimistlus. See on tellimustootmine, mitte laokaup</p></details>
+      <details><summary>Kuidas maksta?</summary><p>50% pärast eskiisi ja joonise kinnitamist, ülejäänu enne tehasest saatmist. Veljed valmivad individuaalselt, seetõttu ei saa tellimust pärast tootmise algust tühistada</p></details>
+      <details><summary>Kas läbin tehnoülevaatuse?</summary><p>BC Forged veljed läbivad Jaapani tugevustestid JWL ja VIA. Euroopa TÜV-sertifikaati tellimusel valmivatel velgedel ei ole: seda saavad ainult seeriamudelid. Eesti tehnoülevaatusel kontrollitakse istuvust: rehv sobib veljega, ratas ei hõõru, turvis ei ulatu poritiivast välja, kinnitusdetailid on õiged. Me valime parameetrid teie auto järgi, tulemus sõltub õigest paigaldusest</p></details>
+      <details><summary>Kuidas on garantiiga?</summary><p>BC Forged annab 3 aastat garantiid konstruktsioonile ja 1 aasta viimistlusele. Kui midagi on valesti, saatke foto ja tellimuse number, edasi suhtleme tehasega meie</p></details>
+      <details><summary>Kas need sobivad minu piduritega?</summary><p>Küsime päringus pidurite kohta ja kontrollime vahet pidurisadulani. Süsinikkeraamiliste ja tuuningpidurite jaoks valime kodarate profiili eraldi</p></details>
+      <details><summary>Kus paigaldada?</summary><p>Meie partnerite rehvitöökodades Tallinnas, koos tasakaalustamise ja õigete kinnitusdetailidega. Võime valida ka rehvid uutele velgedele</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><a class="mark" href="#top">Nordvelg</a><p style="margin-top:12px;max-width:34ch">Sepistatud veljed BC Forged, Brixton Forged ja MV Forged tellimusel Tallinnas</p></div>
+      <div><a href="https://t.me/alekseipsk" target="_blank" rel="noopener noreferrer">Telegram @alekseipsk</a><br><a href="https://wa.me/37257494989" target="_blank" rel="noopener noreferrer">WhatsApp +372 57 49 49 89</a></div>
+      <div>Juka Media OÜ<br>Tallinn, Eesti</div>
+    </div>
+    <div class="foot-end">Velgede ja autode fotod: BC Forged, Brixton Forged, Baan Velgen. Kaubamärgid kuuluvad nende omanikele</div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/37257494989?text=Tere%21%20Soovin%20hinnapakkumist%20sepistatud%20velgedele" target="_blank" rel="noopener noreferrer" aria-label="Kirjuta WhatsAppis"><svg viewBox="0 0 24 24" fill="#E9EAEC" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.1 1.6 2.5 4 3.5 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.2z"/></svg></a>
+
+<script>
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id)};
+var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* makes */
+var MAKES=["Audi","Bentley","BMW","Ferrari","Lamborghini","Land Rover / Range Rover","Lexus","Maserati","McLaren","Mercedes-Benz","Mercedes-AMG","Porsche","Rolls-Royce","Tesla","Toyota","Volkswagen","Volvo","Muu"];
+["pMake","fMake"].forEach(function(id){var el=$(id);MAKES.forEach(function(m){var o=document.createElement("option");o.textContent=m;el.appendChild(o);});});
+
+/* image fallback: official BC site first, Baan Velgen copy if it fails */
+document.querySelectorAll("img[data-alt]").forEach(function(img){
+  img.addEventListener("error",function(){if(img.dataset.alt&&img.src!==img.dataset.alt){img.src=img.dataset.alt;img.dataset.alt="";}});
+});
+
+/* one orchestrated load moment, Web Animations API, no third-party script */
+if(!reduce&&document.querySelector(".clip").animate){
+  document.querySelector(".clip").animate([{clipPath:"inset(0 0 0 100%)"},{clipPath:"inset(0 0 0 0)"}],{duration:1100,easing:"cubic-bezier(.7,0,.2,1)"});
+  document.querySelectorAll(".rise").forEach(function(el,i){
+    el.animate([{opacity:0,transform:"translateY(14px)"},{opacity:1,transform:"none"}],{duration:700,delay:450+i*80,easing:"cubic-bezier(.2,.7,.2,1)",fill:"backwards"});
+  });
+}
+
+/* drag to spin the featured wheel, with inertia */
+(function(){
+  var stage=$("spin"),img=stage.querySelector("img"),angle=0,vel=0,dragging=false,lastX=0,lastT=0,raf=0;
+  function draw(){img.style.transform="rotate("+angle+"deg)";}
+  function coast(){vel*=0.95;angle+=vel;draw();if(Math.abs(vel)>0.05){raf=requestAnimationFrame(coast);}}
+  stage.addEventListener("pointerdown",function(e){dragging=true;lastX=e.clientX;lastT=performance.now();vel=0;cancelAnimationFrame(raf);stage.setPointerCapture(e.pointerId);});
+  stage.addEventListener("pointermove",function(e){if(!dragging)return;var now=performance.now(),dx=e.clientX-lastX;angle+=dx*0.6;vel=dx*0.6/Math.max(16,now-lastT)*16;lastX=e.clientX;lastT=now;draw();});
+  function end(){if(!dragging)return;dragging=false;if(!reduce)raf=requestAnimationFrame(coast);}
+  stage.addEventListener("pointerup",end);stage.addEventListener("pointercancel",end);
+  if(!reduce){vel=-9;raf=requestAnimationFrame(coast);}
+})();
+
+/* form state */
+var sel={};
+document.querySelectorAll(".chips").forEach(function(g){
+  var k=g.dataset.k,multi=g.hasAttribute("data-multi");sel[k]=[];
+  g.querySelectorAll(".chip").forEach(function(c){c.setAttribute("aria-pressed","false");});
+  g.addEventListener("click",function(e){
+    var c=e.target.closest(".chip");if(!c)return;
+    var was=c.getAttribute("aria-pressed")==="true";
+    if(!multi)g.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed","false");});
+    c.setAttribute("aria-pressed",String(!was));
+    sel[k]=Array.prototype.map.call(g.querySelectorAll('.chip[aria-pressed="true"]'),function(x){return x.textContent;});
+    upd();
+  });
+});
+var step=1,MAX=4,steps=document.querySelectorAll(".fs"),bars=document.querySelectorAll(".prog span");
+function go(n){
+  step=Math.min(MAX,Math.max(1,n));
+  steps.forEach(function(s){s.classList.toggle("on",+s.dataset.s===step);});
+  bars.forEach(function(b,i){b.classList.toggle("on",i<step);});
+  $("prev").hidden=step===1;$("next").hidden=step===MAX;upd();
+}
+function clean(v){return String(v||"").replace(/[\u0000-\u001f]/g," ").trim().slice(0,200);}
+function text(){
+  var L=["Tere! Soovin hinnapakkumist sepistatud velgedele"];
+  var car=[clean($("fMake").value),clean($("fModel").value),clean($("fYear").value)].filter(Boolean).join(" ");
+  if(car)L.push("Auto: "+car+(clean($("fColor").value)?", värv "+clean($("fColor").value):""));
+  if(clean($("fWheel").value))L.push("Velgede mudel: "+clean($("fWheel").value));
+  var map={brakes:"Pidurid",ride:"Vedrustus",brand:"Bränd",build:"Konstruktsioon",finish:"Viimistlus",size:"Läbimõõt",setup:"Laius",budget:"Eelarve",when:"Millal"};
+  for(var k in map){if(sel[k]&&sel[k].length)L.push(map[k]+": "+sel[k].join(", "));}
+  if(clean($("fNote").value))L.push("Kommentaar: "+clean($("fNote").value));
+  if(clean($("fName").value))L.push("Nimi: "+clean($("fName").value));
+  return L.join("\n");
+}
+function upd(){
+  var t=text();$("sum").textContent=t;
+  $("sendTg").href="https://t.me/alekseipsk?text="+encodeURIComponent(t);
+  $("sendWa").href="https://wa.me/37257494989?text="+encodeURIComponent(t);
+}
+["fName","fNote","fMake","fModel","fYear","fColor","fWheel"].forEach(function(id){$(id).addEventListener("input",upd);});
+$("next").addEventListener("click",function(){go(step+1);});
+$("prev").addEventListener("click",function(){go(step-1);});
+$("form").addEventListener("submit",function(e){e.preventDefault();});
+$("pick").addEventListener("submit",function(e){
+  e.preventDefault();$("fMake").value=$("pMake").value;$("fModel").value=$("pModel").value;go(1);
+  var target=(window.__pickCar&&window.__pickCar($("pMake").value))?"cars":"quote";
+  $(target).scrollIntoView({behavior:reduce?"auto":"smooth"});
+});
+document.querySelectorAll(".w[data-model]").forEach(function(a){a.addEventListener("click",function(){$("fWheel").value=a.dataset.model;upd();});});
+go(1);
+})();
+
+/* by-car picker */
+(function(){
+  var DATA={"Porsche": {"992 GT3": [{"b": "BBS", "n": "RT88 Centerlock", "c": "keskmutter", "i": "https://baanvelgen.com/cdn/shop/files/BBS-RT88-gold-BMW-G8X-M3-M4.webp?v=1740463802&width=600", "p": 10263}, {"b": "Manthey Racing", "n": "OM-1 Porsche 992 GT3", "c": "", "i": "https://baanvelgen.com/cdn/shop/products/manthey_racing_om-1_wheels_porsche_992_gt3_platinum_silver.jpg?v=1669240436&width=600", "p": 13189}, {"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "iPE", "n": "magnesium MFR-02 Porsche 992 GT3", "c": "", "i": "https://baanvelgen.com/cdn/shop/products/IPE_MFR02_magnesium_wheel_indigo_blue.png?v=1677504615&width=600", "p": 16750}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}], "992 Turbo": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "992 GT3 RS": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BBS", "n": "FI-R EVO Centerlock", "c": "keskmutter", "i": "https://baanvelgen.com/cdn/shop/files/bbs-fi-r-evo-centerlock-white-gold.webp?v=1785703063&width=600", "p": 9992}, {"b": "BBS", "n": "RT88 Centerlock", "c": "keskmutter", "i": "https://baanvelgen.com/cdn/shop/files/BBS-RT88-gold-BMW-G8X-M3-M4.webp?v=1740463802&width=600", "p": 10346}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}], "Cayenne E3": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "Macan Electric": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "718 Cayman GT4": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}]}, "Ferrari": {"296 GTB": [{"b": "BC Forged", "n": "AF55", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-af55-gloss-black.webp?v=1788953575&width=600", "p": 4650}, {"b": "Novitec", "n": "NF8 Directional", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/novitec-nf8-ferrari-296-brushed-gloss-clear-angle_a1d25268-6144-4671-bba8-8283cf30ed61.webp?v=1784139348&width=600", "p": 13019}, {"b": "Novitec", "n": "NF9", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/novitec-nf9-gloss-clear--vossen-wheels.webp?v=1781720149&width=600", "p": 13019}, {"b": "BC Forged", "n": "HCA196 / HCA196S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-hca196-forged-wheel-detail.webp?v=1770146864&width=600", "p": 5890}, {"b": "BC Forged", "n": "HCA197S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC-Forged-HCA197-brushed-grey-bronze.webp?v=1747594444&width=600", "p": 5890}, {"b": "BC Forged", "n": "HC056S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC-Forged-HC056S-clear-brushed_b5a1de78-89ac-4dd9-b977-0632028d0867.webp?v=1747682987&width=600", "p": 5890}, {"b": "BC Forged", "n": "EH361", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/BC-Forged-EH361-antracite-Front-diamond-cut_d4504d83-acfe-42fe-b773-8be385093a8c.webp?v=1747682986&width=600", "p": 4650}], "F8 Tributo": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}], "SF90": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "Purosangue": [{"b": "Novitec", "n": "NF9", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/novitec-nf9-forged-wheel-ferrari-purosangue.webp?v=1781635128&width=600", "p": 14470}, {"b": "BC Forged", "n": "HCA196 / HCA196S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-hca196-forged-wheel-detail.webp?v=1770146864&width=600", "p": 5890}, {"b": "BC Forged", "n": "HCA197S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC-Forged-HCA197-brushed-grey-bronze.webp?v=1747594444&width=600", "p": 5890}, {"b": "BC Forged", "n": "HC056S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC-Forged-HC056S-clear-brushed_b5a1de78-89ac-4dd9-b977-0632028d0867.webp?v=1747682987&width=600", "p": 5890}, {"b": "BC Forged", "n": "EH361", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/BC-Forged-EH361-antracite-Front-diamond-cut_d4504d83-acfe-42fe-b773-8be385093a8c.webp?v=1747682986&width=600", "p": 4650}, {"b": "BC Forged", "n": "TH09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/BC-Forged-TH09-dark-brushed-black.webp?v=1747594445&width=600", "p": 4650}, {"b": "BC Forged", "n": "TH06", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/BC-Forged-TH06-satin-antracite.webp?v=1747594445&width=600", "p": 4650}, {"b": "BC Forged", "n": "TH03", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/BC-Forged-TH03-dark-brushed-finish.webp?v=1747594444&width=600", "p": 4650}], "812 Superfast / GTS": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "12Cilindri": [{"b": "BC Forged", "n": "AF55", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-af55-gloss-black.webp?v=1788953575&width=600", "p": 4650}, {"b": "Novitec", "n": "NF11", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/novitec-nf11-forged-wheels-ferrari-12cilindri.jpg?v=1784358641&width=600", "p": 14710}, {"b": "Novitec", "n": "NF10", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/novitec-nf10-forged-wheels-ferrari-12cilindri.jpg?v=1784358641&width=600", "p": 14710}, {"b": "Novitec", "n": "NF9", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/novitec-nf9-forged-wheels-ferrari-12cilindri.jpg?v=1784358641&width=600", "p": 14470}, {"b": "BC Forged", "n": "HCA196 / HCA196S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-hca196-forged-wheel-detail.webp?v=1770146864&width=600", "p": 5890}, {"b": "BC Forged", "n": "HCA197S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC-Forged-HCA197-brushed-grey-bronze.webp?v=1747594444&width=600", "p": 5890}, {"b": "BC Forged", "n": "HC056S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC-Forged-HC056S-clear-brushed_b5a1de78-89ac-4dd9-b977-0632028d0867.webp?v=1747682987&width=600", "p": 5890}, {"b": "BC Forged", "n": "EH361", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/BC-Forged-EH361-antracite-Front-diamond-cut_d4504d83-acfe-42fe-b773-8be385093a8c.webp?v=1747682986&width=600", "p": 4650}]}, "Lamborghini": {"Urus": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "Huracan": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "Revuelto": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "Temerario": [{"b": "Novitec", "n": "NL7", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/novitec-nl7-forged-wheels-lamborghini-temerario.webp?v=1784222747&width=600", "p": 14960}, {"b": "Novitec", "n": "NL6", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/novitec-nl6-forged-wheels-lamborghini-temerario.webp?v=1784222747&width=600", "p": 14960}, {"b": "Novitec", "n": "NL5", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/novitec-nl5-forged-wheels-lamborghini-temerario.webp?v=1784222746&width=600", "p": 14960}, {"b": "BC Forged", "n": "KL52", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/BC-Forged-KL52-clear-brushed.webp?v=1747594445&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH675", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/BC-Forged-EH675-dark-brushed-black.jpg?v=1727697002&width=600", "p": 4650}, {"b": "ANRKY", "n": "S3-X0", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/anrky-s3-x0-wheels.jpg?v=1727204542&width=600", "p": 15500}, {"b": "BC Forged", "n": "MLE81", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_MLE81_30.jpg?v=1698679346&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "PF14-RS", "c": "", "i": "https://baanvelgen.com/cdn/shop/products/brixton-forged-pf14-rs.jpg?v=1671480929&width=600", "p": 14725}]}, "Mercedes-AMG": {"G63 W463A / W464": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "G63 W465": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "Brabus", "n": "MONOBLOCK ZM 24ʺ G63 AMG W465", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/Brabus-Monoblock-ZM-Platinum-Edition-w465-G63-AMG-24-inch.webp?v=1729076505&width=600", "p": 16650}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}], "C63 / C63 S W205": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "E63 / E63 S W213 / S213": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "GLS 63 X167": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}], "S63 W223 / C217": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "SL63 R232": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}]}, "BMW": {"M3 G80": [{"b": "BBS", "n": "RT88", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/BBS-RT88-gold-BMW-G8X-M3-M4.webp?v=1740463802&width=600", "p": 10065}, {"b": "BBS", "n": "E88", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/BBS-E88-BMW-G8X-M3_M4-gold.webp?v=1744624127&width=600", "p": 7420}, {"b": "BBS", "n": "LM-R", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/BBS-LM-R-Diamond-Silver-disk-Black-Bright-Diamond-cut-rim-DS-BKBD.jpg?v=1764592390&width=600", "p": 6950}, {"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}], "M4 G82 / G83": [{"b": "BBS", "n": "RT88", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/BBS-RT88-gold-BMW-G8X-M3-M4.webp?v=1740463802&width=600", "p": 10065}, {"b": "BBS", "n": "E88", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/BBS-E88-BMW-G8X-M3_M4-gold.webp?v=1744624127&width=600", "p": 7420}, {"b": "BBS", "n": "LM-R", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/BBS-LM-R-Diamond-Silver-disk-Black-Bright-Diamond-cut-rim-DS-BKBD.jpg?v=1764592390&width=600", "p": 6950}, {"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}], "M2 G87": [{"b": "BBS", "n": "RT88", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/BBS-RT88-gold-BMW-G8X-M3-M4.webp?v=1740463802&width=600", "p": 10065}, {"b": "BBS", "n": "E88", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/BBS-E88-BMW-G8X-M3_M4-gold.webp?v=1744624127&width=600", "p": 7420}, {"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BBS", "n": "LM-R", "c": "", "i": "https://baanvelgen.com/cdn/shop/files/BBS-LM-R-Diamond-Silver-disk-Black-Bright-Diamond-cut-rim-DS-BKBD.jpg?v=1764592390&width=600", "p": 6950}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}], "M5 G90 / G99": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "X5 G05": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}], "XM G09": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}]}, "Audi": {"RS6 C8": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}], "RS7 C8": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "RSQ8": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "RS3 8Y": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}]}, "Tesla": {"Model 3": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "Model Y": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "Model S": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "Model X": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}]}, "Land Rover": {"Range Rover L460": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}]}, "Bentley": {"Bentayga W12": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}]}, "Rolls-Royce": {"Cullinan Series II": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}]}, "McLaren": {"720S": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "750S": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}], "Artura": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ35", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz35.jpg?v=1671474248&width=600", "p": 4650}, {"b": "BC Forged", "n": "RZ09", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz09.jpg?v=1671474124&width=600", "p": 4650}, {"b": "BC Forged", "n": "EH172", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_eh172.jpg?v=1671473775&width=600", "p": 4650}]}, "Volkswagen": {"Golf R MK7": [{"b": "BC Forged", "n": "HCA162S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA162S_CL_2.jpg?v=1698784503&width=600", "p": 5890}, {"b": "Brixton Forged", "n": "TR08 Circuit+", "c": "mitmeosaline", "i": "https://baanvelgen.com/cdn/shop/files/brixton-forged-tr08-circuit-centerlock-3-piece-wheels.webp?v=1736709005&width=600", "p": 10450}, {"b": "BC Forged", "n": "RZ25", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/files/bc-forged-rz25-royal-gold-matte.webp?v=1738067920&width=600", "p": 4650}, {"b": "BC Forged", "n": "HCA165S", "c": "kaheosaline", "i": "https://baanvelgen.com/cdn/shop/files/BC_Forged_HCA165S_0_1.jpg?v=1698697305&width=600", "p": 5890}, {"b": "BC Forged", "n": "RZ815", "c": "monoblokk", "i": "https://baanvelgen.com/cdn/shop/products/bc_forged_rz815.jpg?v=1671474320&width=600", "p": 4650}]}};
+  var SPECIFIC=["BBS","Novitec","Manthey Racing","Brabus","iPE","ANRKY"];
+  var makesEl=document.getElementById("makes"),modelsEl=document.getElementById("models2"),fit=document.getElementById("fit");
+  var cur={make:null,model:null};
+  function fmt(p){return p?("alates "+Math.round(p).toLocaleString("ru-RU").replace(/\u00a0/g," ")+" €"):"päringu peale";}
+  function render(){
+    var list=(DATA[cur.make]||{})[cur.model]||[];
+    fit.innerHTML="";
+    list.forEach(function(w){
+      var a=document.createElement("a");a.className="w";a.href="#quote";
+      var spec=SPECIFIC.indexOf(w.b)>-1;
+      a.innerHTML='<div class="stage"><img loading="lazy" alt="" referrerpolicy="no-referrer"></div>'+(spec?'<span class="tag">sellele autole</span>':'')+'<span class="brand"></span><h3></h3><div class="spec"></div><div class="price"></div>';
+      a.querySelector("img").src=w.i;a.querySelector("img").alt=w.b+" "+w.n;
+      a.querySelector(".brand").textContent=w.b;a.querySelector("h3").textContent=w.n;
+      a.querySelector(".spec").textContent=w.c||"";a.querySelector(".price").textContent=fmt(w.p);
+      a.addEventListener("click",function(){document.getElementById("fWheel").value=w.b+" "+w.n;setCar();});
+      fit.appendChild(a);
+    });
+    document.getElementById("fitCar").textContent=cur.make+" "+cur.model;
+  }
+  function setCar(){
+    var mk=document.getElementById("fMake"),found=false;
+    var name=cur.make==="Mercedes-AMG"?"Mercedes-AMG":cur.make==="Land Rover"?"Land Rover / Range Rover":cur.make;
+    for(var i=0;i<mk.options.length;i++){if(mk.options[i].text===name){mk.selectedIndex=i;found=true;}}
+    if(!found)mk.value="Muu";
+    document.getElementById("fModel").value=cur.model;
+    document.getElementById("fModel").dispatchEvent(new Event("input"));
+  }
+  function pickModel(m){cur.model=m;modelsEl.querySelectorAll("button").forEach(function(b){b.setAttribute("aria-pressed",String(b.textContent===m));});render();}
+  function pickMake(mk){
+    cur.make=mk;
+    makesEl.querySelectorAll("button").forEach(function(b){b.setAttribute("aria-selected",String(b.textContent===mk));});
+    modelsEl.innerHTML="";
+    Object.keys(DATA[mk]).forEach(function(m){var b=document.createElement("button");b.type="button";b.textContent=m;b.addEventListener("click",function(){pickModel(m);});modelsEl.appendChild(b);});
+    pickModel(Object.keys(DATA[mk])[0]);
+  }
+  Object.keys(DATA).forEach(function(mk){var b=document.createElement("button");b.type="button";b.setAttribute("role","tab");b.textContent=mk;b.addEventListener("click",function(){pickMake(mk);});makesEl.appendChild(b);});
+  document.getElementById("fitGo").addEventListener("click",setCar);
+  pickMake("Porsche");
+  window.__pickCar=function(make){var keys=Object.keys(DATA);for(var i=0;i<keys.length;i++){if(make&&make.indexOf(keys[i].split("-")[0])===0){pickMake(keys[i]);return true;}}return false;};
+})();
+
+</script>
+<script>document.querySelectorAll('.thumbs img,.fit img').forEach(function(i){function g(){i.classList.add('gone')}i.addEventListener('error',g);if(i.complete&&!i.naturalWidth&&i.src)g()})</script>
+</body>
+</html>
