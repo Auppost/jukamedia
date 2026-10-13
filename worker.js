@@ -71,7 +71,7 @@ export default {
     const isProd = PROD_HOSTS.includes(url.hostname);
 
     // Файлы Nordvelg лежат в /nordvelg/, но на jukamedia.com их не показываем
-    if (url.pathname === '/nordvelg' || url.pathname.startsWith('/nordvelg/')) {
+    if ((url.pathname === '/nordvelg' || url.pathname.startsWith('/nordvelg/')) && !/^\/nordvelg\/((img|fonts|js|icons)\/|favicon\.ico$|site\.webmanifest$)/.test(url.pathname)) {
       return notFound(request, env, url, '/404.html');
     }
 
