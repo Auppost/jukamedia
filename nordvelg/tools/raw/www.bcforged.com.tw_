@@ -1,0 +1,614 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>BC FORGED</title>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+
+<link rel="shortcut icon" href="images/fav.jpg" type="image/x-icon">
+<link rel="apple-touch-icon" href="images/fav.jpg">
+<link rel="apple-touch-icon" sizes="76x76" href="images/fav.jpg">
+<link rel="apple-touch-icon" sizes="120x120" href="images/fav.jpg">
+<link rel="apple-touch-icon" sizes="152x152" href="images/fav.jpg">
+
+<meta property="og:title" content="BC FORGED" />
+<meta property="og:image" content="./images/ogimg.jpg">
+<meta property="og:description" content="BC FORGED is a brand focused on seamlessly integrating timeless design with innovative technical details and superior manufacturing." />
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="BC FORGED is a brand focused on seamlessly integrating timeless design with innovative technical details and superior manufacturing.">
+
+
+<link rel="stylesheet" href="./stylesheets/style.css?t=20261002-menu-arrow-carbon-row-break">
+<link rel="stylesheet" href="./stylesheets/ryder.css?t=20261005-carbon-lightbox-hit-area">
+	<link rel="stylesheet" href="./assets/colleague/product-series.css?v=20261005-2">
+	<script src="./assets/colleague/product-series.js?v=20261001-1" defer></script>
+</head>
+
+<body class="is-black">
+	<div id="preload" style="z-index: 69; position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-color: #000;"></div>
+<div class="topmenu-bg">
+    <div class="logo-fixed"><a href="index.php"><img src="images/logo-20251121.svg"></a></div>
+
+    <div class="change-lan">
+        <span class="current en-lan">
+            EN
+        </span>
+        <span class="line">
+            /
+        </span>
+        <a class="ch-lan" href="./zh-tw/index.php">
+            繁
+        </a>
+        <span class="line">
+            /
+        </span>
+        <a href="http://www.bcec.com.tw/" id="house-fixed">
+            <svg width="22.64" height="22.64" viewBox="0 0 22.64 22.64">
+                <g class="fill-black group-[.is-white]:fill-white">
+                    <path d="m13.84,15.11h-5.04c0,.11,0,.21,0,.32,0,1.93,0,3.85,0,5.78,0,.94-.49,1.43-1.43,1.43-1.99,0-3.99,0-5.98,0-.88,0-1.38-.51-1.38-1.39C0,17.22,0,13.21,0,9.19c0-.49.19-.87.57-1.16C3.87,5.46,7.17,2.89,10.48.33c.55-.43,1.12-.44,1.67,0,3.31,2.57,6.62,5.15,9.93,7.72.39.3.56.68.56,1.17,0,4.02,0,8.03,0,12.05,0,.86-.52,1.38-1.37,1.38-2.01,0-4.03,0-6.04,0-.88,0-1.38-.5-1.38-1.39,0-1.93,0-3.85,0-5.78,0-.12,0-.23,0-.36Z"></path>
+                </g>
+            </svg>
+        </a>
+    </div>
+    <div class="hamburger-area">
+        <div class="hamburger">
+            <span class="item1"></span>
+            <span class="item2"></span>
+            <span class="item3"></span>
+        </div>
+        <div class="menu"><img src="images/menu.svg"></div>
+    </div>
+</div>
+<div class="topmenuNewWrap-bg">
+
+</div>
+<div class="topmenuNewWrap">
+    <div class="effect-area">
+        <ul class="effect-list">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="newWrap-area">
+        <div class="close"><img class="lazyload" data-src="images/menu-close.svg"></div>
+
+        <ul class="list-area">
+            <li>
+                <a href="./about.php" class="rect-hover">
+                    <div class="title">
+                        <div class="text-white front">ABOUT US</div>
+                        <div class="text-hover">ABOUT US</div>
+                    </div>
+                    <div class="arrow"><img src="./images/new-arrow.svg"></div>
+                    <div class="deco"></div>
+                </a>
+            </li>
+            <li>
+                <a href="./product.php" class="rect-hover">
+                    <div class="title">
+                        <div class="text-white front">PRODUCTS</div>
+                        <div class="text-hover">PRODUCTS</div>
+                    </div>
+                    <div class="arrow"><img src="./images/new-arrow.svg"></div>
+                    <div class="deco"></div>
+                </a>
+            </li>
+            <li>
+                <a href="./dealers.php" class="rect-hover">
+                    <div class="title">
+                        <div class="text-white front">DEALERS</div>
+                        <div class="text-hover">DEALERS</div>
+                    </div>
+                    <div class="arrow"><img src="./images/new-arrow.svg"></div>
+                    <div class="deco"></div>
+                </a>
+            </li>
+            <li>
+                <a href="./gallery.php" class="rect-hover">
+                    <div class="title">
+                        <div class="text-white front">GALLERY</div>
+                        <div class="text-hover">GALLERY</div>
+                    </div>
+                    <div class="arrow"><img src="./images/new-arrow.svg"></div>
+                    <div class="deco"></div>
+                </a>
+            </li>
+            <li>
+                <a href="./video.php" class="rect-hover">
+                    <div class="title">
+                        <div class="text-white front">EVENTS & VIDEOS</div>
+                        <div class="text-hover">EVENTS & VIDEOS</div>
+                    </div>
+                    <div class="arrow"><img src="./images/new-arrow.svg"></div>
+                    <div class="deco"></div>
+                </a>
+            </li>
+            <li>
+                <a href="./merchandise.php" class="rect-hover">
+                    <div class="title">
+                        <div class="text-white front">MERCHANDISE</div>
+                        <div class="text-hover">MERCHANDISE</div>
+                    </div>
+                    <div class="arrow"><img src="./images/new-arrow.svg"></div>
+                    <div class="deco"></div>
+                </a>
+            </li>
+            <li>
+                <a href="./service.php" class="rect-hover">
+                    <div class="title">
+                        <div class="text-white front">OTHER SERVICES</div>
+                        <div class="text-hover">OTHER SERVICES</div>
+                    </div>
+                    <div class="arrow"><img src="./images/new-arrow.svg"></div>
+                    <div class="deco"></div>
+                </a>
+            </li>
+            <li>
+                <a href="./inquiry.php" class="rect-hover">
+                    <div class="title">
+                        <div class="text-white front">CONTACT</div>
+                        <div class="text-hover">CONTACT</div>
+                    </div>
+                    <div class="arrow"><img src="./images/new-arrow.svg"></div>
+                    <div class="deco"></div>
+                </a>
+            </li>
+        </ul>
+        <div class="article-area align-justify align-bottom">
+            <div class="info-area grid-x align-middle">
+                <ul class="infoList cell auto">
+                    <li class="flex-container align-middle">
+                        <div class="title"><i><img class="lazyload" data-src="images/info-arrow-2.svg"></i>E-MAIL</div>
+                        <div class="content"><a href="mailto:bc@bcec.com.tw">BC@BCEC.COM.TW</a></div>
+                    </li>
+                </ul>
+
+                <nav class="socialList cell shrink show-for-large">
+                    <div class="title">FOLLOW US</div>
+                    <div class="content">
+                        <a href="https://www.facebook.com/BCRacingTAIWAN/" target="_blank"><img class="lazyload" data-src="images/fb-white.svg"></a>
+                        <a href="https://www.instagram.com/bcracingtw/" target="_blank"><img class="lazyload" data-src="images/ig-white.svg"></a>
+                        <a href="https://www.youtube.com/channel/UCW6B15RqjWVpUYUEWqhOYgA" target="_blank"><img class="lazyload" data-src="images/yt-white.svg"></a>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="socialList cell shrink hide-for-large">
+                <a href="https://www.facebook.com/BCRacingTAIWAN/" target="_blank"><img class="lazyload" data-src="images/fb-white.svg"></a>
+                <a href="https://www.instagram.com/bcracingtw/" target="_blank"><img class="lazyload" data-src="images/ig-white.svg"></a>
+                <a href="https://www.youtube.com/channel/UCW6B15RqjWVpUYUEWqhOYgA" target="_blank"><img class="lazyload" data-src="images/yt-white.svg"></a>
+            </div>
+            <div class="copyright show-for-large">© 2026 Taiwan Bor-Chuann (BC-racing). All rights reserved</div>
+        </div>
+    </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+
+<script>
+
+</script>	<aside>
+    <a href="https://bcracing.com.tw/" class="go-to-racing-area">
+        <img class="text" src="./images/aside.svg" alt="">
+        <img class="icon" src="./images/racing-icon.svg" alt="">
+    </a>
+</aside>
+	<div class="m-fancyWrap index bg-black is-show">
+		<div class="fancy-close-block cursor-pointer absolute -z-10 inset-0"></div>
+
+		<div class="absolute tf max-lg:w-full max-lg:!px-5">
+			<img src="./images/fancy-img.jpg" class="show-for-large">
+			<img src="./images/fancy-img-mobile.jpg" class="hide-for-large">
+
+			<div class="fancy-close-btn absolute top-[19px] right-[17px] zoom-70 cursor-pointer lg:hover:blink-hover max-lg:w-6 max-lg:top-[16px] max-lg:right-[38px] lg:max-xl:zoom-65">
+				<img src="./images/fancy-close-index.svg" alt="">
+			</div>
+		</div>
+	</div>
+
+
+	<!-- <aside>
+		<a href="https://bcracing.com.tw/" class="go-to-racing-area">
+			<img class="text" src="./images/aside.svg" alt="">
+			<img class="icon" src="./images/racing-icon.svg" alt="">
+		</a>
+	</aside> -->
+	<div class="index-bannerWrap">
+		<div class="deco-light"><img class="lazyload" data-src="images/index-light.png"></div>
+
+		<div class="bg-area">
+			<div class="deco"></div>
+			<div class="bg">
+				<img class="lazyload" data-src="images/index-video-cover.jpg">
+				<video playsinline muted loop src="images/index-20260626.mp4"></video>
+			</div>
+		</div>
+
+		<div class="article-area ryder-split">
+			<div class="logo"><img class="lazyload" data-src="images/ib-logo.svg"></div>
+			<div class="slogan">ENDLESS INNOVATION</div>
+			<div class="deco"><img class="lazyload" data-src="images/ib-deco.svg"></div>
+			<div class="content">BC FORGED is a brand focused on seamlessly integrating timeless design with innovative technical details and superior manufacturing.</div>
+		</div>
+
+		<div class="scroll"><img class="lazyload" data-src="images/scroll.gif"></div>
+
+		<div class="btn-area"><a href="contact.php">
+				<div class="deco"><img src="images/ib-deco.png"></div>
+				<div class="wheel"><img src="images/ib-wheel.png"></div>
+				<div class="rotate"><img src="images/ib-rotate.png"></div>
+			</a></div>
+	</div>
+
+	<div class="index-storyWrap grid-x">
+		<div class="article-area cell large-shrink">
+			<div class="head show-for-large"><img data-src="images/is-head-deco.svg" class="lazyload"></div>
+
+			<div class="content ryder-split">
+				Now the main products of our company are Tuning Suspension Systems and Forged Wheels, and we’ve been dedicated to the R&D, design and manufacture of our products.<br>
+				For years, we’ve always upheld the appealing for extraordinary quality and innovative R&D for our products to manage the business.<br>
+				All of our products are designed by our own. With years of iterative improvement for the quality of products, our products have become the benchmark for "Made in Taiwan" product, truly beloved and trusted by many of the tuning players.<br>
+			</div>
+		</div>
+
+		<div class="pic cell large-shrink" data-r='{"opacity": 0, "y": 60, "delay": 0.3}'>
+			<img class="lazyload" data-src="images/cover-story.jpg">
+			<video playsinline muted loop src="./video/about-video.mp4"></video>
+		</div>
+	</div>
+
+	<h2 class="product-series-heading"><img src="images/ip-head.svg" alt="OUR PRODUCT"></h2>
+	<!-- 共用輪圈分類；來源與整合差異見 assets/colleague/README.md。 -->
+<section class="product-accordion" aria-label="Forged wheel collections">
+        <article
+          class="product-panel"
+          data-product="carbon"
+          tabindex="0"
+          aria-label="CARBON WHEEL collection"
+          aria-expanded="false"
+        >
+          <div class="technical-grid" aria-hidden="true"></div>
+          <div class="wheel-stage">
+            <a class="wheel-link" href="product-carbon.php" aria-label="Explore Carbon wheel collection">
+              <img
+                class="wheel-image wheel-side-photo wheel-carbon"
+                src="./assets/colleague/images/wheel-carbon-transparent-v2.png"
+                alt="Carbon fiber wheel"
+                decoding="async"
+              />
+            </a>
+            <span class="orbit orbit-one" aria-hidden="true"></span>
+            <span class="orbit orbit-two" aria-hidden="true"></span>
+          </div>
+          <div class="panel-hover-zone" aria-hidden="true"></div>
+          <a class="vertical-product-title is-carbon" href="product-carbon.php" aria-label="Explore Carbon wheel collection">
+            <span class="deco" aria-hidden="true"><img src="./images/ip-deco-1.svg" alt=""></span>
+            <span class="carbon-title"><span>CARBON</span><span>WHEEL</span></span>
+          </a>
+          <div class="panel-detail">
+            <span class="detail-line" aria-hidden="true"></span>
+            <p>Hybrid composite performance</p>
+            <span class="explore">EXPLORE SERIES ↗</span>
+          </div>
+        </article>
+
+        <article
+          class="product-panel"
+          data-product="monoblock"
+          tabindex="0"
+          aria-label="MONOBLOCK FORGED WHEEL collection"
+          aria-expanded="false"
+        >
+          <div class="technical-grid" aria-hidden="true"></div>
+          <div class="wheel-stage">
+            <a class="wheel-link" href="product-cat1.php" aria-label="Explore 1 Piece wheel collection">
+              <img
+                class="wheel-image wheel-side-photo wheel-monoblock"
+                src="./assets/colleague/images/wheel-monoblock-20260828.png"
+                alt="Monoblock wheel"
+                decoding="async"
+              />
+            </a>
+            <span class="orbit orbit-one" aria-hidden="true"></span>
+            <span class="orbit orbit-two" aria-hidden="true"></span>
+          </div>
+          <div class="panel-hover-zone" aria-hidden="true"></div>
+          <a class="vertical-product-title is-piece" href="product-cat1.php" aria-label="Explore 1 Piece wheel collection">
+            <span class="deco" aria-hidden="true"><img src="./images/ip-deco-1.svg" alt=""></span>
+            <img class="piece-title-image" src="./images/ip-title-1.svg" alt="1 PIECE FORGED WHEEL">
+          </a>
+          <div class="panel-detail">
+            <span class="detail-line" aria-hidden="true"></span>
+            <p>Monoblock forged precision</p>
+            <span class="explore">EXPLORE SERIES ↗</span>
+          </div>
+        </article>
+
+        <article
+          class="product-panel"
+          data-product="two-piece"
+          tabindex="0"
+          aria-label="MODULAR FORGED WHEEL collection"
+          aria-expanded="false"
+        >
+          <div class="technical-grid" aria-hidden="true"></div>
+          <div class="wheel-stage">
+            <a class="wheel-link" href="product-cat2.php" aria-label="Explore 2 Piece wheel collection">
+              <img
+                class="wheel-image wheel-side-photo wheel-two-piece"
+                src="./assets/colleague/images/wheel-modular-20260828.png"
+                alt="Modular wheel"
+                decoding="async"
+              />
+            </a>
+            <span class="orbit orbit-one" aria-hidden="true"></span>
+            <span class="orbit orbit-two" aria-hidden="true"></span>
+          </div>
+          <div class="panel-hover-zone" aria-hidden="true"></div>
+          <a class="vertical-product-title is-piece" href="product-cat2.php" aria-label="Explore 2 Piece wheel collection">
+            <span class="deco" aria-hidden="true"><img src="./images/ip-deco-1.svg" alt=""></span>
+            <img class="piece-title-image" src="./images/ip-title-2.svg" alt="2 PIECE FORGED WHEEL">
+          </a>
+          <div class="panel-detail">
+            <span class="detail-line" aria-hidden="true"></span>
+            <p>Modular forged construction</p>
+            <span class="explore">EXPLORE SERIES ↗</span>
+          </div>
+        </article>
+      </section>
+
+	<div class="stopWrap">
+		<div class="deco-1 show-for-large"><img class="lazyload" data-src="images/stop-deco.png"></div>
+		<div class="deco-light show-for-large"><img class="lazyload" data-src="images/stop-deco-light.png"></div>
+
+		<div class="article-area">
+			<div class="box">
+				<img class="lazyload show-for-large" data-src="images/stop-box.png">
+				<img class="lazyload hide-for-large" data-src="images/stop-box-phone.png">
+			</div>
+			<div class="title"><img class="lazyload" data-src="images/stop-title.svg"></div>
+			<div class="content ryder-split">
+				Now the main products of our company are Tuning Suspension Systems and Forged Wheels, and we’ve been dedicated to the R&D, design and manufacture of our products.<br>
+				For years, we’ve always upheld the appealing for extraordinary quality for our products to manage the business.<br>
+			</div>
+		</div>
+
+		<div class="car-area">
+			<div class="car"><img data-src="images/car.png" class="show-for-large lazyload"><img data-src="images/car-mobile.png" class="hide-for-large lazyload"></div>
+			<div class="wheel-area"><a href="about.php#processAnchor">
+					<div class="one"><img class="lazyload" data-src="images/index-car-wheel.png"></div>
+					<div class="two"><img class="lazyload" data-src="images/wheel-change-2.png"></div>
+					<div class="three"><img class="lazyload" data-src="images/wheel-change-3.png"></div>
+				</a></div>
+		</div>
+	</div>
+
+	<div class="designWrap">
+		<div class="deco"><img data-src="images/process-deco.png" class="show-for-large lazyload"><img data-src="images/process-deco-mobile.png" class="hide-for-large lazyload"></div>
+		<div class="head"><img data-src="images/design-head.svg" class="show-for-large lazyload"><img data-src="images/design-head-mobile.svg" class="hide-for-large lazyload"></div>
+		<div class="logo"><img class="lazyload" data-src="images/design-logo.svg"></div>
+
+		<!-- <div class="wheel"><img class="lazyload" data-src="images/design-wheel.png"></div> -->
+	</div>
+
+	<div class="qualityWrap">
+		<div class="video-container">
+			<div class="deco"></div>
+			<div class="video-area">
+				<img class="lazyload" data-src="images/cover-quality.jpg">
+				<video playsinline muted loop src="images/quality.mp4"></video>
+			</div>
+		</div>
+
+		<div class="article-area">
+			<div class="head"><img data-src="images/qulity-head.svg" class="show-for-large lazyload"><img data-src="images/qulity-head-mobile.svg" class="hide-for-large lazyload"></div>
+			<div class="content ryder-split">
+				The pursuit of extraordinary quality to satisfy every customer and continuous improvement and innovation are the principles of BC Wheel to maintain our high quality.
+			</div>
+		</div>
+
+		<div class="more" data-friction="0.4"><a href="about.php">
+				<div class="box">
+					<div class="bg"><img class="lazyload" data-src="images/read-more-bg.png"></div>
+					<div class="deco"><img class="lazyload" data-src="images/readmore-deco.svg"></div>
+				</div>
+				<div class="text"><img class="lazyload" data-src="images/readmore.svg"></div>
+			</a></div>
+	</div>
+
+	<div class="qualitt-next-scroll text-right hide-for-large"><img class="lazyload" data-src="images/scroll.gif"></div>
+
+	<div class="index-newsWrap">
+		<div class="head"><img class="lazyload" data-src="images/index-news-head.svg"></div>
+
+		<ul class="index-newsList" data-r='{"opacity": 0, "stagger": 0.1}'>
+			
+				
+				<li><a class="grid-x align-middle" href="						https://bcracing.pse.is/9qshuj					">
+						<div class="date cell large-shrink">2026/10</div>
+						<div class="title cell large-auto">
+														INTRODUCTION FOR NEW WHEEL DESIGN -  2-PIECE-CFN SERIES						</div>
+					</a></li>
+			
+				
+				<li><a class="grid-x align-middle" href="						https://bcracing.pse.is/9d4qjm					">
+						<div class="date cell large-shrink">2026/07</div>
+						<div class="title cell large-auto">
+														INTRODUCTION FOR NEW WHEEL DESIGN - 1-PIECE-AE/AF & 2-PIECE-DF SERIES						</div>
+					</a></li>
+			
+				
+				<li><a class="grid-x align-middle" href="						https://bcforged.com.tw/source/02-PRODUCTS/202604-Introduction-for-New-Finishing.pdf					">
+						<div class="date cell large-shrink">2026/04</div>
+						<div class="title cell large-auto">
+														INTRODUCTION FOR NEW FINISHING - SATIN BRONZE/MALIBU BLUE						</div>
+					</a></li>
+			
+				
+				<li><a class="grid-x align-middle" href="						https://bcforged.com.tw/source/02-PRODUCTS/202604-Introduction-for-New-Wheel-Design.pdf					">
+						<div class="date cell large-shrink">2026/04</div>
+						<div class="title cell large-auto">
+														INTRODUCTION FOR NEW WHEEL DESIGN - 1-PIECE-AF/MKP/TPX/TR & 2-PIECE-HCK/HCS/LE/MLE/MHE SERIES						</div>
+					</a></li>
+			
+				
+				<li><a class="grid-x align-middle" href="						https://bcforged.com.tw/source/01-NEWS/BC_FORGED_WHEEL_CATALOG.pdf					">
+						<div class="date cell large-shrink">2026/01</div>
+						<div class="title cell large-auto">
+														BC FORGED WHEEL CATALOG Vol.14						</div>
+					</a></li>
+			
+				
+				<li><a class="grid-x align-middle" href="						https://bcforged.com.tw/zh-tw/source/01-NEWS/202512-Introduction-for-New-Wheel-Design.pdf					">
+						<div class="date cell large-shrink">2025/12</div>
+						<div class="title cell large-auto">
+														INTRODUCTION FOR NEW WHEEL DESIGN - 1-PIECE ACL/AE & 2-PIECE HCA/HCS SERIES						</div>
+					</a></li>
+					</ul>
+
+		<div class="more" data-friction="0.4"><a href="news.php">
+				<div class="box">
+					<div class="bg"><img class="lazyload" data-src="images/read-more-bg.png"></div>
+					<div class="deco"><img class="lazyload" data-src="images/readmore-deco.svg"></div>
+				</div>
+				<div class="text"><img class="lazyload" data-src="images/readmore.svg"></div>
+			</a></div>
+	</div>
+
+	<div class="index-galleryWrap">
+		<div class="bg"><img data-src="images/ig-pic.png?t=2" class="show-for-large lazyload"><img data-src="images/ig-pic-mobile.png?t=2" class="hide-for-large lazyload"></div>
+
+		<div class="article-area"><a href="gallery.php">
+				<div class="head"><img data-src="images/ig-head.svg" class="show-for-large lazyload"><img data-src="images/ig-head-mobile.svg" class="hide-for-large lazyload"></div>
+				<div class="more"><img data-src="images/ig-more.svg" class="show-for-large lazyload"><img data-src="images/ig-more-mobile.svg" class="hide-for-large lazyload"></div>
+			</a></div>
+	</div>
+
+	<footer class="footerWrap">
+
+	<div class="copyright">© 2026 Taiwan Bor-Chuann (BC-racing). All rights reserved</div>
+
+</footer></body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/petite-vue" defer init></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+
+<script src="js/DrawSVGPlugin.min.js"></script>
+
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<script src="dist/common.js?t=20261002-shared-transition"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.1/lazysizes.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.1/plugins/unveilhooks/ls.unveilhooks.min.js"></script>
+<script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0RHTJT47MT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0RHTJT47MT');
+</script>
+</html>
+
+<script>
+	$("body").addClass("is-lock")
+	var _tl = gsap.timeline({
+		// paused: false
+	}).to(".stopWrap .wheel-area", {
+		duration: 6,
+		rotation: -380,
+		ease: 'none',
+	}).to(".stopWrap .wheel-area .one", {
+		duration: 1,
+		opacity: 0,
+		ease: 'none',
+	}, "<").to(".stopWrap .wheel-area .two", {
+		duration: 1,
+		opacity: 1,
+		ease: 'none',
+	}, "<").to(".stopWrap .wheel-area .two", {
+		duration: 1,
+		opacity: 0,
+		ease: 'none',
+	}).to(".stopWrap .wheel-area .three", {
+		duration: 1,
+		opacity: 1,
+		ease: 'none',
+	}, "<")
+
+
+	ScrollTrigger.create({
+		trigger: ".stopWrap .wheel-area",
+		toggleActions: "play pause resume reverse", //重覆觸發
+		start: "center 50%",
+		endTrigger: ".qualityWrap",
+		end: "center 50%",
+		pin: true,
+		scrub: 1,
+		// markers: true,
+		animation: _tl
+	});
+
+
+	$(".qualitt-next-scroll").on("click", function() {
+		TweenMax.to(window, 1.2, {
+			scrollTo: {
+				y: ".index-newsWrap",
+				offsetY: 100
+			},
+			ease: 'power2.inOut',
+		});
+	})
+
+	$(".fancy-close-btn, .fancy-close-block").on("click", function() {
+		$(".m-fancyWrap").removeClass("is-show")
+		gsap.delayedCall(0.5, function() {
+			$("body").removeClass("is-lock")
+		});
+	})
+	$(".go-to-racing-area").on("click", function() {
+		window.location.href="https://bcracing.com.tw/"
+	})
+</script>
