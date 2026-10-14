@@ -1,0 +1,15 @@
+https://berlintires.shop/
+https://berlintires.shop/wp-json/
+https://berlintires.shop/wp-json/wc/store/v1/products?per_page=3
+https://keskinfelgen.de/
+https://keskinfelgen.de/wp-json/wc/store/v1/products?per_page=3
+https://keskinfelgen.de/sitemap.xml
+https://keskinfelgen.de/sitemap_index.xml
+https://mamfelgen.de/
+https://mamfelgen.de/wp-json/wc/store/v1/products?per_page=3
+https://mamfelgen.de/sitemap_index.xml
+https://berlintires.de/
+https://berlintires.de/wp-json/wc/store/v1/products?per_page=3
+https://berlintires.de/sitemap_index.xml
+https://syron.de/
+https://berlintires.info/media-center/
