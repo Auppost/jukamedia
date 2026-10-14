@@ -12,9 +12,11 @@ WA = '37257494989'
 import hashlib
 V = lambda p: hashlib.md5(open(os.path.join(ROOT, p), 'rb').read()).hexdigest()[:8]
 MAN = json.load(open(os.path.join(ROOT, 'tools/images-manifest.json')))['images']
-_bcm = os.path.join(ROOT, 'tools/bc-manifest.json')
-if os.path.exists(_bcm):
-    MAN.update(json.load(open(_bcm)))
+for _f in ('tools/bc-manifest.json', 'tools/shop-manifest.json'):
+    if os.path.exists(os.path.join(ROOT, _f)):
+        MAN.update(json.load(open(os.path.join(ROOT, _f))))
+SHOP = json.load(open(os.path.join(ROOT, 'tools/shop_items.json')))
+bslug = lambda b: re.sub(r'[^a-z0-9]+', '-', b.lower()).strip('-')
 BC = json.load(open(os.path.join(ROOT, 'tools/bc_models.json')))
 PRICE = {'mono': {18: 960, 19: 960, 20: 1066, 21: 1188, 22: 1250, 23: 1390}, 'KX': {19: 1255, 20: 1376, 21: 1528, 22: 1630},
          'two': {18: 1216, 19: 1216, 20: 1322, 21: 1444, 22: 1506, 23: 1646}, 'HCX': {19: 1551, 20: 1667, 21: 1849, 22: 1911}}
@@ -43,6 +45,7 @@ T = {
   foot='Кованые диски BC Forged, Brixton Forged и MV Forged под заказ в Таллинне', city='Таллинн, Эстония',
   credits='Фото дисков и автомобилей: BC Forged, Brixton Forged, Baan Velgen. Названия брендов принадлежат их владельцам',
   ptable='Цена комплекта по диаметру', col_d='Диаметр', col_w='Ширина', col_p='Комплект из 4', ptable_note='С НДС и доставкой по Эстонии. Опции оплачиваются отдельно: полированная полка, накатка, колпачки', series='Серия {s}', filt_all='Все', sizes_d='Размеры {a}-{b}″.',
+  brand_title='Диски {b} под заказ в Таллинне: все модели и цены | Nordvelg', brand_desc='Все модели {b} под заказ с доставкой в Таллинн и по Эстонии. Подбор под ваш автомобиль, эскиз до оплаты.', brand_h1='Диски {b}', all_brand='Все модели {b}: {n}', on_req_note='Цену считаем под вашу машину и спецификацию',
   lang_name='Язык'),
  'et': dict(
   catalog='Kataloog', home='Avaleht', pick='Valik auto järgi', faq='Küsimused',
@@ -66,6 +69,7 @@ T = {
   foot='BC Forged, Brixton Forged ja MV Forged sepistatud veljed tellimusel Tallinnas', city='Tallinn, Eesti',
   credits='Velgede ja autode fotod: BC Forged, Brixton Forged, Baan Velgen. Kaubamärgid kuuluvad nende omanikele',
   ptable='Komplekti hind läbimõõdu järgi', col_d='Läbimõõt', col_w='Laius', col_p='4 velje komplekt', ptable_note='Koos käibemaksu ja tarnega Eestis. Lisavalikud eraldi: poleeritud äär, rantimine, rummukatted', series='Seeria {s}', filt_all='Kõik', sizes_d='Mõõdud {a}-{b}″.',
+  brand_title='{b} veljed tellimusel Tallinnas: kõik mudelid ja hinnad | Nordvelg', brand_desc='Kõik {b} mudelid tellimusel tarnega Tallinnasse ja üle Eesti. Valik teie auto järgi, eskiis enne makset.', brand_h1='{b} veljed', all_brand='Kõik {b} mudelid: {n}', on_req_note='Hinna arvutame teie auto ja spetsifikatsiooni järgi',
   lang_name='Keel'),
  'en': dict(
   catalog='Catalogue', home='Home', pick='Find by car', faq='Questions',
@@ -89,6 +93,7 @@ T = {
   foot='BC Forged, Brixton Forged and MV Forged wheels made to order in Tallinn', city='Tallinn, Estonia',
   credits='Wheel and car photos: BC Forged, Brixton Forged, Baan Velgen. Brand names belong to their owners',
   ptable='Set price by diameter', col_d='Diameter', col_w='Width', col_p='Set of 4', ptable_note='Incl. VAT and delivery in Estonia. Options are extra: polished lip, knurling, centre caps', series='{s} series', filt_all='All', sizes_d='Sizes {a}-{b}″.',
+  brand_title='{b} wheels made to order in Tallinn: all models and prices | Nordvelg', brand_desc='All {b} models made to order with delivery to Tallinn and across Estonia. Fitment for your car, a sketch before you pay.', brand_h1='{b} wheels', all_brand='All {b} models: {n}', on_req_note='We price it for your car and specification',
   lang_name='Language'),
 }
 
@@ -167,6 +172,28 @@ def collect(lang):
         d.update(series=m['series'], typ=typ, sizes=ds, ptab=ptab, src=m['url'])
         if ptab:
             d['p'] = min(x[2] for x in ptab)
+    # other wheel brands from the Baan Velgen shop (prices there are per set incl. 21% NL VAT)
+    PREFIX = ['brixton forged', 'brixton', 'hre', 'vorsteiner', 'bbs', 'anrky', 'apex', 'vossen', 'ipe magnesium wheels', 'ipe', 'brabus', 'novitec', 'manthey racing']
+    existing = list(wheels.keys())
+    for it in SHOP:
+        if it['kind'] != 'wheel':
+            continue
+        n = it['title'].strip()
+        for pf in PREFIX:
+            if n.lower().startswith(pf + ' '):
+                n = n[len(pf):].strip(' -–')
+                break
+        k = slug(it['brand'], n)
+        if k in wheels or any(k.startswith(e + '-') for e in existing):
+            continue
+        local = [f"/img/shop/{x}-960.webp" for x in it['local'] if ('shop/' + x) in MAN]
+        if not local:
+            continue
+        ds = sorted({int(x) for v, _ in it['variants'] for x in re.findall(r'(\d{2})\s*(?:inch|″|")', v + ' ' + it['title']) if 15 <= int(x) <= 24})
+        spec = [f"{ds[0]}-{ds[-1]}″" if len(ds) > 1 else f"{ds[0]}″"] if ds else []
+        prices = [float(p) for _, p in it['variants'] if p and float(p) > 0]
+        p = setp(min(prices) / 1.21 / 4) if (it['brand'] == 'Brixton Forged' and prices) else None
+        wheels[k] = dict(b=it['brand'], n=n, imgs=local, spec=spec, cars=[], p=p, featured=False, shop=True)
     # BC prices from the dealer list (set of 4, incl. VAT)
     for d in wheels.values():
         if d['b'] == 'BC Forged' and d['p'] is None:
@@ -203,12 +230,14 @@ def head_common(lang, title, desc, url, alts, og_img):
 <link rel="stylesheet" href="/css/wheel.css?v={V('css/wheel.css')}">
 '''
 
+EXH = {'ru': 'Выхлоп iPE', 'et': 'iPE väljalase', 'en': 'iPE exhausts'}
+
 def header(lang, alts):
     t = T[lang]; p = '/' + LANGS[lang]
     langs = ''.join(f'<a href="{alts[l].replace(SITE, "")}" hreflang="{l}" lang="{l}"{" aria-current=\"page\"" if l == lang else ""}>{l.upper()}</a>' for l in ('ru', 'et', 'en'))
     return f'''<header class="top"><div class="wrap in">
 <a class="mark" href="{p}">Nordvelg</a>
-<nav><a href="{p}wheels/">{t['catalog']}</a><a href="{p}#cars">{t['pick']}</a><a href="{p}#faq">{t['faq']}</a></nav>
+<nav><a href="{p}wheels/">{t['catalog']}</a><a href="{p}exhaust/">{EXH[lang]}</a><a href="{p}#cars">{t['pick']}</a><a href="{p}#faq">{t['faq']}</a></nav>
 <nav class="lang" aria-label="{t['lang_name']}">{langs}</nav>
 </div></header>
 '''
@@ -270,7 +299,7 @@ def page(k, d, lang, all_wheels):
         note = t['set_note'] if d['b'] == 'BC Forged' else t['est_note']
         price = f'<div class="price">{fmt(d["p"], lang)}</div><p class="pnote">{note}</p>'
     else:
-        price = f'<div class="price">{t["on_request"]}</div>'
+        price = f'<div class="price">{t["on_request"]}</div><p class="pnote">{t["on_req_note"]}</p>'
     q = urllib.parse.quote(name)
     wa = 'https://wa.me/' + WA + '?text=' + urllib.parse.quote(t['wa_text'].format(name=name))
     facts = t['bc'] if d['b'] == 'BC Forged' else t['brixton'] if d['b'] == 'Brixton Forged' else t['other']
@@ -305,28 +334,42 @@ def page(k, d, lang, all_wheels):
     out += f'<script src="/js/wheel.js?v={V("js/wheel.js")}" defer></script>\n</body>\n</html>\n'
     return out
 
-def catalog(lang, wheels):
+def catalog(lang, wheels, brand=None):
     t = T[lang]
-    alts = {l: f"{SITE}/{LANGS[l]}wheels/" for l in LANGS}
-    out = head_common(lang, t['cat_title'], t['cat_desc'], alts[lang], alts, SITE + '/img/og-nordvelg.jpg')
-    items = [{"@type": "ListItem", "position": i + 1, "url": f"{SITE}/{LANGS[lang]}wheels/{k}/", "name": f"{w['b']} {w['n']}"} for i, (k, w) in enumerate(wheels.items())]
-    out += '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@type": "ItemList", "name": t['cat_h1'], "itemListElement": items}, ensure_ascii=False, separators=(',', ':')) + '</script>\n</head>\n<body>\n'
+    sub = f"wheels/brand/{bslug(brand)}/" if brand else "wheels/"
+    alts = {l: f"{SITE}/{LANGS[l]}{sub}" for l in LANGS}
+    sel = {k: w for k, w in wheels.items() if (brand is None or w['b'] == brand)}
+    title = t['brand_title'].format(b=brand) if brand else t['cat_title']
+    desc = t['brand_desc'].format(b=brand) if brand else t['cat_desc']
+    h1 = t['brand_h1'].format(b=brand) if brand else t['cat_h1']
+    out = head_common(lang, title, desc, alts[lang], alts, SITE + '/img/og-nordvelg.jpg')
+    items = [{"@type": "ListItem", "position": i + 1, "url": f"{SITE}/{LANGS[lang]}wheels/{k}/", "name": f"{w['b']} {w['n']}"} for i, (k, w) in enumerate(sel.items())]
+    out += '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@type": "ItemList", "name": h1, "itemListElement": items[:500]}, ensure_ascii=False, separators=(',', ':')) + '</script>\n</head>\n<body>\n'
     out += header(lang, alts)
     p = '/' + LANGS[lang]
-    out += f'<main class="wrap">\n<nav class="crumbs" aria-label="breadcrumbs"><a href="{p}">Nordvelg</a><span>/</span><span aria-current="page">{t["catalog"]}</span></nav>\n<section class="cathead"><h1>{t["cat_h1"]}</h1><p>{t["cat_sub"]}</p></section>\n'
+    crumbs = f'<a href="{p}">Nordvelg</a><span>/</span>'
+    crumbs += (f'<a href="{p}wheels/">{t["catalog"]}</a><span>/</span><span aria-current="page">{esc(brand)}</span>' if brand else f'<span aria-current="page">{t["catalog"]}</span>')
+    out += f'<main class="wrap">\n<nav class="crumbs" aria-label="breadcrumbs">{crumbs}</nav>\n<section class="cathead"><h1>{esc(h1)}</h1><p>{t["cat_sub"]}</p></section>\n'
     brands = []
-    for w in wheels.values():
+    for w in sel.values():
         if w['b'] not in brands:
             brands.append(w['b'])
     for b in brands:
+        bw = [w for w in sel.values() if w['b'] == b]
         filt = ''
-        if b == 'BC Forged':
-            series = sorted({w.get('series') for w in wheels.values() if w['b'] == b and w.get('series')})
+        if brand and b == 'BC Forged':
+            series = sorted({w.get('series') for w in bw if w.get('series')})
             opts = ''.join(f'<option value="{esc(x)}">{esc(t["series"].format(s=x))}</option>' for x in series)
             filt = (f'<div class="filters" role="group"><button type="button" class="on" data-f="">{t["filt_all"]}</button>'
                     f'<button type="button" data-f="mono">{t["mono"]}</button><button type="button" data-f="two">{t["two"]}</button>'
                     f'<select aria-label="{t["series"].format(s="")}"><option value="">{t["filt_all"]}</option>{opts}</select></div>')
-        out += f'<section class="rel" data-brand="{esc(b)}"><h2>{esc(b)}</h2>{filt}<div class="grid">{"".join(card(w, lang) for w in wheels.values() if w["b"] == b)}</div></section>\n'
+        show = bw if brand else bw[:8]
+        more = '' if brand else f'<a href="{p}wheels/brand/{bslug(b)}/">{t["all_brand"].format(b=b, n=len(bw))}</a>'
+        head = f'<h2>{esc(b)}</h2>' if brand else f'<div class="rh"><h2>{esc(b)}</h2>{more}</div>'
+        out += f'<section class="rel" data-brand="{esc(b)}">{head}{filt}<div class="grid">{"".join(card(w, lang) for w in show)}</div>'
+        if not brand and len(bw) > 8:
+            out += f'<p style="margin-top:18px"><a class="btn ghost" href="{p}wheels/brand/{bslug(b)}/">{t["all_brand"].format(b=b, n=len(bw))}</a></p>'
+        out += '</section>\n'
     out += '</main>\n' + footer(lang) + f'<script src="/js/wheel.js?v={V("js/wheel.js")}" defer></script>\n</body>\n</html>\n'
     return out
 
@@ -340,10 +383,13 @@ def main():
         base = os.path.join(ROOT, LANGS[lang], 'wheels')
         os.makedirs(base, exist_ok=True)
         open(os.path.join(base, 'index.html'), 'w').write(catalog(lang, wheels))
+        for b in sorted({w['b'] for w in wheels.values()}):
+            os.makedirs(os.path.join(base, 'brand', bslug(b)), exist_ok=True)
+            open(os.path.join(base, 'brand', bslug(b), 'index.html'), 'w').write(catalog(lang, wheels, b))
         for k, d in wheels.items():
             os.makedirs(os.path.join(base, k), exist_ok=True)
             open(os.path.join(base, k, 'index.html'), 'w').write(page(k, d, lang, wheels))
-        allpages.append((lang, list(wheels.keys())))
+        allpages.append((lang, list(wheels.keys()) + ['brand/' + bslug(b) for b in sorted({w['b'] for w in wheels.values()})]))
         print(lang, len(wheels), 'models')
     json.dump({l: ks for l, ks in allpages}, open(os.path.join(ROOT, 'tools/wheels.json'), 'w'), indent=1)
 
