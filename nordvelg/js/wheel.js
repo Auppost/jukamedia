@@ -8,3 +8,11 @@
   lb.addEventListener('click',function(e){if(e.target!==im)close()});
   document.addEventListener('keydown',function(e){if(!lb.hidden&&e.key==='Escape')close()});
 })();
+(function(){
+  document.querySelectorAll('.filters').forEach(function(f){
+    var sec=f.closest('section'),cards=[].slice.call(sec.querySelectorAll('.card')),sel=f.querySelector('select'),type='';
+    function apply(){var s=sel?sel.value:'';cards.forEach(function(c){c.hidden=(type&&c.dataset.type!==type)||(s&&c.dataset.series!==s)})}
+    f.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){type=b.dataset.f;f.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});apply()})});
+    if(sel)sel.addEventListener('change',apply);
+  });
+})();
