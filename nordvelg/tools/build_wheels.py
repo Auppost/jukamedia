@@ -179,10 +179,16 @@ def collect(lang):
         if it['kind'] != 'wheel':
             continue
         n = it['title'].strip()
+        if re.search(r'center caps?|wheel bolts?|lug nuts?|spacers?|tpms', n, re.I):
+            continue  # аксессуары, не диски
         for pf in PREFIX:
             if n.lower().startswith(pf + ' '):
                 n = n[len(pf):].strip(' -–')
+                n = n[:1].upper() + n[1:]
                 break
+        n = re.sub(r'\s*//\s*', ', ', n)
+        n = re.sub(r'"([^"]+)"', lambda m: m.group(1)[:1].upper() + m.group(1)[1:], n)
+        n = re.sub(r'\s{2,}', ' ', n).strip(' ,')
         k = slug(it['brand'], n)
         if k in wheels or any(k.startswith(e + '-') for e in existing):
             continue
@@ -230,6 +236,15 @@ def head_common(lang, title, desc, url, alts, og_img):
 <link rel="stylesheet" href="/css/wheel.css?v={V('css/wheel.css')}">
 '''
 
+def fit(t, short=None, n=65):
+    """Укорачивает title: убираем бренд сайта, потом длинное уточнение. Текст не обрезаем, чтобы заголовки оставались уникальными."""
+    for c in (t, t.replace(' | Nordvelg', ''), short):
+        if c and len(c) <= n:
+            return c
+    return short or t.replace(' | Nordvelg', '')
+
+SHORT = {'ru': '{}: кованые диски', 'et': '{}: sepistatud veljed', 'en': '{}: forged wheels'}
+
 EXH = {'ru': 'Выхлоп iPE', 'et': 'iPE väljalase', 'en': 'iPE exhausts'}
 
 def header(lang, alts):
@@ -265,7 +280,7 @@ def page(k, d, lang, all_wheels):
     alts = {l: f"{SITE}/{LANGS[l]}wheels/{k}/" for l in LANGS}
     url = alts[lang]
     price_txt = (' ' + fmt(d['p'], lang) + '.') if d['p'] else ''
-    title = t['title'].format(name=name)
+    title = fit(t['title'].format(name=name), SHORT[lang].format(name))
     desc = t['desc'].format(name=name, price=price_txt)
     if d.get('sizes'):
         desc = desc + ' ' + t['sizes_d'].format(a=d['sizes'][0], b=d['sizes'][-1])
@@ -339,7 +354,7 @@ def catalog(lang, wheels, brand=None):
     sub = f"wheels/brand/{bslug(brand)}/" if brand else "wheels/"
     alts = {l: f"{SITE}/{LANGS[l]}{sub}" for l in LANGS}
     sel = {k: w for k, w in wheels.items() if (brand is None or w['b'] == brand)}
-    title = t['brand_title'].format(b=brand) if brand else t['cat_title']
+    title = fit(t['brand_title'].format(b=brand) if brand else t['cat_title'])
     desc = t['brand_desc'].format(b=brand) if brand else t['cat_desc']
     h1 = t['brand_h1'].format(b=brand) if brand else t['cat_h1']
     out = head_common(lang, title, desc, alts[lang], alts, SITE + '/img/og-nordvelg.jpg')

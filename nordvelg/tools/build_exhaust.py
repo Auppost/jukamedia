@@ -29,7 +29,7 @@ TYPES = [  # (pattern, ru, et, en)
     (r'tip', 'Насадки', 'Otsikud', 'Tips'),
 ]
 T = {
- 'ru': dict(sec='Выхлоп iPE', cat_title='Выхлопные системы iPE в Таллинне: Porsche, Ferrari, Lamborghini, BMW | Nordvelg',
+ 'ru': dict(sec='Выхлоп iPE', cat_title='Выхлопные системы iPE в Таллинне: цены | Nordvelg',
             cat_desc='Титановые и стальные выхлопные системы iPE с клапанным управлением под заказ: Porsche, Ferrari, Lamborghini, McLaren, BMW M, AMG. Цены с НДС, доставка по Эстонии.',
             cat_h1='Выхлопные системы iPE', cat_sub='Официальная продукция iPE через европейского дистрибьютора. Продаём только версии с катализатором: без него машина не пройдёт техосмотр в Эстонии',
             make_title='Выхлоп iPE для {m}: все системы и цены | Nordvelg', make_desc='Выхлопные системы iPE для {m} под заказ с доставкой по Эстонии. Цены с НДС, только версии с катализатором.', make_h1='Выхлоп iPE для {m}',
@@ -37,15 +37,15 @@ T = {
             mat_ti='титан', mat_ss='нержавеющая сталь', finishes='Отделка насадок', all='Все системы iPE', more='Другие системы для {m}', all_make='Все системы для {m}: {n}',
             facts=['Клапанная система: тихо в городе, громко по кнопке', 'Только версии с катализатором, машина проходит техосмотр', 'Точную комплектацию, срок и цену подтверждаем до оплаты', 'Доставка в Таллинн, установку подскажем'],
             note='цена с НДС и доставкой по Эстонии, точную сумму подтвердим под вашу комплектацию', req='Версию с катализатором считаем по запросу', other='Другие', filt='Марка'),
- 'et': dict(sec='iPE väljalase', cat_title='iPE väljalaskesüsteemid Tallinnas: Porsche, Ferrari, Lamborghini, BMW | Nordvelg',
-            cat_desc='iPE titaanist ja roostevabast terasest klapiga väljalaskesüsteemid tellimusel: Porsche, Ferrari, Lamborghini, McLaren, BMW M, AMG. Hinnad koos käibemaksuga, tarne üle Eesti.',
+ 'et': dict(sec='iPE väljalase', cat_title='iPE väljalaskesüsteemid Tallinnas: hinnad | Nordvelg',
+            cat_desc='iPE titaanist ja roostevabast terasest klapiga väljalasked tellimusel: Porsche, Ferrari, Lamborghini, McLaren, BMW M, AMG. Hinnad koos KM-ga.',
             cat_h1='iPE väljalaskesüsteemid', cat_sub='Ametlikud iPE tooted Euroopa edasimüüja kaudu. Müüme ainult katalüsaatoriga versioone: ilma selleta auto Eestis tehnoülevaatust ei läbi',
             make_title='iPE väljalase {m} autodele: kõik süsteemid ja hinnad | Nordvelg', make_desc='iPE väljalaskesüsteemid {m} autodele tellimusel tarnega üle Eesti. Hinnad koos käibemaksuga, ainult katalüsaatoriga versioonid.', make_h1='iPE väljalase {m} autodele',
             h1='{t} iPE, {car}', title='{t} iPE, {car}: hind Tallinnas | Nordvelg', desc='{t} iPE autole {car}, {mat}. Klapiga heli juhtimine, tarne üle Eesti.{price}',
             mat_ti='titaan', mat_ss='roostevaba teras', finishes='Otsikute viimistlus', all='Kõik iPE süsteemid', more='Teised süsteemid: {m}', all_make='Kõik {m} süsteemid: {n}',
             facts=['Klapiga süsteem: linnas vaikne, nupuvajutusel vali', 'Ainult katalüsaatoriga versioonid, auto läbib tehnoülevaatuse', 'Täpse komplekti, tähtaja ja hinna kinnitame enne makset', 'Tarne Tallinnasse, paigalduse osas aitame nõuga'],
             note='hind koos käibemaksu ja tarnega Eestis, täpse summa kinnitame teie komplekti järgi', req='Katalüsaatoriga versiooni hind päringu alusel', other='Muud', filt='Mark'),
- 'en': dict(sec='iPE exhausts', cat_title='iPE Exhaust Systems in Tallinn: Porsche, Ferrari, Lamborghini, BMW | Nordvelg',
+ 'en': dict(sec='iPE exhausts', cat_title='iPE Exhaust Systems in Tallinn: Prices | Nordvelg',
             cat_desc='Titanium and stainless iPE valvetronic exhaust systems made to order: Porsche, Ferrari, Lamborghini, McLaren, BMW M, AMG. Prices incl. VAT, delivery across Estonia.',
             cat_h1='iPE exhaust systems', cat_sub='Genuine iPE products through the official European distributor. We sell catted versions only: without catalysts a car fails inspection in Estonia',
             make_title='iPE exhaust for {m}: all systems and prices | Nordvelg', make_desc='iPE exhaust systems for {m} made to order with delivery across Estonia. Prices incl. VAT, catted versions only.', make_h1='iPE exhaust for {m}',
@@ -124,7 +124,9 @@ def page(d, lang):
     alts = {l: f"{SITE}/{LANGS[l]}exhaust/{d['slug']}/" for l in LANGS}
     url = alts[lang]
     mat = t['mat_ti'] if d['mat'] == 'ti' else t['mat_ss']
-    title = t['title'].format(t=tl, car=d['car'])
+    car_t = d['car'].replace(' / ', '/')
+    h1t = t['h1'].format(t=tl, car=car_t)
+    title = W.fit(t['title'].format(t=tl, car=car_t), h1t if len(h1t) <= 65 else f"iPE {car_t}: {tl[0].lower() + tl[1:] if lang != 'en' else tl}")
     desc = t['desc'].format(t=tl, car=d['car'], mat=mat, price=(' ' + W.fmt(d['p'], lang) + '.') if d['p'] else '')
     og = SITE + W.big(d['imgs'][0])
     out = W.head_common(lang, title, desc, url, alts, og)
@@ -171,7 +173,7 @@ def catalog(lang, make=None):
     sub = f"exhaust/{mk(make)}/" if make else "exhaust/"
     alts = {l: f"{SITE}/{LANGS[l]}{sub}" for l in LANGS}
     sel = [d for d in ITEMS if make is None or d['make'] == make]
-    title = t['make_title'].format(m=make) if make else t['cat_title']
+    title = W.fit(t['make_title'].format(m=make) if make else t['cat_title'])
     desc = t['make_desc'].format(m=make) if make else t['cat_desc']
     h1 = t['make_h1'].format(m=make) if make else t['cat_h1']
     out = W.head_common(lang, title, desc, alts[lang], alts, SITE + W.big(sel[0]['imgs'][0]))
@@ -190,7 +192,7 @@ def catalog(lang, make=None):
     for m in makes:
         mm = [d for d in sel if d['make'] == m]
         show = mm if make else mm[:8]
-        head = f'<h2>{esc(m)}</h2>' if make else f'<div class="rh"><h2>{esc(m)}</h2><a href="{p}exhaust/{mk(m)}/">{t["all_make"].format(m=m, n=len(mm))}</a></div>'
+        head = '' if make else f'<div class="rh"><h2>{esc(m)}</h2><a href="{p}exhaust/{mk(m)}/">{t["all_make"].format(m=m, n=len(mm))}</a></div>'
         out += f'<section class="rel">{head}<div class="grid">{"".join(card(d, lang) for d in show)}</div></section>\n'
     out += '</main>\n' + W.footer(lang) + f'<script src="/js/wheel.js?v={V("js/wheel.js")}" defer></script>\n</body>\n</html>\n'
     return out

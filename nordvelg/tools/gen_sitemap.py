@@ -17,9 +17,22 @@ for d, dirs, files in os.walk(ROOT):
         continue
     alts = re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"', h)
     pages.append((url, alts))
-out = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+def section(url):
+    p = url.replace(SITE + '/', '')
+    p = re.sub(r'^(et|en)/', '', p)
+    return 'wheels' if p.startswith('wheels/') else 'exhaust' if p.startswith('exhaust/') else 'pages'
+groups = {}
 for url, alts in sorted(pages, key=lambda p: (p[0].count('/'), p[0])):
-    out.append(f'<url><loc>{url}</loc><lastmod>{today}</lastmod>' + ''.join(f'<xhtml:link rel="alternate" hreflang="{l}" href="{u}"/>' for l, u in alts) + '</url>')
-out.append('</urlset>')
-open(os.path.join(ROOT, 'sitemap.xml'), 'w').write('\n'.join(out) + '\n')
+    groups.setdefault(section(url), []).append(f'<url><loc>{url}</loc><lastmod>{today}</lastmod>' + ''.join(f'<xhtml:link rel="alternate" hreflang="{l}" href="{u}"/>' for l, u in alts) + '</url>')
+for f in os.listdir(ROOT):
+    if f.startswith('sitemap-') and f.endswith('.xml'):
+        os.remove(os.path.join(ROOT, f))
+idx = ['<?xml version="1.0" encoding="UTF-8"?>', '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+for g in ('pages', 'wheels', 'exhaust'):
+    body = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'] + groups[g] + ['</urlset>']
+    open(os.path.join(ROOT, f'sitemap-{g}.xml'), 'w').write('\n'.join(body) + '\n')
+    idx.append(f'<sitemap><loc>{SITE}/sitemap-{g}.xml</loc><lastmod>{today}</lastmod></sitemap>')
+    print(g, len(groups[g]))
+idx.append('</sitemapindex>')
+open(os.path.join(ROOT, 'sitemap.xml'), 'w').write('\n'.join(idx) + '\n')
 print(len(pages), 'urls')
