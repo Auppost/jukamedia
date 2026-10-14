@@ -62,6 +62,7 @@ def parse(it):
     title = re.sub(r'^\s*ipe\s+', '', it['title'], flags=re.I).strip()
     m = re.search(r'\bfor\s+(.+)$', title, re.I) or re.search(r'[–-]\s+(.+)$', title)
     car = (m.group(1) if m else title).strip()
+    car = re.sub(r'\s+(in|with)$', '', car)
     make = next((ALIAS.get(x, x) for x in MAKES if re.search(r'\b' + re.escape(x) + r'\b', car, re.I)), None)
     tlow = it['title'].lower()
     typ = next((tt for tt in TYPES if re.search(tt[0], tlow)), TYPES[0])

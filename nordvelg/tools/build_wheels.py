@@ -123,7 +123,7 @@ def dims(src):
 
 def collect(lang):
     s = open(os.path.join(ROOT, LANGS[lang], 'index.html')).read()
-    data = json.loads(re.search(r'var DATA=(\{.*?\});', s, re.S).group(1))
+    data = json.load(open(os.path.join(ROOT, 'tools', f'fitment-{lang}.json')))  # подборки «под машину», ручные
     wheels = {}
     # featured block
     cat = s[s.find('class="cat"'):]
@@ -199,7 +199,7 @@ def collect(lang):
         spec = [f"{ds[0]}-{ds[-1]}″" if len(ds) > 1 else f"{ds[0]}″"] if ds else []
         prices = [float(p) for _, p in it['variants'] if p and float(p) > 0]
         p = setp(min(prices) / 1.21 / 4) if (it['brand'] == 'Brixton Forged' and prices) else None
-        wheels[k] = dict(b=it['brand'], n=n, imgs=local, spec=spec, cars=[], p=p, featured=False, shop=True)
+        wheels[k] = dict(b=it['brand'], n=n, imgs=local, spec=spec, cars=[], p=p, featured=False, shop=True, title=it['title'])
     # BC prices from the dealer list (set of 4, incl. VAT)
     for d in wheels.values():
         if d['b'] == 'BC Forged' and d['p'] is None:

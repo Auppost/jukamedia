@@ -162,6 +162,7 @@ async function handleDemo(request, env, url) {
        .replace(/(?<=[\s"'(,])\/(favicon\.ico|site\.webmanifest)/g, '/nordvelg/$1')
        .replace(/href="\/(?!nordvelg\/|demo\/)([^"]*)"/g, 'href="/demo/kova/$1"')
        .replace(/a\.href="\//g, 'a.href="/demo/kova/')
+       .replace(/\bP="\//g, 'P="/demo/kova/')
        .replace('<meta charset="utf-8">', '<meta charset="utf-8">\n<meta name="robots" content="noindex, nofollow">');
   const h = new Headers(res.headers);
   h.delete('content-length'); h.delete('etag'); h.set('X-Robots-Tag', 'noindex');
