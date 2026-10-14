@@ -12,14 +12,27 @@ while :; do
   [ "$p" -ge "$tp" ] && break
   p=$((p+1)); sleep 1
 done
+# варианты (размеры/цвета) с ценой и остатком
+p=1
+while :; do
+  curl -sS -A "Mozilla/5.0 (Rehvo catalog sync)" --max-time 120 -D h.txt -o "v$p.json" "https://berlintires.shop/wp-json/wc/store/v1/products?type=variation&per_page=100&page=$p" || break
+  tp=$(grep -i '^x-wp-totalpages:' h.txt | tr -dc 0-9)
+  echo "variations page $p of ${tp:-?}"
+  [ -z "$tp" ] && break
+  [ "$p" -ge "$tp" ] && break
+  p=$((p+1)); sleep 1
+done
 python3 - <<'PY'
 import json,glob
-items=[]
-for f in sorted(glob.glob('/tmp/shop/p*.json'), key=lambda x:int(x.split('/p')[-1][:-5])):
-    try: items+=json.load(open(f))
-    except Exception as e: print('bad',f,e)
-json.dump(items,open('/tmp/shop/all.json','w'))
-print(len(items),'items')
+def load(prefix):
+    out=[]
+    for f in sorted(glob.glob(f'/tmp/shop/{prefix}*.json'), key=lambda x:int(x.split('/'+prefix)[-1][:-5])):
+        try: out+=json.load(open(f))
+        except Exception as e: print('bad',f,e)
+    return out
+items=load('p'); vars_=load('v')
+json.dump({'products':items,'variations':vars_},open('/tmp/shop/all.json','w'))
+print(len(items),'products',len(vars_),'variations')
 PY
 gzip -9 -f /tmp/shop/all.json
 openssl rand -hex 32 > /tmp/shop/k
