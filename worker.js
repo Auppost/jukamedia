@@ -68,6 +68,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (NORDVELG_HOSTS.includes(url.hostname)) return handleNordvelg(request, env, url);
+    if (url.pathname === '/demo/kova' || url.pathname.startsWith('/demo/kova/')) return handleDemo(request, env, url);
     const isProd = PROD_HOSTS.includes(url.hostname);
 
     // Файлы Nordvelg лежат в /nordvelg/, но на jukamedia.com их не показываем
@@ -143,6 +144,28 @@ async function handleNordvelg(request, env, url) {
     return out;
   }
   return res;
+}
+
+// Превью Nordvelg на jukamedia.com/demo/kova/: те же файлы из /nordvelg/, ссылки переписываются на лету, noindex
+async function handleDemo(request, env, url) {
+  const rest = url.pathname.slice('/demo/kova'.length) || '/';
+  if (rest.startsWith('/tools/')) return notFound(request, env, url, '/nordvelg/404.html');
+  const res = await env.ASSETS.fetch(new Request(url.origin + '/nordvelg' + rest + url.search, { headers: request.headers, redirect: 'manual' }));
+  if (res.status >= 300 && res.status < 400) {
+    const loc = new URL(res.headers.get('location') || '/', url.origin).pathname.replace(/^\/nordvelg/, '') || '/';
+    return Response.redirect(url.origin + '/demo/kova' + loc + url.search, 301);
+  }
+  if (res.status === 404) return notFound(request, env, url, '/nordvelg/404.html');
+  if (!(res.headers.get('content-type') || '').includes('text/html')) return res;
+  let s = await res.text();
+  s = s.replace(/(?<=[\s"'(,])\/(img|fonts|js|icons|css)\//g, '/nordvelg/$1/')
+       .replace(/(?<=[\s"'(,])\/(favicon\.ico|site\.webmanifest)/g, '/nordvelg/$1')
+       .replace(/href="\/(?!nordvelg\/|demo\/)([^"]*)"/g, 'href="/demo/kova/$1"')
+       .replace(/a\.href="\//g, 'a.href="/demo/kova/')
+       .replace('<meta charset="utf-8">', '<meta charset="utf-8">\n<meta name="robots" content="noindex, nofollow">');
+  const h = new Headers(res.headers);
+  h.delete('content-length'); h.delete('etag'); h.set('X-Robots-Tag', 'noindex');
+  return new Response(s, { status: res.status, headers: h });
 }
 
 async function notFound(request, env, url, page) {
