@@ -1,0 +1,26 @@
+name: nordvelg-bc
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['nordvelg/tools/fetch_bc.txt', '.github/workflows/nordvelg-bc.yml']
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p nordvelg/tools/raw/bc
+          while read -r u; do
+            [ -z "$u" ] && continue
+            id=$(echo "$u" | sed 's/.*id=\([0-9]*\).*/\1/')
+            curl -sSL -A "Mozilla/5.0 (Nordvelg catalog sync)" --max-time 40 -o "nordvelg/tools/raw/bc/$id.html" "$u" || echo "FAIL $u"
+            sleep 0.3
+          done < nordvelg/tools/fetch_bc.txt
+          ls nordvelg/tools/raw/bc | wc -l
+      - run: |
+          git config user.name "nordvelg-bot"; git config user.email "auppost@gmail.com"
+          git add nordvelg/tools/raw/bc
+          git diff --cached --quiet || (git commit -m "Nordvelg: BC detail pages [skip ci]" && git push)
