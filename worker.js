@@ -71,7 +71,7 @@ export default {
     const isProd = PROD_HOSTS.includes(url.hostname);
 
     // Файлы Nordvelg лежат в /nordvelg/, но на jukamedia.com их не показываем
-    if ((url.pathname === '/nordvelg' || url.pathname.startsWith('/nordvelg/')) && !/^\/nordvelg\/((img|fonts|js|icons)\/|favicon\.ico$|site\.webmanifest$)/.test(url.pathname)) {
+    if ((url.pathname === '/nordvelg' || url.pathname.startsWith('/nordvelg/')) && !/^\/nordvelg\/((img|fonts|js|icons|css)\/|favicon\.ico$|site\.webmanifest$)/.test(url.pathname)) {
       return notFound(request, env, url, '/404.html');
     }
 
@@ -137,7 +137,7 @@ async function handleNordvelg(request, env, url) {
   }
   if (res.status === 404) return notFound(request, env, url, '/nordvelg/404.html');
   // Картинки, шрифты и скрипты не меняются под тем же именем: кэшируем надолго
-  if (/^\/(img|fonts|js|icons)\//.test(path)) {
+  if (/^\/(img|fonts|js|icons|css)\//.test(path)) {
     const out = new Response(res.body, res);
     out.headers.set('Cache-Control', 'public, max-age=31536000, immutable');
     return out;
