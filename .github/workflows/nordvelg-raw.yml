@@ -1,0 +1,26 @@
+name: nordvelg-raw
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['nordvelg/tools/fetch_raw.txt', '.github/workflows/nordvelg-raw.yml']
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p nordvelg/tools/raw
+          i=0
+          while read -r u; do
+            [ -z "$u" ] && continue
+            i=$((i+1))
+            f=$(echo "$u" | sed 's#https\?://##; s#[^A-Za-z0-9._-]#_#g' | cut -c1-120)
+            curl -sSL -A "Mozilla/5.0 (Nordvelg catalog sync)" --max-time 60 -o "nordvelg/tools/raw/$f" -w "%{http_code} $u\n" "$u" || echo "FAIL $u"
+          done < nordvelg/tools/fetch_raw.txt | tee nordvelg/tools/raw/_status.txt
+      - run: |
+          git config user.name "nordvelg-bot"; git config user.email "auppost@gmail.com"
+          git add nordvelg/tools/raw
+          git diff --cached --quiet || (git commit -m "Nordvelg: raw fetch [skip ci]" && git push)

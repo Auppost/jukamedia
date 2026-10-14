@@ -1,0 +1,7 @@
+https://bcforged.com.tw/product-cat1.php
+https://bcforged.com.tw/product-cat2.php
+https://www.bcforged.com.tw/
+https://baanvelgen.com/collections/bc-forged
+https://baanvelgen.com/collections/bc-forged/products.json?limit=250&page=1
+https://baanvelgen.com/collections/brixton-forged/products.json?limit=250&page=1
+https://baanvelgen.com/collections/ipe-exhaust/products.json?limit=250&page=1
