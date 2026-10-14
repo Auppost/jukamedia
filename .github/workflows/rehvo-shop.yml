@@ -1,0 +1,22 @@
+name: rehvo-shop
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['rehvo/tools/fetch_shop.sh', '.github/workflows/rehvo-shop.yml']
+  schedule:
+    - cron: '17 3 * * *'
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash rehvo/tools/fetch_shop.sh
+      - run: |
+          git config user.name "rehvo-bot"; git config user.email "auppost@gmail.com"
+          git add rehvo/tools/data
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Rehvo: supplier catalog (encrypted) [skip ci]"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q && break; sleep 5; done
