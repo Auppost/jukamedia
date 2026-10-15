@@ -1,4 +1,4 @@
-# NS + HTTP watcher for nordvelg.com
+# NS + HTTP watcher for nordvelg.com (v3)
 name: nordvelg-ns
 on:
   workflow_dispatch:
