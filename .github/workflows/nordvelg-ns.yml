@@ -25,8 +25,13 @@ jobs:
             done
             echo "== registry (.com TLD)"
             dig +norec NS nordvelg.com @a.gtld-servers.net | grep -E 'IN\s+NS' | awk '{print $5}' | sort | tr '\n' ' '; echo
+            echo "== dnssec"
+            echo "DS at .com: $(dig +short DS nordvelg.com @a.gtld-servers.net | tr '\n' ' ')"
+            echo "DNSKEY: $(dig +short DNSKEY nordvelg.com @elinore.ns.cloudflare.com | wc -l)"
+            for r in 8.8.8.8 1.1.1.1 9.9.9.9 208.67.222.222; do echo "A via $r: $(dig +short A nordvelg.com @$r | tr '\n' ' ') status=$(dig A nordvelg.com @$r | grep -o 'status: [A-Z]*')"; done
+            echo "www via 8.8.8.8: $(dig +short A www.nordvelg.com @8.8.8.8 | tr '\n' ' ')"
             echo "== http"
-            for u in https://nordvelg.com/ https://www.nordvelg.com/ https://nordvelg.com/et/ https://nordvelg.com/sitemap.xml https://jukamedia.com/ https://jukamedia.com/demo/kova/et/; do
+            for u in https://nordvelg.com/ https://www.nordvelg.com/ https://nordvelg.com/et/ https://nordvelg.com/sitemap.xml http://nordvelg.com/ http://www.nordvelg.com/ https://jukamedia.com/ https://jukamedia.com/demo/kova/et/; do
               echo "$u -> $(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' --max-time 20 $u)"
             done
             echo "form copy: $(curl -s --max-time 20 https://nordvelg.com/et/ | grep -c 'fContact')"
