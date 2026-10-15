@@ -29,6 +29,7 @@ jobs:
             for u in https://nordvelg.com/ https://www.nordvelg.com/ https://nordvelg.com/et/ https://nordvelg.com/sitemap.xml https://jukamedia.com/ https://jukamedia.com/demo/kova/et/; do
               echo "$u -> $(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' --max-time 20 $u)"
             done
+            echo "form copy: $(curl -s --max-time 20 https://nordvelg.com/et/ | grep -c 'fContact')"
             echo "title: $(curl -s --max-time 20 https://nordvelg.com/ | grep -o '<title>[^<]*' | head -1)"
           } > nordvelg/tools/ns-status.txt
           cat nordvelg/tools/ns-status.txt
