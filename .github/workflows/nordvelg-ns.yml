@@ -1,0 +1,34 @@
+name: nordvelg-ns
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/15 * * * *'
+  push:
+    branches: [main]
+    paths: ['.github/workflows/nordvelg-ns.yml']
+permissions:
+  contents: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p nordvelg/tools
+          {
+            for d in nordvelg.com www.nordvelg.com; do
+              echo "== $d"
+              echo "NS:    $(dig +short NS $d @1.1.1.1 | sort | tr '\n' ' ')"
+              echo "NS(8): $(dig +short NS $d @8.8.8.8 | sort | tr '\n' ' ')"
+              echo "A:     $(dig +short A $d @1.1.1.1 | sort | tr '\n' ' ')"
+            done
+            echo "== registry (.com TLD)"
+            dig +norec NS nordvelg.com @a.gtld-servers.net | grep -E 'IN\s+NS' | awk '{print $5}' | sort | tr '\n' ' '; echo
+          } > nordvelg/tools/ns-status.txt
+          cat nordvelg/tools/ns-status.txt
+      - run: |
+          git config user.name "nordvelg-bot"; git config user.email "auppost@gmail.com"
+          git add nordvelg/tools/ns-status.txt
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Nordvelg: NS status [skip ci]"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q && break; sleep 5; done
