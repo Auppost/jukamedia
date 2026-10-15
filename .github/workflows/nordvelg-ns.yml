@@ -35,7 +35,7 @@ jobs:
               echo "$u -> $(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' --max-time 20 $u)"
             done
             echo "form copy: $(curl -s --max-time 20 https://nordvelg.com/et/ | grep -c 'fContact')"
-            echo "model select: $(curl -s --max-time 20 https://nordvelg.com/en/ | grep -c 'fModelSel')  privacy: $(curl -s -o /dev/null -w '%{http_code}' https://nordvelg.com/privacy/)"
+            echo "model select: $(curl -s --max-time 20 https://nordvelg.com/en/ | grep -c 'fModelSel')  burger: $(curl -s --max-time 20 https://nordvelg.com/ | grep -c 'class="burger"')  privacy: $(curl -s -o /dev/null -w '%{http_code}' https://nordvelg.com/privacy/)"
             echo "hero: $(curl -s --max-time 20 https://nordvelg.com/ | grep -o '<h1 class="rise">[^<]*')"
             echo "title: $(curl -s --max-time 20 https://nordvelg.com/ | grep -o '<title>[^<]*' | head -1)"
           } > nordvelg/tools/ns-status.txt
