@@ -1,10 +1,10 @@
 == nordvelg.com
-NS:    ns.zone.eu. ns2.zone.ee. ns3.zonedata.net. 
-NS(8): ns.zone.eu. ns2.zone.ee. ns3.zonedata.net. 
-A:     185.31.240.240 
+NS:    elinore.ns.cloudflare.com. zac.ns.cloudflare.com. 
+NS(8): elinore.ns.cloudflare.com. zac.ns.cloudflare.com. 
+A:     
 == www.nordvelg.com
-NS:    nordvelg.com. ns.zone.eu. ns2.zone.ee. ns3.zonedata.net. 
-NS(8): nordvelg.com. ns.zone.eu. ns2.zone.ee. ns3.zonedata.net. 
-A:     185.31.240.240 nordvelg.com. 
+NS:    
+NS(8): 
+A:     
 == registry (.com TLD)
- ns.zone.eu. ns2.zone.ee. ns3.zonedata.net. 
+ elinore.ns.cloudflare.com. zac.ns.cloudflare.com. 
