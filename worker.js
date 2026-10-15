@@ -68,7 +68,10 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (NORDVELG_HOSTS.includes(url.hostname)) return handleNordvelg(request, env, url);
-    if (url.pathname === '/demo/kova' || url.pathname.startsWith('/demo/kova/')) return handleDemo(request, env, url);
+    // Превью переехало на собственный домен: один 301 на тот же путь nordvelg.com
+    if (url.pathname === '/demo/kova' || url.pathname.startsWith('/demo/kova/')) {
+      return Response.redirect(NORDVELG_ORIGIN + (url.pathname.slice('/demo/kova'.length) || '/') + url.search, 301);
+    }
     const isProd = PROD_HOSTS.includes(url.hostname);
 
     // Файлы Nordvelg лежат в /nordvelg/, но на jukamedia.com их не показываем
