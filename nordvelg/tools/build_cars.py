@@ -177,8 +177,7 @@ JS = r'''/* by-car picker */
     var mk=document.getElementById("fMake"),found=false;
     for(var i=0;i<mk.options.length;i++){if(mk.options[i].text===cur.make){mk.selectedIndex=i;found=true;}}
     if(!found)mk.value=L.other;
-    document.getElementById("fModel").value=cur.model;
-    document.getElementById("fModel").dispatchEvent(new Event("input"));
+    if(window.__fillF)window.__fillF(cur.model);else{document.getElementById("fModel").value=cur.model;document.getElementById("fModel").dispatchEvent(new Event("input"));}
   }
   function reveal(box,b){if(b&&box.scrollWidth>box.clientWidth)box.scrollLeft=b.offsetLeft-box.offsetLeft-(box.clientWidth-b.offsetWidth)/2}
   function pickModel(m){cur.model=m;modelsEl.querySelectorAll("button").forEach(function(b){var on=b.textContent===m;b.setAttribute("aria-pressed",String(on));if(on)reveal(modelsEl,b)});render();}
@@ -199,10 +198,16 @@ JS = r'''/* by-car picker */
     var x=document.createElement("option");x.value="__other";x.textContent=L.other_model;sel.appendChild(x);
     if(keep)sel.value=keep;
   }
-  var pm=document.getElementById("pMake"),pd=document.getElementById("pModel"),dl=document.getElementById("fModelList");
+  var pm=document.getElementById("pMake"),pd=document.getElementById("pModel");
   pm.addEventListener("change",function(){pd.value="";fillModels(pd,pm.value);if(CARS[pm.value])load(function(){})});
   fillModels(pd,"");
-  document.getElementById("fMake").addEventListener("change",function(){dl.innerHTML="";(CARS[this.value]||[]).forEach(function(m){var o=document.createElement("option");o.value=m;dl.appendChild(o)})});
+  /* quote form: make -> model list, "other model" opens a text field */
+  var fm=document.getElementById("fMake"),fs=document.getElementById("fModelSel"),fi=document.getElementById("fModel");
+  function syncF(){var v=fs.value;if(v==="__other"){if((CARS[fm.value]||[]).indexOf(fi.value)>-1)fi.value="";fi.hidden=false;}else{fi.hidden=true;fi.value=v;}fi.dispatchEvent(new Event("input"));}
+  function fillF(model){fillModels(fs,fm.value);fs.value="";if(model){if((CARS[fm.value]||[]).indexOf(model)>-1)fs.value=model;else{fs.value="__other";fi.value=model;}}else if(fm.value&&!CARS[fm.value])fs.value="__other";syncF();}
+  fm.addEventListener("change",function(){fi.value="";fillF("");});
+  fs.addEventListener("change",function(){syncF();if(fs.value==="__other")fi.focus();});
+  fillF("");window.__fillF=fillF;
   var started=false;function start(){if(started)return;started=true;pickMake(Object.keys(CARS)[0])}
   if("IntersectionObserver" in window){var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){start();io.disconnect()}},{rootMargin:"600px"});io.observe(document.getElementById("cars"))}else start();
   window.__pickCar=function(make,model){if(!CARS[make])return false;started=true;pickMake(make,model);return true;};
@@ -230,10 +235,19 @@ def inject(lang, data):
     # список марок в формах
     makes = list(data['cars']) + [s['other']]
     h = re.sub(r'var MAKES=\[[^\]]*\];', 'var MAKES=' + json.dumps(makes, ensure_ascii=False) + ';', h)
-    # подсказки моделей в форме заявки
-    if 'id="fModelList"' not in h:
-        h = re.sub(r'(<input id="fModel"[^>]*?)(\s*maxlength)', r'\1 list="fModelList"\2', h, count=1)
-        h = h.replace('<input id="fModel"', '<datalist id="fModelList"></datalist><input id="fModel"', 1)
+    # форма заявки: модель выбирается из списка, «Другая модель» открывает поле ввода; год из списка
+    h = h.replace('<datalist id="fModelList"></datalist>', '')
+    h = re.sub(r'(<input id="fModel"[^>]*?) list="fModelList"', r'\1', h)
+    if 'id="fModelSel"' not in h:
+        h = h.replace('<input id="fModel"', f'<select id="fModelSel" aria-label="{s["model"]}"><option value="">{s["model"]}</option></select><input id="fModel" hidden style="grid-column:1/-1"', 1)
+    m = re.search(r'<input id="fYear" placeholder="([^"]*)" [^>]*>', h)
+    if m:
+        old_lbl = {'ru': 'до 1990', 'et': 'enne 1990', 'en': 'before 1990'}[lang]
+        opts = ''.join(f'<option>{y}</option>' for y in range(2027, 1989, -1)) + f'<option>{old_lbl}</option>'
+        h = h.replace(m.group(0), f'<select id="fYear" aria-label="{m.group(1)}"><option value="">{m.group(1)}</option>{opts}</select>', 1)
+    if '#fModel[hidden]' not in h:
+        h = h.replace('</style>', '#fModel[hidden]{display:none}</style>', 1)
+    h = h.replace('$("fModel").value=$("pModel").value==="__other"?"":$("pModel").value;go(1);', '$("fModel").value=$("pModel").value==="__other"?"":$("pModel").value;if(window.__fillF)window.__fillF($("fModel").value);go(1);')
     # «Другая модель» в hero не переносим в форму
     h = h.replace('$("fModel").value=$("pModel").value;go(1);', '$("fModel").value=$("pModel").value==="__other"?"":$("pModel").value;go(1);')
     h = h.replace('''var target=(window.__pickCar&&window.__pickCar($("pMake").value))?"cars":"quote";

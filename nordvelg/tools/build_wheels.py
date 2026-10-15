@@ -44,7 +44,7 @@ T = {
   per_wheel='', mono='моноблок', two='две части',
   foot='Кованые диски BC Forged, Brixton Forged и MV Forged под заказ в Таллинне', city='Таллинн, Эстония',
   credits='Фото дисков и автомобилей: BC Forged, Brixton Forged и их дистрибьюторы. Названия брендов принадлежат их владельцам',
-  ptable='Цена комплекта по диаметру', col_d='Диаметр', col_w='Ширина', col_p='Комплект из 4', ptable_note='С НДС и доставкой по Эстонии. Опции оплачиваются отдельно: полированная полка, накатка, колпачки', series='Серия {s}', filt_all='Все', sizes_d='Размеры {a}-{b}″.',
+  ptable='Цена комплекта по диаметру', col_d='Диаметр', col_w='Ширина', col_p='Комплект из 4', ptable_note='С НДС и доставкой по Эстонии. Опции оплачиваются отдельно: полированная полка, накатка. Фрезерованный колпачок в комплекте', series='Серия {s}', filt_all='Все', sizes_d='Размеры {a}-{b}″.',
   brand_title='Диски {b} под заказ в Таллинне: все модели и цены | Nordvelg', brand_desc='Все модели {b} под заказ с доставкой в Таллинн и по Эстонии. Подбор под ваш автомобиль, эскиз до оплаты.', brand_h1='Диски {b}', all_brand='Все модели {b}: {n}', on_req_note='Цену считаем под вашу машину и спецификацию',
   lang_name='Язык'),
  'et': dict(
@@ -68,7 +68,7 @@ T = {
   per_wheel='', mono='monoblokk', two='kaheosaline',
   foot='BC Forged, Brixton Forged ja MV Forged sepistatud veljed tellimusel Tallinnas', city='Tallinn, Eesti',
   credits='Velgede ja autode fotod: BC Forged, Brixton Forged ja nende edasimüüjad. Kaubamärgid kuuluvad nende omanikele',
-  ptable='Komplekti hind läbimõõdu järgi', col_d='Läbimõõt', col_w='Laius', col_p='4 velje komplekt', ptable_note='Koos käibemaksu ja tarnega Eestis. Lisavalikud eraldi: poleeritud äär, rantimine, rummukatted', series='Seeria {s}', filt_all='Kõik', sizes_d='Mõõdud {a}-{b}″.',
+  ptable='Komplekti hind läbimõõdu järgi', col_d='Läbimõõt', col_w='Laius', col_p='4 velje komplekt', ptable_note='Koos käibemaksu ja tarnega Eestis. Lisavalikud eraldi: poleeritud äär, rantimine. Freesitud rummukate on komplektis', series='Seeria {s}', filt_all='Kõik', sizes_d='Mõõdud {a}-{b}″.',
   brand_title='{b} veljed tellimusel Tallinnas: kõik mudelid ja hinnad | Nordvelg', brand_desc='Kõik {b} mudelid tellimusel tarnega Tallinnasse ja üle Eesti. Valik teie auto järgi, eskiis enne makset.', brand_h1='{b} veljed', all_brand='Kõik {b} mudelid: {n}', on_req_note='Hinna arvutame teie auto ja spetsifikatsiooni järgi',
   lang_name='Keel'),
  'en': dict(
@@ -92,7 +92,7 @@ T = {
   per_wheel='', mono='monoblock', two='two-piece',
   foot='BC Forged, Brixton Forged and MV Forged wheels made to order in Tallinn', city='Tallinn, Estonia',
   credits='Wheel and car photos: BC Forged, Brixton Forged and their distributors. Brand names belong to their owners',
-  ptable='Set price by diameter', col_d='Diameter', col_w='Width', col_p='Set of 4', ptable_note='Incl. VAT and delivery in Estonia. Options are extra: polished lip, knurling, centre caps', series='{s} series', filt_all='All', sizes_d='Sizes {a}-{b}″.',
+  ptable='Set price by diameter', col_d='Diameter', col_w='Width', col_p='Set of 4', ptable_note='Incl. VAT and delivery in Estonia. Options are extra: polished lip, knurling. A machined centre cap is included', series='{s} series', filt_all='All', sizes_d='Sizes {a}-{b}″.',
   brand_title='{b} wheels made to order in Tallinn: all models and prices | Nordvelg', brand_desc='All {b} models made to order with delivery to Tallinn and across Estonia. Fitment for your car, a sketch before you pay.', brand_h1='{b} wheels', all_brand='All {b} models: {n}', on_req_note='We price it for your car and specification',
   lang_name='Language'),
 }
@@ -157,7 +157,7 @@ def collect(lang):
         typ = 'mono' if m['cat'] == 1 else 'two'
         table = PRICE['KX'] if m['series'] == 'KX' else PRICE['HCX'] if m['series'] == 'HCX' else PRICE[typ]
         ds = sorted(int(x) for x in m['sizes'])
-        ptab = [(dd, m['sizes'][str(dd)], setp(table[dd])) for dd in ds if dd in table]
+        ptab = [(dd, m['sizes'][str(dd)], setp(table[dd]) if dd in table else None) for dd in ds]
         local = [f"/img/bc/{n}-960.webp" for n in m['local'] if ('bc/' + n) in MAN]
         k = m['slug']
         label = T[lang]['mono'] if typ == 'mono' else T[lang]['two']
@@ -170,8 +170,8 @@ def collect(lang):
                 if i not in d['imgs']:
                     d['imgs'].append(i)
         d.update(series=m['series'], typ=typ, sizes=ds, ptab=ptab, src=m['url'])
-        if ptab:
-            d['p'] = min(x[2] for x in ptab)
+        if any(x[2] for x in ptab):
+            d['p'] = min(x[2] for x in ptab if x[2])
     # other wheel brands from the Baan Velgen shop (prices there are per set incl. 21% NL VAT)
     PREFIX = ['brixton forged', 'brixton', 'hre', 'vorsteiner', 'bbs', 'anrky', 'apex', 'vossen', 'ipe magnesium wheels', 'ipe', 'brabus', 'novitec', 'manthey racing']
     existing = list(wheels.keys())
@@ -245,6 +245,8 @@ def fit(t, short=None, n=65):
 
 SHORT = {'ru': '{}: кованые диски', 'et': '{}: sepistatud veljed', 'en': '{}: forged wheels'}
 
+PRIV = {'ru': 'Политика конфиденциальности', 'et': 'Privaatsuspoliitika', 'en': 'Privacy policy'}
+
 EXH = {'ru': 'Выхлоп iPE', 'et': 'iPE väljalase', 'en': 'iPE exhausts'}
 
 def header(lang, alts):
@@ -263,7 +265,7 @@ def footer(lang):
 <div><a class="mark" href="/{LANGS[lang]}">Nordvelg</a><p>{t['foot']}</p></div>
 <div><a href="https://t.me/alekseipsk" target="_blank" rel="noopener noreferrer">Telegram @alekseipsk</a><br><a href="https://wa.me/{WA}" target="_blank" rel="noopener noreferrer">WhatsApp +372 5749 4989</a></div>
 <div>Juka Media OÜ<br>{t['city']}</div>
-</div><div class="wrap credits">{t['credits']}</div></footer>
+</div><div class="wrap credits">{t['credits']}. <a href="/{LANGS[lang]}privacy/">{PRIV[lang]}</a></div></footer>
 '''
 
 def card(d, lang):
@@ -333,7 +335,7 @@ def page(k, d, lang, all_wheels):
 </section>
 '''
     if d.get('ptab'):
-        rows = ''.join(f'<tr><td>{dd}″</td><td>{ws[0]}-{ws[-1]}J</td><td>{fmt(pp, lang)}</td></tr>' for dd, ws, pp in d['ptab'] if ws)
+        rows = ''.join(f'<tr><td>{dd}″</td><td>{ws[0]}-{ws[-1]}J</td><td>{fmt(pp, lang) if pp else t["on_request"]}</td></tr>' for dd, ws, pp in d['ptab'] if ws)
         out += f'<section class="ptab"><h2>{t["ptable"]}</h2><div class="tw"><table><thead><tr><th scope="col">{t["col_d"]}</th><th scope="col">{t["col_w"]}</th><th scope="col">{t["col_p"]}</th></tr></thead><tbody>{rows}</tbody></table></div><p class="note">{t["ptable_note"]}</p></section>\n'
     if d['cars']:
         out += f'<section class="fits"><h2>{t["fits"]}</h2><div class="chips">{"".join(f"<span>{esc(c)}</span>" for c in d["cars"][:40])}</div><p class="note">{t["fits_note"]}</p></section>\n'

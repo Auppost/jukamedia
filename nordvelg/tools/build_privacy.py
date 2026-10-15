@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+"""Политика конфиденциальности Nordvelg: /privacy/, /et/privacy/, /en/privacy/ (noindex)."""
+import os
+import build_wheels as W
+
+ROOT, SITE, LANGS = W.ROOT, W.SITE, W.LANGS
+
+P = {
+ 'ru': dict(title='Политика конфиденциальности | Nordvelg', h1='Политика конфиденциальности', desc='Как Nordvelg обрабатывает данные из заявок.', body='''
+<p>Здесь коротко и честно о том, какие данные вы нам передаёте через сайт nordvelg.com и что мы с ними делаем.</p>
+<h2>Кто обрабатывает данные</h2>
+<p>Juka Media OÜ, регистрационный код 17495980, Таллинн, Эстония. Связь по вопросам данных: <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>.</p>
+<h2>Какие данные мы получаем</h2>
+<p>Только то, что вы сами указали в форме расчёта: имя, телефон или e-mail, марка, модель и год машины, пожелания по дискам и комментарий. Сайт не ставит рекламных cookies и не ведёт аналитику посетителей.</p>
+<h2>Как данные к нам попадают</h2>
+<ul>
+<li>Когда вы нажимаете «Отправить в Telegram» или «Отправить в WhatsApp», текст заявки открывается в выбранном мессенджере. Там действуют правила этого мессенджера.</li>
+<li>В тот же момент копия заявки приходит нам на e-mail через сервис Formspree (Formspree, Inc., США). Это нужно, чтобы заявка не потерялась, если сообщение в мессенджере не отправится. Передача в США идёт на условиях стандартных договорных положений ЕС.</li>
+</ul>
+<h2>Зачем</h2>
+<p>Только чтобы ответить на ваш запрос: подобрать диски, рассчитать цену и подготовить эскиз. Правовое основание: ваш запрос и подготовка договора (статья 6(1)(b) GDPR). Мы не продаём данные и не используем их для рассылок без вашего согласия.</p>
+<h2>Сколько храним</h2>
+<p>Переписку по заявке храним до 12 месяцев. Если вы стали клиентом, данные заказа храним столько, сколько требует бухгалтерский учёт в Эстонии (7 лет).</p>
+<h2>Ваши права</h2>
+<p>Вы можете попросить показать, исправить или удалить ваши данные, а также возразить против обработки. Напишите на <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>, ответим в течение месяца. Если считаете, что ваши права нарушены, можно обратиться в Инспекцию по защите данных Эстонии (Andmekaitse Inspektsioon, <a href="https://www.aki.ee" target="_blank" rel="noopener noreferrer">aki.ee</a>).</p>
+<p class="upd">Обновлено 15 октября 2026 года</p>
+'''),
+ 'et': dict(title='Privaatsuspoliitika | Nordvelg', h1='Privaatsuspoliitika', desc='Kuidas Nordvelg päringute andmeid töötleb.', body='''
+<p>Lühidalt ja ausalt sellest, milliseid andmeid te meile nordvelg.com kaudu edastate ja mida me nendega teeme.</p>
+<h2>Vastutav töötleja</h2>
+<p>Juka Media OÜ, registrikood 17495980, Tallinn, Eesti. Andmetega seotud küsimused: <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>.</p>
+<h2>Milliseid andmeid saame</h2>
+<p>Ainult need, mille te ise hinnapäringu vormis sisestate: nimi, telefon või e-post, auto mark, mudel ja aasta, soovid velgede kohta ja kommentaar. Sait ei kasuta reklaamiküpsiseid ega külastajate analüütikat.</p>
+<h2>Kuidas andmed meieni jõuavad</h2>
+<ul>
+<li>Kui vajutate „Saada Telegrami“ või „Saada WhatsAppi“, avaneb päringu tekst valitud sõnumirakenduses. Seal kehtivad selle rakenduse reeglid.</li>
+<li>Samal hetkel saadetakse päringu koopia meie e-postile teenuse Formspree (Formspree, Inc., USA) kaudu, et päring ei kaoks. Andmete edastamine USA-sse toimub ELi tüüptingimuste alusel.</li>
+</ul>
+<h2>Milleks</h2>
+<p>Ainult teie päringule vastamiseks: velgede valik, hinnapakkumine ja eskiis. Õiguslik alus: teie taotlus ja lepingu ettevalmistamine (IKÜM artikkel 6 lõige 1 punkt b). Me ei müü andmeid ega saada uudiskirju ilma teie nõusolekuta.</p>
+<h2>Kui kaua säilitame</h2>
+<p>Päringu kirjavahetust säilitame kuni 12 kuud. Kui teist saab klient, säilitame tellimuse andmeid nii kaua, kui nõuab Eesti raamatupidamisseadus (7 aastat).</p>
+<h2>Teie õigused</h2>
+<p>Võite paluda oma andmeid näha, parandada või kustutada ning esitada vastuväite töötlemisele. Kirjutage <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>, vastame kuu aja jooksul. Kui leiate, et teie õigusi on rikutud, võite pöörduda Andmekaitse Inspektsiooni poole (<a href="https://www.aki.ee" target="_blank" rel="noopener noreferrer">aki.ee</a>).</p>
+<p class="upd">Uuendatud 15. oktoobril 2026</p>
+'''),
+ 'en': dict(title='Privacy Policy | Nordvelg', h1='Privacy policy', desc='How Nordvelg handles the data in quote requests.', body='''
+<p>A short, plain account of what data you send us through nordvelg.com and what we do with it.</p>
+<h2>Who processes the data</h2>
+<p>Juka Media OÜ, registry code 17495980, Tallinn, Estonia. Data questions: <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>.</p>
+<h2>What we receive</h2>
+<p>Only what you enter in the quote form: name, phone or e-mail, your car's make, model and year, wheel preferences and a comment. The site uses no advertising cookies and no visitor analytics.</p>
+<h2>How it reaches us</h2>
+<ul>
+<li>When you press "Send via Telegram" or "Send via WhatsApp", the request text opens in that messenger, and its own terms apply there.</li>
+<li>At the same moment a copy of the request is sent to our e-mail through Formspree (Formspree, Inc., USA), so the request is not lost. Transfers to the USA rely on the EU standard contractual clauses.</li>
+</ul>
+<h2>Why</h2>
+<p>Only to answer your request: choose wheels, price them and prepare a sketch. Legal basis: your request and steps before a contract (GDPR Article 6(1)(b)). We do not sell data or send newsletters without your consent.</p>
+<h2>How long we keep it</h2>
+<p>We keep request correspondence for up to 12 months. If you become a customer, order data is kept as long as Estonian accounting law requires (7 years).</p>
+<h2>Your rights</h2>
+<p>You can ask to see, correct or delete your data and object to its processing. Write to <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>; we reply within a month. If you believe your rights were breached, you can contact the Estonian Data Protection Inspectorate (<a href="https://www.aki.ee" target="_blank" rel="noopener noreferrer">aki.ee</a>).</p>
+<p class="upd">Updated 15 October 2026</p>
+'''),
+}
+
+CSS = '<style>.legal{max-width:68ch;padding-block:48px 72px}.legal h1{font-family:var(--display);font-size:clamp(30px,5vw,46px);font-weight:600;letter-spacing:-.02em;margin:18px 0 18px}.legal h2{font-family:var(--display);font-size:22px;font-weight:600;margin:32px 0 10px}.legal p,.legal li{line-height:1.6}.legal ul{padding-left:20px;display:grid;gap:8px}.legal a{color:var(--bronze)}.legal .upd{color:var(--machined);margin-top:32px;font-size:14px}</style>\n'
+
+def main():
+    alts = {l: f'{SITE}/{LANGS[l]}privacy/' for l in LANGS}
+    for lang, d in P.items():
+        url = alts[lang]
+        h = W.head_common(lang, d['title'], d['desc'], url, alts, f'{SITE}/img/og-nordvelg.jpg')
+        h = h.replace('<link rel="canonical"', '<meta name="robots" content="noindex, follow">\n<link rel="canonical"', 1)
+        h += CSS + '</head>\n<body>\n' + W.header(lang, alts)
+        h += f'<main class="wrap legal"><h1>{d["h1"]}</h1>{d["body"]}</main>\n' + W.footer(lang) + '</body>\n</html>\n'
+        out = os.path.join(ROOT, LANGS[lang], 'privacy')
+        os.makedirs(out, exist_ok=True)
+        open(os.path.join(out, 'index.html'), 'w').write(h)
+        print('ok', url)
+
+if __name__ == '__main__':
+    main()
