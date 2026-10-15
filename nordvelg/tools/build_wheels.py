@@ -107,6 +107,34 @@ def fmt(p, lang):
     s = f'{p:,}'.replace(',', ' ' if lang != 'en' else ',')
     return T[lang]['price_from'].format(p=s)
 
+_AH = {}
+def _ahash(src):
+    """Грубый перцептивный хеш 16x16: одинаковые фото из разных источников дают почти один хеш."""
+    if src not in _AH:
+        try:
+            from PIL import Image
+            im = Image.open(os.path.join(ROOT, big(src).lstrip('/'))).convert('L').resize((16, 16))
+            px = list(im.tobytes()); m = sum(px) / len(px)
+            _AH[src] = [x > m for x in px]
+        except Exception:
+            _AH[src] = None
+    return _AH[src]
+
+def uniq_imgs(imgs):
+    """Убирает из галереи повторы одного и того же фото, оставляя версию с большим разрешением."""
+    out = []
+    for i in imgs:
+        h = _ahash(i); dup = None
+        for n, o in enumerate(out):
+            ho = _ahash(o)
+            if h and ho and sum(a != b for a, b in zip(h, ho)) <= 12:
+                dup = n; break
+        if dup is None:
+            out.append(i)
+        elif dims(i)[0] > dims(out[dup])[0]:
+            out[dup] = i
+    return out
+
 def big(src):
     """Самая крупная версия той же картинки."""
     m = re.match(r'/img/(.+)-(\d+)\.webp$', src or '')
@@ -286,7 +314,7 @@ def page(k, d, lang, all_wheels):
     desc = t['desc'].format(name=name, price=price_txt)
     if d.get('sizes'):
         desc = desc + ' ' + t['sizes_d'].format(a=d['sizes'][0], b=d['sizes'][-1])
-    imgs = [i for i in d['imgs'] if i]
+    imgs = uniq_imgs([i for i in d['imgs'] if i])
     og = SITE + (big(imgs[-1]) if imgs else '/img/og-nordvelg.jpg')
     out = head_common(lang, title, desc, url, alts, og)
     # JSON-LD
