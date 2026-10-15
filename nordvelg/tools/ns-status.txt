@@ -8,3 +8,10 @@ NS(8):
 A:     
 == registry (.com TLD)
  elinore.ns.cloudflare.com. zac.ns.cloudflare.com. 
+== http
+https://nordvelg.com/ -> 000 
+https://www.nordvelg.com/ -> 000 
+https://nordvelg.com/et/ -> 000 
+https://nordvelg.com/sitemap.xml -> 000 
+https://jukamedia.com/ -> 200 
+title: 
