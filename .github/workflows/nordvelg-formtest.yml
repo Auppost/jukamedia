@@ -1,0 +1,23 @@
+name: nordvelg-formtest
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/nordvelg-formtest.yml']
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p nordvelg/tools
+          curl -s -w '\nHTTP %{http_code}\n' -X POST https://formspree.io/f/xaqgrrde \
+            -H 'Accept: application/json' -H 'Content-Type: application/json' \
+            -H 'Origin: https://nordvelg.com' -H 'Referer: https://nordvelg.com/' \
+            -d '{"_subject":"Nordvelg: ТЕСТ заявки с сайта","message":"Это проверка: копии заявок с nordvelg.com приходят сюда. Отвечать не нужно.","channel":"test","page":"https://nordvelg.com/"}' \
+            > nordvelg/tools/formtest.txt 2>&1
+          cat nordvelg/tools/formtest.txt
+          git config user.name "nordvelg-bot"; git config user.email "auppost@gmail.com"
+          git add nordvelg/tools/formtest.txt; git commit -q -m "Nordvelg: form test [skip ci]" || exit 0
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q && break; sleep 5; done
