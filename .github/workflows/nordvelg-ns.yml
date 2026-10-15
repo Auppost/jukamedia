@@ -6,7 +6,7 @@ on:
     - cron: '*/15 * * * *'
   push:
     branches: [main]
-    paths: ['.github/workflows/nordvelg-ns.yml']
+    paths: ['.github/workflows/nordvelg-ns.yml', 'wrangler.jsonc']
 permissions:
   contents: write
 jobs:
@@ -25,6 +25,11 @@ jobs:
             done
             echo "== registry (.com TLD)"
             dig +norec NS nordvelg.com @a.gtld-servers.net | grep -E 'IN\s+NS' | awk '{print $5}' | sort | tr '\n' ' '; echo
+            echo "== http"
+            for u in https://nordvelg.com/ https://www.nordvelg.com/ https://nordvelg.com/et/ https://nordvelg.com/sitemap.xml https://jukamedia.com/; do
+              echo "$u -> $(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' --max-time 20 $u)"
+            done
+            echo "title: $(curl -s --max-time 20 https://nordvelg.com/ | grep -o '<title>[^<]*' | head -1)"
           } > nordvelg/tools/ns-status.txt
           cat nordvelg/tools/ns-status.txt
       - run: |

@@ -5,7 +5,9 @@
   "main": "worker.js",
   "routes": [
     { "pattern": "jukamedia.com", "custom_domain": true },
-    { "pattern": "www.jukamedia.com", "custom_domain": true }
+    { "pattern": "www.jukamedia.com", "custom_domain": true },
+    { "pattern": "nordvelg.com", "custom_domain": true },
+    { "pattern": "www.nordvelg.com", "custom_domain": true }
   ],
   "assets": {
     "directory": "./",
