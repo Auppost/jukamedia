@@ -14,4 +14,5 @@ https://www.nordvelg.com/ -> 301 https://nordvelg.com/
 https://nordvelg.com/et/ -> 200 
 https://nordvelg.com/sitemap.xml -> 200 
 https://jukamedia.com/ -> 200 
+https://jukamedia.com/demo/kova/et/ -> 200 
 title: <title>Кованые диски под заказ в Таллинне: BC Forged, Brixton | Nordvelg
