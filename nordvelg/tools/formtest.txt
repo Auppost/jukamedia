@@ -1,0 +1,3 @@
+{"next":"/thanks","ok":true}
+
+HTTP 200
