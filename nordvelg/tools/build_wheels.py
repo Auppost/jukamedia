@@ -17,6 +17,7 @@ for _f in ('tools/bc-manifest.json', 'tools/shop-manifest.json'):
         MAN.update(json.load(open(os.path.join(ROOT, _f))))
 SHOP = json.load(open(os.path.join(ROOT, 'tools/shop_items.json')))
 bslug = lambda b: re.sub(r'[^a-z0-9]+', '-', b.lower()).strip('-')
+BRANDS = {'BC Forged', 'Brixton Forged', 'iPE'}  # остальные бренды сняты 16.10.2026: нет дилерской цены
 BC = json.load(open(os.path.join(ROOT, 'tools/bc_models.json')))
 PRICE = {'mono': {18: 960, 19: 960, 20: 1066, 21: 1188, 22: 1250, 23: 1390}, 'KX': {19: 1255, 20: 1376, 21: 1528, 22: 1630},
          'two': {18: 1216, 19: 1216, 20: 1322, 21: 1444, 22: 1506, 23: 1646}, 'HCX': {19: 1551, 20: 1667, 21: 1849, 22: 1911}}
@@ -25,8 +26,8 @@ setp = lambda p: int(round(p * 4 * 1.24 / 10) * 10)
 T = {
  'ru': dict(
   catalog='Каталог', home='Главная', pick='Подбор по машине', faq='Вопросы',
-  cat_title='Каталог кованых дисков: BC Forged, Brixton, BBS и другие | Nordvelg',
-  cat_desc='Модели кованых дисков под заказ с доставкой в Таллинн: BC Forged, Brixton Forged, BBS, Novitec и другие. Цены с НДС, подбор под ваш автомобиль.',
+  cat_title='Каталог кованых дисков BC Forged и Brixton под заказ | Nordvelg',
+  cat_desc='Модели кованых дисков под заказ с доставкой в Таллинн: BC Forged и Brixton Forged. Цены с НДС, подбор под ваш автомобиль.',
   cat_h1='Каталог кованых дисков', cat_sub='Наша подборка моделей. Любую из них делают под вашу машину: диаметр, ширина, вылет и отделка на выбор',
   title='{name}: кованые диски под заказ в Таллинне | Nordvelg',
   desc='{name} под ваш автомобиль: подбор размера и вылета, эскиз до оплаты, доставка по Эстонии.{price}',
@@ -49,8 +50,8 @@ T = {
   lang_name='Язык'),
  'et': dict(
   catalog='Kataloog', home='Avaleht', pick='Valik auto järgi', faq='Küsimused',
-  cat_title='Sepistatud veljed: BC Forged, Brixton, BBS ja teised | Nordvelg',
-  cat_desc='Tellimusel valmivad sepistatud veljed tarnega Tallinnasse: BC Forged, Brixton Forged, BBS, Novitec ja teised. Hinnad koos käibemaksuga, valik teie auto järgi.',
+  cat_title='Sepistatud veljed BC Forged ja Brixton tellimusel | Nordvelg',
+  cat_desc='Tellimusel valmivad sepistatud veljed tarnega Tallinnasse: BC Forged ja Brixton Forged. Hinnad koos käibemaksuga, valik teie auto järgi.',
   cat_h1='Sepistatud velgede kataloog', cat_sub='Meie valik mudeleid. Iga komplekt valmib just teie autole: läbimõõt, laius, ET ja viimistlus teie valikul',
   title='{name}: sepistatud veljed tellimusel Tallinnas | Nordvelg',
   desc='{name} teie autole: mõõdu ja ET valik, eskiis enne makset, tarne üle Eesti.{price}',
@@ -73,8 +74,8 @@ T = {
   lang_name='Keel'),
  'en': dict(
   catalog='Catalogue', home='Home', pick='Find by car', faq='Questions',
-  cat_title='Forged Wheels Catalogue: BC Forged, Brixton, BBS and more | Nordvelg',
-  cat_desc='Made-to-order forged wheels delivered to Tallinn: BC Forged, Brixton Forged, BBS, Novitec and more. Prices incl. VAT, fitment checked for your car.',
+  cat_title='BC Forged and Brixton Forged Wheels Catalogue | Nordvelg',
+  cat_desc='Made-to-order forged wheels delivered to Tallinn: BC Forged and Brixton Forged. Prices incl. VAT, fitment checked for your car.',
   cat_h1='Forged wheels catalogue', cat_sub='Our pick of models. Each set is made for your car: diameter, width, offset and finish of your choice',
   title='{name}: custom forged wheels in Tallinn | Nordvelg',
   desc='{name} built for your car: size and offset check, a sketch before you pay, delivery across Estonia.{price}',
@@ -233,6 +234,8 @@ def collect(lang):
         if d['b'] == 'BC Forged' and d['p'] is None:
             two = any(x in ' '.join(d['spec']).lower() for x in ('две', 'kahe', 'two'))
             d['p'] = 6030 if two else 4760
+    # только бренды, на которые у нас есть дилерские условия у дистрибьютора
+    wheels = {k: d for k, d in wheels.items() if d['b'] in BRANDS}
     return wheels, s
 
 FONTCSS = None
@@ -436,6 +439,14 @@ def main():
             open(os.path.join(base, k, 'index.html'), 'w').write(page(k, d, lang, wheels))
         allpages.append((lang, list(wheels.keys()) + ['brand/' + bslug(b) for b in sorted({w['b'] for w in wheels.values()})]))
         print(lang, len(wheels), 'models')
+    for lang, ks in allpages:  # убрать страницы моделей, которых больше нет
+        base = os.path.join(ROOT, LANGS[lang], 'wheels'); keep = set(ks)
+        for root, dirs, files in os.walk(base, topdown=False):
+            rel = os.path.relpath(root, base)
+            if rel != '.' and 'index.html' in files and rel not in keep:
+                os.remove(os.path.join(root, 'index.html'))
+            if rel != '.' and not os.listdir(root):
+                os.rmdir(root)
     json.dump({l: ks for l, ks in allpages}, open(os.path.join(ROOT, 'tools/wheels.json'), 'w'), indent=1)
 
 if __name__ == '__main__':

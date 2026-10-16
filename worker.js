@@ -139,7 +139,12 @@ async function handleNordvelg(request, env, url) {
     const loc = new URL(res.headers.get('location') || '/', url.origin).pathname.replace(/^\/nordvelg/, '') || '/';
     return Response.redirect(NORDVELG_ORIGIN + loc + url.search, 301);
   }
-  if (res.status === 404) return notFound(request, env, url, '/nordvelg/404.html');
+  if (res.status === 404) {
+    // 16.10.2026 сняли бренды без дилерской цены: их модели и страницы брендов ведут в каталог
+    const gone = path.match(/^\/((?:et|en)\/)?wheels\/(?:brand\/)?(?:bbs|hre|vorsteiner|anrky|apex|oz|novitec|vossen|manthey|brabus)(?:[-\/]|$)/);
+    if (gone) return Response.redirect(NORDVELG_ORIGIN + '/' + (gone[1] || '') + 'wheels/', 301);
+    return notFound(request, env, url, '/nordvelg/404.html');
+  }
   // Картинки, шрифты и скрипты не меняются под тем же именем: кэшируем надолго
   if (/^\/(img|fonts|js|icons|css)\//.test(path)) {
     const out = new Response(res.body, res);
