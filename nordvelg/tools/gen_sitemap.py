@@ -19,7 +19,7 @@ for d, dirs, files in os.walk(ROOT):
     pages.append((url, alts))
 def section(url):
     p = url.replace(SITE + '/', '')
-    p = re.sub(r'^(et|en)/', '', p)
+    p = re.sub(r'^(et|ru)/', '', p)
     return 'wheels' if p.startswith('wheels/') else 'exhaust' if p.startswith('exhaust/') else 'pages'
 groups = {}
 for url, alts in sorted(pages, key=lambda p: (p[0].count('/'), p[0])):

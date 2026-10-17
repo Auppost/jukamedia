@@ -126,6 +126,9 @@ async function handleNordvelg(request, env, url) {
   let path = url.pathname;
   if (path.endsWith('/index.html')) path = path.slice(0, -'index.html'.length);
   else if (path.endsWith('.html') && path !== '/404.html') path = path.slice(0, -'.html'.length);
+  // С 17.10.2026 английская версия в корне, русская в /ru/: старые /en/... ведут на тот же адрес без /en
+  if (path === '/en' || path === '/en/') path = '/';
+  else if (path.startsWith('/en/')) path = path.slice(3);
   if (url.protocol !== 'https:' || url.hostname !== 'nordvelg.com' || path !== url.pathname) {
     return Response.redirect(NORDVELG_ORIGIN + path + url.search, 301);
   }
@@ -141,7 +144,7 @@ async function handleNordvelg(request, env, url) {
   }
   if (res.status === 404) {
     // 16.10.2026 сняли бренды без дилерской цены: их модели и страницы брендов ведут в каталог
-    const gone = path.match(/^\/((?:et|en)\/)?wheels\/(?:brand\/)?(?:bbs|hre|vorsteiner|anrky|apex|oz|novitec|vossen|manthey|brabus)(?:[-\/]|$)/);
+    const gone = path.match(/^\/((?:et|ru)\/)?wheels\/(?:brand\/)?(?:bbs|hre|vorsteiner|anrky|apex|oz|novitec|vossen|manthey|brabus)(?:[-\/]|$)/);
     if (gone) return Response.redirect(NORDVELG_ORIGIN + '/' + (gone[1] || '') + 'wheels/', 301);
     return notFound(request, env, url, '/nordvelg/404.html');
   }

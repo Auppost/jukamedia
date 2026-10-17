@@ -7,7 +7,7 @@ import html, json, os, re, urllib.parse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = 'https://nordvelg.com'
-LANGS = {'ru': '', 'et': 'et/', 'en': 'en/'}
+LANGS = {'en': '', 'et': 'et/', 'ru': 'ru/'}
 WA = '37257494989'
 import hashlib
 V = lambda p: hashlib.md5(open(os.path.join(ROOT, p), 'rb').read()).hexdigest()[:8]
@@ -250,7 +250,7 @@ def head_common(lang, title, desc, url, alts, og_img):
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{url}">
-{hl}<link rel="alternate" hreflang="x-default" href="{alts['ru']}">
+{hl}<link rel="alternate" hreflang="x-default" href="{alts['en']}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nordvelg">
 <meta property="og:url" content="{url}">
@@ -282,7 +282,7 @@ EXH = {'ru': 'Выхлоп iPE', 'et': 'iPE väljalase', 'en': 'iPE exhausts'}
 
 def header(lang, alts):
     t = T[lang]; p = '/' + LANGS[lang]
-    langs = ''.join(f'<a href="{alts[l].replace(SITE, "")}" hreflang="{l}" lang="{l}"{" aria-current=\"page\"" if l == lang else ""}>{l.upper()}</a>' for l in ('ru', 'et', 'en'))
+    langs = ''.join(f'<a href="{alts[l].replace(SITE, "")}" hreflang="{l}" lang="{l}"{" aria-current=\"page\"" if l == lang else ""}>{l.upper()}</a>' for l in ('en', 'et', 'ru'))
     return f'''<header class="top"><div class="wrap in">
 <a class="mark" href="{p}">Nordvelg</a>
 <nav><a href="{p}wheels/">{t['catalog']}</a><a href="{p}exhaust/">{EXH[lang]}</a><a href="{p}#cars">{t['pick']}</a><a href="{p}#faq">{t['faq']}</a></nav>

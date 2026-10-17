@@ -207,12 +207,12 @@ def main():
         for m in sorted({d['make'] for d in ITEMS}):
             os.makedirs(os.path.join(base, mk(m)), exist_ok=True)
             open(os.path.join(base, mk(m), 'index.html'), 'w').write(catalog(lang, m))
-            if lang == 'ru':
+            if LANGS[lang] == '':
                 paths.append(f'exhaust/{mk(m)}/')
         for d in ITEMS:
             os.makedirs(os.path.join(base, d['slug']), exist_ok=True)
             open(os.path.join(base, d['slug'], 'index.html'), 'w').write(page(d, lang))
-            if lang == 'ru':
+            if LANGS[lang] == '':
                 paths.append(f'exhaust/{d["slug"]}/')
     json.dump(paths, open(os.path.join(ROOT, 'tools/exhaust.json'), 'w'), indent=0)
     print(len(ITEMS), 'exhaust items,', len(paths), 'paths per language')
