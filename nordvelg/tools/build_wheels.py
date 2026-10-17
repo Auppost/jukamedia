@@ -240,6 +240,25 @@ def collect(lang):
 
 FONTCSS = None
 
+# Срок изготовления на заводе (дни) по бренду, для shippingDetails
+MAKE_DAYS = {'BC Forged': (28, 42), 'Brixton Forged': (49, 70)}
+
+def offer(price, url, brand=None):
+    """Offer для JSON-LD: доставка по Эстонии включена, возврата нет (товар под заказ по спецификации клиента)."""
+    ship = {"@type": "OfferShippingDetails",
+            "shippingRate": {"@type": "MonetaryAmount", "value": 0, "currency": "EUR"},
+            "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "EE"}}
+    if brand in MAKE_DAYS:
+        a, b = MAKE_DAYS[brand]
+        ship["deliveryTime"] = {"@type": "ShippingDeliveryTime",
+            "handlingTime": {"@type": "QuantitativeValue", "minValue": a, "maxValue": b, "unitCode": "DAY"},
+            "transitTime": {"@type": "QuantitativeValue", "minValue": 2, "maxValue": 7, "unitCode": "DAY"}}
+    return {"@type": "Offer", "priceCurrency": "EUR", "price": price, "availability": "https://schema.org/PreOrder",
+            "url": url, "seller": {"@type": "Organization", "name": "Nordvelg", "url": SITE + "/"},
+            "shippingDetails": ship,
+            "hasMerchantReturnPolicy": {"@type": "MerchantReturnPolicy", "applicableCountry": "EE",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"}}
+
 def head_common(lang, title, desc, url, alts, og_img):
     hl = ''.join(f'<link rel="alternate" hreflang="{l}" href="{u}">\n' for l, u in alts.items())
     return f'''<!doctype html>
@@ -324,13 +343,12 @@ def page(k, d, lang, all_wheels):
     prod = {"@type": "Product", "name": name, "brand": {"@type": "Brand", "name": d['b']},
             "image": [SITE + big(i) for i in imgs], "url": url, "description": desc}
     if d['p']:
-        prod["offers"] = {"@type": "Offer", "priceCurrency": "EUR", "price": d['p'], "availability": "https://schema.org/PreOrder",
-                          "url": url, "seller": {"@type": "Organization", "name": "Nordvelg", "url": SITE + "/"}}
+        prod["offers"] = offer(d['p'], url, d['b'])
     crumbs = {"@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Nordvelg", "item": f"{SITE}/{LANGS[lang]}"},
         {"@type": "ListItem", "position": 2, "name": t['catalog'], "item": f"{SITE}/{LANGS[lang]}wheels/"},
         {"@type": "ListItem", "position": 3, "name": name, "item": url}]}
-    out += '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": [prod, crumbs]}, ensure_ascii=False, separators=(',', ':')) + '</script>\n</head>\n<body>\n'
+    out += '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": ([prod] if d['p'] else []) + [crumbs]}, ensure_ascii=False, separators=(',', ':')) + '</script>\n</head>\n<body>\n'
     out += header(lang, alts)
     p = '/' + LANGS[lang]
     out += f'<main class="wrap">\n<nav class="crumbs" aria-label="breadcrumbs"><a href="{p}">Nordvelg</a><span>/</span><a href="{p}wheels/">{t["catalog"]}</a><span>/</span><span aria-current="page">{esc(name)}</span></nav>\n'

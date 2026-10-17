@@ -133,13 +133,12 @@ def page(d, lang):
     out = W.head_common(lang, title, desc, url, alts, og)
     prod = {"@type": "Product", "name": f"iPE {d['title']}", "brand": {"@type": "Brand", "name": "iPE"}, "image": [SITE + W.big(i) for i in d['imgs']], "url": url, "description": desc}
     if d['p']:
-        prod['offers'] = {"@type": "Offer", "priceCurrency": "EUR", "price": d['p'], "availability": "https://schema.org/PreOrder", "url": url,
-                          "seller": {"@type": "Organization", "name": "Nordvelg", "url": SITE + "/"}}
+        prod['offers'] = W.offer(d['p'], url, 'iPE')
     crumbs = {"@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Nordvelg", "item": f"{SITE}/{LANGS[lang]}"},
         {"@type": "ListItem", "position": 2, "name": t['sec'], "item": f"{SITE}/{LANGS[lang]}exhaust/"},
         {"@type": "ListItem", "position": 3, "name": h1, "item": url}]}
-    out += '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": [prod, crumbs]}, ensure_ascii=False, separators=(',', ':')) + '</script>\n</head>\n<body>\n'
+    out += '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": ([prod] if d['p'] else []) + [crumbs]}, ensure_ascii=False, separators=(',', ':')) + '</script>\n</head>\n<body>\n'
     out += header(lang, alts)
     p = '/' + LANGS[lang]
     out += f'<main class="wrap">\n<nav class="crumbs" aria-label="breadcrumbs"><a href="{p}">Nordvelg</a><span>/</span><a href="{p}exhaust/">{t["sec"]}</a><span>/</span><span aria-current="page">{esc(d["car"])}</span></nav>\n'
