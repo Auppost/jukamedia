@@ -61,10 +61,11 @@ h1,h2,h3{font-family:var(--display);font-variation-settings:"SHRP" 60;letter-spa
 
 /* top bar sits over the light column only */
 .bar{position:absolute;top:0;left:0;width:41.667%;z-index:10}
-.bar .in{display:flex;align-items:center;gap:32px;height:76px;padding-left:max(24px,calc((100vw - 1240px)/2 + 24px));padding-right:24px}
+.bar .in{display:flex;align-items:center;gap:32px;height:76px;padding-left:max(24px,min(calc((100vw - 1240px)/2 + 24px),calc(41.667vw - 520px)));padding-right:24px}
 .mark{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:-.03em;text-decoration:none;font-variation-settings:"SHRP" 100}
 .bar nav{display:flex;gap:24px;font-size:15px}
 .bar nav a{text-decoration:none;color:var(--graphite)}
+@media(min-width:1101px){.bar nav a{white-space:nowrap}}
 .bar nav a:hover{color:var(--bronze)}
 .bar .call{display:none}
 @media(max-width:1100px){.bar nav{gap:16px;font-size:14px}}
@@ -72,8 +73,8 @@ h1,h2,h3{font-family:var(--display);font-variation-settings:"SHRP" 60;letter-spa
 
 /* hero */
 .hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);min-height:min(100svh,940px)}
-.hero-copy{padding:140px 48px 56px max(24px,calc((100vw - 1240px)/2 + 24px));display:flex;flex-direction:column}
-.hero h1{font-size:clamp(40px,5vw,76px);font-weight:500;max-width:13ch}
+.hero-copy{padding:140px 48px 56px max(24px,min(calc((100vw - 1240px)/2 + 24px),calc(41.667vw - 520px)));display:flex;flex-direction:column;container-type:inline-size}
+.hero h1{font-size:clamp(34px,min(5vw,15cqi),76px);font-weight:500;max-width:13ch;overflow-wrap:break-word;hyphens:auto}
 .hero .sub{margin-top:26px;max-width:42ch;font-size:clamp(16px,1.25vw,19px);color:var(--graphite)}
 .pick{margin-top:40px;background:var(--mist);border:1px solid var(--steel);border-radius:14px;padding:8px;display:grid;grid-template-columns:1.1fr 1fr auto;gap:8px;max-width:520px}
 .pick select,.pick input{border:0;background:transparent;padding:14px 12px;font:inherit;color:var(--ink);min-width:0;appearance:none;-webkit-appearance:none}
