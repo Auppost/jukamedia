@@ -1,21 +1,21 @@
 == nordvelg.com
 NS:    elinore.ns.cloudflare.com. zac.ns.cloudflare.com. 
 NS(8): elinore.ns.cloudflare.com. zac.ns.cloudflare.com. 
-A:     104.21.67.20 172.67.167.198 
+A:     172.64.80.1 
 == www.nordvelg.com
 NS:    
 NS(8): 
-A:     104.21.67.20 172.67.167.198 
+A:     172.64.80.1 
 == registry (.com TLD)
  elinore.ns.cloudflare.com. zac.ns.cloudflare.com. 
 == dnssec
 DS at .com: 
 DNSKEY: 0
-A via 8.8.8.8: 172.67.167.198 104.21.67.20  status=status: NOERROR
-A via 1.1.1.1: 104.21.67.20 172.67.167.198  status=status: NOERROR
-A via 9.9.9.9: 172.67.167.198 104.21.67.20  status=status: NOERROR
-A via 208.67.222.222: 172.67.167.198 104.21.67.20  status=status: NOERROR
-www via 8.8.8.8: 172.67.167.198 104.21.67.20 
+A via 8.8.8.8: 172.64.80.1  status=status: NOERROR
+A via 1.1.1.1: 172.64.80.1  status=status: NOERROR
+A via 9.9.9.9: 172.64.80.1  status=status: NOERROR
+A via 208.67.222.222: 172.64.80.1  status=status: NOERROR
+www via 8.8.8.8: 172.64.80.1 
 == http
 https://nordvelg.com/ -> 200 
 https://www.nordvelg.com/ -> 301 https://nordvelg.com/
