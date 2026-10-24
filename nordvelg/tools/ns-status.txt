@@ -11,11 +11,11 @@ A:     104.21.67.20 172.67.167.198
 == dnssec
 DS at .com: 
 DNSKEY: 0
-A via 8.8.8.8: 172.67.167.198 104.21.67.20  status=status: NOERROR
-A via 1.1.1.1: 172.67.167.198 104.21.67.20  status=status: NOERROR
+A via 8.8.8.8: 104.21.67.20 172.67.167.198  status=status: NOERROR
+A via 1.1.1.1: 104.21.67.20 172.67.167.198  status=status: NOERROR
 A via 9.9.9.9: 104.21.67.20 172.67.167.198  status=status: NOERROR
 A via 208.67.222.222: 172.67.167.198 104.21.67.20  status=status: NOERROR
-www via 8.8.8.8: 104.21.67.20 172.67.167.198 
+www via 8.8.8.8: 172.67.167.198 104.21.67.20 
 == http
 https://nordvelg.com/ -> 200 
 https://www.nordvelg.com/ -> 301 https://nordvelg.com/
