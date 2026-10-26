@@ -117,7 +117,7 @@ def build(lang):
             for om, lst in curated.get(next((o for o, n in OLD.items() if n == make), make), {}).items():
                 if match(f'{make} {om}', inc, exc) or match(om, inc, exc):
                     for x in lst:
-                        k = W.slug(x['b'], x['n'])
+                        k = W.slug(x['b'], x['n']); k = W.MERGED.get(k, k)
                         if k in wheels:
                             wl.append(wheel(k, x['b'] not in ('BC Forged', 'Brixton Forged', 'Brixton')))
             for k, w in sw.items():

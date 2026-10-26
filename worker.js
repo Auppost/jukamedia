@@ -122,6 +122,9 @@ export default {
 const NORDVELG_HOSTS = ['nordvelg.com', 'www.nordvelg.com'];
 const NORDVELG_ORIGIN = 'https://nordvelg.com';
 
+// 26.10.2026 варианты одного дизайна BC Forged объединили на одной странице (tools/wheels-merged.json, без префикса bc-forged-)
+const NORDVELG_MERGED = {'gw-a02-cx':'gw-a02','gw-a03-cx':'gw-a03','gw-a05-cx':'gw-a05','gw01-cx':'gw01','gw02-cx':'gw02','gw03-cx':'gw03','gw06-cx':'gw06','gw19-cx':'gw19','hc010s':'hc010','hc040s':'hc040','hc050s':'hc050','hc053s':'hc053','hc055s':'hc055','hc056':'hc056s','hc12s':'hc12','hc27s':'hc27','hc29s':'hc29','hca062s':'hca062','hca063s':'hca063','hca161s':'hca161','hca162':'hca162s','hca163s':'hca163','hca165':'hca165s','hca167s':'hca167','hca168s':'hca168','hca191s':'hca191','hca192s':'hca192','hca193s':'hca193','hca195s':'hca195','hca196':'hca196-hca196s','hca196s':'hca196-hca196s','hca197':'hca197s','hca198s':'hca198','hca199s':'hca199','hca210s':'hca210','hca214s':'hca214','hca217s':'hca217','hca218s':'hca218','hca222s':'hca222','hca381s':'hca381','hca382s':'hca382','hca383s':'hca383','hca384s':'hca384','hca385s':'hca385','hca386s':'hca386','hca388s':'hca388','hca389s':'hca389','hca510s':'hca510','hca671s':'hca671','hca674s':'hca674','hca675s':'hca675','hca811s':'hca811','hca813s':'hca813','hck04s':'hck04','hck165s':'hck165','hck196s':'hck196','hck198s':'hck198','hck21s':'hck21','hck381s':'hck381','hck386s':'hck386','hck675s':'hck675','hck811s':'hck811','hck855s':'hck855','hcs01s':'hcs01','hcs02s':'hcs02','hcs03s':'hcs03','hcs04s':'hcs04','hcs08s':'hcs08','hcs15s':'hcs15','hcs21s':'hcs21','hcs23s':'hcs23','hcs24s':'hcs24','hcs31s':'hcs31','hcs32s':'hcs32','hcs33s':'hcs33','hcs34s':'hcs34','hcs35s':'hcs35','hcs37s':'hcs37','hcs71s':'hcs71','hcs72s':'hcs72','hcs75s':'hcs75','hcs855s':'hcs855','hcx01s':'hcx01','hcx02s':'hcx02','hcx05s':'hcx05','hcx06s':'hcx06','hcx08s':'hcx08','hcx108s':'hcx108','le-z56-cx':'le-z56','le02-cx':'le02','le20-cx':'le20','mle-z56-cx':'mle-z56','mle02-cx':'mle02','mle20-cx':'mle20','rd01-bl':'rd01','rd02-bl':'rd02','rd03-bl':'rd03','rd05-bl':'rd05','rd06-bl':'rd06','rd07-bl':'rd07','tpx64a':'tpx64','tr01a':'tr01','tr02a':'tr02','tr03a':'tr03','tr05a':'tr05','tr06a':'tr06','tr07a':'tr07'};
+
 async function handleNordvelg(request, env, url) {
   let path = url.pathname;
   if (path.endsWith('/index.html')) path = path.slice(0, -'index.html'.length);
@@ -129,6 +132,8 @@ async function handleNordvelg(request, env, url) {
   // С 17.10.2026 английская версия в корне, русская в /ru/: старые /en/... ведут на тот же адрес без /en
   if (path === '/en' || path === '/en/') path = '/';
   else if (path.startsWith('/en/')) path = path.slice(3);
+  const mv = path.match(/^\/((?:et|ru)\/)?wheels\/bc-forged-([a-z0-9-]+)\/?$/);
+  if (mv && NORDVELG_MERGED[mv[2]]) path = '/' + (mv[1] || '') + 'wheels/bc-forged-' + NORDVELG_MERGED[mv[2]] + '/';
   if (url.protocol !== 'https:' || url.hostname !== 'nordvelg.com' || path !== url.pathname) {
     return Response.redirect(NORDVELG_ORIGIN + path + url.search, 301);
   }

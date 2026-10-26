@@ -47,7 +47,7 @@ T = {
   credits='Фото дисков и автомобилей: BC Forged, Brixton Forged и их дистрибьюторы. Названия брендов принадлежат их владельцам',
   ptable='Цена комплекта по диаметру', col_d='Диаметр', col_w='Ширина', col_p='Комплект из 4', ptable_note='С НДС и доставкой по Эстонии. Опции оплачиваются отдельно: полированная полка, накатка. Фрезерованный колпачок в комплекте', series='Серия {s}', filt_all='Все', sizes_d='Размеры {a}-{b}″.',
   brand_title='Диски {b} под заказ в Таллинне: все модели и цены | Nordvelg', brand_desc='Все модели {b} под заказ с доставкой в Таллинн и по Эстонии. Подбор под ваш автомобиль, эскиз до оплаты.', brand_h1='Диски {b}', all_brand='Все модели {b}: {n}', on_req_note='Цену считаем под вашу машину и спецификацию',
-  lang_name='Язык'),
+  lang_name='Язык', variants='Варианты модели', variants_note='Один дизайн в нескольких исполнениях. Какой вариант подойдёт вашей машине, подскажем при подборе'),
  'et': dict(
   catalog='Kataloog', home='Avaleht', pick='Valik auto järgi', faq='Küsimused',
   cat_title='Sepistatud veljed BC Forged ja Brixton tellimusel | Nordvelg',
@@ -71,7 +71,7 @@ T = {
   credits='Velgede ja autode fotod: BC Forged, Brixton Forged ja nende edasimüüjad. Kaubamärgid kuuluvad nende omanikele',
   ptable='Komplekti hind läbimõõdu järgi', col_d='Läbimõõt', col_w='Laius', col_p='4 velje komplekt', ptable_note='Koos käibemaksu ja tarnega Eestis. Lisavalikud eraldi: poleeritud äär, rantimine. Freesitud rummukate on komplektis', series='Seeria {s}', filt_all='Kõik', sizes_d='Mõõdud {a}-{b}″.',
   brand_title='{b} veljed tellimusel Tallinnas: kõik mudelid ja hinnad | Nordvelg', brand_desc='Kõik {b} mudelid tellimusel tarnega Tallinnasse ja üle Eesti. Valik teie auto järgi, eskiis enne makset.', brand_h1='{b} veljed', all_brand='Kõik {b} mudelid: {n}', on_req_note='Hinna arvutame teie auto ja spetsifikatsiooni järgi',
-  lang_name='Keel'),
+  lang_name='Keel', variants='Mudeli variandid', variants_note='Üks disain mitmes teostuses. Millise variandi teie autole valida, ütleme valiku käigus'),
  'en': dict(
   catalog='Catalogue', home='Home', pick='Find by car', faq='Questions',
   cat_title='BC Forged and Brixton Forged Wheels Catalogue | Nordvelg',
@@ -95,7 +95,7 @@ T = {
   credits='Wheel and car photos: BC Forged, Brixton Forged and their distributors. Brand names belong to their owners',
   ptable='Set price by diameter', col_d='Diameter', col_w='Width', col_p='Set of 4', ptable_note='Incl. VAT and delivery in Estonia. Options are extra: polished lip, knurling. A machined centre cap is included', series='{s} series', filt_all='All', sizes_d='Sizes {a}-{b}″.',
   brand_title='{b} wheels made to order in Tallinn: all models and prices | Nordvelg', brand_desc='All {b} models made to order with delivery to Tallinn and across Estonia. Fitment for your car, a sketch before you pay.', brand_h1='{b} wheels', all_brand='All {b} models: {n}', on_req_note='We price it for your car and specification',
-  lang_name='Language'),
+  lang_name='Language', variants='Versions of this design', variants_note='One design in several versions. We will tell you which one suits your car during the fitment check'),
 }
 
 def slug(b, n):
@@ -149,6 +149,51 @@ def dims(src):
         return 960, 960
     M = MAN[m.group(1)]; w = min(int(m.group(2)), M['w'])
     return w, round(M['h'] * w / M['w'])
+
+MERGED = {}  # старый адрес модели-варианта -> адрес объединённой страницы (для 301 в worker.js)
+TWIN_SUFFIX = ('S', 'A', '-CX', '-BL')
+COPY = json.load(open(os.path.join(ROOT, 'tools/wheel_copy.json'))) if os.path.exists(os.path.join(ROOT, 'tools/wheel_copy.json')) else {}
+
+def merge_twins(wheels):
+    """С 26.10.2026 варианты одного дизайна BC Forged (HCA162 и HCA162S, GW03 и GW03-CX, TR01 и TR01A, RD01 и RD01-BL)
+    живут на одной странице: Google склеивал почти одинаковые карточки как копии."""
+    byname = {d['n']: k for k, d in wheels.items() if d['b'] == 'BC Forged' and d.get('series')}
+    groups = {}
+    for n, k in byname.items():
+        base = next((n[:-len(s)] for s in TWIN_SUFFIX if n.endswith(s) and n[:-len(s)] in byname), None)
+        if base:
+            groups.setdefault(byname[base], [byname[base]]).append(k)
+    for k, d in wheels.items():  # ручные записи вида «HCA196 / HCA196S»
+        if d['b'] == 'BC Forged' and ' / ' in d['n']:
+            first = d['n'].split(' / ')[0]
+            if first in byname:
+                groups.setdefault(byname[first], [byname[first]]).append(k)
+    for base, members in groups.items():
+        members = list(dict.fromkeys(members))
+        prim = next((m for m in members if wheels[m]['featured']), None) or next((m for m in members if wheels[m]['cars']), None) or base
+        real = [m for m in members if wheels[m].get('series')]  # варианты из каталога завода
+        d = wheels[prim]
+        names = [wheels[m]['n'] for m in real]
+        d['variants'] = [dict(n=wheels[m]['n'], imgs=uniq_imgs(wheels[m]['imgs'])[:2], sizes=wheels[m].get('sizes'),
+                              ptab=wheels[m].get('ptab'), p=wheels[m].get('p')) for m in real]
+        for m in members:
+            if m == prim:
+                continue
+            o = wheels[m]
+            d['imgs'] += [i for i in o['imgs'] if i not in d['imgs']]
+            d['cars'] += [c for c in o['cars'] if c not in d['cars']]
+            for f in ('series', 'typ', 'sizes', 'ptab', 'src'):
+                if not d.get(f) and o.get(f):
+                    d[f] = o[f]
+            if o.get('p') and (not d.get('p') or o['p'] < d['p']):
+                d['p'] = o['p']
+            d['featured'] = d['featured'] or o['featured']
+            MERGED[m] = prim
+            del wheels[m]
+        d['n'] = ' / '.join(names)
+        d['sizes'] = sorted({s for v in d['variants'] for s in (v['sizes'] or [])}) or d.get('sizes')
+    for k, d in wheels.items():
+        d['key'] = k
 
 def collect(lang):
     s = open(os.path.join(ROOT, LANGS[lang], 'index.html')).read()
@@ -229,6 +274,7 @@ def collect(lang):
         prices = [float(p) for _, p in it['variants'] if p and float(p) > 0]
         p = setp(min(prices) / 1.21 / 4) if (it['brand'] == 'Brixton Forged' and prices) else None
         wheels[k] = dict(b=it['brand'], n=n, imgs=local, spec=spec, cars=[], p=p, featured=False, shop=True, title=it['title'])
+    merge_twins(wheels)
     # BC prices from the dealer list (set of 4, incl. VAT)
     for d in wheels.values():
         if d['b'] == 'BC Forged' and d['p'] is None:
@@ -319,7 +365,7 @@ def footer(lang):
 '''
 
 def card(d, lang):
-    t = T[lang]; k = slug(d['b'], d['n'])
+    t = T[lang]; k = d.get('key') or slug(d['b'], d['n'])
     src = d['imgs'][0] if d['imgs'] else ''
     w, h = dims(src)
     price = fmt(d['p'], lang) if d['p'] else t['on_request']
@@ -334,7 +380,10 @@ def page(k, d, lang, all_wheels):
     price_txt = (' ' + fmt(d['p'], lang) + '.') if d['p'] else ''
     title = fit(t['title'].format(name=name), SHORT[lang].format(name))
     desc = t['desc'].format(name=name, price=price_txt)
-    if d.get('sizes'):
+    cp = COPY.get(k, {}).get(lang)
+    if cp and cp.get('desc'):
+        desc = cp['desc'] + ((' ' + price_txt.strip()[:1].upper() + price_txt.strip()[1:]) if price_txt else '')
+    elif d.get('sizes'):
         desc = desc + ' ' + t['sizes_d'].format(a=d['sizes'][0], b=d['sizes'][-1])
     imgs = uniq_imgs([i for i in d['imgs'] if i])
     og = SITE + (big(imgs[-1]) if imgs else '/img/og-nordvelg.jpg')
@@ -383,6 +432,18 @@ def page(k, d, lang, all_wheels):
 </div>
 </section>
 '''
+    if cp:
+        out += f'<section class="about"><h2>{esc(cp["h2"])}</h2>' + ''.join(f'<p>{esc(x)}</p>' for x in cp['p']) + '</section>\n'
+    if len(d.get('variants') or []) > 1:
+        vs = ''
+        for v in d['variants']:
+            vi = v['imgs'][0] if v['imgs'] else ''
+            vw, vh = dims(vi)
+            rng = f"{v['sizes'][0]}-{v['sizes'][-1]}″" if v.get('sizes') else ''
+            vs += (f'<div class="card"><div class="stage"><img src="{vi}" width="{vw}" height="{vh}" loading="lazy" decoding="async" alt="{esc(d["b"] + " " + v["n"])}"></div>'
+                   f'<span class="brand">{esc(d["b"])}</span><h3>{esc(v["n"])}</h3><div class="spec">{"<span>" + rng + "</span>" if rng else ""}</div>'
+                   f'<div class="price">{fmt(v["p"], lang) if v.get("p") else t["on_request"]}</div></div>')
+        out += f'<section class="rel variants"><h2>{t["variants"]}</h2><p class="note">{t["variants_note"]}</p><div class="grid">{vs}</div></section>\n'
     if d.get('ptab'):
         rows = ''.join(f'<tr><td>{dd}″</td><td>{ws[0]}-{ws[-1]}J</td><td>{fmt(pp, lang) if pp else t["on_request"]}</td></tr>' for dd, ws, pp in d['ptab'] if ws)
         out += f'<section class="ptab"><h2>{t["ptable"]}</h2><div class="tw"><table><thead><tr><th scope="col">{t["col_d"]}</th><th scope="col">{t["col_w"]}</th><th scope="col">{t["col_p"]}</th></tr></thead><tbody>{rows}</tbody></table></div><p class="note">{t["ptable_note"]}</p></section>\n'
@@ -466,6 +527,8 @@ def main():
             if rel != '.' and not os.listdir(root):
                 os.rmdir(root)
     json.dump({l: ks for l, ks in allpages}, open(os.path.join(ROOT, 'tools/wheels.json'), 'w'), indent=1)
+    json.dump(dict(sorted(MERGED.items())), open(os.path.join(ROOT, 'tools/wheels-merged.json'), 'w'), indent=1)
+    print('merged', len(MERGED))
 
 if __name__ == '__main__':
     main()
