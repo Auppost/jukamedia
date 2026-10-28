@@ -22,3 +22,12 @@ with ThreadPoolExecutor(12) as ex:
     res = list(ex.map(job, data.items()))
 bad = [r for r in res if r[1].startswith('FAIL')]
 print(len(res), 'done,', len(bad), 'failed'); [print(*b) for b in bad]
+# манифест размеров для build_wheels.py: без записи в нём скачанное фото на страницу не попадает
+mf = os.path.join(root, 'tools/shop-manifest.json')
+man = json.load(open(mf)) if os.path.exists(mf) else {}
+for name in data:
+    p = os.path.join(out, f'{name}-960.webp')
+    if 'shop/' + name not in man and os.path.exists(p):
+        w, h = map(int, subprocess.check_output(['identify', '-format', '%w %h', p]).split())
+        man['shop/' + name] = {'w': w, 'h': h, 'sizes': [480, 960]}
+json.dump(man, open(mf, 'w'), separators=(',', ':'))

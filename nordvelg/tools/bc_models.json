@@ -513,7 +513,13 @@
 "slug": "bc-forged-af55",
 "local": [
 "bc-af55-1",
-"bc-af55-2"
+"bc-af55-2",
+"bc-af55-3",
+"bc-af55-4",
+"bc-af55-5",
+"bc-af55-6",
+"bc-af55-fin1",
+"bc-af55-fin2"
 ]
 },
 {
@@ -2866,7 +2872,19 @@
 "slug": "bc-forged-kl01",
 "local": [
 "bc-kl01-1",
-"bc-kl01-2"
+"bc-kl01-2",
+"bc-kl01-car1",
+"bc-kl01-car2",
+"bc-kl01-car3",
+"bc-kl01-car4",
+"bc-kl01-car5",
+"bc-kl01-car6",
+"bc-kl01-3",
+"bc-kl01-4",
+"bc-kl01-5",
+"bc-kl01-6",
+"bc-kl01-fin1",
+"bc-kl01-fin2"
 ]
 },
 {
@@ -4279,7 +4297,14 @@
 "slug": "bc-forged-kl52",
 "local": [
 "bc-kl52-1",
-"bc-kl52-2"
+"bc-kl52-2",
+"bc-kl52-car1",
+"bc-kl52-3",
+"bc-kl52-4",
+"bc-kl52-5",
+"bc-kl52-6",
+"bc-kl52-fin1",
+"bc-kl52-fin2"
 ]
 },
 {
@@ -7100,7 +7125,13 @@
 "slug": "bc-forged-th09",
 "local": [
 "bc-th09-1",
-"bc-th09-2"
+"bc-th09-2",
+"bc-th09-3",
+"bc-th09-4",
+"bc-th09-5",
+"bc-th09-6",
+"bc-th09-fin1",
+"bc-th09-fin2"
 ]
 },
 {
@@ -10808,7 +10839,15 @@
 "slug": "bc-forged-eh361",
 "local": [
 "bc-eh361-1",
-"bc-eh361-2"
+"bc-eh361-2",
+"bc-eh361-car1",
+"bc-eh361-car2",
+"bc-eh361-3",
+"bc-eh361-4",
+"bc-eh361-5",
+"bc-eh361-6",
+"bc-eh361-fin1",
+"bc-eh361-fin2"
 ]
 },
 {
@@ -14477,7 +14516,14 @@
 "slug": "bc-forged-rz25",
 "local": [
 "bc-rz25-1",
-"bc-rz25-2"
+"bc-rz25-2",
+"bc-rz25-car1",
+"bc-rz25-3",
+"bc-rz25-4",
+"bc-rz25-5",
+"bc-rz25-6",
+"bc-rz25-fin1",
+"bc-rz25-fin2"
 ]
 },
 {
@@ -30670,7 +30716,9 @@
 "slug": "bc-forged-hca197",
 "local": [
 "bc-hca197-1",
-"bc-hca197-2"
+"bc-hca197-2",
+"bc-hca197-fin1",
+"bc-hca197-fin2"
 ]
 },
 {
@@ -30772,7 +30820,13 @@
 "slug": "bc-forged-hca197s",
 "local": [
 "bc-hca197s-1",
-"bc-hca197s-2"
+"bc-hca197s-2",
+"bc-hca197s-3",
+"bc-hca197s-4",
+"bc-hca197s-5",
+"bc-hca197s-6",
+"bc-hca197s-fin1",
+"bc-hca197s-fin2"
 ]
 },
 {
