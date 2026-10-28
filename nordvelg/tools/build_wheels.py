@@ -36,7 +36,7 @@ T = {
  'ru': dict(
   catalog='Каталог', home='Главная', pick='Подбор по машине', faq='Вопросы',
   cat_title='Каталог кованых дисков BC Forged и Brixton под заказ | Nordvelg',
-  cat_desc='Модели кованых дисков под заказ с доставкой в Эстонию, Латвию, Литву и Финляндию: BC Forged и Brixton Forged. Цены с НДС, подбор под ваш автомобиль.',
+  cat_desc='Кованые диски BC Forged и Brixton Forged под заказ с доставкой в Эстонию, Латвию, Литву и Финляндию. Цены с НДС, подбор под вашу машину.',
   cat_h1='Каталог кованых дисков', cat_sub='Наша подборка моделей. Любую из них делают под вашу машину: диаметр, ширина, вылет и отделка на выбор',
   title='{name}: кованые диски под заказ в Таллинне | Nordvelg',
   desc='{name} под ваш автомобиль: подбор размера и вылета, эскиз до оплаты, доставка в Эстонию, Латвию, Литву и Финляндию.{price}',
@@ -47,38 +47,38 @@ T = {
   know='Что важно знать', how='Как проходит заказ', more='Другие модели {brand}', all='Весь каталог',
   zoom='Нажмите, чтобы увеличить', close='Закрыть',
   steps=['Вы присылаете марку, модель и год машины', 'Мы подбираем размер, вылет и отделку и присылаем эскиз', 'Вы вносите 50% предоплаты, завод изготавливает диски', 'Вы оплачиваете остаток, и диски едут к вам в Эстонию, Латвию, Литву или Финляндию'],
-  bc=['Кованая заготовка из алюминия 6061-T6, каждый диск фрезеруют под вашу машину: разболтовка, центральное отверстие и вылет', 'Диски проходят японские тесты прочности JWL и VIA', 'Около 40 вариантов отделки, можно сочетать две', 'Изготовление 4-6 недель, затем доставка в Эстонию, Латвию, Литву или Финляндию'],
+  bc=['Кованая заготовка из алюминия 6061-T6, каждый диск фрезеруют под вашу машину: разболтовка, центральное отверстие и вылет', 'Диски прошли японские испытания на прочность JWL и VIA', 'Около 40 вариантов отделки, можно сочетать две', 'Изготовление 4-6 недель, затем доставка в Эстонию, Латвию, Литву или Финляндию'],
   brixton=['Американский бренд, каждый комплект собирают под конкретный автомобиль', 'Производство 7-10 недель', 'Цену считаем по вашей спецификации: размер, ширина, отделка', 'Доставка в Эстонию, Латвию, Литву и Финляндию входит в цену'],
   other=['Заказываем через европейского дистрибьютора', 'Срок и точную цену подтверждаем после подбора под вашу машину', 'Доставка в Эстонию, Латвию, Литву и Финляндию входит в цену'],
-  pay='Без предоплаты за подбор: сначала эскиз и точная цена, потом решение',
-  per_wheel='', mono='моноблок', two='две части',
+  pay='Подбор бесплатный: сначала эскиз и точная цена, потом решение',
+  per_wheel='', mono='моноблок', two='двухсоставной',
   foot='Кованые диски BC Forged, Brixton Forged и MV Forged под заказ в Таллинне', city='Таллинн, Эстония',
   credits='Фото дисков и автомобилей: BC Forged, Brixton Forged и их дистрибьюторы. Названия брендов принадлежат их владельцам',
-  ptable='Цена комплекта по диаметру', col_d='Диаметр', col_w='Ширина', col_p='Комплект из 4', ptable_note='С НДС и доставкой в Эстонию, Латвию, Литву или Финляндию. Опции оплачиваются отдельно: полированная полка, накатка. Фрезерованный колпачок в комплекте', series='Серия {s}', filt_all='Все', sizes_d='Размеры {a}-{b}″.',
+  ptable='Цена комплекта по диаметру', col_d='Диаметр', col_w='Ширина', col_p='Комплект из 4', ptable_note='С НДС и доставкой в Эстонию, Латвию, Литву или Финляндию. Опции оплачиваются отдельно: полированная полка, накатка. Фрезерованный центральный колпачок в комплекте', series='Серия {s}', filt_all='Все', sizes_d='Размеры {a}-{b}″.',
   brand_title='Диски {b} под заказ в Таллинне: все модели и цены | Nordvelg', brand_desc='Все модели {b} под заказ с доставкой в Эстонию, Латвию, Литву и Финляндию. Подбор под ваш автомобиль, эскиз до оплаты.', brand_h1='Диски {b}', all_brand='Все модели {b}: {n}', on_req_note='Цену считаем под вашу машину и спецификацию',
   lang_name='Язык', variants='Варианты модели', variants_note='Один дизайн в нескольких исполнениях. Какой вариант подойдёт вашей машине, подскажем при подборе'),
  'et': dict(
   catalog='Kataloog', home='Avaleht', pick='Valik auto järgi', faq='Küsimused',
-  cat_title='Sepistatud veljed BC Forged ja Brixton tellimusel | Nordvelg',
+  cat_title='BC Forged ja Brixton sepistatud veljed tellimusel | Nordvelg',
   cat_desc='Tellimusel valmivad sepistatud veljed tarnega Eestisse, Lätti, Leetu ja Soome: BC Forged ja Brixton Forged. Hinnad koos käibemaksuga, valik teie auto järgi.',
-  cat_h1='Sepistatud velgede kataloog', cat_sub='Meie valik mudeleid. Iga komplekt valmib just teie autole: läbimõõt, laius, ET ja viimistlus teie valikul',
+  cat_h1='Sepistatud velgede kataloog', cat_sub='Meie valitud mudelid. Iga komplekt valmib just teie autole: läbimõõt, laius, ET ja viimistlus teie valikul',
   title='{name}: sepistatud veljed tellimusel Tallinnas | Nordvelg',
   desc='{name} teie autole: mõõdu ja ET valik, eskiis enne makset, tarne Eestisse, Lätti, Leetu ja Soome.{price}',
   price_from='alates {p} €', set_note='4 velje komplekt koos käibemaksu ja tarnega Eestisse, Lätti, Leetu või Soome', est_note='ligikaudne hind, täpse hinna ütleme pärast valikut',
-  on_request='Hind päringu alusel', cta='Arvuta minu autole', wa='Küsi WhatsAppis',
-  wa_text='Tere, mind huvitavad veljed {name}. Auto: ',
+  on_request='Hind päringu alusel', cta='Küsi hinda minu autole', wa='Küsi WhatsAppis',
+  wa_text='Tere, mind huvitavad {name} veljed. Auto: ',
   fits='Sobib autodele', fits_note='Need autod on meie valikus juba olemas. Teiste mudelite puhul kontrollime sobivust tasuta',
   know='Mida on oluline teada', how='Kuidas tellimine käib', more='Teised {brand} mudelid', all='Kogu kataloog',
   zoom='Suurendamiseks klõpsake', close='Sulge',
   steps=['Saadate auto marga, mudeli ja aasta', 'Valime mõõdu, ET ja viimistluse ning saadame eskiisi', 'Tasute 50% ettemaksu, tehas valmistab veljed', 'Tasute ülejäänud summa ja veljed saadetakse teile Eestisse, Lätti, Leetu või Soome'],
-  bc=['Sepistatud toorik alumiiniumist 6061-T6, iga velg freesitakse teie auto järgi: poldimuster, keskava ja ET', 'Veljed läbivad Jaapani tugevustestid JWL ja VIA', 'Umbes 40 viimistlust, kahte saab kombineerida', 'Valmistamine 4-6 nädalat, seejärel tarne Eestisse, Lätti, Leetu või Soome'],
+  bc=['Sepistatud toorik alumiiniumisulamist 6061-T6, iga velg freesitakse teie auto järgi: poldimuster, tsentriava ja ET', 'Veljed on läbinud Jaapani tugevustestid JWL ja VIA', 'Umbes 40 viimistlust, kahte saab kombineerida', 'Valmistamine 4-6 nädalat, seejärel tarne Eestisse, Lätti, Leetu või Soome'],
   brixton=['Ameerika bränd, iga komplekt valmib konkreetsele autole', 'Tootmine 7-10 nädalat', 'Hinna arvutame teie spetsifikatsiooni järgi: mõõt, laius, viimistlus', 'Tarne Eestisse, Lätti, Leetu ja Soome on hinna sees'],
-  other=['Tellime Euroopa edasimüüja kaudu', 'Tähtaja ja täpse hinna kinnitame pärast valikut teie auto järgi', 'Tarne Eestisse, Lätti, Leetu ja Soome on hinna sees'],
+  other=['Tellime Euroopa turustaja kaudu', 'Tähtaja ja täpse hinna kinnitame pärast valikut teie auto järgi', 'Tarne Eestisse, Lätti, Leetu ja Soome on hinna sees'],
   pay='Valik on tasuta: kõigepealt eskiis ja täpne hind, siis otsus',
   per_wheel='', mono='monoblokk', two='kaheosaline',
   foot='BC Forged, Brixton Forged ja MV Forged sepistatud veljed tellimusel Tallinnas', city='Tallinn, Eesti',
-  credits='Velgede ja autode fotod: BC Forged, Brixton Forged ja nende edasimüüjad. Kaubamärgid kuuluvad nende omanikele',
-  ptable='Komplekti hind läbimõõdu järgi', col_d='Läbimõõt', col_w='Laius', col_p='4 velje komplekt', ptable_note='Koos käibemaksu ja tarnega Eestisse, Lätti, Leetu või Soome. Lisavalikud eraldi: poleeritud äär, rantimine. Freesitud rummukate on komplektis', series='Seeria {s}', filt_all='Kõik', sizes_d='Mõõdud {a}-{b}″.',
+  credits='Velgede ja autode fotod: BC Forged, Brixton Forged ja nende turustajad. Kaubamärgid kuuluvad nende omanikele',
+  ptable='Komplekti hind läbimõõdu järgi', col_d='Läbimõõt', col_w='Laius', col_p='4 velje komplekt', ptable_note='Koos käibemaksu ja tarnega Eestisse, Lätti, Leetu või Soome. Lisavalikud eraldi: poleeritud äär, rihveldus. Freesitud rummukate on komplektis', series='Seeria {s}', filt_all='Kõik', sizes_d='Mõõdud {a}-{b}″.',
   brand_title='{b} veljed tellimusel Tallinnas: kõik mudelid ja hinnad | Nordvelg', brand_desc='Kõik {b} mudelid tellimusel tarnega Eestisse, Lätti, Leetu ja Soome. Valik teie auto järgi, eskiis enne makset.', brand_h1='{b} veljed', all_brand='Kõik {b} mudelid: {n}', on_req_note='Hinna arvutame teie auto ja spetsifikatsiooni järgi',
   lang_name='Keel', variants='Mudeli variandid', variants_note='Üks disain mitmes teostuses. Millise variandi teie autole valida, ütleme valiku käigus'),
  'en': dict(
@@ -303,7 +303,7 @@ def collect(lang):
     # BC prices from the dealer list (set of 4, incl. VAT)
     for d in wheels.values():
         if d['b'] == 'BC Forged' and d['p'] is None:
-            two = any(x in ' '.join(d['spec']).lower() for x in ('две', 'kahe', 'two'))
+            two = any(x in ' '.join(d['spec']).lower() for x in ('две', 'двух', 'kahe', 'two'))
             d['p'] = 6030 if two else 4760
     # только бренды, на которые у нас есть дилерские условия у дистрибьютора
     wheels = {k: d for k, d in wheels.items() if d['b'] in BRANDS}
@@ -376,7 +376,7 @@ SHORT = {'ru': '{}: кованые диски', 'et': '{}: sepistatud veljed', '
 
 PRIV = {'ru': 'Политика конфиденциальности', 'et': 'Privaatsuspoliitika', 'en': 'Privacy policy'}
 
-EXH = {'ru': 'Выхлоп iPE', 'et': 'iPE väljalase', 'en': 'iPE exhausts'}
+EXH = {'ru': 'Выхлоп iPE', 'et': 'iPE väljalaskesüsteemid', 'en': 'iPE exhausts'}
 
 def header(lang, alts):
     t = T[lang]; p = '/' + LANGS[lang]
@@ -410,7 +410,7 @@ def page(k, d, lang, all_wheels):
     t = T[lang]; name = f"{d['b']} {d['n']}"
     alts = {l: f"{SITE}/{LANGS[l]}wheels/{k}/" for l in LANGS}
     url = alts[lang]
-    price_txt = (' ' + fmt(d['p'], lang) + '.') if d['p'] else ''
+    price_txt = (' ' + fmt(d['p'], lang)[:1].upper() + fmt(d['p'], lang)[1:] + '.') if d['p'] else ''
     title = fit(t['title'].format(name=name), SHORT[lang].format(name))
     desc = t['desc'].format(name=name, price=price_txt)
     cp = COPY.get(k, {}).get(lang)

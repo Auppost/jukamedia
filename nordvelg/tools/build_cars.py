@@ -69,13 +69,13 @@ MAKE_RX = {'Mercedes-Benz / AMG': r'Mercedes|AMG|\bW46|\bG ?63', 'Land Rover': r
 OLD = {'Mercedes-AMG': 'Mercedes-Benz / AMG'}  # ключи марок в ручных подборках
 S = {
  'ru': dict(other='Другая', other_model='Другая модель', model='Модель', wheels='Диски', exh='Выхлоп iPE для этой машины',
-            exh_all='Все системы iPE для {m}', none='Специальных моделей под эту машину нет, но кованые BC Forged и Brixton делаем под любую: подберём посадку и покажем эскиз',
+            exh_all='Все системы iPE для {m}', none='Моделей именно под эту машину пока нет, но BC Forged и Brixton делают диски под любую машину: подберём посадку и покажем эскиз',
             gen='под любую машину'),
- 'et': dict(other='Muu', other_model='Muu mudel', model='Mudel', wheels='Veljed', exh='iPE väljalase sellele autole',
-            exh_all='Kõik iPE süsteemid: {m}', none='Spetsiaalseid mudeleid sellele autole pole, aga BC Forged ja Brixton veljed teeme igale autole: valime sobivuse ja näitame eskiisi',
+ 'et': dict(other='Muu', other_model='Muu mudel', model='Mudel', wheels='Veljed', exh='iPE väljalaskesüsteemid sellele autole',
+            exh_all='Kõik iPE süsteemid: {m}', none='Just sellele autole tehtud mudeleid veel pole, kuid BC Forged ja Brixton valmistavad velgi igale autole: kontrollime sobivust ja näitame eskiisi',
             gen='igale autole'),
  'en': dict(other='Other', other_model='Other model', model='Model', wheels='Wheels', exh='iPE exhaust for this car',
-            exh_all='All iPE systems for {m}', none='No car-specific models yet, but BC Forged and Brixton are built for any car: we check fitment and show you a sketch',
+            exh_all='All iPE systems for {m}', none='No models made specifically for this car yet, but BC Forged and Brixton build wheels for any car: we check fitment and show you a sketch',
             gen='fits any car'),
 }
 TYPE_ORDER = [t[0] for t in E.TYPES]
