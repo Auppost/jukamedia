@@ -36,7 +36,8 @@ T = {
             h1='{t} iPE для {car}', title='{t} iPE для {car}: цена в Таллинне | Nordvelg', desc='{t} iPE для {car}, {mat}. Клапанное управление звуком, доставка по Эстонии.{price}',
             mat_ti='титан', mat_ss='нержавеющая сталь', finishes='Отделка насадок', all='Все системы iPE', more='Другие системы для {m}', all_make='Все системы для {m}: {n}',
             facts=['Клапанная система: тихо в городе, громко по кнопке', 'Только версии с катализатором, как требует техосмотр', 'Точную комплектацию, срок и цену подтверждаем до оплаты', 'Доставка в Таллинн, установку подскажем'],
-            note='цена с НДС и доставкой по Эстонии, точную сумму подтвердим под вашу комплектацию', req='Версию с катализатором считаем по запросу', other='Другие', filt='Марка'),
+            note='цена с НДС и доставкой по Эстонии, точную сумму подтвердим под вашу комплектацию', req='Версию с катализатором считаем по запросу', other='Другие', filt='Марка',
+            vid='Звук системы iPE, официальное видео', play='Смотреть видео', vnote='Ролик с официального YouTube-канала iPE. Плеер YouTube загрузится, только когда вы нажмёте на видео.'),
  'et': dict(sec='iPE väljalase', cat_title='iPE väljalaskesüsteemid Tallinnas: hinnad | Nordvelg',
             cat_desc='iPE titaanist ja roostevabast terasest klapiga väljalasked tellimusel: Porsche, Ferrari, Lamborghini, McLaren, BMW M, AMG. Hinnad koos KM-ga.',
             cat_h1='iPE väljalaskesüsteemid', cat_sub='Ametlikud iPE tooted Euroopa edasimüüja kaudu. Müüme ainult katalüsaatoriga versioone: ilma selleta auto Eestis tehnoülevaatust ei läbi',
@@ -44,7 +45,8 @@ T = {
             h1='{t} iPE, {car}', title='{t} iPE, {car}: hind Tallinnas | Nordvelg', desc='{t} iPE autole {car}, {mat}. Klapiga heli juhtimine, tarne üle Eesti.{price}',
             mat_ti='titaan', mat_ss='roostevaba teras', finishes='Otsikute viimistlus', all='Kõik iPE süsteemid', more='Teised süsteemid: {m}', all_make='Kõik {m} süsteemid: {n}',
             facts=['Klapiga süsteem: linnas vaikne, nupuvajutusel vali', 'Ainult katalüsaatoriga versioonid, nagu nõuab tehnoülevaatus', 'Täpse komplekti, tähtaja ja hinna kinnitame enne makset', 'Tarne Tallinnasse, paigalduse osas aitame nõuga'],
-            note='hind koos käibemaksu ja tarnega Eestis, täpse summa kinnitame teie komplekti järgi', req='Katalüsaatoriga versiooni hind päringu alusel', other='Muud', filt='Mark'),
+            note='hind koos käibemaksu ja tarnega Eestis, täpse summa kinnitame teie komplekti järgi', req='Katalüsaatoriga versiooni hind päringu alusel', other='Muud', filt='Mark',
+            vid='iPE heli, ametlik video', play='Vaata videot', vnote='Video iPE ametlikult YouTube’i kanalilt. YouTube’i mängija laaditakse alles siis, kui video peale vajutate.'),
  'en': dict(sec='iPE exhausts', cat_title='iPE Exhaust Systems in Tallinn: Prices | Nordvelg',
             cat_desc='Titanium and stainless iPE valvetronic exhaust systems made to order: Porsche, Ferrari, Lamborghini, McLaren, BMW M, AMG. Prices incl. VAT, delivery across Estonia.',
             cat_h1='iPE exhaust systems', cat_sub='Genuine iPE products through a European distributor. We sell catted versions only: without catalysts a car fails inspection in Estonia',
@@ -52,7 +54,8 @@ T = {
             h1='iPE {t} for {car}', title='iPE {t} for {car}: price in Tallinn | Nordvelg', desc='iPE {t} for {car}, {mat}. Valve-controlled sound, delivery across Estonia.{price}',
             mat_ti='titanium', mat_ss='stainless steel', finishes='Tip finishes', all='All iPE systems', more='More systems for {m}', all_make='All {m} systems: {n}',
             facts=['Valvetronic system: quiet in town, loud at the press of a button', 'Catted versions only, as the Estonian inspection requires', 'Exact configuration, lead time and price confirmed before you pay', 'Delivery to Tallinn, we can advise on fitting'],
-            note='incl. VAT and delivery in Estonia, exact total confirmed for your configuration', req='Catted version priced on request', other='Other', filt='Make'),
+            note='incl. VAT and delivery in Estonia, exact total confirmed for your configuration', req='Catted version priced on request', other='Other', filt='Make',
+            vid='Official iPE sound clip', play='Play video', vnote='From the official iPE YouTube channel. The YouTube player loads only when you press play.'),
 }
 
 def mk(s):
@@ -112,6 +115,37 @@ def names(d, lang):
 
 header = W.header
 
+# Официальные ролики iPE с YouTube (tools/ipe_videos.json). Встраиваем только с YouTube, сами ролики не загружаем.
+# До клика грузится только превью с i.ytimg.com, плеер youtube-nocookie.com подключается по нажатию.
+VIDS = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ipe_videos.json')))
+VID_BY_ID = {v['id']: v for v in VIDS['videos']}
+
+def video_for(d):
+    return next((v for v in VIDS['videos'] if re.search(v['match'], d['car'], re.I)), None)
+
+VID_CSS = ('<style>.vid{padding-block:8px 48px;max-width:880px}.vid h2{font-size:clamp(22px,2.4vw,28px);margin-bottom:14px}'
+           '.yt{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:var(--ink)}'
+           '.yt a,.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}'
+           '.yt img{width:100%;height:100%;object-fit:cover;opacity:.92;transition:opacity .2s}.yt a:hover img,.yt a:focus-visible img{opacity:1}'
+           '.yt .pl{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:rgba(18,20,23,.78);display:grid;place-items:center;transition:background .2s}'
+           '.yt a:hover .pl,.yt a:focus-visible .pl{background:var(--bronze)}.yt .pl svg{width:28px;height:28px;margin-left:4px;fill:var(--alloy)}'
+           '.yt a:focus-visible{outline:3px solid var(--bronze-l);outline-offset:-3px}'
+           '.vcap{font-size:14px;color:var(--machined);margin-top:10px}.vcap b{font-weight:500;color:var(--graphite)}'
+           '@media (prefers-reduced-motion:reduce){.yt img,.yt .pl{transition:none}}</style>\n')
+VID_JS = ("<script>document.querySelectorAll('.yt a[data-id]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();"
+          "var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+a.dataset.id+'?autoplay=1&rel=0&playsinline=1';"
+          "f.title=a.dataset.t;f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';f.allowFullscreen=true;"
+          "f.referrerPolicy='strict-origin-when-cross-origin';a.replaceWith(f);f.focus()})})</script>\n")
+
+def video_block(v, lang):
+    t = T[lang]
+    vid, ttl = v['id'], esc(v['title'])
+    return (f'<section class="vid" aria-labelledby="vid-h"><h2 id="vid-h">{t["vid"]}</h2>'
+            f'<div class="yt"><a href="https://www.youtube.com/watch?v={vid}" data-id="{vid}" data-t="{ttl}" target="_blank" rel="noopener noreferrer" aria-label="{t["play"]}: {ttl}">'
+            f'<img src="https://i.ytimg.com/vi/{vid}/hqdefault.jpg" width="480" height="360" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">'
+            f'<span class="pl" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></a></div>'
+            f'<p class="vcap"><b>{ttl}</b> · YouTube, iPE</p><p class="vcap">{t["vnote"]}</p></section>\n')
+
 def card(d, lang):
     h1, _ = names(d, lang)
     w, hgt = W.dims(d['imgs'][0])
@@ -138,7 +172,8 @@ def page(d, lang):
         {"@type": "ListItem", "position": 1, "name": "Nordvelg", "item": f"{SITE}/{LANGS[lang]}"},
         {"@type": "ListItem", "position": 2, "name": t['sec'], "item": f"{SITE}/{LANGS[lang]}exhaust/"},
         {"@type": "ListItem", "position": 3, "name": h1, "item": url}]}
-    out += '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": ([prod] if d['p'] else []) + [crumbs]}, ensure_ascii=False, separators=(',', ':')) + '</script>\n</head>\n<body>\n'
+    v = video_for(d)
+    out += '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": ([prod] if d['p'] else []) + [crumbs]}, ensure_ascii=False, separators=(',', ':')) + '</script>\n' + (VID_CSS if v else '') + '</head>\n<body>\n'
     out += header(lang, alts)
     p = '/' + LANGS[lang]
     out += f'<main class="wrap">\n<nav class="crumbs" aria-label="breadcrumbs"><a href="{p}">Nordvelg</a><span>/</span><a href="{p}exhaust/">{t["sec"]}</a><span>/</span><span aria-current="page">{esc(d["car"])}</span></nav>\n'
@@ -161,10 +196,10 @@ def page(d, lang):
 {fin}
 </div>
 </section>
-'''
+''' + (video_block(v, lang) if v else '')
     rel = [x for x in ITEMS if x['make'] == d['make'] and x is not d][:4]
     out += f'<section class="rel"><div class="rh"><h2>{t["more"].format(m=d["make"])}</h2><a href="{p}exhaust/{mk(d["make"])}/">{t["all"]}</a></div><div class="grid">{"".join(card(x, lang) for x in rel)}</div></section>\n</main>\n' if rel else '</main>\n'
-    out += f'<div class="lb" hidden><button type="button" class="x" aria-label="{wt["close"]}">×</button></div>\n' + W.footer(lang)
+    out += f'<div class="lb" hidden><button type="button" class="x" aria-label="{wt["close"]}">×</button></div>\n' + W.footer(lang) + (VID_JS if v else '')
     out += f'<script src="/js/wheel.js?v={V("js/wheel.js")}" defer></script>\n</body>\n</html>\n'
     return out
 
@@ -178,7 +213,8 @@ def catalog(lang, make=None):
     h1 = t['make_h1'].format(m=make) if make else t['cat_h1']
     out = W.head_common(lang, title, desc, alts[lang], alts, SITE + W.big(sel[0]['imgs'][0]))
     items = [{"@type": "ListItem", "position": i + 1, "url": f"{SITE}/{LANGS[lang]}exhaust/{d['slug']}/", "name": names(d, lang)[0]} for i, d in enumerate(sel)]
-    out += '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@type": "ItemList", "name": h1, "itemListElement": items}, ensure_ascii=False, separators=(',', ':')) + '</script>\n</head>\n<body>\n'
+    v = VID_BY_ID.get(VIDS['makes'].get(make) if make else VIDS['brand'])
+    out += '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@type": "ItemList", "name": h1, "itemListElement": items}, ensure_ascii=False, separators=(',', ':')) + '</script>\n' + (VID_CSS if v else '') + '</head>\n<body>\n'
     out += header(lang, alts)
     p = '/' + LANGS[lang]
     crumbs = f'<a href="{p}">Nordvelg</a><span>/</span>' + (f'<a href="{p}exhaust/">{t["sec"]}</a><span>/</span><span aria-current="page">{esc(make)}</span>' if make else f'<span aria-current="page">{t["sec"]}</span>')
@@ -194,7 +230,9 @@ def catalog(lang, make=None):
         show = mm if make else mm[:8]
         head = '' if make else f'<div class="rh"><h2>{esc(m)}</h2><a href="{p}exhaust/{mk(m)}/">{t["all_make"].format(m=m, n=len(mm))}</a></div>'
         out += f'<section class="rel">{head}<div class="grid">{"".join(card(d, lang) for d in show)}</div></section>\n'
-    out += '</main>\n' + W.footer(lang) + f'<script src="/js/wheel.js?v={V("js/wheel.js")}" defer></script>\n</body>\n</html>\n'
+    if v:
+        out += video_block(v, lang)
+    out += '</main>\n' + W.footer(lang) + (VID_JS if v else '') + f'<script src="/js/wheel.js?v={V("js/wheel.js")}" defer></script>\n</body>\n</html>\n'
     return out
 
 def main():
@@ -214,7 +252,7 @@ def main():
             if LANGS[lang] == '':
                 paths.append(f'exhaust/{d["slug"]}/')
     json.dump(paths, open(os.path.join(ROOT, 'tools/exhaust.json'), 'w'), indent=0)
-    print(len(ITEMS), 'exhaust items,', len(paths), 'paths per language')
+    print(len(ITEMS), 'exhaust items,', len(paths), 'paths per language,', sum(1 for d in ITEMS if video_for(d)), 'system pages with an iPE video')
 
 if __name__ == '__main__':
     main()

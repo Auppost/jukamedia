@@ -17,13 +17,15 @@ P = {
 <li>Когда вы нажимаете «Отправить в Telegram» или «Отправить в WhatsApp», текст заявки открывается в выбранном мессенджере. Там действуют правила этого мессенджера.</li>
 <li>В тот же момент копия заявки приходит нам на e-mail через сервис Formspree (Formspree, Inc., США). Это нужно, чтобы заявка не потерялась, если сообщение в мессенджере не отправится. Передача в США идёт на условиях стандартных договорных положений ЕС.</li>
 </ul>
+<h2>Видео с YouTube</h2>
+<p>На страницах выхлопных систем есть ролики iPE с YouTube. Пока вы не нажали на видео, с серверов YouTube загружается только картинка-превью. Сам плеер подключается после нажатия, через youtube-nocookie.com, и дальше действуют правила Google (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>).</p>
 <h2>Зачем</h2>
 <p>Только чтобы ответить на ваш запрос: подобрать диски, рассчитать цену и подготовить эскиз. Правовое основание: ваш запрос и подготовка договора (статья 6(1)(b) GDPR). Мы не продаём данные и не используем их для рассылок без вашего согласия.</p>
 <h2>Сколько храним</h2>
 <p>Переписку по заявке храним до 12 месяцев. Если вы стали клиентом, данные заказа храним столько, сколько требует бухгалтерский учёт в Эстонии (7 лет).</p>
 <h2>Ваши права</h2>
 <p>Вы можете попросить показать, исправить или удалить ваши данные, а также возразить против обработки. Напишите на <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>, ответим в течение месяца. Если считаете, что ваши права нарушены, можно обратиться в Инспекцию по защите данных Эстонии (Andmekaitse Inspektsioon, <a href="https://www.aki.ee" target="_blank" rel="noopener noreferrer">aki.ee</a>).</p>
-<p class="upd">Обновлено 15 октября 2026 года</p>
+<p class="upd">Обновлено 28 октября 2026 года</p>
 '''),
  'et': dict(title='Privaatsuspoliitika | Nordvelg', h1='Privaatsuspoliitika', desc='Kuidas Nordvelg päringute andmeid töötleb.', body='''
 <p>Lühidalt ja ausalt sellest, milliseid andmeid te meile nordvelg.com kaudu edastate ja mida me nendega teeme.</p>
@@ -36,13 +38,15 @@ P = {
 <li>Kui vajutate „Saada Telegrami“ või „Saada WhatsAppi“, avaneb päringu tekst valitud sõnumirakenduses. Seal kehtivad selle rakenduse reeglid.</li>
 <li>Samal hetkel saadetakse päringu koopia meie e-postile teenuse Formspree (Formspree, Inc., USA) kaudu, et päring ei kaoks. Andmete edastamine USA-sse toimub ELi tüüptingimuste alusel.</li>
 </ul>
+<h2>YouTube’i videod</h2>
+<p>Väljalaskesüsteemide lehtedel on iPE videod YouTube’ist. Enne video peale vajutamist laaditakse YouTube’i serveritest ainult eelvaate pilt. Mängija ühendatakse alles pärast vajutamist, youtube-nocookie.com kaudu, ja edasi kehtivad Google’i reeglid (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>).</p>
 <h2>Milleks</h2>
 <p>Ainult teie päringule vastamiseks: velgede valik, hinnapakkumine ja eskiis. Õiguslik alus: teie taotlus ja lepingu ettevalmistamine (IKÜM artikkel 6 lõige 1 punkt b). Me ei müü andmeid ega saada uudiskirju ilma teie nõusolekuta.</p>
 <h2>Kui kaua säilitame</h2>
 <p>Päringu kirjavahetust säilitame kuni 12 kuud. Kui teist saab klient, säilitame tellimuse andmeid nii kaua, kui nõuab Eesti raamatupidamisseadus (7 aastat).</p>
 <h2>Teie õigused</h2>
 <p>Võite paluda oma andmeid näha, parandada või kustutada ning esitada vastuväite töötlemisele. Kirjutage <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>, vastame kuu aja jooksul. Kui leiate, et teie õigusi on rikutud, võite pöörduda Andmekaitse Inspektsiooni poole (<a href="https://www.aki.ee" target="_blank" rel="noopener noreferrer">aki.ee</a>).</p>
-<p class="upd">Uuendatud 15. oktoobril 2026</p>
+<p class="upd">Uuendatud 28. oktoobril 2026</p>
 '''),
  'en': dict(title='Privacy Policy | Nordvelg', h1='Privacy policy', desc='How Nordvelg handles the data in quote requests.', body='''
 <p>A short, plain account of what data you send us through nordvelg.com and what we do with it.</p>
@@ -55,13 +59,15 @@ P = {
 <li>When you press "Send via Telegram" or "Send via WhatsApp", the request text opens in that messenger, and its own terms apply there.</li>
 <li>At the same moment a copy of the request is sent to our e-mail through Formspree (Formspree, Inc., USA), so the request is not lost. Transfers to the USA rely on the EU standard contractual clauses.</li>
 </ul>
+<h2>YouTube videos</h2>
+<p>The exhaust pages show iPE videos from YouTube. Until you press play, only the preview image loads from YouTube's servers. The player itself connects after you press play, through youtube-nocookie.com, and Google's terms apply from then on (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>).</p>
 <h2>Why</h2>
 <p>Only to answer your request: choose wheels, price them and prepare a sketch. Legal basis: your request and steps before a contract (GDPR Article 6(1)(b)). We do not sell data or send newsletters without your consent.</p>
 <h2>How long we keep it</h2>
 <p>We keep request correspondence for up to 12 months. If you become a customer, order data is kept as long as Estonian accounting law requires (7 years).</p>
 <h2>Your rights</h2>
 <p>You can ask to see, correct or delete your data and object to its processing. Write to <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>; we reply within a month. If you believe your rights were breached, you can contact the Estonian Data Protection Inspectorate (<a href="https://www.aki.ee" target="_blank" rel="noopener noreferrer">aki.ee</a>).</p>
-<p class="upd">Updated 15 October 2026</p>
+<p class="upd">Updated 28 October 2026</p>
 '''),
 }
 
