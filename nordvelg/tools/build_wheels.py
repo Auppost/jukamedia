@@ -19,6 +19,15 @@ SHOP = json.load(open(os.path.join(ROOT, 'tools/shop_items.json')))
 bslug = lambda b: re.sub(r'[^a-z0-9]+', '-', b.lower()).strip('-')
 BRANDS = {'BC Forged', 'Brixton Forged', 'iPE'}  # остальные бренды сняты 16.10.2026: нет дилерской цены
 BC = json.load(open(os.path.join(ROOT, 'tools/bc_models.json')))
+# Откуда скачано каждое фото (имя в img/ -> исходный адрес). С 28.10.2026 дистрибьютор письменно разрешил фото
+# с bcforged.com.tw и brixtonforged.com; на приоритетных моделях показываем только их, без фото поставщика
+_J = lambda f: json.load(open(os.path.join(ROOT, 'tools', f)))
+SRC = {k: v['download'] for k, v in _J('images.json').items()}
+SRC.update({'bc/' + k: v for k, v in _J('bc_images.json').items()})
+SRC.update({'shop/' + k: v for k, v in _J('shop_images.json').items()})
+OFFICIAL = re.compile(r'https://(www\.)?(bcforged\.com\.tw|brixtonforged\.com)/')
+PRIORITY = {'bc-forged-kl01', 'bc-forged-hca197', 'bc-forged-hca197s', 'bc-forged-th09', 'bc-forged-kl52', 'bc-forged-rz25',
+            'bc-forged-af55', 'bc-forged-eh361', 'brixton-forged-fde11', 'brixton-forged-pf9-carbon'}
 PRICE = {'mono': {18: 960, 19: 960, 20: 1066, 21: 1188, 22: 1250, 23: 1390}, 'KX': {19: 1255, 20: 1376, 21: 1528, 22: 1630},
          'two': {18: 1216, 19: 1216, 20: 1322, 21: 1444, 22: 1506, 23: 1646}, 'HCX': {19: 1551, 20: 1667, 21: 1849, 22: 1911}}
 setp = lambda p: int(round(p * 4 * 1.24 / 10) * 10)
@@ -150,6 +159,20 @@ def dims(src):
     M = MAN[m.group(1)]; w = min(int(m.group(2)), M['w'])
     return w, round(M['h'] * w / M['w'])
 
+def official(src):
+    m = re.match(r'/img/(.+)-\d+\.webp$', src or '')
+    return bool(m and OFFICIAL.match(SRC.get(m.group(1), '')))
+
+def official_only(k, d):
+    """Приоритетная модель: только фото с сайта производителя (BC: bc_models.json local, Brixton: shop_images.json <slug>-N).
+    Пока Action не скачал официальные фото и их нет в манифесте, страница остаётся как была."""
+    if k not in PRIORITY:
+        return
+    extra = [f'/img/{n}-960.webp' for n in SRC if re.fullmatch(r'shop/' + re.escape(k) + r'-\d+', n) and n in MAN]
+    imgs = [i for i in d['imgs'] + extra if official(i)]
+    if imgs:
+        d['imgs'] = list(dict.fromkeys(imgs))
+
 MERGED = {}  # старый адрес модели-варианта -> адрес объединённой страницы (для 301 в worker.js)
 TWIN_SUFFIX = ('S', 'A', '-CX', '-BL')
 COPY = json.load(open(os.path.join(ROOT, 'tools/wheel_copy.json'))) if os.path.exists(os.path.join(ROOT, 'tools/wheel_copy.json')) else {}
@@ -274,6 +297,8 @@ def collect(lang):
         prices = [float(p) for _, p in it['variants'] if p and float(p) > 0]
         p = setp(min(prices) / 1.21 / 4) if (it['brand'] == 'Brixton Forged' and prices) else None
         wheels[k] = dict(b=it['brand'], n=n, imgs=local, spec=spec, cars=[], p=p, featured=False, shop=True, title=it['title'])
+    for k, d in wheels.items():
+        official_only(k, d)
     merge_twins(wheels)
     # BC prices from the dealer list (set of 4, incl. VAT)
     for d in wheels.values():
