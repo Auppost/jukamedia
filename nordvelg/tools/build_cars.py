@@ -129,12 +129,12 @@ def build(lang):
                 if match(w['title'], inc, exc):
                     wl.append(wheel(k, True))
             wl = list(dict.fromkeys(wl))[:12]
-            xl = [d for d in exs if match(d['car'], inc, exc)]
+            xl = [d for d in exs if match(d['car'], inc, exc)]  # ссылка ведёт на страницу машины, к секции системы (#старый-адрес)
             xl.sort(key=lambda d: (next((i for i, t in enumerate(E.TYPES) if t is d['typ']), 99), d['mat'] != 'ti'))
             xi = []
             for d in xl[:8]:
                 h1, tl = E.names(d, lang)
-                xi.append(add('x:' + d['slug'], dict(u=f'exhaust/{d["slug"]}/', i=small(d['imgs'][0]), b='iPE', n=tl, s=E.car(d, lang), p=d['p'], f=1)))
+                xi.append(add('x:' + d['slug'], dict(u=f'exhaust/{d["cslug"]}/#{d["slug"]}', i=small(d['imgs'][0]), b='iPE', n=tl, s=d['fits'], p=d['p'], f=1)))
             if len(wl) < 4:
                 wl += [wheel(k, False) for k in general][:4 - len(wl)]
             out[make][label] = [wl, xi]

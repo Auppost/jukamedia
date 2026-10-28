@@ -1,5 +1,5 @@
 {
-  "_note": "Official iPE videos from the YouTube channel 'iPE - Performance Redefined' (@ipeofficial, UCOdHwyB1YmTx_j4uLFE9pNA). Checked 28.10.2026 via YouTube oEmbed / watch page. Only embed from YouTube, never re-upload. 'match' is a case-insensitive regex tested against the car name in build_exhaust.py (d['car']); first match wins, so put specific patterns first. 'makes' picks the video for /exhaust/<make>/ pages, 'brand' is shown on the main /exhaust/ catalog.",
+  "_note": "Official iPE videos from the YouTube channel 'iPE - Performance Redefined' (@ipeofficial, UCOdHwyB1YmTx_j4uLFE9pNA). Checked 28.10.2026 via YouTube oEmbed / watch page. Only embed from YouTube, never re-upload. 'match' is a case-insensitive regex tested in build_exhaust.py against the car page name and the cleaned and original shop names of its systems (d['car'], d['fits'], d['raw']); one video per car page, first match wins, so put specific patterns first. 'makes' picks the video for /exhaust/<make>/ pages, 'brand' is shown on the main /exhaust/ catalog.",
   "brand": "QBHueIHi2TE",
   "makes": {
     "Porsche": "QBHueIHi2TE",
