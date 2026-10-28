@@ -78,6 +78,11 @@ S = {
             exh_all='All iPE systems for {m}', none='No car-specific models yet, but BC Forged and Brixton are built for any car: we check fitment and show you a sketch',
             gen='fits any car'),
 }
+S['fi'] = dict(other='Muu', other_model='Muu malli', model='Malli', wheels='Vanteet', exh='iPE-pakoputkisto tähän autoon',
+            exh_all='Kaikki iPE-järjestelmät: {m}', none='Juuri tähän autoon tehtyjä malleja ei vielä ole, mutta BC Forged- ja Brixton-vanteet tehdään mihin tahansa autoon: tarkistamme sopivuuden ja näytämme havainnekuvan',
+            gen='sopii mihin tahansa autoon')
+TAG = {'ru': 'под эту машину', 'et': 'sellele autole', 'en': 'made for this car', 'fi': 'juuri tähän autoon'}
+OLD_YEAR = {'ru': 'до 1990', 'et': 'enne 1990', 'en': 'before 1990', 'fi': 'ennen 1990'}
 TYPE_ORDER = [t[0] for t in E.TYPES]
 
 def small(src):
@@ -221,7 +226,7 @@ def inject(lang, data):
     path = os.path.join(ROOT, LANGS[lang], 'index.html')
     h = open(path).read()
     tag = re.search(r'class="tag">([^<]+)<', h)
-    tagtxt = tag.group(1) if tag else {'ru': 'под эту машину', 'et': 'sellele autole', 'en': 'made for this car'}[lang]
+    tagtxt = tag.group(1) if tag else TAG[lang]
     fm = re.search(r'function fmt\(p\)\{(.*?)\}\n', h).group(1)
     L = dict(s, tag=tagtxt)
     js = (JS.replace('__CARS__', json.dumps({m: list(v) for m, v in data['cars'].items()}, ensure_ascii=False, separators=(',', ':')))
@@ -242,7 +247,7 @@ def inject(lang, data):
         h = h.replace('<input id="fModel"', f'<select id="fModelSel" aria-label="{s["model"]}"><option value="">{s["model"]}</option></select><input id="fModel" hidden style="grid-column:1/-1"', 1)
     m = re.search(r'<input id="fYear" placeholder="([^"]*)" [^>]*>', h)
     if m:
-        old_lbl = {'ru': 'до 1990', 'et': 'enne 1990', 'en': 'before 1990'}[lang]
+        old_lbl = OLD_YEAR[lang]
         opts = ''.join(f'<option>{y}</option>' for y in range(2027, 1989, -1)) + f'<option>{old_lbl}</option>'
         h = h.replace(m.group(0), f'<select id="fYear" aria-label="{m.group(1)}"><option value="">{m.group(1)}</option>{opts}</select>', 1)
     if '#fModel[hidden]' not in h:

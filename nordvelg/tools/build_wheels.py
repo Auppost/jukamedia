@@ -7,7 +7,7 @@ import html, json, os, re, urllib.parse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = 'https://nordvelg.com'
-LANGS = {'en': '', 'et': 'et/', 'ru': 'ru/'}
+LANGS = {'en': '', 'et': 'et/', 'ru': 'ru/', 'fi': 'fi/'}
 WA = '37257494989'
 import hashlib
 V = lambda p: hashlib.md5(open(os.path.join(ROOT, p), 'rb').read()).hexdigest()[:8]
@@ -106,6 +106,36 @@ T = {
   brand_title='{b} wheels made to order in Tallinn: all models and prices | Nordvelg', brand_desc='All {b} models made to order with delivery to Estonia, Latvia, Lithuania and Finland. Fitment for your car, a sketch before you pay.', brand_h1='{b} wheels', all_brand='All {b} models: {n}', on_req_note='We price it for your car and specification',
   lang_name='Language', variants='Versions of this design', variants_note='One design in several versions. We will tell you which one suits your car during the fitment check'),
 }
+# Suomi (fi), lisätty 28.10.2026: Suomi on oma kohdemarkkina, vannesarjojen toimitus Suomeen sisältyy hintaan
+T['fi'] = dict(
+  catalog='Mallisto', home='Etusivu', pick='Auton mukaan', faq='UKK',
+  cat_title='Taotut BC Forged- ja Brixton-vanteet tilauksesta | Nordvelg',
+  cat_desc='Tilauksesta valmistettavat taotut BC Forged- ja Brixton Forged -vanteet. Toimitus Suomeen, Viroon, Latviaan ja Liettuaan sisältyy hintaan, hinnat sis. ALV:n ja sopivuus tarkistetaan autoosi.',
+  cat_h1='Taottujen vanteiden mallisto', cat_sub='Valikoimamme malleja. Jokainen sarja tehdään sinun autoosi: halkaisija, leveys, ET ja viimeistely valintasi mukaan',
+  title='{name}: taotut vanteet tilauksesta | Nordvelg',
+  desc='{name} sinun autoosi: koon ja ET:n valinta, havainnekuva ennen maksua ja toimitus Suomeen, Viroon, Latviaan tai Liettuaan.{price}',
+  price_from='alkaen {p} €', set_note='4 vanteen sarja, sis. ALV:n ja toimituksen Suomeen, Viroon, Latviaan tai Liettuaan', est_note='suuntaa-antava hinta, tarkan hinnan kerromme sopivuuden tarkistuksen jälkeen',
+  on_request='Hinta pyynnöstä', cta='Pyydä tarjous autooni', wa='Kysy WhatsAppissa',
+  wa_text='Hei, olen kiinnostunut tuotteesta {name}. Autoni: ',
+  fits='Sopii autoihin', fits_note='Nämä autot löytyvät jo sovitusoppaastamme. Muihin malleihin tarkistamme sopivuuden maksutta',
+  know='Hyvä tietää', how='Näin tilaus etenee', more='Muita {brand} -malleja', all='Koko mallisto',
+  zoom='Suurenna klikkaamalla', close='Sulje',
+  steps=['Lähetät meille autosi merkin, mallin ja vuosimallin', 'Valitsemme koon, ET:n ja viimeistelyn ja lähetämme havainnekuvan', 'Maksat 50 % ennakkoa, ja tehdas valmistaa vanteet', 'Maksat loppusumman, ja vanteet toimitetaan sinulle Suomeen, Viroon, Latviaan tai Liettuaan'],
+  bc=['Taottu aihio alumiinia 6061-T6, ja jokainen vanne jyrsitään autosi mukaan: pulttijako, keskireikä ja ET', 'Läpäisee japanilaiset JWL- ja VIA-lujuustestit', 'Noin 40 viimeistelyä, kahta voi yhdistää', 'Valmistus 4-6 viikkoa, sen jälkeen toimitus Suomeen, Viroon, Latviaan tai Liettuaan'],
+  brixton=['Yhdysvaltalainen merkki, jokainen sarja tehdään tiettyyn autoon', 'Valmistus kestää 7-10 viikkoa', 'Hinta lasketaan määrittelysi mukaan: koko, leveys ja viimeistely', 'Toimitus Suomeen, Viroon, Latviaan ja Liettuaan sisältyy hintaan'],
+  other=['Tilaamme eurooppalaisen jakelijan kautta', 'Toimitusajan ja tarkan hinnan vahvistamme, kun sopivuus autoosi on tarkistettu', 'Toimitus Suomeen, Viroon, Latviaan ja Liettuaan sisältyy hintaan'],
+  pay='Sopivuuden tarkistus on maksuton: ensin havainnekuva ja tarkka hinta, sitten päätät',
+  per_wheel='', mono='yksiosainen', two='kaksiosainen',
+  foot='Taotut BC Forged-, Brixton Forged- ja MV Forged -vanteet tilauksesta, toimitus myös Suomeen', city='Tallinna, Viro',
+  credits='Vanteiden ja autojen kuvat: BC Forged, Brixton Forged ja niiden jakelijat. Tuotemerkit kuuluvat omistajilleen',
+  ptable='Sarjan hinta halkaisijan mukaan', col_d='Halkaisija', col_w='Leveys', col_p='4 vanteen sarja', ptable_note='Sis. ALV:n ja toimituksen Suomeen, Viroon, Latviaan tai Liettuaan. Lisävarusteet maksavat erikseen: kiillotettu lippa ja karhennettu olake. Jyrsityt keskikapselit kuuluvat sarjaan', series='Sarja {s}', filt_all='Kaikki', sizes_d='Koot {a}-{b}″.',
+  brand_title='{b} -vanteet tilauksesta: kaikki mallit ja hinnat | Nordvelg', brand_desc='Kaikki {b} -mallit tilauksesta, toimitus Suomeen, Viroon, Latviaan ja Liettuaan sisältyy hintaan. Sopivuus autosi mukaan ja havainnekuva ennen maksua.', brand_h1='{b} -vanteet', all_brand='Kaikki {b} -mallit: {n}', on_req_note='Hinta lasketaan autosi ja määrittelysi mukaan',
+  lang_name='Kieli', variants='Mallin versiot', variants_note='Sama muotoilu useana versiona. Kerromme sopivuuden tarkistuksessa, mikä niistä sopii autoosi')
+
+def fi_fix(s):
+    """Suomen yhdyssanat: monisanainen merkki + väliviiva ja välilyönti (BC Forged -vanteet), yksisanainen ilman välilyöntiä (iPE-vanteet)."""
+    s = s.replace('. alkaen ', '. Alkaen ')  # hinta kuvauksen lopussa alkaa uuden virkkeen
+    return re.sub(r'\biPE -(?=\w)', 'iPE-', s)
 
 def slug(b, n):
     return re.sub(r'[^a-z0-9]+', '-', f'{b} {n}'.lower()).strip('-')
@@ -303,7 +333,7 @@ def collect(lang):
     # BC prices from the dealer list (set of 4, incl. VAT)
     for d in wheels.values():
         if d['b'] == 'BC Forged' and d['p'] is None:
-            two = any(x in ' '.join(d['spec']).lower() for x in ('две', 'kahe', 'two'))
+            two = any(x in ' '.join(d['spec']).lower() for x in ('две', 'kahe', 'two', 'kaksi'))
             d['p'] = 6030 if two else 4760
     # только бренды, на которые у нас есть дилерские условия у дистрибьютора
     wheels = {k: d for k, d in wheels.items() if d['b'] in BRANDS}
@@ -373,14 +403,17 @@ def fit(t, short=None, n=65):
     return short or t.replace(' | Nordvelg', '')
 
 SHORT = {'ru': '{}: кованые диски', 'et': '{}: sepistatud veljed', 'en': '{}: forged wheels'}
+SHORT['fi'] = '{}: taotut vanteet'
 
 PRIV = {'ru': 'Политика конфиденциальности', 'et': 'Privaatsuspoliitika', 'en': 'Privacy policy'}
+PRIV['fi'] = 'Tietosuojaseloste'
 
 EXH = {'ru': 'Выхлоп iPE', 'et': 'iPE väljalase', 'en': 'iPE exhausts'}
+EXH['fi'] = 'iPE-pakoputkistot'
 
 def header(lang, alts):
     t = T[lang]; p = '/' + LANGS[lang]
-    langs = ''.join(f'<a href="{alts[l].replace(SITE, "")}" hreflang="{l}" lang="{l}"{" aria-current=\"page\"" if l == lang else ""}>{l.upper()}</a>' for l in ('en', 'et', 'ru'))
+    langs = ''.join(f'<a href="{alts[l].replace(SITE, "")}" hreflang="{l}" lang="{l}"{" aria-current=\"page\"" if l == lang else ""}>{l.upper()}</a>' for l in ('en', 'et', 'ru', 'fi'))
     return f'''<header class="top"><div class="wrap in">
 <a class="mark" href="{p}">Nordvelg</a>
 <nav><a href="{p}wheels/">{t['catalog']}</a><a href="{p}exhaust/">{EXH[lang]}</a><a href="{p}#cars">{t['pick']}</a><a href="{p}#faq">{t['faq']}</a></nav>
@@ -492,7 +525,7 @@ def page(k, d, lang, all_wheels):
     out += f'<div class="lb" hidden><button type="button" class="x" aria-label="{t["close"]}">×</button></div>\n'
     out += footer(lang)
     out += f'<script src="/js/wheel.js?v={V("js/wheel.js")}" defer></script>\n</body>\n</html>\n'
-    return out
+    return fi_fix(out) if lang == 'fi' else out
 
 def catalog(lang, wheels, brand=None):
     t = T[lang]
@@ -531,7 +564,7 @@ def catalog(lang, wheels, brand=None):
             out += f'<p style="margin-top:18px"><a class="btn ghost" href="{p}wheels/brand/{bslug(b)}/">{t["all_brand"].format(b=b, n=len(bw))}</a></p>'
         out += '</section>\n'
     out += '</main>\n' + footer(lang) + f'<script src="/js/wheel.js?v={V("js/wheel.js")}" defer></script>\n</body>\n</html>\n'
-    return out
+    return fi_fix(out) if lang == 'fi' else out
 
 def main():
     allpages = []
