@@ -72,15 +72,63 @@ TYPES_FI = {
     r'muffler|rear section|back box': ('äänenvaimennin', 'titaaninen äänenvaimennin'),
     r'tip': ('pakoputken päätteet', 'titaaniset pakoputken päätteet'),
 }
+# Automallin nimeä ei taivuteta (Purosangueen, 911:lle (992) menisivät helposti pieleen): sija on aina yleisnimessä
+# (malliin {car}) tai nimi seisoo kaksoispisteen edessä ({car}: iPE:n ...). {ma} = merkki + autoihin oikealla yhdysmerkillä.
 T['fi'] = dict(sec='iPE-pakoputkistot', cat_title='iPE-pakoputkistot tilauksesta: hinnat ja toimitus Suomeen | Nordvelg',
-            cat_desc='Titaaniset ja ruostumattomat iPE-pakoputkistot venttiiliohjauksella tilauksesta: Porsche, Ferrari, Lamborghini, McLaren, BMW M, AMG. Hinnat sis. ALV:n, toimitus myös Suomeen.',
-            cat_h1='iPE-pakoputkistot', cat_sub='Aidot iPE-tuotteet eurooppalaisen jakelijan kautta. Myymme vain katalysaattorillisia versioita: ilman katalysaattoria auto ei mene katsastuksesta läpi',
-            make_title='iPE-pakoputkistot, {m}: kaikki järjestelmät ja hinnat | Nordvelg', make_desc='iPE-pakoputkistot tilauksesta, merkki {m}. Hinnat sis. ALV:n, vain katalysaattorilliset versiot, toimitus myös Suomeen.', make_h1='iPE-pakoputkistot: {m}',
-            h1='iPE {t}, {car}', title='iPE {t}, {car}: hinta | Nordvelg', desc='iPE {t}, {car}, {mat}. Venttiiliohjattu ääni, toimitus Suomeen, Viroon, Latviaan ja Liettuaan.{price}',
-            mat_ti='titaani', mat_ss='ruostumaton teräs', finishes='Pakoputken päätteiden viimeistely', all='Kaikki iPE-järjestelmät', more='Muut järjestelmät: {m}', all_make='{m}: kaikki järjestelmät ({n})',
-            facts=['Venttiiliohjattu pakoputkisto: hiljainen kaupungissa, äänekäs napin painalluksella', 'Vain katalysaattorilliset versiot, kuten katsastus edellyttää', 'Tarkan kokoonpanon, toimitusajan ja hinnan vahvistamme ennen maksua', 'Toimitus Suomeen, Viroon, Latviaan ja Liettuaan, ja neuvomme myös asennuksessa'],
-            note='hinta sis. ALV:n ja toimituksen Virossa, tarkan summan vahvistamme kokoonpanosi mukaan. Toimituksen Suomeen, Latviaan tai Liettuaan hinnoittelemme tarjouksen yhteydessä', req='Katalysaattorillisen version hinta pyynnöstä', other='Muut', filt='Merkki',
-            vid='Kuuntele iPE:n ääni', play='Katso video', vnote='Video on iPE:n omalta YouTube-kanavalta. YouTube-soitin latautuu vasta, kun painat videota.')
+            cat_desc='Venttiiliohjatut iPE-pakoputkistot titaanista ja ruostumattomasta teräksestä tilauksesta: Porsche, Ferrari, Lamborghini, McLaren, BMW M, AMG. Hinnat sisältävät ALV:n, toimitus myös Suomeen.',
+            cat_h1='iPE-pakoputkistot', cat_sub='Aidot iPE-tuotteet eurooppalaisen jakelijan kautta. Myymme vain versioita, joissa on katalysaattori, koska ilman sitä auto ei mene katsastuksesta läpi',
+            make_title='iPE-pakoputkistot {ma}: hinnat | Nordvelg', make_desc='iPE-pakoputkistot {ma} tilauksesta. Hinnat sisältävät ALV:n, ja myymme vain versioita, joissa on katalysaattori. Toimitus myös Suomeen.', make_h1='iPE-pakoputkistot {ma}',
+            h1='{car}: iPE:n {t}', title='{car}: iPE:n {t} | Nordvelg', desc='iPE:n {t} malliin {car}, materiaalina {mat}. Äänen säätö venttiileillä, toimitus Suomeen, Viroon, Latviaan ja Liettuaan.{price}',
+            mat_ti='titaani', mat_ss='ruostumaton teräs', finishes='Pakoputken päätteiden viimeistely', all='Kaikki iPE-pakoputkistot', more='Muut iPE-pakoputkistot {ma}', all_make='{m}: kaikki järjestelmät ({n})',
+            facts=['Venttiiliohjaus: kaupungissa hiljainen, napista saat lisää ääntä', 'Myymme vain versioita, joissa on katalysaattori, koska katsastus vaatii sen', 'Tarkan kokoonpanon, toimitusajan ja hinnan vahvistamme ennen maksua', 'Toimitamme Suomeen, Viroon, Latviaan ja Liettuaan ja neuvomme asennuksessa'],
+            note='sisältää ALV:n ja toimituksen Viron sisällä, tarkan summan vahvistamme kokoonpanosi mukaan. Toimituskulut Suomeen, Latviaan ja Liettuaan kerromme tarjouksessa', req='Katalysaattorillisen version hinta pyynnöstä', other='Muut', filt='Merkki',
+            vid='Miltä iPE kuulostaa: valmistajan video', play='Katso video', vnote='Video on iPE:n omalta YouTube-kanavalta. YouTube-soitin latautuu vasta, kun painat videota.')
+
+def fi_autoihin(m):
+    """Porsche-autoihin, Mercedes-AMG-autoihin, mutta Aston Martin -autoihin (monisanainen nimi: välilyönti ja yhdysmerkki)."""
+    return m + (' -autoihin' if ' ' in m else '-autoihin')
+
+def car(d, lang):
+    """Auton nimi sivulle. Suomeksi siivotaan kaupan otsikoista jääneet englanninkieliset tähteet
+    (Pipe BMW F30, Ferrari 296 - Downpipes, W463 (, )); muut kielet ennallaan."""
+    c = d['car']
+    if lang == 'fi':
+        c = re.sub(r'^Pipe\s+', '', c)
+        c = re.sub(r'\s*-\s*(Catback Exhaust|Downpipes)$|\s+Catback$|\s*\(,\s*\)$', '', c)
+        if re.match(r'pre-?owned', d['title'], re.I):
+            c += ' (käytetty)'  # kaupan otsikko «Pre-Owned ...»: muuten sama nimi kuin uudella järjestelmällä
+    return c
+
+# Päätteiden viimeistelyt kaupan englanninkielisistä nimistä (Red Mamba ja Black Mamba ovat iPE:n tuotenimiä)
+FIN_FI = {
+    '3D Carbon Tips - Satin Black': '3D-hiilikuitupäätteet, satiinimusta', '3D Carbon Tips - Satin Gold': '3D-hiilikuitupäätteet, satiinikulta',
+    '3D Carbon Tips - Satin Silver': '3D-hiilikuitupäätteet, satiinihopea', '89mm Red Mamba Tips (carbon & titanium)': '89 mm Red Mamba -päätteet (hiilikuitu ja titaani)',
+    'Black': 'musta', 'Black Chrome': 'musta kromi', 'Black chrome': 'musta kromi', 'Black Mamba carbon tailpipes': 'Black Mamba -hiilikuitupäätteet',
+    'Black mamba carbon': 'Black Mamba, hiilikuitu', 'Carbon': 'hiilikuitu', 'Carbon Fiber': 'hiilikuitu', 'Carbon and black': 'hiilikuitu ja musta',
+    'Carbon and gold': 'hiilikuitu ja kulta', 'Chrome': 'kromi', 'Chrome Black': 'musta kromi', 'Chrome Black - new design': 'musta kromi, uusi malli',
+    'Chrome Black Dual Out': 'musta kromi, kaksoispäätteet', 'Chrome Black Tips': 'mustat kromipäätteet', 'Chrome Black Triple-out': 'musta kromi, kolmoispäätteet',
+    'Chrome Polished': 'kiillotettu kromi', 'Chrome Silver Dual Out': 'hopeinen kromi, kaksoispäätteet', 'Chrome Silver Triple-out': 'hopeinen kromi, kolmoispäätteet',
+    'Chrome black': 'musta kromi', 'Chrome polished': 'kiillotettu kromi', 'Chrome silver': 'hopeinen kromi',
+    'Dual-Out Chrome Black': 'kaksoispäätteet, musta kromi', 'Dual-Out Chrome Polished': 'kaksoispäätteet, kiillotettu kromi', 'Dual-Out Gold': 'kaksoispäätteet, kulta',
+    'Gold': 'kulta', 'Matt Black with forged carbon': 'mattamusta ja taottu hiilikuitu', 'Matt Gold with forged carbon': 'mattakulta ja taottu hiilikuitu',
+    'Optional Black Chrome': 'lisävarusteena musta kromi', 'Optional Chrome black': 'lisävarusteena musta kromi',
+    'Oval Chrome Black': 'soikeat, musta kromi', 'Oval Chrome polished': 'soikeat, kiillotettu kromi', 'Oval Titanium Blue': 'soikeat, sininen titaani',
+    'Polished Chrome': 'kiillotettu kromi', 'Standard Chrome Silver': 'vakiona hopeinen kromi', 'Standard polished chrome': 'vakiona kiillotettu kromi',
+    'Tailpipes Carbon': 'hiilikuitupäätteet', 'Tailpipes Chrome black': 'mustat kromipäätteet', 'Tailpipes Titanium blue': 'siniset titaanipäätteet',
+    'Tailpipes carbon fiber': 'hiilikuitupäätteet', 'Tailpipes chrome silver': 'hopeiset kromipäätteet',
+    'Tips (Chrome Black)': 'päätteet: musta kromi', 'Tips (Satin Gold)': 'päätteet: satiinikulta', 'Tips (Satin Silver)': 'päätteet: satiinihopea',
+    'Titanium (Chrome, Gold or Blue)': 'titaani (kromi, kulta tai sininen)', 'Titanium Blue': 'sininen titaani', 'Titanium Blue - NEW': 'sininen titaani, uutuus',
+    'Titanium Blue - new design': 'sininen titaani, uusi malli', 'Titanium Blue Dual Out': 'sininen titaani, kaksoispäätteet',
+    'Titanium Blue Triple-out': 'sininen titaani, kolmoispäätteet', 'Titanium Chrome': 'titaani, kromi', 'Titanium Chrome Black': 'titaani, musta kromi',
+    'Titanium Chrome Polished': 'titaani, kiillotettu kromi', 'Titanium Gold': 'kultainen titaani', 'Titanium Polished Silver': 'titaani, kiillotettu hopea',
+    'Titanium blue': 'sininen titaani', 'Titanium gold': 'kultainen titaani', 'Triple-Out Chrome Polished': 'kolmoispäätteet, kiillotettu kromi',
+    'Triple-Out Titanium Blue': 'kolmoispäätteet, sininen titaani'}
+
+def fin_name(x, lang):
+    if lang != 'fi':
+        return x
+    f = FIN_FI.get(x, x)
+    return f[:1].upper() + f[1:]
 
 def mk(s):
     return re.sub(r'[^a-z0-9]+', '-', s.lower()).strip('-')
@@ -132,7 +180,7 @@ def names(d, lang):
     t = T[lang]
     if lang == 'fi':
         tl = TYPES_FI[d['typ'][0]][1 if d['mat'] == 'ti' else 0] + (' ' + d['ed'] if d['ed'] else '')
-        return t['h1'].format(t=tl, car=d['car']), tl
+        return t['h1'].format(t=tl, car=car(d, lang)), tl
     tl = {'ru': d['typ'][1], 'et': d['typ'][2], 'en': d['typ'][3].lower()}[lang]
     if d['ed']:
         tl += ' ' + d['ed']
@@ -178,7 +226,7 @@ def card(d, lang):
     w, hgt = W.dims(d['imgs'][0])
     price = W.fmt(d['p'], lang) if d['p'] else W.T[lang]['on_request']
     return (f'<a class="card" data-make="{esc(d["make"])}" href="/{LANGS[lang]}exhaust/{d["slug"]}/"><div class="stage"><img src="{d["imgs"][0]}" width="{w}" height="{hgt}" loading="lazy" decoding="async" alt="{esc(h1)}"></div>'
-            f'<span class="brand">iPE</span><h3>{esc(d["car"])}</h3><div class="spec"><span>{esc(names(d, lang)[1])}</span></div><div class="price">{price}</div></a>')
+            f'<span class="brand">iPE</span><h3>{esc(car(d, lang))}</h3><div class="spec"><span>{esc(names(d, lang)[1])}</span></div><div class="price">{price}</div></a>')
 
 def page(d, lang):
     t, wt = T[lang], W.T[lang]
@@ -186,10 +234,11 @@ def page(d, lang):
     alts = {l: f"{SITE}/{LANGS[l]}exhaust/{d['slug']}/" for l in LANGS}
     url = alts[lang]
     mat = t['mat_ti'] if d['mat'] == 'ti' else t['mat_ss']
-    car_t = d['car'].replace(' / ', '/')
+    car_t = car(d, lang).replace(' / ', '/')
     h1t = t['h1'].format(t=tl, car=car_t)
-    title = W.fit(t['title'].format(t=tl, car=car_t), h1t if len(h1t) <= 65 else f"iPE {car_t}: {tl[0].lower() + tl[1:] if lang not in ('en', 'fi') else tl}")
-    desc = t['desc'].format(t=tl, car=d['car'], mat=mat, price=(' ' + W.fmt(d['p'], lang)[:1].upper() + W.fmt(d['p'], lang)[1:] + '.') if d['p'] else '')
+    short = h1t if (lang == 'fi' or len(h1t) <= 65) else f"iPE {car_t}: {tl[0].lower() + tl[1:] if lang != 'en' else tl}"
+    title = W.fit(t['title'].format(t=tl, car=car_t), short)
+    desc = t['desc'].format(t=tl, car=car(d, lang), mat=mat, price=(' ' + W.fmt(d['p'], lang)[:1].upper() + W.fmt(d['p'], lang)[1:] + '.') if d['p'] else '')
     og = SITE + W.big(d['imgs'][0])
     out = W.head_common(lang, title, desc, url, alts, og)
     prod = {"@type": "Product", "name": f"iPE {d['title']}", "brand": {"@type": "Brand", "name": "iPE"}, "image": [SITE + W.big(i) for i in d['imgs']], "url": url, "description": desc}
@@ -203,13 +252,15 @@ def page(d, lang):
     out += '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": ([prod] if d['p'] else []) + [crumbs]}, ensure_ascii=False, separators=(',', ':')) + '</script>\n' + (VID_CSS if v else '') + '</head>\n<body>\n'
     out += header(lang, alts)
     p = '/' + LANGS[lang]
-    out += f'<main class="wrap">\n<nav class="crumbs" aria-label="breadcrumbs"><a href="{p}">Nordvelg</a><span>/</span><a href="{p}exhaust/">{t["sec"]}</a><span>/</span><span aria-current="page">{esc(d["car"])}</span></nav>\n'
+    out += f'<main class="wrap">\n<nav class="crumbs" aria-label="breadcrumbs"><a href="{p}">Nordvelg</a><span>/</span><a href="{p}exhaust/">{t["sec"]}</a><span>/</span><span aria-current="page">{esc(car(d, lang))}</span></nav>\n'
     gal = ''.join(f'<button type="button" class="shot{" on" if n == 0 else ""}" data-big="{W.big(i)}" aria-label="{wt["zoom"]}"><img src="{i}" width="{W.dims(i)[0]}" height="{W.dims(i)[1]}" alt="{esc(h1)}" {"fetchpriority=\"high\"" if n == 0 else "loading=\"lazy\""} decoding="async"></button>' for n, i in enumerate(d['imgs']))
     thumbs = ('<div class="thumbs">' + ''.join(f'<button type="button" data-i="{n}" aria-label="{n+1}"{" class=\"on\"" if n == 0 else ""}><img src="{i}" alt="" loading="lazy" decoding="async"></button>' for n, i in enumerate(d['imgs'])) + '</div>') if len(d['imgs']) > 1 else ''
     price = (f'<div class="price">{W.fmt(d["p"], lang)}</div><p class="pnote">{t["note"]}</p>' if d['p'] else f'<div class="price">{wt["on_request"]}</div><p class="pnote">{t["req"]}</p>')
     name = f"iPE {d['title']}"
-    wa = 'https://wa.me/' + W.WA + '?text=' + urllib.parse.quote(wt['wa_text'].format(name=name))
-    fin = f'<h2>{t["finishes"]}</h2><div class="chips">{"".join(f"<span>{esc(x)}</span>" for x in d["fin"])}</div>' if d['fin'] else ''
+    if lang == 'fi':  # WhatsApp-viesti ja ?model= ovat URL-koodattuja, joten fi_fix ei näe niitä koko sivusta
+        name = W.fi_fix(name)
+    wa ='https://wa.me/' + W.WA + '?text=' + urllib.parse.quote(wt['wa_text'].format(name=name))
+    fin = f'<h2>{t["finishes"]}</h2><div class="chips">{"".join(f"<span>{esc(fin_name(x, lang))}</span>" for x in d["fin"])}</div>' if d['fin'] else ''
     out += f'''<section class="prod">
 <div class="gallery"><div class="main">{gal}</div>{thumbs}<p class="hint">{wt['zoom']}</p></div>
 <div class="info">
@@ -225,7 +276,7 @@ def page(d, lang):
 </section>
 ''' + (video_block(v, lang) if v else '')
     rel = [x for x in ITEMS if x['make'] == d['make'] and x is not d][:4]
-    out += f'<section class="rel"><div class="rh"><h2>{t["more"].format(m=d["make"])}</h2><a href="{p}exhaust/{mk(d["make"])}/">{t["all"]}</a></div><div class="grid">{"".join(card(x, lang) for x in rel)}</div></section>\n</main>\n' if rel else '</main>\n'
+    out += f'<section class="rel"><div class="rh"><h2>{t["more"].format(m=d["make"], ma=fi_autoihin(d["make"]))}</h2><a href="{p}exhaust/{mk(d["make"])}/">{t["all"]}</a></div><div class="grid">{"".join(card(x, lang) for x in rel)}</div></section>\n</main>\n' if rel else '</main>\n'
     out += f'<div class="lb" hidden><button type="button" class="x" aria-label="{wt["close"]}">×</button></div>\n' + W.footer(lang) + (VID_JS if v else '')
     out += f'<script src="/js/wheel.js?v={V("js/wheel.js")}" defer></script>\n</body>\n</html>\n'
     return W.fi_fix(out) if lang == 'fi' else out
@@ -235,9 +286,10 @@ def catalog(lang, make=None):
     sub = f"exhaust/{mk(make)}/" if make else "exhaust/"
     alts = {l: f"{SITE}/{LANGS[l]}{sub}" for l in LANGS}
     sel = [d for d in ITEMS if make is None or d['make'] == make]
-    title = W.fit(t['make_title'].format(m=make) if make else t['cat_title'])
-    desc = t['make_desc'].format(m=make) if make else t['cat_desc']
-    h1 = t['make_h1'].format(m=make) if make else t['cat_h1']
+    ma = fi_autoihin(make) if make else ''
+    title = W.fit(t['make_title'].format(m=make, ma=ma) if make else t['cat_title'])
+    desc = t['make_desc'].format(m=make, ma=ma) if make else t['cat_desc']
+    h1 = t['make_h1'].format(m=make, ma=ma) if make else t['cat_h1']
     out = W.head_common(lang, title, desc, alts[lang], alts, SITE + W.big(sel[0]['imgs'][0]))
     items = [{"@type": "ListItem", "position": i + 1, "url": f"{SITE}/{LANGS[lang]}exhaust/{d['slug']}/", "name": names(d, lang)[0]} for i, d in enumerate(sel)]
     v = VID_BY_ID.get(VIDS['makes'].get(make) if make else VIDS['brand'])

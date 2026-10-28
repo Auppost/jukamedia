@@ -75,16 +75,16 @@ P['fi'] = dict(title='Tietosuojaseloste | Nordvelg', h1='Tietosuojaseloste', des
 <h2>Rekisterinpitäjä</h2>
 <p>Juka Media OÜ, rekisterikoodi 17495980, Tallinna, Viro. Tietosuojaa koskevat kysymykset: <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>.</p>
 <h2>Mitä tietoja saamme</h2>
-<p>Vain sen, minkä itse kirjoitat tarjouslomakkeeseen: nimen, puhelinnumeron tai sähköpostin, auton merkin, mallin ja vuosimallin, toiveesi vanteista sekä kommentin. Sivusto ei käytä mainosevästeitä eikä kävijäanalytiikkaa.</p>
+<p>Vain sen, minkä itse kirjoitat tarjouslomakkeeseen: nimen, puhelinnumeron tai sähköpostin, auton merkin, mallin ja vuosimallin, toiveesi vanteista sekä mahdolliset lisätiedot. Sivusto ei käytä mainosevästeitä eikä kävijäanalytiikkaa.</p>
 <h2>Miten tiedot tulevat meille</h2>
 <ul>
-<li>Kun painat ”Lähetä Telegramissa” tai ”Lähetä WhatsAppissa”, pyyntösi teksti avautuu valitsemassasi viestisovelluksessa. Siellä noudatetaan kyseisen sovelluksen ehtoja.</li>
+<li>Kun painat ”Lähetä Telegramissa” tai ”Lähetä WhatsAppissa”, pyyntösi teksti avautuu valitsemassasi viestisovelluksessa. Siellä pätevät sovelluksen omat ehdot.</li>
 <li>Samalla hetkellä pyynnöstä lähtee kopio sähköpostiimme Formspree-palvelun (Formspree, Inc., Yhdysvallat) kautta, jottei pyyntö katoa. Tietojen siirto Yhdysvaltoihin perustuu EU:n vakiosopimuslausekkeisiin.</li>
 </ul>
 <h2>YouTube-videot</h2>
 <p>Pakoputkistojen sivuilla on iPE:n videoita YouTubesta. Ennen kuin painat videota, YouTuben palvelimilta latautuu vain esikatselukuva. Itse soitin yhdistetään vasta painalluksen jälkeen youtube-nocookie.com-osoitteen kautta, ja siitä eteenpäin noudatetaan Googlen ehtoja (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>).</p>
 <h2>Mihin tietoja käytetään</h2>
-<p>Vain pyyntöösi vastaamiseen: vanteiden valintaan, hinnan laskemiseen ja havainnekuvan tekemiseen. Oikeusperuste: pyyntösi ja sopimusta edeltävät toimet (tietosuoja-asetuksen 6 artiklan 1 kohdan b alakohta). Emme myy tietoja emmekä lähetä uutiskirjeitä ilman suostumustasi.</p>
+<p>Vain pyyntöösi vastaamiseen: vanteiden valintaan, hinnan laskemiseen ja siihen, että voimme näyttää vanteet kuvassa autossasi. Oikeusperuste: pyyntösi ja sopimusta edeltävät toimet (tietosuoja-asetuksen 6 artiklan 1 kohdan b alakohta). Emme myy tietoja emmekä lähetä uutiskirjeitä ilman suostumustasi.</p>
 <h2>Kuinka kauan säilytämme tietoja</h2>
 <p>Tarjouspyyntöön liittyvää viestinvaihtoa säilytämme enintään 12 kuukautta. Jos sinusta tulee asiakas, tilauksen tietoja säilytetään niin kauan kuin Viron kirjanpitolaki edellyttää (7 vuotta).</p>
 <h2>Oikeutesi</h2>

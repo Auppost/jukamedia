@@ -78,8 +78,8 @@ S = {
             exh_all='All iPE systems for {m}', none='No models made specifically for this car yet, but BC Forged and Brixton build wheels for any car: we check fitment and show you a sketch',
             gen='fits any car'),
 }
-S['fi'] = dict(other='Muu', other_model='Muu malli', model='Malli', wheels='Vanteet', exh='iPE-pakoputkisto tähän autoon',
-            exh_all='Kaikki iPE-järjestelmät: {m}', none='Juuri tähän autoon tehtyjä malleja ei vielä ole, mutta BC Forged- ja Brixton-vanteet tehdään mihin tahansa autoon: tarkistamme sopivuuden ja näytämme havainnekuvan',
+S['fi'] = dict(other='Muu', other_model='Muu malli', model='Malli', wheels='Vanteet', exh='iPE-pakoputkistot tähän autoon',
+            exh_all='Kaikki iPE-pakoputkistot: {m}', none='Juuri tähän autoon tehtyjä malleja ei vielä ole, mutta BC Forged- ja Brixton-vanteet tehdään mihin tahansa autoon: tarkistamme sopivuuden ja näytämme vanteet kuvassa autossasi',
             gen='sopii mihin tahansa autoon')
 TAG = {'ru': 'под эту машину', 'et': 'sellele autole', 'en': 'made for this car', 'fi': 'juuri tähän autoon'}
 OLD_YEAR = {'ru': 'до 1990', 'et': 'enne 1990', 'en': 'before 1990', 'fi': 'ennen 1990'}
@@ -134,7 +134,7 @@ def build(lang):
             xi = []
             for d in xl[:8]:
                 h1, tl = E.names(d, lang)
-                xi.append(add('x:' + d['slug'], dict(u=f'exhaust/{d["slug"]}/', i=small(d['imgs'][0]), b='iPE', n=tl, s=d['car'], p=d['p'], f=1)))
+                xi.append(add('x:' + d['slug'], dict(u=f'exhaust/{d["slug"]}/', i=small(d['imgs'][0]), b='iPE', n=tl, s=E.car(d, lang), p=d['p'], f=1)))
             if len(wl) < 4:
                 wl += [wheel(k, False) for k in general][:4 - len(wl)]
             out[make][label] = [wl, xi]

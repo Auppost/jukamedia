@@ -1,9 +1,9 @@
 {
  "bc-forged-kl01": {
-  "fi": {"desc": "BC Forged KL01: yksiosainen vanne viidellä ohuella kaksihaaraisella puolalla, 18-24″, leveys jopa 13J. Tehdään autoosi, havainnekuva ennen maksua.",
-   "h2": "Millainen vanne KL01 on",
-   "p": ["Viisi puolaa, jotka haarautuvat kehää kohti kahdeksi ohueksi haaraksi. Puolien väliin jää paljon tilaa, joten jarrusatula ja jarrulevy näkyvät kokonaan. Kuvassa on harjattu mattahopea, mutta viimeistelyn voi valita vapaasti koko valikoimasta.",
-         "KL01:tä valmistetaan halkaisijoina 18-24″, ja leveys valitaan pyöränkaaren mukaan väliltä 5-13J. Tehtaan mukaan puolien taakse mahtuvat isot jarrut, joiden levyt ovat jopa 380 mm. Vanne sopii Porsche GT3 RS:ään ja muihin autoihin, joissa on isot keraamiset jarrut."]},
+  "fi": {"desc": "BC Forged KL01: yksiosainen vanne, viisi ohutta kaksihaaraista puolaa, 18-24″, leveys jopa 13J. Tehdään autosi mukaan, ja näet kuvan ennen maksua.",
+   "h2": "Millainen KL01 on",
+   "p": ["Viisi puolaa, jotka jakautuvat kehää kohti kahdeksi ohueksi haaraksi. Puolien väliin jää paljon tilaa, joten jarrusatula ja jarrulevy näkyvät kokonaan. Kuvassa harjattu mattahopea, mutta viimeistelyn voit valita vapaasti koko valikoimasta.",
+         "Halkaisijat ovat 18-24″, ja leveys valitaan pyöränkaaren mukaan väliltä 5-13J. Tehtaan mukaan puolien taakse mahtuvat isot jarrut, joissa on jopa 380 mm:n levyt. Vanne sopii hyvin autoihin, joissa on isot hiilikeraamiset jarrut, kuten Porsche GT3 RS."]},
   "ru": {"desc": "BC Forged KL01: моноблок с пятью тонкими раздвоенными спицами, 18-24″, ширина до 13J. Делаем под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск KL01",
    "p": ["Пять спиц, каждая к ободу расходится на две тонкие ветки. Между ними много воздуха, поэтому суппорт и диск тормоза видно целиком. На фото матовое шлифованное серебро, но отделку можно выбрать любую из каталога.",
@@ -18,10 +18,10 @@
          "The KL01 comes in 18 to 24″ diameters, with the width chosen for your arch from 5 to 13J. According to the factory, the spokes clear big brake kits with discs up to 380 mm. It suits the Porsche GT3 RS and other cars with large ceramic brakes."]}
  },
  "bc-forged-hca197s": {
-  "fi": {"desc": "BC Forged HCA197 ja HCA197S: kaksiosainen vanne verkkokuviolla ja syvällä lipalla, 18-23″. Tehdään autoosi, havainnekuva ennen maksua.",
-   "h2": "Millainen vanne HCA197 on",
-   "p": ["Keskiosa muodostuu monista ohuista puolista, jotka punoutuvat verkoksi klassisten kilpavanteiden tapaan. Vannekehä on erillinen osa, joten lipan saa näkyviin ja keskiosan ja kehän voi maalata eri värisiksi. Kuvassa tumma keskiosa ja pronssinen kehä.",
-         "Vanne on kaksiosainen: keskiosa pultataan kehään. Halkaisijat ovat 18-23″ ja leveydet jopa 14J, joten HCA197 toimii myös leveällä taka-akselilla. Versioita on kaksi, HCA197 ja HCA197S, ja vertailu löytyy alempaa. Muotoilu istuu hyvin Ferrari 296 GTB:hen, Purosangueen ja 12Cilindriin."]},
+  "fi": {"desc": "BC Forged HCA197 ja HCA197S: kaksiosainen verkkovanne syvällä lipalla, 18-23″. Tehdään autosi mukaan, ja näet kuvan ennen maksua.",
+   "h2": "Millainen HCA197 on",
+   "p": ["Keskiosa koostuu monista ohuista puolista, jotka punoutuvat verkoksi klassisten kilpavanteiden tapaan. Vannekehä on erillinen osa, joten lippa jää näkyviin ja keskiosan ja kehän voi maalata eri väreillä. Kuvassa tumma keskiosa ja pronssinen kehä.",
+         "Vanne on kaksiosainen: keskiosa pultataan kehään. Halkaisijat ovat 18-23″ ja leveys jopa 14J, joten vanne toimii myös leveällä taka-akselilla. Versioita on kaksi, HCA197 ja HCA197S, ja vertailu on alempana. Muotoilu sopii esimerkiksi näihin Ferrareihin: 296 GTB, Purosangue ja 12Cilindri."]},
   "ru": {"desc": "BC Forged HCA197 и HCA197S: составной диск с сеткой из тонких спиц и глубокой полкой, 18-23″. Подбор под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск HCA197",
    "p": ["Центр собран из множества тонких спиц, которые сплетаются в сетку, как у классических гоночных дисков. Обод отдельный, поэтому можно сделать заметную полку и покрасить центр и обод в разные цвета. На фото тёмный центр и бронзовый обод.",
@@ -36,10 +36,10 @@
          "It is a two-piece wheel: the centre bolts to the barrel. Diameters run from 18 to 23″ and widths up to 14J, so the HCA197 works on wide rear axles too. There are two versions, HCA197 and HCA197S, compared below. The design looks right on the Ferrari 296 GTB, Purosangue and 12Cilindri."]}
  },
  "bc-forged-th09": {
-  "fi": {"desc": "BC Forged TH09: yksiosainen vanne kymmenellä suoralla puolalla ja porrastetulla reunalla, 17-22″. Tehdään autoosi, havainnekuva ennen maksua.",
-   "h2": "Millainen vanne TH09 on",
-   "p": ["Kymmenen suoraa puolaa ja leveä porras vanteen reunalla. Ilme viittaa 90-luvun japanilaisiin urheiluvanteisiin, mutta kyseessä on taottu yksiosainen vanne. Kuvassa tumma grafiitti.",
-         "TH09:ää valmistetaan halkaisijoina 17-22″ ja leveyksinä 7-13J. Pienempi lähtöhalkaisija auttaa, jos haluat säilyttää korkeamman renkaan kyljen tai sovittaa vanteen klassikkoautoon. Se toimii myös uusissa autoissa: sovitusoppaassamme se on listattu Ferrari Purosanguelle."]},
+  "fi": {"desc": "BC Forged TH09: yksiosainen vanne, kymmenen suoraa puolaa ja porrastettu reuna, 17-22″. Tehdään autosi mukaan, ja näet kuvan ennen maksua.",
+   "h2": "Millainen TH09 on",
+   "p": ["Kymmenen suoraa puolaa ja leveä porras vanteen reunalla. Ilme tuo mieleen 90-luvun japanilaiset urheiluvanteet, mutta tämä on taottu yksiosainen vanne. Kuvassa tumma grafiitti.",
+         "Halkaisijat ovat 17-22″ ja leveydet 7-13J. Pienempi halkaisija on hyvä vaihtoehto, jos haluat pitää renkaassa korkeamman kyljen tai sovittaa vanteen klassikkoautoon. Uusiinkin autoihin se käy: auton mukaan -haussa sitä ehdotetaan mallille Ferrari Purosangue."]},
   "ru": {"desc": "BC Forged TH09: моноблок с десятью прямыми спицами и ступенчатой полкой, 17-22″. Под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск TH09",
    "p": ["Десять прямых спиц и широкая ступенька по краю обода. Дизайн в духе японских спортивных дисков девяностых, но в кованом моноблоке. На фото тёмный графит.",
@@ -54,10 +54,10 @@
          "The TH09 is made in 17-22″ diameters and 7 to 13J widths. The smaller starting diameter helps if you want to keep a taller tyre sidewall or fit the wheel to a classic car. It works on modern cars too: our fitment guide lists it for the Ferrari Purosangue."]}
  },
  "bc-forged-kl52": {
-  "fi": {"desc": "BC Forged KL52: yksiosainen vanne tiheällä kaarevien puolien verkolla, 18-24″, tilaa jopa 380 mm jarrulevyille. Tehdään autoosi.",
-   "h2": "Millainen vanne KL52 on",
-   "p": ["Puolat lähtevät keskiöltä pareittain, kaartuvat ja punoutuvat verkoksi kehän lähellä. Kuvio on tiheä, mutta jarru näkyy silti läpi. Kuvassa syvä sininen metalliväri, yksi kymmenistä valikoiman viimeistelyistä.",
-         "KL52:ta saa halkaisijoina 18-24″ ja leveyksinä 5-13J. Tehtaan mukaan sen alle mahtuvat jarrut, joiden levyt ovat jopa 380 mm. Sovitusoppaassamme se on listattu Lamborghini Temerariolle, ja muihin autoihin tarkistamme sopivuuden maksutta."]},
+  "fi": {"desc": "BC Forged KL52: yksiosainen vanne, tiheä verkko kaarevia puolia, 18-24″, tilaa jopa 380 mm:n jarrulevyille. Tehdään autosi mukaan.",
+   "h2": "Millainen KL52 on",
+   "p": ["Puolat lähtevät keskiöltä pareittain, kaartuvat ja punoutuvat verkoksi kehän lähellä. Kuvio on tiheä, mutta jarru näkyy silti läpi. Kuvassa syvänsininen metalliväri, yksi kymmenistä viimeistelyistä.",
+         "Halkaisijat ovat 18-24″ ja leveydet 5-13J. Tehtaan mukaan sen taakse mahtuvat jarrut, joissa on jopa 380 mm:n levyt. Auton mukaan -haussa sitä ehdotetaan mallille Lamborghini Temerario, ja muihin autoihin tarkistamme sopivuuden maksutta."]},
   "ru": {"desc": "BC Forged KL52: моноблок с плотной сеткой изогнутых спиц, 18-24″, под тормоза до 380 мм. Под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск KL52",
    "p": ["Спицы идут от центра парами, изгибаются и сплетаются в сетку у обода. Рисунок плотный, но за ним всё равно видно тормоз. На фото глубокий синий металлик, такой цвет есть в каталоге отделок, как и десятки других.",
@@ -72,10 +72,10 @@
          "The KL52 comes in 18-24″ diameters and 5-13J widths. According to the factory, it clears brake kits with discs up to 380 mm. Our fitment guide lists it for the Lamborghini Temerario, and for other cars we check fitment for free."]}
  },
  "bc-forged-rz25": {
-  "fi": {"desc": "BC Forged RZ25: Porsche-henkinen yksiosainen vanne viidellä kaksihaaraisella puolalla, 17-24″, tilaa jopa 380 mm jarruille. Ensin havainnekuva autostasi.",
-   "h2": "Millainen vanne RZ25 on",
-   "p": ["Viisi ohutta puolaa, jotka jakautuvat kahtia kehän lähellä. Klassinen urheilullinen kuvio, joka näyttää erityisen kotoisalta Porschessa. Kuvassa tumma pronssi.",
-         "RZ25:n kokovalikoima on laaja: halkaisijat 17-24″ ja leveydet 5-13J. Tehdas lupaa tilaa jopa 380 mm jarruille. Sovitusoppaassamme ovat mukana Porsche 911 (992), Cayenne, Macan ja muita malleja, katso koko lista alta."]},
+  "fi": {"desc": "BC Forged RZ25: Porsche-henkinen yksiosainen vanne, viisi kaksihaaraista puolaa, 17-24″, tilaa jopa 380 mm:n jarruille. Ensin näet vanteet kuvassa autossasi.",
+   "h2": "Millainen RZ25 on",
+   "p": ["Viisi ohutta puolaa, jotka jakautuvat kahtia kehän lähellä. Klassinen urheilullinen kuvio, joka näyttää erityisen luontevalta Porschessa. Kuvassa tumma pronssi.",
+         "Kokovalikoima on laaja: halkaisijat 17-24″ ja leveydet 5-13J. Tehdas lupaa tilaa jopa 380 mm:n jarruille. Auton mukaan -haussa sitä ehdotetaan muun muassa malleille Porsche 911 (992), Cayenne ja Macan, ja koko lista on alempana."]},
   "ru": {"desc": "BC Forged RZ25: моноблок с пятью раздвоенными спицами в стиле Porsche, 17-24″, под тормоза до 380 мм. Эскиз на вашей машине до оплаты.",
    "h2": "Что за диск RZ25",
    "p": ["Пять тонких спиц, каждая раздваивается ближе к ободу. Классический спортивный рисунок, который особенно органично смотрится на Porsche. На фото тёмная бронза.",
@@ -90,10 +90,10 @@
          "The RZ25 has a wide size range: 17-24″ diameters and 5-13J widths. The factory states clearance for brakes up to 380 mm. Our fitment guide covers the Porsche 911 (992), Cayenne, Macan and other models, see the full list below."]}
  },
  "bc-forged-af55": {
-  "fi": {"desc": "BC Forged AF55: yksiosainen vanne viidellä leveällä, kiertyvällä lapapuolalla, 18-24″. Tehdään autoosi, havainnekuva ennen maksua.",
-   "h2": "Millainen vanne AF55 on",
-   "p": ["Viisi leveää puolaa kaartuu kuin turbiinin siivet, joten vanne näyttää pyörivän parkissakin. Pinnat ovat sileitä ja massiivisen näköisiä, ja siksi AF55 toimii hyvin yhdellä värillä. Kuvassa kiiltävä musta.",
-         "Koot 18-24″, leveydet 8-13J. Muotoilu sopii autoihin, joissa on näyttävät korimuodot: sovitusoppaassamme se on listattu Ferrari 296 GTB:lle ja 12Cilindrille. Kiertosuunnan vasemmalle ja oikealle puolelle vahvistamme sopivuuden tarkistuksen yhteydessä."]},
+  "fi": {"desc": "BC Forged AF55: yksiosainen vanne, viisi leveää kiertyvää puolaa, 18-24″. Tehdään autosi mukaan, ja näet kuvan ennen maksua.",
+   "h2": "Millainen AF55 on",
+   "p": ["Viisi leveää puolaa kaartuu kuin turbiinin siivet, joten vanne näyttää pyörivän parkissakin. Pinnat ovat sileitä ja jykeviä, ja siksi AF55 näyttää hyvältä yhdellä värillä. Kuvassa kiiltävä musta.",
+         "Halkaisijat 18-24″, leveydet 8-13J. Muotoilu sopii autoihin, joissa on näyttävät korimuodot: auton mukaan -haussa sitä ehdotetaan malleille Ferrari 296 GTB ja 12Cilindri. Vasemman ja oikean puolen vanteiden kiertosuunnan vahvistamme sopivuuden tarkistuksessa."]},
   "ru": {"desc": "BC Forged AF55: моноблок с пятью широкими спицами-лепестками, закрученными по кругу, 18-24″. Под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск AF55",
    "p": ["Пять широких спиц изогнуты как лопасти турбины, будто диск вращается даже на месте. Поверхность гладкая и массивная на вид, поэтому AF55 хорошо смотрится в одном цвете. На фото глянцевый чёрный.",
@@ -108,10 +108,10 @@
          "Sizes run from 18 to 24″, widths 8-13J. The design suits cars with dramatic bodywork: our fitment guide lists it for the Ferrari 296 GTB and 12Cilindri. We confirm the swirl direction for the left and right side during the fitment check."]}
  },
  "bc-forged-eh361": {
-  "fi": {"desc": "BC Forged EH361: yksiosainen vanne kuusikulmaisilla hunajakennoaukoilla, 18-24″. Saatavana kaksisävyisenä, havainnekuva ennen maksua.",
-   "h2": "Millainen vanne EH361 on",
-   "p": ["Vanteen aukot ovat kuusikulmioita, joten kuvio muistuttaa hunajakennoa. Puolien reunat voi sorvata paljaaksi metalliksi korostamaan jokaista kuusikulmiota, kuten kuvassa: kiiltävä musta ja kirkkaat reunat.",
-         "EH361:tä valmistetaan halkaisijoina 18-24″ ja leveyksinä 8-13J. Rohkea muotoilu autoon, joka kaipaa vähän lisää luonnetta. Sovitusoppaassamme se on listattu Ferrari 296 GTB:lle, Purosanguelle ja 12Cilindrille."]},
+  "fi": {"desc": "BC Forged EH361: yksiosainen vanne, kuusikulmaiset hunajakennoaukot, 18-24″. Saatavana myös kaksisävyisenä, ja näet kuvan ennen maksua.",
+   "h2": "Millainen EH361 on",
+   "p": ["Vanteen aukot ovat kuusikulmioita, joten kuvio muistuttaa hunajakennoa. Puolien reunat voi sorvata paljaaksi metalliksi, jolloin jokainen kuusikulmio erottuu, kuten kuvassa: kiiltävä musta ja kirkkaat reunat.",
+         "Halkaisijat ovat 18-24″ ja leveydet 8-13J. Rohkea muotoilu autoon, joka kaipaa vähän lisää luonnetta. Auton mukaan -haussa sitä ehdotetaan malleille Ferrari 296 GTB, Purosangue ja 12Cilindri."]},
   "ru": {"desc": "BC Forged EH361: моноблок с шестигранными окнами, похожими на соты, 18-24″. Двухцветная отделка, эскиз на вашей машине до оплаты.",
    "h2": "Что за диск EH361",
    "p": ["Окна диска сделаны в форме шестигранников, рисунок напоминает пчелиные соты. Кромки спиц можно отфрезеровать до металла, тогда шестигранники выделяются контуром, как на фото: глянцевый чёрный с блестящей окантовкой.",
@@ -126,10 +126,10 @@
          "The EH361 is made in 18-24″ diameters and 8-13J widths. It is a bold design for cars that need a bit more character. Our fitment guide lists it for the Ferrari 296 GTB, Purosangue and 12Cilindri."]}
  },
  "brixton-forged-fde11": {
-  "fi": {"desc": "Brixton Forged FDE11: taottu yksiosainen vanne ohuilla puolilla, jotka ulottuvat kehälle asti. Hinta määrittelysi mukaan, ensin havainnekuva.",
-   "h2": "Millainen vanne FDE11 on",
-   "p": ["Monta ohutta suoraa puolaa kulkee keskiöltä lähes vanteen reunaan asti. Siisti, kevyen näköinen kuvio, joka jättää jarrut näkyviin. Kuvassa tumma metalliviimeistely.",
-         "Brixton tekee jokaisen sarjan tiettyyn autoon, joten hinnoittelemme sen, kun koko, leveys ja viimeistely on valittu. Valmistus kestää 7-10 viikkoa. Jos mietit FDE11:n ja samankaltaisten BC Forged -mallien välillä, voimme näyttää molemmat havainnekuvassa."]},
+  "fi": {"desc": "Brixton Forged FDE11: taottu yksiosainen vanne, ohuet puolat ulottuvat kehälle asti. Hinta toiveidesi mukaan, ja ensin näet kuvan autossasi.",
+   "h2": "Millainen FDE11 on",
+   "p": ["Monta ohutta suoraa puolaa kulkee keskiöltä melkein vanteen reunaan asti. Siisti ja kevyen näköinen kuvio, joka jättää jarrut näkyviin. Kuvassa tumma metalliviimeistely.",
+         "Brixton tekee jokaisen sarjan tiettyyn autoon, joten hinnoittelemme sen, kun koko, leveys ja viimeistely on valittu. Valmistus kestää 7-10 viikkoa. Jos et osaa päättää tämän ja samantyylisten BC Forged -mallien välillä, näytämme molemmat kuvassa autossasi."]},
   "ru": {"desc": "Brixton Forged FDE11: кованый моноблок с тонкими спицами по всей окружности обода. Цена под вашу спецификацию, эскиз до оплаты.",
    "h2": "Что за диск FDE11",
    "p": ["Много тонких прямых спиц, которые расходятся от центра почти до самого края. Строгий, лёгкий на вид рисунок, за которым хорошо видны тормоза. На фото тёмный металлик.",
@@ -144,10 +144,10 @@
          "Brixton builds every set for a specific car, so we price it once size, width and finish are chosen. Production takes 7-10 weeks. If you are deciding between the FDE11 and similar BC Forged models, we can show both on a sketch."]}
  },
  "brixton-forged-pf9-carbon": {
-  "fi": {"desc": "Brixton Forged PF9 Carbon+: taottu keskiosa terävillä Y-puolilla ja hiilikuituinen vannekehä. Hinta autosi mukaan, ensin havainnekuva.",
-   "h2": "Millainen vanne PF9 Carbon+ on",
-   "p": ["Keskiosa on taottu, ja siinä on viisi terävää puolaa, jotka haarautuvat Y:ksi. Vannekehä on hiilikuitua, ja sen kudos näkyy vanteen reunalla. Vanne näyttää kilpa-auton osalta pelkkänä mustanakin, kuten kuvassa.",
-         "Hiilikuitukehä tekee vanteesta monimutkaisemman ja kalliimman kuin tavallinen taottu vanne, joten hinnoittelemme sen aina tiettyyn autoon ja kokoon. Brixtonin valmistusaika on 7-10 viikkoa. Ennen tilausta lähetämme havainnekuvan ja tarkistamme sopivuuden."]},
+  "fi": {"desc": "Brixton Forged PF9 Carbon+: taottu keskiosa terävillä Y-puolilla ja hiilikuituinen vannekehä. Hinta autosi mukaan, ja ensin näet kuvan.",
+   "h2": "Millainen PF9 Carbon+ on",
+   "p": ["Taotussa keskiosassa on viisi terävää puolaa, jotka haarautuvat Y:n muotoon. Vannekehä on hiilikuitua, ja kuitukudos näkyy vanteen reunalla. Pelkkänä mustanakin vanne näyttää kilpa-auton osalta, kuten kuvassa.",
+         "Hiilikuitukehä tekee vanteesta monimutkaisemman ja kalliimman kuin tavallinen taottu vanne, joten hinnoittelemme sen aina tiettyyn autoon ja kokoon. Brixtonin valmistusaika on 7-10 viikkoa. Ennen tilausta tarkistamme sopivuuden ja lähetämme kuvan vanteista autossasi."]},
   "ru": {"desc": "Brixton Forged PF9 Carbon+: кованый центр с острыми раздвоенными спицами и карбоновый обод. Цена под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск PF9 Carbon+",
    "p": ["Центр кованый, с пятью острыми спицами, каждая раздваивается в форме буквы Y. Обод сделан из карбона, его плетение видно по краю диска. Такой диск выглядит гоночным даже в чёрном цвете, как на фото.",
@@ -162,10 +162,10 @@
          "A carbon barrel makes the wheel more complex and more expensive than a regular forged one, so we only price it for a specific car and size. Brixton's production time is 7-10 weeks. Before you order, we send a sketch and check fitment."]}
  },
  "bc-forged-rz815": {
-  "fi": {"desc": "BC Forged RZ815: yksiosainen vanne monilla ohuilla puolilla, 17-24″, tilaa jopa 380 mm jarruille. Tehdään autoosi, ensin havainnekuva.",
-   "h2": "Millainen vanne RZ815 on",
-   "p": ["Monet ohuet puolat leviävät viuhkana keskiöltä ja kaartuvat hieman kehää kohti. Kuvio on runsas näyttämättä raskaalta, ja se sopii hyvin isoihin halkaisijoihin. Kuvassa harmaa metalliväri.",
-         "Koot ovat 17-24″ ja leveydet 5-13J, ja tehtaan mukaan tilaa riittää jopa 380 mm jarruille. Sovitusoppaassamme RZ815 on listattu Porsche 911:lle (992), Cayennelle, Macanille ja kymmenille muille autoille, katso alta."]},
+  "fi": {"desc": "BC Forged RZ815: yksiosainen vanne, monta ohutta puolaa, 17-24″, tilaa jopa 380 mm:n jarruille. Tehdään autosi mukaan, ja ensin näet kuvan.",
+   "h2": "Millainen RZ815 on",
+   "p": ["Ohuet puolat leviävät viuhkana keskiöltä ja kaartuvat hieman kehää kohti. Kuvio on runsas mutta ei raskas, ja se sopii hyvin isoihin halkaisijoihin. Kuvassa harmaa metalliväri.",
+         "Halkaisijat ovat 17-24″ ja leveydet 5-13J, ja tehtaan mukaan tilaa riittää jopa 380 mm:n jarruille. Auton mukaan -haussa sitä ehdotetaan malleille Porsche 911 (992), Cayenne ja Macan sekä kymmenille muille autoille, katso lista alta."]},
   "ru": {"desc": "BC Forged RZ815: моноблок с множеством тонких спиц, 17-24″, под тормоза до 380 мм. Подбор под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск RZ815",
    "p": ["Множество тонких спиц расходятся от центра веером и слегка изгибаются к ободу. Рисунок частый, но не тяжёлый, хорошо подходит большим диаметрам. На фото серый металлик.",
@@ -180,10 +180,10 @@
          "Sizes are 17-24″ with widths of 5-13J, and the factory states clearance for brakes up to 380 mm. Our fitment guide lists the RZ815 for the Porsche 911 (992), Cayenne, Macan and dozens of other cars, see below."]}
  },
  "bc-forged-hca165s": {
-  "fi": {"desc": "BC Forged HCA165 ja HCA165S: kaksiosainen vanne viidellä Y-puolaparilla ja näkyvällä lipalla, 18-23″. Ensin havainnekuva autostasi.",
-   "h2": "Millainen vanne HCA165 on",
-   "p": ["Viisi Y-muotoista puolaparia erillisellä, lipallisella vannekehällä. Urheilullinen kuvio, joka toimii sekä yhdellä värillä että kontrastisella keskiosalla ja kehällä. Kuvassa koko vanne pronssina.",
-         "Kaksiosainen vanne halkaisijoina 18-23″ ja leveyksinä 8-14J. Versioita on kaksi, HCA165 ja HCA165S, ja ne näkyvät alla rinnakkain. Sovitusoppaassamme se on listattu Porsche 911:lle (992), Cayennelle, Macanille ja monille muille autoille."]},
+  "fi": {"desc": "BC Forged HCA165 ja HCA165S: kaksiosainen vanne, viisi Y-puolaparia ja näkyvä lippa, 18-23″. Ensin näet vanteet kuvassa autossasi.",
+   "h2": "Millainen HCA165 on",
+   "p": ["Viisi Y:n muotoista puolaparia ja erillinen vannekehä, jossa on lippa. Urheilullinen kuvio, joka toimii sekä yhdellä värillä että niin, että keskiosa ja kehä ovat eri väriä. Kuvassa koko vanne pronssina.",
+         "Kaksiosainen vanne, halkaisijat 18-23″ ja leveydet 8-14J. Versioita on kaksi, HCA165 ja HCA165S, ja ne ovat alla rinnakkain. Auton mukaan -haussa sitä ehdotetaan malleille Porsche 911 (992), Cayenne ja Macan sekä monille muille autoille."]},
   "ru": {"desc": "BC Forged HCA165 и HCA165S: составной диск с пятью парами Y-спиц и заметной полкой, 18-23″. Подбор под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск HCA165",
    "p": ["Пять пар спиц в форме буквы Y и отдельный обод с полкой. Спортивный рисунок, который хорошо смотрится и в одном цвете, и в контрасте центра с ободом. На фото бронза целиком.",
@@ -198,10 +198,10 @@
          "It is a two-piece wheel in 18-23″ diameters and 8-14J widths. There are two versions, HCA165 and HCA165S, shown side by side below. Our fitment guide lists it for the Porsche 911 (992), Cayenne, Macan and many other cars."]}
  },
  "bc-forged-hca162s": {
-  "fi": {"desc": "BC Forged HCA162 ja HCA162S: kaksiosainen vanne kymmenellä ohuella puolalla ja lipalla, 18-23″. Tehdään autoosi, havainnekuva ennen maksua.",
-   "h2": "Millainen vanne HCA162 on",
-   "p": ["Kymmenen ohutta suoraa puolaa, jotka kapenevat hieman kehää kohti, erillisellä lipallisella vannekehällä. Kevyt ja hillitty kuvio, joka ei kilpaile auton muotoilun kanssa. Kuvassa vaalea samppanjan sävy.",
-         "Kaksiosainen, halkaisijat 18-23″, leveydet 8-14J. Versiot HCA162 ja HCA162S eroavat yksityiskohdiltaan, vertaa kuvia alla. Sovitusoppaassamme vanne on listattu Porsche 911:lle (992), Cayennelle, Macanille ja muille malleille."]},
+  "fi": {"desc": "BC Forged HCA162 ja HCA162S: kaksiosainen vanne, kymmenen ohutta puolaa ja lippa, 18-23″. Tehdään autosi mukaan, ja näet kuvan ennen maksua.",
+   "h2": "Millainen HCA162 on",
+   "p": ["Kymmenen ohutta suoraa puolaa, jotka kapenevat hieman kehää kohti, ja erillinen vannekehä lipalla. Kevyt ja hillitty kuvio, joka ei kilpaile auton muotojen kanssa. Kuvassa vaalea samppanjan sävy.",
+         "Kaksiosainen, halkaisijat 18-23″, leveydet 8-14J. Versiot HCA162 ja HCA162S eroavat yksityiskohdiltaan, vertaa kuvia alla. Auton mukaan -haussa sitä ehdotetaan malleille Porsche 911 (992), Cayenne ja Macan sekä monille muille."]},
   "ru": {"desc": "BC Forged HCA162 и HCA162S: составной диск с десятью тонкими спицами и полкой, 18-23″. Подбор под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск HCA162",
    "p": ["Десять тонких прямых спиц, которые немного сужаются к ободу, и отдельный обод с полкой. Лёгкий и строгий рисунок, который не спорит с дизайном машины. На фото светлое шампанское.",
@@ -216,10 +216,10 @@
          "Two-piece, 18-23″ diameters, 8-14J widths. The HCA162 and HCA162S versions differ in details, compare the photos below. Our fitment guide lists this wheel for the Porsche 911 (992), Cayenne, Macan and other models."]}
  },
  "bc-forged-rz35": {
-  "fi": {"desc": "BC Forged RZ35: yksiosainen vanne, jonka puolat kohtaavat kehällä verkoksi, 17-24″, tilaa jopa 380 mm jarruille.",
-   "h2": "Millainen vanne RZ35 on",
-   "p": ["Puolat lähtevät keskiöltä pareittain ja kohtaavat uudelleen aivan kehällä, jolloin syntyy avoin verkkokuvio. Kuvio on suuri, joten se erottuu hyvin isoillakin halkaisijoilla. Kuvassa kiiltävä musta.",
-         "RZ35:tä valmistetaan halkaisijoina 17-24″ ja leveyksinä 5-13J. Tehdas lupaa tilaa jarruille, joiden levyt ovat jopa 380 mm. Sovitusoppaassamme se on listattu muun muassa Porsche 911 (992) Turbolle ja GT3 RS:lle sekä Cayennelle, Macanille ja Cayman GT4:lle."]},
+  "fi": {"desc": "BC Forged RZ35: yksiosainen vanne, puolat yhtyvät kehällä verkoksi, 17-24″, tilaa jopa 380 mm:n jarruille. Tehdään autosi mukaan.",
+   "h2": "Millainen RZ35 on",
+   "p": ["Puolat lähtevät keskiöltä pareittain ja kohtaavat uudelleen aivan kehällä, jolloin syntyy avoin verkkokuvio. Kuvio on iso, joten se erottuu hyvin isoissakin halkaisijoissa. Kuvassa kiiltävä musta.",
+         "Halkaisijat ovat 17-24″ ja leveydet 5-13J. Tehdas lupaa tilaa jarruille, joissa on jopa 380 mm:n levyt. Auton mukaan -haussa sitä ehdotetaan muun muassa malleille Porsche 911 (992) Turbo, GT3 RS, Cayenne, Macan ja Cayman GT4."]},
   "ru": {"desc": "BC Forged RZ35: моноблок с сеткой из спиц, сходящихся к ободу, 17-24″, тормоза до 380 мм. Эскиз до оплаты.",
    "h2": "Что за диск RZ35",
    "p": ["Спицы идут от центра парами и у самого обода сходятся, получается ажурная сетка. Рисунок крупный, его хорошо видно даже на большом диаметре. На фото чёрный глянец.",
@@ -234,10 +234,10 @@
          "The RZ35 is made in 17-24″ diameters and 5-13J widths. The factory states room for brakes with discs up to 380 mm. Our fitment guide lists it for the Porsche 911 (992) Turbo, GT3 RS, Cayenne, Macan, Cayman GT4 and more."]}
  },
  "bc-forged-rz09": {
-  "fi": {"desc": "BC Forged RZ09: konkaavi yksiosainen vanne viidellä tuplapuolalla. Tehdään autoosi, ja havainnekuva autosi kuvaan tulee ennen maksua.",
-   "h2": "Millainen vanne RZ09 on",
-   "p": ["Viisi tuplapuolaa, joiden keskellä kulkee syvä ura, ja profiili, joka kovertuu keskiötä kohti. Yksinkertainen ja hyvin tunnistettava kuvio, joka sopii sekä urheiluautoihin että isoihin katumaastureihin. Kuvassa kiillotettu hopea.",
-         "Valitsemme koon ja ET:n autosi mukaan. Sovitusoppaassamme RZ09 on listattu Porsche 911 (992) Turbolle, Cayennelle, Macanille, Cayman GT4:lle, Ferrari SF90:lle ja muille malleille, katso koko lista alta."]},
+  "fi": {"desc": "BC Forged RZ09: konkaavi yksiosainen vanne, viisi tuplapuolaa. Tehdään autosi mukaan, ja ennen maksua näet vanteet kuvassa omassa autossasi.",
+   "h2": "Millainen RZ09 on",
+   "p": ["Viisi tuplapuolaa, joiden keskellä kulkee syvä ura, ja profiili, joka kovertuu keskiötä kohti. Yksinkertainen ja helposti tunnistettava kuvio, joka sopii sekä urheiluautoihin että isoihin katumaastureihin. Kuvassa kiillotettu hopea.",
+         "Valitsemme koon ja ET:n autosi mukaan. Auton mukaan -haussa sitä ehdotetaan malleille Porsche 911 (992) Turbo, Cayenne, Macan, Cayman GT4 ja Ferrari SF90 sekä muille autoille, ja koko lista on alempana."]},
   "ru": {"desc": "BC Forged RZ09: моноблок с пятью сдвоенными спицами и вогнутым профилем. Под вашу машину, эскиз на вашем автомобиле до оплаты.",
    "h2": "Что за диск RZ09",
    "p": ["Пять сдвоенных спиц с глубокой выемкой посередине, профиль уходит внутрь к центру. Простой и очень узнаваемый рисунок, который подходит и спорткарам, и большим кроссоверам. На фото полированное серебро.",
@@ -252,10 +252,10 @@
          "We choose size and offset for your car. Our fitment guide lists the RZ09 for the Porsche 911 (992) Turbo, Cayenne, Macan, Cayman GT4, Ferrari SF90 and other models, see the full list below."]}
  },
  "bc-forged-eh172": {
-  "fi": {"desc": "BC Forged EH172: konkaavi yksiosainen vanne pareittain sijoitetuilla puolilla, 18-24″. Tehdään autoosi, havainnekuva ennen maksua.",
-   "h2": "Millainen vanne EH172 on",
-   "p": ["Viideksi pariksi ryhmitellyt ohuet puolat kulkevat kehältä syvälle keskiöön. Voimakas konkaavi muoto tekee vanteesta veistoksellisen, erityisesti leveällä taka-akselilla. Kuvassa tumma grafiitti.",
-         "Halkaisijat 18-24″, leveydet 8-13J. Sovitusoppaassamme EH172 on listattu Porsche 911 (992) Turbolle, Cayennelle, Macanille, Ferrari SF90:lle, 812 Superfastille ja muille autoille."]},
+  "fi": {"desc": "BC Forged EH172: konkaavi yksiosainen vanne, puolat pareittain, 18-24″. Tehdään autosi mukaan, ja näet kuvan ennen maksua.",
+   "h2": "Millainen EH172 on",
+   "p": ["Ohuet puolat on ryhmitelty viideksi pariksi, ja ne kulkevat kehältä syvälle keskiöön. Voimakas konkaavi muoto tekee vanteesta veistoksellisen, varsinkin leveällä taka-akselilla. Kuvassa tumma grafiitti.",
+         "Halkaisijat 18-24″, leveydet 8-13J. Auton mukaan -haussa sitä ehdotetaan malleille Porsche 911 (992) Turbo, Cayenne, Macan, Ferrari SF90 ja 812 Superfast sekä muille autoille."]},
   "ru": {"desc": "BC Forged EH172: моноблок со спицами, собранными парами и вогнутым центром, 18-24″. Подбор под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск EH172",
    "p": ["Тонкие спицы, собранные в пять пар, уходят от обода вглубь к центру. Из-за глубокой вогнутости диск выглядит объёмным, особенно на задней оси с большой шириной. На фото тёмный графит.",
@@ -270,10 +270,10 @@
          "Diameters 18-24″, widths 8-13J. Our fitment guide lists the EH172 for the Porsche 911 (992) Turbo, Cayenne, Macan, Ferrari SF90, 812 Superfast and other cars."]}
  },
  "bc-forged-hc056s": {
-  "fi": {"desc": "BC Forged HC056 ja HC056S: kaksiosainen vanne viidellä puolaparilla ja kiillotetulla kehällä, 18-23″. Ensin havainnekuva autostasi.",
-   "h2": "Millainen vanne HC056 on",
-   "p": ["Viisi Y-muotoista puolaparia erillisellä vannekehällä, jota kiertää pulttirivi. Kehän voi kiillottaa ja jättää keskiosan mataksi, mikä antaa vanteelle syvyyttä. Kuvassa koko vanne kiillotettuna hopeana.",
-         "Kaksiosainen, halkaisijat 18-23″, leveydet 8-14J. Versiot HC056 ja HC056S näkyvät alla. Sovitusoppaassamme se on listattu Ferrari 296 GTB:lle, Purosanguelle ja 12Cilindrille."]},
+  "fi": {"desc": "BC Forged HC056 ja HC056S: kaksiosainen vanne, viisi puolaparia ja kiillotettu kehä, 18-23″. Ensin näet vanteet kuvassa autossasi.",
+   "h2": "Millainen HC056 on",
+   "p": ["Viisi Y:n muotoista puolaparia ja erillinen vannekehä, jota kiertää pulttirivi. Kehän voi kiillottaa ja keskiosan jättää mattapintaiseksi, mikä antaa vanteelle syvyyttä. Kuvassa koko vanne kiillotettuna hopeana.",
+         "Kaksiosainen, halkaisijat 18-23″, leveydet 8-14J. Versiot HC056 ja HC056S ovat alla. Auton mukaan -haussa sitä ehdotetaan malleille Ferrari 296 GTB, Purosangue ja 12Cilindri."]},
   "ru": {"desc": "BC Forged HC056 и HC056S: составной диск с пятью парами спиц и полированным ободом, 18-23″. Эскиз на вашей машине до оплаты.",
    "h2": "Что за диск HC056",
    "p": ["Пять пар спиц в форме буквы Y на отдельном ободе с болтами по кругу. Обод можно отполировать, а центр сделать матовым, тогда диск выглядит дороже и глубже. На фото всё в полированном серебре.",
@@ -288,10 +288,10 @@
          "Two-piece, 18-23″ diameters, 8-14J widths. There are HC056 and HC056S versions, shown below. Our fitment guide lists it for the Ferrari 296 GTB, Purosangue and 12Cilindri."]}
  },
  "bc-forged-hca196-hca196s": {
-  "fi": {"desc": "BC Forged HCA196 ja HCA196S: kaksiosainen vanne viidellä ohuella puolaparilla ja leveällä kiillotetulla lipalla, 18-23″. Ensin havainnekuva.",
-   "h2": "Millainen vanne HCA196 on",
-   "p": ["Viisi ohutta puolaparia ulottuu aivan reunaan asti ja kantaa leveää lippaa. Tumma keskiosa kiillotettua kehää vasten, kuten kuvassa, saa vanteen näyttämään isommalta.",
-         "Kaksiosainen, halkaisijat 18-23″, leveydet 8-14J. Versiot HCA196 ja HCA196S näkyvät alla. Sovitusoppaassamme se on listattu Ferrari 296 GTB:lle, Purosanguelle ja 12Cilindrille, ja muihin autoihin tarkistamme sopivuuden maksutta."]},
+  "fi": {"desc": "BC Forged HCA196 ja HCA196S: kaksiosainen vanne, viisi ohutta puolaparia ja leveä kiillotettu lippa, 18-23″. Ensin näet kuvan autossasi.",
+   "h2": "Millainen HCA196 on",
+   "p": ["Viisi ohutta puolaparia ulottuu aivan reunaan asti, ja niitä kiertää leveä lippa. Tumma keskiosa kiillotettua kehää vasten, kuten kuvassa, saa vanteen näyttämään isommalta.",
+         "Kaksiosainen, halkaisijat 18-23″, leveydet 8-14J. Versiot HCA196 ja HCA196S ovat alla. Auton mukaan -haussa sitä ehdotetaan malleille Ferrari 296 GTB, Purosangue ja 12Cilindri, ja muihin autoihin tarkistamme sopivuuden maksutta."]},
   "ru": {"desc": "BC Forged HCA196 и HCA196S: составной диск с пятью парами тонких спиц и широкой полированной полкой, 18-23″. Эскиз до оплаты.",
    "h2": "Что за диск HCA196",
    "p": ["Пять пар тонких спиц тянутся до самого края и держат широкую полку обода. Контраст тёмного центра и полированного обода, как на фото, хорошо подчёркивает размер диска.",
@@ -306,10 +306,10 @@
          "Two-piece, 18-23″ diameters, 8-14J widths. The HCA196 and HCA196S versions are shown below. Our fitment guide lists it for the Ferrari 296 GTB, Purosangue and 12Cilindri, and we check other cars for free."]}
  },
  "bc-forged-eh675": {
-  "fi": {"desc": "BC Forged EH675: yksiosainen vanne tiheällä ristikkäisten puolien verkolla, 18-23″. Tehdään autoosi, havainnekuva ennen maksua.",
-   "h2": "Millainen vanne EH675 on",
+  "fi": {"desc": "BC Forged EH675: yksiosainen vanne, tiheä verkko ristikkäisiä puolia, 18-23″. Tehdään autosi mukaan, ja näet kuvan ennen maksua.",
+   "h2": "Millainen EH675 on",
    "p": ["Puolat risteävät useaan kertaan matkalla kehälle, ja syntyy tiheä, teknisen näköinen verkko. Kuvio vangitsee katseen autoissa, joissa on aggressiiviset korimuodot. Kuvassa kiiltävä musta.",
-         "Halkaisijat 18-23″, leveydet 8-13J. Sovitusoppaassamme EH675 on listattu Lamborghini Temerariolle. Muissa autoissa näytämme sen havainnekuvassa, joka tehdään autostasi otetun kuvan pohjalta."]},
+         "Halkaisijat 18-23″, leveydet 8-13J. Auton mukaan -haussa sitä ehdotetaan mallille Lamborghini Temerario. Muissa autoissa teemme kuvan autostasi ottamasi valokuvan pohjalta, niin näet, miltä vanne näyttää."]},
   "ru": {"desc": "BC Forged EH675: моноблок с частой сеткой из перекрещённых спиц, 18-23″. Подбор под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск EH675",
    "p": ["Спицы перекрещиваются несколько раз по пути к ободу, получается частая техничная сетка. Такой рисунок хорошо держит взгляд на машинах с агрессивным кузовом. На фото глянцевый чёрный.",
@@ -324,10 +324,10 @@
          "Diameters 18-23″, widths 8-13J. Our fitment guide lists the EH675 for the Lamborghini Temerario. For other cars we show how it looks on a sketch made from a photo of your car."]}
  },
  "bc-forged-mle81": {
-  "fi": {"desc": "BC Forged MLE81: kaksiosainen klassinen verkkovanne syvällä lipalla, 17-23″. Tehdään autoosi, havainnekuva ennen maksua.",
-   "h2": "Millainen vanne MLE81 on",
-   "p": ["V-muotoisten puolien verkko syvällä, erillisellä vannekehällä. Kuvio viittaa klassisiin saksalaisiin verkkovanteisiin, mutta vanne on taottu ja sitä tehdään nykyaikaisissa koissa. Kuvassa pronssinen keskiosa ja tumma kehä.",
-         "Kaksiosainen, halkaisijat 17-23″, leveydet 7-14J. Syvä lippa pääsee parhaiten oikeuksiinsa leveissä takavanteissa. Sovitusoppaassamme MLE81 on listattu Lamborghini Temerariolle, ja se näyttää yhtä hyvältä klassisissa urheiluautoissa."]},
+  "fi": {"desc": "BC Forged MLE81: kaksiosainen klassinen verkkovanne syvällä lipalla, 17-23″. Tehdään autosi mukaan, ja näet kuvan ennen maksua.",
+   "h2": "Millainen MLE81 on",
+   "p": ["V:n muotoisten puolien verkko ja syvä, erillinen vannekehä. Kuvio tuo mieleen klassiset saksalaiset verkkovanteet, mutta vanne on taottu ja sitä tehdään nykyaikaisissa koissa. Kuvassa pronssinen keskiosa ja tumma kehä.",
+         "Kaksiosainen, halkaisijat 17-23″, leveydet 7-14J. Syvä lippa pääsee parhaiten oikeuksiinsa leveissä takavanteissa. Auton mukaan -haussa sitä ehdotetaan mallille Lamborghini Temerario, ja klassisissa urheiluautoissa se näyttää yhtä hyvältä."]},
   "ru": {"desc": "BC Forged MLE81: составной диск с классической сеткой и глубокой полкой, 17-23″. Подбор под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск MLE81",
    "p": ["Сетка из спиц, расходящихся буквой V, и глубокий отдельный обод. Рисунок отсылает к классическим немецким дискам с сеткой, но сделан кованым и под современные размеры. На фото бронзовый центр и тёмный обод.",
@@ -342,10 +342,10 @@
          "Two-piece, 17-23″ diameters, 7-14J widths. The deep lip stands out most on wide rear wheels. Our fitment guide lists the MLE81 for the Lamborghini Temerario, and it looks just as good on classic sports cars."]}
  },
  "bc-forged-th06": {
-  "fi": {"desc": "BC Forged TH06: yksiosainen vanne V-puolien verkolla ja porrastetulla reunalla, 17-22″. Tehdään autoosi, havainnekuva ennen maksua.",
-   "h2": "Millainen vanne TH06 on",
-   "p": ["V-muotoiset puolat punoutuvat verkoksi, ja reunan porras jäljittelee kaksiosaisen vanteen lippaa. Silti vanne on yhtä kappaletta eli yksiosainen. Kuvassa tumma grafiitti.",
-         "Halkaisijat 17-22″, leveydet 7-13J. Hyvä valinta, jos pidät klassisesta verkkokuviosta mutta et halua maksaa kaksiosaisesta rakenteesta. Sovitusoppaassamme TH06 on listattu Ferrari Purosanguelle."]},
+  "fi": {"desc": "BC Forged TH06: yksiosainen vanne, V-puolien verkko ja porrastettu reuna, 17-22″. Tehdään autosi mukaan, ja näet kuvan ennen maksua.",
+   "h2": "Millainen TH06 on",
+   "p": ["V:n muotoiset puolat punoutuvat verkoksi, ja reunan porras jäljittelee kaksiosaisen vanteen lippaa. Silti vanne on yhtä kappaletta eli yksiosainen. Kuvassa tumma grafiitti.",
+         "Halkaisijat 17-22″, leveydet 7-13J. Hyvä valinta, jos pidät klassisesta verkkokuviosta mutta et halua maksaa kaksiosaisesta rakenteesta. Auton mukaan -haussa sitä ehdotetaan mallille Ferrari Purosangue."]},
   "ru": {"desc": "BC Forged TH06: моноблок с сеткой из V-спиц и ступенчатым краем, 17-22″. Под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск TH06",
    "p": ["Спицы расходятся буквой V и сплетаются в сетку, по краю идёт ступенька, которая имитирует полку составного диска. При этом диск цельный, моноблок. На фото тёмный графит.",
@@ -360,10 +360,10 @@
          "Diameters 17-22″, widths 7-13J. A good pick if you like a classic mesh but do not want to pay for a two-piece build. Our fitment guide lists the TH06 for the Ferrari Purosangue."]}
  },
  "bc-forged-th03": {
-  "fi": {"desc": "BC Forged TH03: yksiosainen vanne neljällä leveällä puolalla ja syvällä portaalla, 17-22″. Tehdään autoosi, havainnekuva ennen maksua.",
-   "h2": "Millainen vanne TH03 on",
-   "p": ["Vain neljä leveää puolaa ja syvä porras reunalla. Minimalistinen kuvio japanilaisten tuunausvanteiden hengessä, joka saa auton erottumaan heti. Kuvassa tumma grafiitti.",
-         "Halkaisijat 17-22″, leveydet 7-13J. Puolien määrä ei aina vastaa pulttien määrää, joten näytämme pulttijaon ja keskiön havainnekuvassa. Sovitusoppaassamme TH03 on listattu Ferrari Purosanguelle."]},
+  "fi": {"desc": "BC Forged TH03: yksiosainen vanne, neljä leveää puolaa ja syvä porras, 17-22″. Tehdään autosi mukaan, ja näet kuvan ennen maksua.",
+   "h2": "Millainen TH03 on",
+   "p": ["Vain neljä leveää puolaa ja syvä porras reunalla. Pelkistetty kuvio japanilaisten tuunausvanteiden hengessä, ja auto erottuu heti. Kuvassa tumma grafiitti.",
+         "Halkaisijat 17-22″, leveydet 7-13J. Puolia ei aina ole yhtä monta kuin pultteja, joten näytämme kuvassa, miltä pulttijako ja keskiö näyttävät. Auton mukaan -haussa sitä ehdotetaan mallille Ferrari Purosangue."]},
   "ru": {"desc": "BC Forged TH03: моноблок с четырьмя широкими спицами и глубокой ступенькой, 17-22″. Под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск TH03",
    "p": ["Всего четыре широкие спицы и глубокая ступенька по краю. Минималистичный рисунок в духе японских дисков для тюнинга, который сразу выделяет машину. На фото тёмный графит.",
@@ -378,10 +378,10 @@
          "Diameters 17-22″, widths 7-13J. The spoke count does not always match the number of wheel bolts, so we show the bolt pattern and centre on the sketch. Our fitment guide lists the TH03 for the Ferrari Purosangue."]}
  },
  "bc-forged-hcs04": {
-  "fi": {"desc": "BC Forged HCS04 ja HCS04S: kaksiosainen vanne ohuilla puolapareilla ja kiillotetulla kehällä, 18-23″. Ensin havainnekuva.",
-   "h2": "Millainen vanne HCS04 on",
-   "p": ["Ohuet puolat pareittain erillisellä vannekehällä. Kuvan kiillotetussa versiossa vanne kiiltää kuin kromi, mutta yhtä hyvin sen saa rauhallisena mattaviimeistelynä.",
-         "Kaksiosainen, halkaisijat 18-23″, leveydet 8-14J. Versiot HCS04 ja HCS04S ovat kuvissa alla, ja kerromme eron sopivuuden tarkistuksessa. Vanne sopii sedaneihin ja coupeihin, joihin haetaan siistiä ja arvokasta ilmettä."]},
+  "fi": {"desc": "BC Forged HCS04 ja HCS04S: kaksiosainen vanne, ohuet puolaparit ja kiillotettu kehä, 18-23″. Ensin näet kuvan autossasi.",
+   "h2": "Millainen HCS04 on",
+   "p": ["Ohuet puolat pareittain ja erillinen vannekehä. Kuvan kiillotetussa versiossa vanne kiiltää kuin kromi, mutta yhtä hyvin sen saa rauhallisena mattaviimeistelynä.",
+         "Kaksiosainen, halkaisijat 18-23″, leveydet 8-14J. Versiot HCS04 ja HCS04S ovat kuvissa alla, ja kerromme erot sopivuuden tarkistuksessa. Vanne sopii sedaneihin ja coupeihin, joihin haetaan siistiä ja tyylikästä ilmettä."]},
   "ru": {"desc": "BC Forged HCS04 и HCS04S: составной диск с тонкими спицами, собранными попарно и полированным ободом, 18-23″. Эскиз до оплаты.",
    "h2": "Что за диск HCS04",
    "p": ["Тонкие спицы, собранные попарно, и отдельный обод. В полированном исполнении, как на фото, диск блестит как хром, но можно выбрать и спокойную матовую отделку.",
@@ -396,10 +396,10 @@
          "Two-piece, 18-23″ diameters, 8-14J widths. There are HCS04 and HCS04S versions, pictured below, and we explain the difference during the fitment check. It suits saloons and coupés that call for a clean, expensive look."]}
  },
  "bc-forged-hc010": {
-  "fi": {"desc": "BC Forged HC010 ja HC010S: kaksiosainen vanne kymmenellä suoralla puolalla, 18-23″. Tehdään autoosi, havainnekuva ennen maksua.",
-   "h2": "Millainen vanne HC010 on",
-   "p": ["Kymmenen suoraa puolaa keskiöltä aivan vanteen reunaan asti. Urheiluvanteiden klassikko, joka sopii lähes mihin tahansa autoon. Kuvassa mattapronssi.",
-         "Kaksiosainen vanne halkaisijoina 18-23″ ja leveyksinä 8-14J. Versiot HC010 ja HC010S ovat kuvissa alla. Jos viimeistelyn valinta tuntuu vaikealta, lähetämme havainnekuvan autostasi kahdella tai kolmella värillä."]},
+  "fi": {"desc": "BC Forged HC010 ja HC010S: kaksiosainen vanne, kymmenen suoraa puolaa, 18-23″. Tehdään autosi mukaan, ja näet kuvan ennen maksua.",
+   "h2": "Millainen HC010 on",
+   "p": ["Kymmenen suoraa puolaa keskiöltä aivan vanteen reunaan asti. Urheiluvanteiden klassikko, joka sopii melkein mihin tahansa autoon. Kuvassa mattapronssi.",
+         "Kaksiosainen vanne, halkaisijat 18-23″ ja leveydet 8-14J. Versiot HC010 ja HC010S ovat kuvissa alla. Jos viimeistelyn valinta tuntuu vaikealta, lähetämme kuvat autostasi vanteilla kahdessa tai kolmessa eri värissä."]},
   "ru": {"desc": "BC Forged HC010 и HC010S: составной диск с десятью прямыми спицами, 18-23″. Подбор под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск HC010",
    "p": ["Десять прямых спиц, которые идут от центра до самого края обода. Классика спортивных дисков, которая подходит почти любой машине. На фото матовая бронза.",
@@ -414,10 +414,10 @@
          "It is a two-piece wheel in 18-23″ diameters and 8-14J widths. There are HC010 and HC010S versions, pictured below. If you cannot pick a finish, we will send a sketch of your car in two or three colours."]}
  },
  "bc-forged-rs40": {
-  "fi": {"desc": "BC Forged RS40: konkaavi yksiosainen vanne Y-puolilla, 17-24″, tilaa jopa 380 mm jarruille. Tehdään autoosi, ensin havainnekuva.",
-   "h2": "Millainen vanne RS40 on",
-   "p": ["Viisi Y-muotoista puolaa, väleissä leveät aukot ja profiili hieman konkaavi. Kuvio on rauhallinen ja tukeva, ja se näyttää hienolta mattamustana, kuten kuvassa.",
-         "Koot 17-24″, leveydet 5-13J, ja tehtaan mukaan tilaa riittää jarruille, joiden levyt ovat jopa 380 mm. Laajan kokovalikoiman ansiosta RS40 sopii pienestä hatchbackista isoon katumaasturiin."]},
+  "fi": {"desc": "BC Forged RS40: konkaavi yksiosainen vanne Y-puolilla, 17-24″, tilaa jopa 380 mm:n jarruille. Tehdään autosi mukaan, ja ensin näet kuvan.",
+   "h2": "Millainen RS40 on",
+   "p": ["Viisi Y:n muotoista puolaa, väleissä leveät aukot ja hieman konkaavi profiili. Kuvio on rauhallinen ja tukeva, ja mattamustana se näyttää hienolta, kuten kuvassa.",
+         "Halkaisijat 17-24″, leveydet 5-13J, ja tehtaan mukaan tilaa riittää jarruille, joissa on jopa 380 mm:n levyt. Laajan kokovalikoiman ansiosta RS40 käy niin pieneen hatchbackiin kuin isoon katumaasturiinkin."]},
   "ru": {"desc": "BC Forged RS40: моноблок с Y-спицами и вогнутым профилем, 17-24″, под тормоза до 380 мм. Эскиз до оплаты.",
    "h2": "Что за диск RS40",
    "p": ["Пять Y-образных спиц с широкими окнами между ними, профиль слегка вогнутый. Рисунок спокойный и массивный, хорошо выглядит в матовом чёрном, как на фото.",
@@ -432,10 +432,10 @@
          "Sizes 17-24″, widths 5-13J, and the factory states room for brakes with discs up to 380 mm. The wide size range means the RS40 fits anything from a compact hatchback to a large SUV."]}
  },
  "bc-forged-kz05": {
-  "fi": {"desc": "BC Forged KZ05: urheilullinen yksiosainen vanne ohuilla Y-puolilla, 17-24″, tilaa jopa 380 mm jarruille. Tehdään autoosi, ensin havainnekuva.",
-   "h2": "Millainen vanne KZ05 on",
-   "p": ["Viisi ohutta puolaa, jotka haarautuvat kehällä Y:ksi. Kuvio muistuttaa kilpavanteita, mutta istuu luontevasti myös arkiautoon. Kuvassa tummanharmaa matta.",
-         "Halkaisijat 17-24″, leveydet 5-13J, ja tehtaan mukaan tilaa riittää jopa 380 mm jarruille. Jos autossasi on isot jarrut, tarkistamme välyksen puoliin jo havainnekuvavaiheessa."]},
+  "fi": {"desc": "BC Forged KZ05: urheilullinen yksiosainen vanne ohuilla Y-puolilla, 17-24″, tilaa jopa 380 mm:n jarruille. Tehdään autosi mukaan, ensin näet kuvan.",
+   "h2": "Millainen KZ05 on",
+   "p": ["Viisi ohutta puolaa, jotka haarautuvat kehällä Y:n muotoon. Kuvio muistuttaa kilpavanteita, mutta istuu luontevasti myös arkiautoon. Kuvassa tummanharmaa matta.",
+         "Halkaisijat 17-24″, leveydet 5-13J, ja tehtaan mukaan tilaa riittää jopa 380 mm:n jarruille. Jos autossasi on isot jarrut, tarkistamme puolien ja jarrusatulan välisen välyksen jo siinä vaiheessa, kun teemme kuvan."]},
   "ru": {"desc": "BC Forged KZ05: моноблок с тонкими Y-спицами в спортивном стиле, 17-24″, тормоза до 380 мм. Эскиз до оплаты.",
    "h2": "Что за диск KZ05",
    "p": ["Пять тонких спиц, каждая раздваивается у обода в форме буквы Y. Рисунок напоминает гоночные диски, при этом легко сочетается с повседневной машиной. На фото тёмно-серый матовый.",
@@ -450,10 +450,10 @@
          "Diameters 17-24″, widths 5-13J, with clearance for brakes up to 380 mm according to the factory. If your car has big brakes, we check the gap to the spokes at the sketch stage."]}
  },
  "bc-forged-af29": {
-  "fi": {"desc": "BC Forged AF29: yksiosainen vanne monimutkaisella kaarevien puolien ristikolla, 18-24″. Tehdään autoosi, havainnekuva ennen maksua.",
-   "h2": "Millainen vanne AF29 on",
+  "fi": {"desc": "BC Forged AF29: yksiosainen vanne, monimutkainen ristikko kaarevia puolia, 18-24″. Tehdään autosi mukaan, ja näet kuvan ennen maksua.",
+   "h2": "Millainen AF29 on",
    "p": ["Puolat haarautuvat ja kaartuvat, ja kehän lähellä rivi pieniä aukkoja sitoo ne yhteen. Pitsimäinen, yksityiskohtainen muotoilu pääsee parhaiten esiin kiillotettuna tai vaaleana, kuten kuvassa.",
-         "Halkaisijat 18-24″, leveydet 8-13J. Muotoilu niille, jotka haluavat vanteiden tulevan huomatuiksi. Näytämme havainnekuvassa ennen maksua, miltä vanne näyttää autossasi."]},
+         "Halkaisijat 18-24″, leveydet 8-13J. Muotoilu niille, jotka haluavat vanteiden herättävän huomiota. Ennen maksua näet kuvasta, miltä vanne näyttää autossasi."]},
   "ru": {"desc": "BC Forged AF29: моноблок со сложным ажурным рисунком из изогнутых спиц, 18-24″. Под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск AF29",
    "p": ["Спицы ветвятся и изгибаются, у края обода их связывает ряд небольших окон. Рисунок сложный и ажурный, лучше всего раскрывается в полированной или светлой отделке, как на фото.",
@@ -468,10 +468,10 @@
          "Diameters 18-24″, widths 8-13J. This is a design for people who want their wheels to be noticed. We show how it looks on your car in a sketch before you pay."]}
  },
  "bc-forged-kl54": {
-  "fi": {"desc": "BC Forged KL54: yksiosainen vanne monilla ohuilla kaarevilla puolilla, 18-24″, tilaa jopa 380 mm jarruille. Ensin havainnekuva autostasi.",
-   "h2": "Millainen vanne KL54 on",
-   "p": ["Monet ohuet puolat kiertyvät keskiöltä kehälle, joten kuvio näyttää turbiinilta. Kirkkaana viimeistelynä, kuten kuvan punaisena, vanteista tulee auton näyttävin yksityiskohta.",
-         "Halkaisijat 18-24″, leveydet 5-13J, ja tehtaan mukaan tilaa riittää jopa 380 mm jarruille. Kiertosuunnan vasemmalle ja oikealle puolelle vahvistamme sopivuuden tarkistuksessa."]},
+  "fi": {"desc": "BC Forged KL54: yksiosainen vanne, monta ohutta kaarevaa puolaa, 18-24″, tilaa jopa 380 mm:n jarruille. Ensin näet kuvan autossasi.",
+   "h2": "Millainen KL54 on",
+   "p": ["Monet ohuet puolat kiertyvät keskiöltä kehälle, joten kuvio muistuttaa turbiinia. Kirkkaana viimeistelynä, kuten kuvan punaisena, vanteista tulee auton näyttävin yksityiskohta.",
+         "Halkaisijat 18-24″, leveydet 5-13J, ja tehtaan mukaan tilaa riittää jopa 380 mm:n jarruille. Vasemman ja oikean puolen vanteiden kiertosuunnan vahvistamme sopivuuden tarkistuksessa."]},
   "ru": {"desc": "BC Forged KL54: моноблок с множеством тонких изогнутых спиц, 18-24″, тормоза до 380 мм. Эскиз на вашей машине до оплаты.",
    "h2": "Что за диск KL54",
    "p": ["Множество тонких спиц закручиваются от центра к ободу, рисунок похож на турбину. В яркой отделке, как красная на фото, диск становится главным акцентом машины.",
@@ -486,8 +486,8 @@
          "Diameters 18-24″, widths 5-13J, with clearance for brakes up to 380 mm according to the factory. We confirm the swirl direction for the left and right sides during the fitment check."]}
  },
  "bc-forged-eh181": {
-  "fi": {"desc": "BC Forged EH181: syvästi konkaavi yksiosainen vanne viidellä ohuella puolaparilla, 18-24″. Tehdään autoosi, ensin havainnekuva.",
-   "h2": "Millainen vanne EH181 on",
+  "fi": {"desc": "BC Forged EH181: syvästi konkaavi yksiosainen vanne, viisi ohutta puolaparia, 18-24″. Tehdään autosi mukaan, ja ensin näet kuvan.",
+   "h2": "Millainen EH181 on",
    "p": ["Viisi ohutta puolaparia erkanee toisistaan kehällä ja sukeltaa syvälle keskiötä kohti. Voimakas konkaavi muoto näkyy parhaiten leveissä takavanteissa. Kuvassa tumma grafiitti.",
          "Halkaisijat 18-24″, leveydet 8-13J. Sopii autoihin, joissa on leveät pyöränkaaret ja joissa eri leveydet edessä ja takana korostavat profiilia. Valitsemme koot akselikohtaisesti autosi mukaan."]},
   "ru": {"desc": "BC Forged EH181: моноблок с пятью парами тонких спиц и глубокой вогнутостью, 18-24″. Под вашу машину, эскиз до оплаты.",
@@ -504,9 +504,9 @@
          "Diameters 18-24″, widths 8-13J. It suits cars with wide arches, where a staggered front and rear width emphasises the profile. We choose sizes per axle for your car."]}
  },
  "bc-forged-le65": {
-  "fi": {"desc": "BC Forged LE65: kaksiosainen vanne kuudella tuplapuolalla ja pultatulla kehällä, 17-23″. Tehdään autoosi, ensin havainnekuva.",
-   "h2": "Millainen vanne LE65 on",
-   "p": ["Kuusi tuplapuolaa ja vannekehä, jota kiertää pulttirivi. Jykevän näköinen muotoilu, joka sopii maastureihin ja avolava-autoihin yhtä hyvin kuin urheiluautoihin. Kuvassa musta keskiosa ja pronssinen kehä.",
+  "fi": {"desc": "BC Forged LE65: kaksiosainen vanne, kuusi tuplapuolaa ja pultattu kehä, 17-23″. Tehdään autosi mukaan, ja ensin näet kuvan.",
+   "h2": "Millainen LE65 on",
+   "p": ["Kuusi tuplapuolaa ja vannekehä, jota kiertää pulttirivi. Jykevä muotoilu, joka sopii maastureihin ja avolava-autoihin yhtä hyvin kuin urheiluautoihin. Kuvassa musta keskiosa ja pronssinen kehä.",
          "Kaksiosainen, halkaisijat 17-23″, leveydet 7-14J. Kuusi puolaa sopii hyvin yhteen kuusipulttisen navan kanssa, joka on yleinen maastureissa. Tarkistamme sopivuuden ja ET:n autosi mukaan."]},
   "ru": {"desc": "BC Forged LE65: составной диск с шестью сдвоенными спицами и болтами по ободу, 17-23″. Подбор под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск LE65",
@@ -522,10 +522,10 @@
          "Two-piece, 17-23″ diameters, 7-14J widths. Six spokes pair nicely with a six-bolt hub, which is common on off-roaders. We check fitment and offset for your car."]}
  },
  "brixton-forged-tr08-circuit": {
-  "fi": {"desc": "Brixton Forged TR08 Circuit+: kolmiosainen keskilukitusvanne kilpa-autohenkisellä ilmeellä. Tehdään autoosi, havainnekuva ennen maksua.",
-   "h2": "Millainen vanne TR08 Circuit+ on",
-   "p": ["Keskiosassa puolien verkko, kehässä näkyvät pultit ja keskellä keskilukitusmutteri, aivan kuin kilpa-autossa. Vanne on kolmiosainen, joten leveyden ja ET:n voi määritellä hyvin tarkasti. Kuvassa tumma keskiosa ja mattapintainen kehä.",
-         "Keskilukitus sopii autoihin, joissa se on tehtaalta, kuten Porsche 911 GT3:een ja GT3 RS:ään. Sovitusoppaassamme TR08 Circuit+ on listattu Porsche 911:lle (992), Cayennelle, Macanille ja muille malleille, ja vahvistamme kiinnityksen autosi mukaan. Brixtonin valmistusaika on 7-10 viikkoa."]},
+  "fi": {"desc": "Brixton Forged TR08 Circuit+: kolmiosainen keskilukitusvanne kilpa-autojen hengessä. Tehdään autosi mukaan, ja näet kuvan ennen maksua.",
+   "h2": "Millainen TR08 Circuit+ on",
+   "p": ["Keskiosassa on puolien verkko, kehällä näkyvät pultit ja keskellä keskilukitusmutteri, aivan kuin kilpa-autossa. Vanne on kolmiosainen, joten leveyden ja ET:n voi määrittää hyvin tarkasti. Kuvassa tumma keskiosa ja mattapintainen kehä.",
+         "Keskilukitus sopii autoihin, joissa se on tehtaalta, kuten Porsche 911 GT3 ja GT3 RS. Auton mukaan -haussa sitä ehdotetaan malleille Porsche 911 (992), Cayenne ja Macan sekä muille autoille, ja kiinnitystavan vahvistamme autosi mukaan. Brixtonin valmistusaika on 7-10 viikkoa."]},
   "ru": {"desc": "Brixton Forged TR08 Circuit+: трёхсоставной диск с центральной гайкой в гоночном стиле. Подбор под вашу машину, эскиз до оплаты.",
    "h2": "Что за диск TR08 Circuit+",
    "p": ["Сетка из спиц на центре и обод с открытыми болтами, а в середине центральная гайка, как у гоночных машин. Диск составной из трёх частей, поэтому ширину и вылет можно подобрать очень точно. На фото тёмный центр и матовый обод.",

@@ -110,32 +110,42 @@ T = {
 T['fi'] = dict(
   catalog='Mallisto', home='Etusivu', pick='Auton mukaan', faq='UKK',
   cat_title='Taotut BC Forged- ja Brixton-vanteet tilauksesta | Nordvelg',
-  cat_desc='Tilauksesta valmistettavat taotut BC Forged- ja Brixton Forged -vanteet. Toimitus Suomeen, Viroon, Latviaan ja Liettuaan sisältyy hintaan, hinnat sis. ALV:n ja sopivuus tarkistetaan autoosi.',
-  cat_h1='Taottujen vanteiden mallisto', cat_sub='Valikoimamme malleja. Jokainen sarja tehdään sinun autoosi: halkaisija, leveys, ET ja viimeistely valintasi mukaan',
+  cat_desc='Taotut BC Forged- ja Brixton Forged -vanteet tilauksesta. Hinnat sisältävät ALV:n ja toimituksen Suomeen, Viroon, Latviaan ja Liettuaan. Tarkistamme sopivuuden autoosi.',
+  cat_h1='Taottujen vanteiden mallisto', cat_sub='Poimintoja mallistosta. Jokainen sarja tehdään sinun autoosi, ja halkaisijan, leveyden, ET:n ja viimeistelyn valitset itse',
   title='{name}: taotut vanteet tilauksesta | Nordvelg',
-  desc='{name} sinun autoosi: koon ja ET:n valinta, havainnekuva ennen maksua ja toimitus Suomeen, Viroon, Latviaan tai Liettuaan.{price}',
-  price_from='alkaen {p} €', set_note='4 vanteen sarja, sis. ALV:n ja toimituksen Suomeen, Viroon, Latviaan tai Liettuaan', est_note='suuntaa-antava hinta, tarkan hinnan kerromme sopivuuden tarkistuksen jälkeen',
+  desc='{name} -vanteet sinun autoosi: valitsemme koon ja ET:n, ja näet vanteet kuvassa autossasi ennen maksua. Toimitus Suomeen, Viroon, Latviaan tai Liettuaan.{price}',
+  price_from='alkaen {p} €', set_note='4 vanteen sarja, hinta sisältää ALV:n ja toimituksen Suomeen, Viroon, Latviaan tai Liettuaan', est_note='suuntaa-antava hinta, tarkan hinnan kerromme sopivuuden tarkistuksen jälkeen',
   on_request='Hinta pyynnöstä', cta='Pyydä tarjous autooni', wa='Kysy WhatsAppissa',
-  wa_text='Hei, olen kiinnostunut tuotteesta {name}. Autoni: ',
-  fits='Sopii autoihin', fits_note='Nämä autot löytyvät jo sovitusoppaastamme. Muihin malleihin tarkistamme sopivuuden maksutta',
+  wa_text='Hei! Kysyisin tuotteesta {name}. Autoni: ',
+  fits='Sopii autoihin', fits_note='Näihin autoihin olemme jo valinneet sopivat mitat. Muihin malleihin tarkistamme sopivuuden maksutta',
   know='Hyvä tietää', how='Näin tilaus etenee', more='Muita {brand} -malleja', all='Koko mallisto',
-  zoom='Suurenna klikkaamalla', close='Sulje',
-  steps=['Lähetät meille autosi merkin, mallin ja vuosimallin', 'Valitsemme koon, ET:n ja viimeistelyn ja lähetämme havainnekuvan', 'Maksat 50 % ennakkoa, ja tehdas valmistaa vanteet', 'Maksat loppusumman, ja vanteet toimitetaan sinulle Suomeen, Viroon, Latviaan tai Liettuaan'],
-  bc=['Taottu aihio alumiinia 6061-T6, ja jokainen vanne jyrsitään autosi mukaan: pulttijako, keskireikä ja ET', 'Läpäisee japanilaiset JWL- ja VIA-lujuustestit', 'Noin 40 viimeistelyä, kahta voi yhdistää', 'Valmistus 4-6 viikkoa, sen jälkeen toimitus Suomeen, Viroon, Latviaan tai Liettuaan'],
-  brixton=['Yhdysvaltalainen merkki, jokainen sarja tehdään tiettyyn autoon', 'Valmistus kestää 7-10 viikkoa', 'Hinta lasketaan määrittelysi mukaan: koko, leveys ja viimeistely', 'Toimitus Suomeen, Viroon, Latviaan ja Liettuaan sisältyy hintaan'],
+  zoom='Suurenna kuva klikkaamalla', close='Sulje',
+  steps=['Kerrot autosi merkin, mallin ja vuosimallin', 'Valitsemme koon, ET:n ja viimeistelyn ja lähetämme kuvan vanteista autossasi', 'Maksat 50 % ennakkoa, ja tehdas valmistaa vanteet', 'Maksat loppusumman, ja vanteet toimitetaan sinulle Suomeen, Viroon, Latviaan tai Liettuaan'],
+  bc=['Taottu aihio on 6061-T6-alumiinia, ja jokainen vanne jyrsitään autosi mukaan: pulttijako, keskireikä ja ET', 'Testattu japanilaisten JWL- ja VIA-lujuusvaatimusten mukaan', 'Noin 40 viimeistelyä, ja kaksi niistä voi yhdistää', 'Valmistus kestää 4-6 viikkoa, sitten toimitus Suomeen, Viroon, Latviaan tai Liettuaan'],
+  brixton=['Yhdysvaltalainen merkki, jokainen sarja tehdään tiettyyn autoon', 'Valmistus kestää 7-10 viikkoa', 'Hinta lasketaan toiveidesi mukaan: koko, leveys ja viimeistely', 'Toimitus Suomeen, Viroon, Latviaan ja Liettuaan sisältyy hintaan'],
   other=['Tilaamme eurooppalaisen jakelijan kautta', 'Toimitusajan ja tarkan hinnan vahvistamme, kun sopivuus autoosi on tarkistettu', 'Toimitus Suomeen, Viroon, Latviaan ja Liettuaan sisältyy hintaan'],
-  pay='Sopivuuden tarkistus on maksuton: ensin havainnekuva ja tarkka hinta, sitten päätät',
+  pay='Sopivuuden tarkistus on maksuton: ensin näet kuvan ja tarkan hinnan, sitten päätät',
   per_wheel='', mono='yksiosainen', two='kaksiosainen',
   foot='Taotut BC Forged-, Brixton Forged- ja MV Forged -vanteet tilauksesta, toimitus myös Suomeen', city='Tallinna, Viro',
   credits='Vanteiden ja autojen kuvat: BC Forged, Brixton Forged ja niiden jakelijat. Tuotemerkit kuuluvat omistajilleen',
-  ptable='Sarjan hinta halkaisijan mukaan', col_d='Halkaisija', col_w='Leveys', col_p='4 vanteen sarja', ptable_note='Sis. ALV:n ja toimituksen Suomeen, Viroon, Latviaan tai Liettuaan. Lisävarusteet maksavat erikseen: kiillotettu lippa ja karhennettu olake. Jyrsityt keskikapselit kuuluvat sarjaan', series='Sarja {s}', filt_all='Kaikki', sizes_d='Koot {a}-{b}″.',
-  brand_title='{b} -vanteet tilauksesta: kaikki mallit ja hinnat | Nordvelg', brand_desc='Kaikki {b} -mallit tilauksesta, toimitus Suomeen, Viroon, Latviaan ja Liettuaan sisältyy hintaan. Sopivuus autosi mukaan ja havainnekuva ennen maksua.', brand_h1='{b} -vanteet', all_brand='Kaikki {b} -mallit: {n}', on_req_note='Hinta lasketaan autosi ja määrittelysi mukaan',
+  ptable='Sarjan hinta halkaisijan mukaan', col_d='Halkaisija', col_w='Leveys', col_p='4 vanteen sarja', ptable_note='Sisältää ALV:n ja toimituksen Suomeen, Viroon, Latviaan tai Liettuaan. Lisävarusteet maksavat erikseen: kiillotettu lippa ja pyälletty olake. Jyrsityt keskikapselit kuuluvat sarjaan', series='Sarja {s}', filt_all='Kaikki', sizes_d='Koot {a}-{b}″.',
+  brand_title='{b} -vanteet tilauksesta: kaikki mallit ja hinnat | Nordvelg', brand_desc='Kaikki {b} -mallit tilauksesta, ja toimitus Suomeen, Viroon, Latviaan ja Liettuaan sisältyy hintaan. Tarkistamme sopivuuden ja näytämme vanteet kuvassa autossasi ennen maksua.', brand_h1='{b} -vanteet', all_brand='Kaikki {b} -mallit: {n}', on_req_note='Hinta lasketaan autosi ja toiveidesi mukaan',
   lang_name='Kieli', variants='Mallin versiot', variants_note='Sama muotoilu useana versiona. Kerromme sopivuuden tarkistuksessa, mikä niistä sopii autoosi')
 
 def fi_fix(s):
     """Suomen yhdyssanat: monisanainen merkki + väliviiva ja välilyönti (BC Forged -vanteet), yksisanainen ilman välilyöntiä (iPE-vanteet)."""
     s = s.replace('. alkaen ', '. Alkaen ')  # hinta kuvauksen lopussa alkaa uuden virkkeen
+    # sivuston sääntö: ei pitkiä viivoja. Kaupan ja YouTuben englanninkielisissä nimissä niitä on («GTR (C190) – iPE ...»)
+    s = re.sub(r'\s+[–—]\s+', ': ', s).replace('–', '-').replace('—', '-')
+    s = re.sub(r'\biPE (?:iPE|IPE)\b', 'iPE', s)  # tuotenimi = «iPE » + kaupan otsikko, joka voi jo alkaa sanalla iPE
     return re.sub(r'\biPE -(?=\w)', 'iPE-', s)
+
+def jw(w, lang):
+    """Vanneleveys: suomeksi desimaalipilkku ja ilman turhaa nollaa (8-13J, 8,5J), muut kielet ennallaan (8.0J)."""
+    if lang != 'fi':
+        return w
+    s = str(w)
+    return (s[:-2] if s.endswith('.0') else s).replace('.', ',')
 
 def slug(b, n):
     return re.sub(r'[^a-z0-9]+', '-', f'{b} {n}'.lower()).strip('-')
@@ -511,7 +521,7 @@ def page(k, d, lang, all_wheels):
                    f'<div class="price">{fmt(v["p"], lang) if v.get("p") else t["on_request"]}</div></div>')
         out += f'<section class="rel variants"><h2>{t["variants"]}</h2><p class="note">{t["variants_note"]}</p><div class="grid">{vs}</div></section>\n'
     if d.get('ptab'):
-        rows = ''.join(f'<tr><td>{dd}″</td><td>{ws[0]}-{ws[-1]}J</td><td>{fmt(pp, lang) if pp else t["on_request"]}</td></tr>' for dd, ws, pp in d['ptab'] if ws)
+        rows = ''.join(f'<tr><td>{dd}″</td><td>{jw(ws[0], lang)}-{jw(ws[-1], lang)}J</td><td>{fmt(pp, lang) if pp else t["on_request"]}</td></tr>' for dd, ws, pp in d['ptab'] if ws)
         out += f'<section class="ptab"><h2>{t["ptable"]}</h2><div class="tw"><table><thead><tr><th scope="col">{t["col_d"]}</th><th scope="col">{t["col_w"]}</th><th scope="col">{t["col_p"]}</th></tr></thead><tbody>{rows}</tbody></table></div><p class="note">{t["ptable_note"]}</p></section>\n'
     if d['cars']:
         out += f'<section class="fits"><h2>{t["fits"]}</h2><div class="chips">{"".join(f"<span>{esc(c)}</span>" for c in d["cars"][:40])}</div><p class="note">{t["fits_note"]}</p></section>\n'
