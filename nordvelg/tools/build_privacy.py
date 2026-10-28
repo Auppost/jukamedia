@@ -70,6 +70,27 @@ P = {
 <p class="upd">Updated 28 October 2026</p>
 '''),
 }
+P['fi'] = dict(title='Tietosuojaseloste | Nordvelg', h1='Tietosuojaseloste', desc='Miten Nordvelg käsittelee tarjouspyyntöjen tietoja.', body='''
+<p>Lyhyesti ja suoraan: mitä tietoja lähetät meille nordvelg.com-sivuston kautta ja mitä niillä teemme.</p>
+<h2>Rekisterinpitäjä</h2>
+<p>Juka Media OÜ, rekisterikoodi 17495980, Tallinna, Viro. Tietosuojaa koskevat kysymykset: <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>.</p>
+<h2>Mitä tietoja saamme</h2>
+<p>Vain sen, minkä itse kirjoitat tarjouslomakkeeseen: nimen, puhelinnumeron tai sähköpostin, auton merkin, mallin ja vuosimallin, toiveesi vanteista sekä kommentin. Sivusto ei käytä mainosevästeitä eikä kävijäanalytiikkaa.</p>
+<h2>Miten tiedot tulevat meille</h2>
+<ul>
+<li>Kun painat ”Lähetä Telegramissa” tai ”Lähetä WhatsAppissa”, pyyntösi teksti avautuu valitsemassasi viestisovelluksessa. Siellä noudatetaan kyseisen sovelluksen ehtoja.</li>
+<li>Samalla hetkellä pyynnöstä lähtee kopio sähköpostiimme Formspree-palvelun (Formspree, Inc., Yhdysvallat) kautta, jottei pyyntö katoa. Tietojen siirto Yhdysvaltoihin perustuu EU:n vakiosopimuslausekkeisiin.</li>
+</ul>
+<h2>YouTube-videot</h2>
+<p>Pakoputkistojen sivuilla on iPE:n videoita YouTubesta. Ennen kuin painat videota, YouTuben palvelimilta latautuu vain esikatselukuva. Itse soitin yhdistetään vasta painalluksen jälkeen youtube-nocookie.com-osoitteen kautta, ja siitä eteenpäin noudatetaan Googlen ehtoja (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>).</p>
+<h2>Mihin tietoja käytetään</h2>
+<p>Vain pyyntöösi vastaamiseen: vanteiden valintaan, hinnan laskemiseen ja havainnekuvan tekemiseen. Oikeusperuste: pyyntösi ja sopimusta edeltävät toimet (tietosuoja-asetuksen 6 artiklan 1 kohdan b alakohta). Emme myy tietoja emmekä lähetä uutiskirjeitä ilman suostumustasi.</p>
+<h2>Kuinka kauan säilytämme tietoja</h2>
+<p>Tarjouspyyntöön liittyvää viestinvaihtoa säilytämme enintään 12 kuukautta. Jos sinusta tulee asiakas, tilauksen tietoja säilytetään niin kauan kuin Viron kirjanpitolaki edellyttää (7 vuotta).</p>
+<h2>Oikeutesi</h2>
+<p>Voit pyytää nähdä, korjata tai poistaa tietosi ja vastustaa niiden käsittelyä. Kirjoita osoitteeseen <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>, vastaamme kuukauden kuluessa. Jos katsot, että oikeuksiasi on loukattu, voit kääntyä Viron tietosuojaviranomaisen (Andmekaitse Inspektsioon, <a href="https://www.aki.ee" target="_blank" rel="noopener noreferrer">aki.ee</a>) tai Suomen tietosuojavaltuutetun toimiston (<a href="https://tietosuoja.fi" target="_blank" rel="noopener noreferrer">tietosuoja.fi</a>) puoleen.</p>
+<p class="upd">Päivitetty 28.10.2026</p>
+''')
 
 CSS = '<style>.legal{max-width:68ch;padding-block:48px 72px}.legal h1{font-family:var(--display);font-size:clamp(30px,5vw,46px);font-weight:600;letter-spacing:-.02em;margin:18px 0 18px}.legal h2{font-family:var(--display);font-size:22px;font-weight:600;margin:32px 0 10px}.legal p,.legal li{line-height:1.6}.legal ul{padding-left:20px;display:grid;gap:8px}.legal a{color:var(--bronze)}.legal .upd{color:var(--machined);margin-top:32px;font-size:14px}</style>\n'
 

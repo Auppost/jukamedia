@@ -58,6 +58,30 @@ T = {
             vid='How iPE sounds: a video from the maker', play='Play video', vnote='From the iPE YouTube channel. The YouTube player loads only when you press play.'),
 }
 
+# Suomi (fi): nimet erikseen tavallisena ja titaanisena, jotta adjektiivi taipuu oikein (titaaninen pakoputkisto, titaaniset downpipet)
+TYPES_FI = {
+    r'equal-?length header': ('tasapituiset pakosarjat', 'titaaniset tasapituiset pakosarjat'),
+    r'full (exhaust|system)|exhaust system': ('pakoputkisto', 'titaaninen pakoputkisto'),
+    r'cat-?back': ('cat-back-pakoputkisto', 'titaaninen cat-back-pakoputkisto'),
+    r'down ?pipe': ('downpipet', 'titaaniset downpipet'),
+    r'link pipe': ('liitosputket', 'titaaniset liitosputket'),
+    r'header': ('pakosarjat', 'titaaniset pakosarjat'),
+    r'x-?pipe': ('X-putki', 'titaaninen X-putki'),
+    r'cat (bypass )?pipe': ('katalysaattoriputket', 'titaaniset katalysaattoriputket'),
+    r'front pipe|mid pipe': ('etuputki', 'titaaninen etuputki'),
+    r'muffler|rear section|back box': ('äänenvaimennin', 'titaaninen äänenvaimennin'),
+    r'tip': ('pakoputken päätteet', 'titaaniset pakoputken päätteet'),
+}
+T['fi'] = dict(sec='iPE-pakoputkistot', cat_title='iPE-pakoputkistot tilauksesta: hinnat ja toimitus Suomeen | Nordvelg',
+            cat_desc='Titaaniset ja ruostumattomat iPE-pakoputkistot venttiiliohjauksella tilauksesta: Porsche, Ferrari, Lamborghini, McLaren, BMW M, AMG. Hinnat sis. ALV:n, toimitus myös Suomeen.',
+            cat_h1='iPE-pakoputkistot', cat_sub='Aidot iPE-tuotteet eurooppalaisen jakelijan kautta. Myymme vain katalysaattorillisia versioita: ilman katalysaattoria auto ei mene katsastuksesta läpi',
+            make_title='iPE-pakoputkistot, {m}: kaikki järjestelmät ja hinnat | Nordvelg', make_desc='iPE-pakoputkistot tilauksesta, merkki {m}. Hinnat sis. ALV:n, vain katalysaattorilliset versiot, toimitus myös Suomeen.', make_h1='iPE-pakoputkistot: {m}',
+            h1='iPE {t}, {car}', title='iPE {t}, {car}: hinta | Nordvelg', desc='iPE {t}, {car}, {mat}. Venttiiliohjattu ääni, toimitus Suomeen, Viroon, Latviaan ja Liettuaan.{price}',
+            mat_ti='titaani', mat_ss='ruostumaton teräs', finishes='Pakoputken päätteiden viimeistely', all='Kaikki iPE-järjestelmät', more='Muut järjestelmät: {m}', all_make='{m}: kaikki järjestelmät ({n})',
+            facts=['Venttiiliohjattu pakoputkisto: hiljainen kaupungissa, äänekäs napin painalluksella', 'Vain katalysaattorilliset versiot, kuten katsastus edellyttää', 'Tarkan kokoonpanon, toimitusajan ja hinnan vahvistamme ennen maksua', 'Toimitus Suomeen, Viroon, Latviaan ja Liettuaan, ja neuvomme myös asennuksessa'],
+            note='hinta sis. ALV:n ja toimituksen Virossa, tarkan summan vahvistamme kokoonpanosi mukaan. Toimituksen Suomeen, Latviaan tai Liettuaan hinnoittelemme tarjouksen yhteydessä', req='Katalysaattorillisen version hinta pyynnöstä', other='Muut', filt='Merkki',
+            vid='Kuuntele iPE:n ääni', play='Katso video', vnote='Video on iPE:n omalta YouTube-kanavalta. YouTube-soitin latautuu vasta, kun painat videota.')
+
 def mk(s):
     return re.sub(r'[^a-z0-9]+', '-', s.lower()).strip('-')
 
@@ -106,6 +130,9 @@ ITEMS.sort(key=lambda d: (MAKES.index(d['make']) if d['make'] in MAKES else 99, 
 
 def names(d, lang):
     t = T[lang]
+    if lang == 'fi':
+        tl = TYPES_FI[d['typ'][0]][1 if d['mat'] == 'ti' else 0] + (' ' + d['ed'] if d['ed'] else '')
+        return t['h1'].format(t=tl, car=d['car']), tl
     tl = {'ru': d['typ'][1], 'et': d['typ'][2], 'en': d['typ'][3].lower()}[lang]
     if d['ed']:
         tl += ' ' + d['ed']
@@ -161,7 +188,7 @@ def page(d, lang):
     mat = t['mat_ti'] if d['mat'] == 'ti' else t['mat_ss']
     car_t = d['car'].replace(' / ', '/')
     h1t = t['h1'].format(t=tl, car=car_t)
-    title = W.fit(t['title'].format(t=tl, car=car_t), h1t if len(h1t) <= 65 else f"iPE {car_t}: {tl[0].lower() + tl[1:] if lang != 'en' else tl}")
+    title = W.fit(t['title'].format(t=tl, car=car_t), h1t if len(h1t) <= 65 else f"iPE {car_t}: {tl[0].lower() + tl[1:] if lang not in ('en', 'fi') else tl}")
     desc = t['desc'].format(t=tl, car=d['car'], mat=mat, price=(' ' + W.fmt(d['p'], lang)[:1].upper() + W.fmt(d['p'], lang)[1:] + '.') if d['p'] else '')
     og = SITE + W.big(d['imgs'][0])
     out = W.head_common(lang, title, desc, url, alts, og)
@@ -201,7 +228,7 @@ def page(d, lang):
     out += f'<section class="rel"><div class="rh"><h2>{t["more"].format(m=d["make"])}</h2><a href="{p}exhaust/{mk(d["make"])}/">{t["all"]}</a></div><div class="grid">{"".join(card(x, lang) for x in rel)}</div></section>\n</main>\n' if rel else '</main>\n'
     out += f'<div class="lb" hidden><button type="button" class="x" aria-label="{wt["close"]}">×</button></div>\n' + W.footer(lang) + (VID_JS if v else '')
     out += f'<script src="/js/wheel.js?v={V("js/wheel.js")}" defer></script>\n</body>\n</html>\n'
-    return out
+    return W.fi_fix(out) if lang == 'fi' else out
 
 def catalog(lang, make=None):
     t = T[lang]
@@ -233,7 +260,7 @@ def catalog(lang, make=None):
     if v:
         out += video_block(v, lang)
     out += '</main>\n' + W.footer(lang) + (VID_JS if v else '') + f'<script src="/js/wheel.js?v={V("js/wheel.js")}" defer></script>\n</body>\n</html>\n'
-    return out
+    return W.fi_fix(out) if lang == 'fi' else out
 
 def main():
     paths = ['exhaust/']
