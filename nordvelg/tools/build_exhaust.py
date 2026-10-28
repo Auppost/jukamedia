@@ -30,29 +30,29 @@ TYPES = [  # (pattern, ru, et, en)
 ]
 T = {
  'ru': dict(sec='Выхлоп iPE', cat_title='Выхлопные системы iPE в Таллинне: цены | Nordvelg',
-            cat_desc='Титановые и стальные выхлопные системы iPE с клапанным управлением под заказ: Porsche, Ferrari, Lamborghini, McLaren, BMW M, AMG. Цены с НДС, доставка по Эстонии.',
+            cat_desc='Титановые и стальные выхлопные системы iPE с клапанным управлением под заказ: Porsche, Ferrari, Lamborghini, McLaren, BMW M, AMG. Цены с НДС, доставка по Эстонии, в Латвию, Литву и Финляндию.',
             cat_h1='Выхлопные системы iPE', cat_sub='Официальная продукция iPE через европейского дистрибьютора. Продаём только версии с катализатором: без него машина не пройдёт техосмотр в Эстонии',
-            make_title='Выхлоп iPE для {m}: все системы и цены | Nordvelg', make_desc='Выхлопные системы iPE для {m} под заказ с доставкой по Эстонии. Цены с НДС, только версии с катализатором.', make_h1='Выхлоп iPE для {m}',
-            h1='{t} iPE для {car}', title='{t} iPE для {car}: цена в Таллинне | Nordvelg', desc='{t} iPE для {car}, {mat}. Клапанное управление звуком, доставка по Эстонии.{price}',
+            make_title='Выхлоп iPE для {m}: все системы и цены | Nordvelg', make_desc='Выхлопные системы iPE для {m} под заказ с доставкой по Эстонии, в Латвию, Литву и Финляндию. Цены с НДС, только версии с катализатором.', make_h1='Выхлоп iPE для {m}',
+            h1='{t} iPE для {car}', title='{t} iPE для {car}: цена в Таллинне | Nordvelg', desc='{t} iPE для {car}, {mat}. Клапанное управление звуком, доставка по Эстонии, в Латвию, Литву и Финляндию.{price}',
             mat_ti='титан', mat_ss='нержавеющая сталь', finishes='Отделка насадок', all='Все системы iPE', more='Другие системы для {m}', all_make='Все системы для {m}: {n}',
-            facts=['Клапанная система: тихо в городе, громко по кнопке', 'Только версии с катализатором, как требует техосмотр', 'Точную комплектацию, срок и цену подтверждаем до оплаты', 'Доставка в Таллинн, установку подскажем'],
-            note='цена с НДС и доставкой по Эстонии, точную сумму подтвердим под вашу комплектацию', req='Версию с катализатором считаем по запросу', other='Другие', filt='Марка'),
+            facts=['Клапанная система: тихо в городе, громко по кнопке', 'Только версии с катализатором, как требует техосмотр', 'Точную комплектацию, срок и цену подтверждаем до оплаты', 'Доставляем по Эстонии, в Латвию, Литву и Финляндию, с установкой подскажем'],
+            note='цена с НДС и доставкой по Эстонии, точную сумму подтвердим под вашу комплектацию. Доставку в Латвию, Литву и Финляндию посчитаем вместе с ценой', req='Версию с катализатором считаем по запросу', other='Другие', filt='Марка'),
  'et': dict(sec='iPE väljalase', cat_title='iPE väljalaskesüsteemid Tallinnas: hinnad | Nordvelg',
-            cat_desc='iPE titaanist ja roostevabast terasest klapiga väljalasked tellimusel: Porsche, Ferrari, Lamborghini, McLaren, BMW M, AMG. Hinnad koos KM-ga.',
+            cat_desc='iPE titaanist ja roostevabast terasest klapiga väljalasked tellimusel: Porsche, Ferrari, Lamborghini, McLaren, BMW M, AMG. Hinnad koos KM-ga, tarne Eestis ning Lätti, Leetu ja Soome.',
             cat_h1='iPE väljalaskesüsteemid', cat_sub='Ametlikud iPE tooted Euroopa edasimüüja kaudu. Müüme ainult katalüsaatoriga versioone: ilma selleta auto Eestis tehnoülevaatust ei läbi',
-            make_title='iPE väljalase {m} autodele: kõik süsteemid ja hinnad | Nordvelg', make_desc='iPE väljalaskesüsteemid {m} autodele tellimusel tarnega üle Eesti. Hinnad koos käibemaksuga, ainult katalüsaatoriga versioonid.', make_h1='iPE väljalase {m} autodele',
-            h1='{t} iPE, {car}', title='{t} iPE, {car}: hind Tallinnas | Nordvelg', desc='{t} iPE autole {car}, {mat}. Klapiga heli juhtimine, tarne üle Eesti.{price}',
+            make_title='iPE väljalase {m} autodele: kõik süsteemid ja hinnad | Nordvelg', make_desc='iPE väljalaskesüsteemid {m} autodele tellimusel tarnega Eestis ning Lätti, Leetu ja Soome. Hinnad koos käibemaksuga, ainult katalüsaatoriga versioonid.', make_h1='iPE väljalase {m} autodele',
+            h1='{t} iPE, {car}', title='{t} iPE, {car}: hind Tallinnas | Nordvelg', desc='{t} iPE autole {car}, {mat}. Klapiga heli juhtimine, tarne Eestis ning Lätti, Leetu ja Soome.{price}',
             mat_ti='titaan', mat_ss='roostevaba teras', finishes='Otsikute viimistlus', all='Kõik iPE süsteemid', more='Teised süsteemid: {m}', all_make='Kõik {m} süsteemid: {n}',
-            facts=['Klapiga süsteem: linnas vaikne, nupuvajutusel vali', 'Ainult katalüsaatoriga versioonid, nagu nõuab tehnoülevaatus', 'Täpse komplekti, tähtaja ja hinna kinnitame enne makset', 'Tarne Tallinnasse, paigalduse osas aitame nõuga'],
-            note='hind koos käibemaksu ja tarnega Eestis, täpse summa kinnitame teie komplekti järgi', req='Katalüsaatoriga versiooni hind päringu alusel', other='Muud', filt='Mark'),
+            facts=['Klapiga süsteem: linnas vaikne, nupuvajutusel vali', 'Ainult katalüsaatoriga versioonid, nagu nõuab tehnoülevaatus', 'Täpse komplekti, tähtaja ja hinna kinnitame enne makset', 'Tarne Eestis ning Lätti, Leetu ja Soome, paigalduse osas aitame nõuga'],
+            note='hind koos käibemaksu ja tarnega Eestis, täpse summa kinnitame teie komplekti järgi. Tarne hinna Lätti, Leetu ja Soome ütleme koos pakkumisega', req='Katalüsaatoriga versiooni hind päringu alusel', other='Muud', filt='Mark'),
  'en': dict(sec='iPE exhausts', cat_title='iPE Exhaust Systems in Tallinn: Prices | Nordvelg',
-            cat_desc='Titanium and stainless iPE valvetronic exhaust systems made to order: Porsche, Ferrari, Lamborghini, McLaren, BMW M, AMG. Prices incl. VAT, delivery across Estonia.',
+            cat_desc='Titanium and stainless iPE valvetronic exhaust systems made to order: Porsche, Ferrari, Lamborghini, McLaren, BMW M, AMG. Prices incl. VAT, delivery to Estonia, Latvia, Lithuania and Finland.',
             cat_h1='iPE exhaust systems', cat_sub='Genuine iPE products through a European distributor. We sell catted versions only: without catalysts a car fails inspection in Estonia',
-            make_title='iPE exhaust for {m}: all systems and prices | Nordvelg', make_desc='iPE exhaust systems for {m} made to order with delivery across Estonia. Prices incl. VAT, catted versions only.', make_h1='iPE exhaust for {m}',
-            h1='iPE {t} for {car}', title='iPE {t} for {car}: price in Tallinn | Nordvelg', desc='iPE {t} for {car}, {mat}. Valve-controlled sound, delivery across Estonia.{price}',
+            make_title='iPE exhaust for {m}: all systems and prices | Nordvelg', make_desc='iPE exhaust systems for {m} made to order with delivery to Estonia, Latvia, Lithuania and Finland. Prices incl. VAT, catted versions only.', make_h1='iPE exhaust for {m}',
+            h1='iPE {t} for {car}', title='iPE {t} for {car}: price in Tallinn | Nordvelg', desc='iPE {t} for {car}, {mat}. Valve-controlled sound, delivery to Estonia, Latvia, Lithuania and Finland.{price}',
             mat_ti='titanium', mat_ss='stainless steel', finishes='Tip finishes', all='All iPE systems', more='More systems for {m}', all_make='All {m} systems: {n}',
-            facts=['Valvetronic system: quiet in town, loud at the press of a button', 'Catted versions only, as the Estonian inspection requires', 'Exact configuration, lead time and price confirmed before you pay', 'Delivery to Tallinn, we can advise on fitting'],
-            note='incl. VAT and delivery in Estonia, exact total confirmed for your configuration', req='Catted version priced on request', other='Other', filt='Make'),
+            facts=['Valvetronic system: quiet in town, loud at the press of a button', 'Catted versions only, as the Estonian inspection requires', 'Exact configuration, lead time and price confirmed before you pay', 'Delivery to Estonia, Latvia, Lithuania and Finland, we can advise on fitting'],
+            note='incl. VAT and delivery in Estonia, exact total confirmed for your configuration. Delivery to Latvia, Lithuania or Finland is quoted with the price', req='Catted version priced on request', other='Other', filt='Make'),
 }
 
 def mk(s):
@@ -133,7 +133,7 @@ def page(d, lang):
     out = W.head_common(lang, title, desc, url, alts, og)
     prod = {"@type": "Product", "name": f"iPE {d['title']}", "brand": {"@type": "Brand", "name": "iPE"}, "image": [SITE + W.big(i) for i in d['imgs']], "url": url, "description": desc}
     if d['p']:
-        prod['offers'] = W.offer(d['p'], url, 'iPE')
+        prod['offers'] = W.offer(d['p'], url, 'iPE', W.SHIP_EXHAUST)
     crumbs = {"@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Nordvelg", "item": f"{SITE}/{LANGS[lang]}"},
         {"@type": "ListItem", "position": 2, "name": t['sec'], "item": f"{SITE}/{LANGS[lang]}exhaust/"},
