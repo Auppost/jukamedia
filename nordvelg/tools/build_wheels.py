@@ -36,100 +36,100 @@ T = {
  'ru': dict(
   catalog='Каталог', home='Главная', pick='Подбор по машине', faq='Вопросы',
   cat_title='Каталог кованых дисков BC Forged и Brixton под заказ | Nordvelg',
-  cat_desc='Кованые диски BC Forged и Brixton Forged под заказ с доставкой в Эстонию, Латвию, Литву и Финляндию. Цены с НДС, подбор под вашу машину.',
+  cat_desc='Кованые диски BC Forged и Brixton Forged под заказ, подбор под вашу машину. Цены с НДС и доставкой по Эстонии, доставку в Латвию, Литву и Финляндию посчитаем вместе с ценой.',
   cat_h1='Каталог кованых дисков', cat_sub='Наша подборка моделей. Любую из них делают под вашу машину: диаметр, ширина, вылет и отделка на выбор',
   title='{name}: кованые диски под заказ в Таллинне | Nordvelg',
-  desc='{name} под ваш автомобиль: подбор размера и вылета, эскиз до оплаты, доставка в Эстонию, Латвию, Литву и Финляндию.{price}',
-  price_from='от {p} €', set_note='за комплект из 4 дисков, с НДС и доставкой в Эстонию, Латвию, Литву или Финляндию', est_note='ориентировочная цена, точную назовём после подбора',
+  desc='{name} под ваш автомобиль: подбор размера и вылета, эскиз до оплаты. Доставка по Эстонии в цене, в Латвию, Литву и Финляндию посчитаем вместе с ценой.{price}',
+  price_from='от {p} €', set_note='за комплект из 4 дисков, с НДС и доставкой по Эстонии', est_note='ориентировочная цена, точную назовём после подбора',
   on_request='Цена по запросу', cta='Рассчитать для моей машины', wa='Спросить в WhatsApp',
   wa_text='Здравствуйте, интересуют диски {name}. Машина: ',
   fits='Подходит для', fits_note='Эти машины уже есть в нашем подборе. Для других моделей проверим посадку бесплатно',
   know='Что важно знать', how='Как проходит заказ', more='Другие модели {brand}', all='Весь каталог',
   zoom='Нажмите, чтобы увеличить', close='Закрыть',
   steps=['Вы присылаете марку, модель и год машины', 'Мы подбираем размер, вылет и отделку и присылаем эскиз', 'Вы вносите 50% предоплаты, завод изготавливает диски', 'Вы оплачиваете остаток, и диски едут к вам в Эстонию, Латвию, Литву или Финляндию'],
-  bc=['Кованая заготовка из алюминия 6061-T6, каждый диск фрезеруют под вашу машину: разболтовка, центральное отверстие и вылет', 'Диски прошли японские испытания на прочность JWL и VIA', 'Около 40 вариантов отделки, можно сочетать две', 'Изготовление 4-6 недель, затем доставка в Эстонию, Латвию, Литву или Финляндию'],
-  brixton=['Американский бренд, каждый комплект собирают под конкретный автомобиль', 'Производство 7-10 недель', 'Цену считаем по вашей спецификации: размер, ширина, отделка', 'Доставка в Эстонию, Латвию, Литву и Финляндию входит в цену'],
-  other=['Заказываем через европейского дистрибьютора', 'Срок и точную цену подтверждаем после подбора под вашу машину', 'Доставка в Эстонию, Латвию, Литву и Финляндию входит в цену'],
+  bc=['Кованая заготовка из алюминия 6061-T6, каждый диск фрезеруют под вашу машину: разболтовка, центральное отверстие и вылет', 'Диски прошли японские испытания на прочность JWL и VIA', 'Около 40 вариантов отделки, можно сочетать две', 'Изготовление 4-6 недель. Доставка по Эстонии входит в цену, в Латвию, Литву и Финляндию посчитаем вместе с ценой'],
+  brixton=['Американский бренд, каждый комплект собирают под конкретный автомобиль', 'Производство 7-10 недель', 'Цену считаем по вашей спецификации: размер, ширина, отделка', 'Доставка по Эстонии входит в цену. Отправляем и в Латвию, Литву и Финляндию, доставку туда посчитаем вместе с ценой'],
+  other=['Заказываем через европейского дистрибьютора', 'Срок и точную цену подтверждаем после подбора под вашу машину', 'Доставка по Эстонии входит в цену. Отправляем и в Латвию, Литву и Финляндию, доставку туда посчитаем вместе с ценой'],
   pay='Подбор бесплатный: сначала эскиз и точная цена, потом решение',
   per_wheel='', mono='моноблок', two='двухсоставной',
   foot='Кованые диски BC Forged и Brixton Forged под заказ в Таллинне', city='Таллинн, Эстония',
   credits='Фото дисков и автомобилей: BC Forged, Brixton Forged и их дистрибьюторы. Названия брендов принадлежат их владельцам',
-  ptable='Цена комплекта по диаметру', col_d='Диаметр', col_w='Ширина', col_p='Комплект из 4', ptable_note='С НДС и доставкой в Эстонию, Латвию, Литву или Финляндию. Опции оплачиваются отдельно: полированная полка, накатка. Фрезерованный центральный колпачок в комплекте', series='Серия {s}', filt_all='Все', sizes_d='Размеры {a}-{b}″.',
-  brand_title='Диски {b} под заказ в Таллинне: все модели и цены | Nordvelg', brand_desc='Все модели {b} под заказ с доставкой в Эстонию, Латвию, Литву и Финляндию. Подбор под ваш автомобиль, эскиз до оплаты.', brand_h1='Диски {b}', all_brand='Все модели {b}: {n}', on_req_note='Цену считаем под вашу машину и спецификацию',
+  ptable='Цена комплекта по диаметру', col_d='Диаметр', col_w='Ширина', col_p='Комплект из 4', ptable_note='С НДС и доставкой по Эстонии, доставку в Латвию, Литву и Финляндию посчитаем вместе с ценой. Опции оплачиваются отдельно: полированная полка, накатка. Фрезерованный центральный колпачок в комплекте', series='Серия {s}', filt_all='Все', sizes_d='Размеры {a}-{b}″.',
+  brand_title='Диски {b} под заказ в Таллинне: все модели и цены | Nordvelg', brand_desc='Все модели {b} под заказ: подбор под ваш автомобиль, эскиз до оплаты. Доставка по Эстонии в цене, в Латвию, Литву и Финляндию посчитаем вместе с ценой.', brand_h1='Диски {b}', all_brand='Все модели {b}: {n}', on_req_note='Цену считаем под вашу машину и спецификацию',
   lang_name='Язык', variants='Варианты модели', variants_note='Один дизайн в нескольких исполнениях. Какой вариант подойдёт вашей машине, подскажем при подборе'),
  'et': dict(
   catalog='Kataloog', home='Avaleht', pick='Valik auto järgi', faq='Küsimused',
   cat_title='BC Forged ja Brixton sepistatud veljed tellimusel | Nordvelg',
-  cat_desc='Tellimusel valmivad sepistatud veljed tarnega Eestisse, Lätti, Leetu ja Soome: BC Forged ja Brixton Forged. Hinnad koos käibemaksuga, valik teie auto järgi.',
+  cat_desc='Tellimusel valmivad sepistatud veljed BC Forged ja Brixton Forged, valik teie auto järgi. Hinnad koos käibemaksu ja tarnega Eestis. Lätti, Leetu ja Soome tarne hinna ütleme koos pakkumisega.',
   cat_h1='Sepistatud velgede kataloog', cat_sub='Meie valitud mudelid. Iga komplekt valmib just teie autole: läbimõõt, laius, ET ja viimistlus teie valikul',
   title='{name}: sepistatud veljed tellimusel Tallinnas | Nordvelg',
-  desc='{name} teie autole: mõõdu ja ET valik, eskiis enne makset, tarne Eestisse, Lätti, Leetu ja Soome.{price}',
-  price_from='alates {p} €', set_note='4 velje komplekt koos käibemaksu ja tarnega Eestisse, Lätti, Leetu või Soome', est_note='ligikaudne hind, täpse hinna ütleme pärast valikut',
+  desc='{name} teie autole: mõõdu ja ET valik, eskiis enne makset. Tarne Eestis on hinna sees, Lätti, Leetu ja Soome tarne hinna ütleme koos pakkumisega.{price}',
+  price_from='alates {p} €', set_note='4 velje komplekt koos käibemaksu ja tarnega Eestis', est_note='ligikaudne hind, täpse hinna ütleme pärast valikut',
   on_request='Hind päringu alusel', cta='Küsi hinda minu autole', wa='Küsi WhatsAppis',
   wa_text='Tere, mind huvitavad {name} veljed. Auto: ',
   fits='Sobib autodele', fits_note='Need autod on meie valikus juba olemas. Teiste mudelite puhul kontrollime sobivust tasuta',
   know='Mida on oluline teada', how='Kuidas tellimine käib', more='Teised {brand} mudelid', all='Kogu kataloog',
   zoom='Suurendamiseks klõpsake', close='Sulge',
   steps=['Saadate auto marga, mudeli ja aasta', 'Valime mõõdu, ET ja viimistluse ning saadame eskiisi', 'Tasute 50% ettemaksu, tehas valmistab veljed', 'Tasute ülejäänud summa ja veljed saadetakse teile Eestisse, Lätti, Leetu või Soome'],
-  bc=['Sepistatud toorik alumiiniumisulamist 6061-T6, iga velg freesitakse teie auto järgi: poldimuster, tsentriava ja ET', 'Veljed on läbinud Jaapani tugevustestid JWL ja VIA', 'Umbes 40 viimistlust, kahte saab kombineerida', 'Valmistamine 4-6 nädalat, seejärel tarne Eestisse, Lätti, Leetu või Soome'],
-  brixton=['Ameerika bränd, iga komplekt valmib konkreetsele autole', 'Tootmine 7-10 nädalat', 'Hinna arvutame teie spetsifikatsiooni järgi: mõõt, laius, viimistlus', 'Tarne Eestisse, Lätti, Leetu ja Soome on hinna sees'],
-  other=['Tellime Euroopa turustaja kaudu', 'Tähtaja ja täpse hinna kinnitame pärast valikut teie auto järgi', 'Tarne Eestisse, Lätti, Leetu ja Soome on hinna sees'],
+  bc=['Sepistatud toorik alumiiniumisulamist 6061-T6, iga velg freesitakse teie auto järgi: poldimuster, tsentriava ja ET', 'Veljed on läbinud Jaapani tugevustestid JWL ja VIA', 'Umbes 40 viimistlust, kahte saab kombineerida', 'Valmistamine 4-6 nädalat. Tarne Eestis on hinna sees, Lätti, Leetu ja Soome tarne hinna ütleme koos pakkumisega'],
+  brixton=['Ameerika bränd, iga komplekt valmib konkreetsele autole', 'Tootmine 7-10 nädalat', 'Hinna arvutame teie spetsifikatsiooni järgi: mõõt, laius, viimistlus', 'Tarne Eestis on hinna sees. Saadame ka Lätti, Leetu ja Soome, tarne hinna ütleme koos pakkumisega'],
+  other=['Tellime Euroopa turustaja kaudu', 'Tähtaja ja täpse hinna kinnitame pärast valikut teie auto järgi', 'Tarne Eestis on hinna sees. Saadame ka Lätti, Leetu ja Soome, tarne hinna ütleme koos pakkumisega'],
   pay='Valik on tasuta: kõigepealt eskiis ja täpne hind, siis otsus',
   per_wheel='', mono='monoblokk', two='kaheosaline',
   foot='BC Forged ja Brixton Forged sepistatud veljed tellimusel Tallinnas', city='Tallinn, Eesti',
   credits='Velgede ja autode fotod: BC Forged, Brixton Forged ja nende turustajad. Kaubamärgid kuuluvad nende omanikele',
-  ptable='Komplekti hind läbimõõdu järgi', col_d='Läbimõõt', col_w='Laius', col_p='4 velje komplekt', ptable_note='Koos käibemaksu ja tarnega Eestisse, Lätti, Leetu või Soome. Lisavalikud eraldi: poleeritud äär, rihveldus. Freesitud rummukate on komplektis', series='Seeria {s}', filt_all='Kõik', sizes_d='Mõõdud {a}-{b}″.',
-  brand_title='{b} veljed tellimusel Tallinnas: kõik mudelid ja hinnad | Nordvelg', brand_desc='Kõik {b} mudelid tellimusel tarnega Eestisse, Lätti, Leetu ja Soome. Valik teie auto järgi, eskiis enne makset.', brand_h1='{b} veljed', all_brand='Kõik {b} mudelid: {n}', on_req_note='Hinna arvutame teie auto ja spetsifikatsiooni järgi',
+  ptable='Komplekti hind läbimõõdu järgi', col_d='Läbimõõt', col_w='Laius', col_p='4 velje komplekt', ptable_note='Koos käibemaksu ja tarnega Eestis. Lätti, Leetu ja Soome tarne hinna ütleme koos pakkumisega. Lisavalikud eraldi: poleeritud äär, rihveldus. Freesitud rummukate on komplektis', series='Seeria {s}', filt_all='Kõik', sizes_d='Mõõdud {a}-{b}″.',
+  brand_title='{b} veljed tellimusel Tallinnas: kõik mudelid ja hinnad | Nordvelg', brand_desc='Kõik {b} mudelid tellimusel, valik teie auto järgi ja eskiis enne makset. Tarne Eestis on hinna sees, Lätti, Leetu ja Soome tarne hinna ütleme koos pakkumisega.', brand_h1='{b} veljed', all_brand='Kõik {b} mudelid: {n}', on_req_note='Hinna arvutame teie auto ja spetsifikatsiooni järgi',
   lang_name='Keel', variants='Mudeli variandid', variants_note='Üks disain mitmes teostuses. Millise variandi teie autole valida, ütleme valiku käigus'),
  'en': dict(
   catalog='Catalogue', home='Home', pick='Find by car', faq='Questions',
   cat_title='BC Forged and Brixton Forged Wheels Catalogue | Nordvelg',
-  cat_desc='Made-to-order forged wheels delivered to Estonia, Latvia, Lithuania and Finland: BC Forged and Brixton Forged. Prices incl. VAT, fitment checked for your car.',
+  cat_desc='Made-to-order BC Forged and Brixton Forged wheels, fitment checked for your car. Prices incl. VAT and delivery within Estonia, delivery to Latvia, Lithuania and Finland quoted with the price.',
   cat_h1='Forged wheels catalogue', cat_sub='Our pick of models. Each set is made for your car: diameter, width, offset and finish of your choice',
   title='{name}: custom forged wheels in Tallinn | Nordvelg',
-  desc='{name} built for your car: size and offset check, a sketch before you pay, delivery to Estonia, Latvia, Lithuania and Finland.{price}',
-  price_from='from €{p}', set_note='per set of 4, incl. VAT and delivery to Estonia, Latvia, Lithuania or Finland', est_note='indicative price, exact quote after the fitment check',
+  desc='{name} built for your car: size and offset check, a sketch before you pay. Delivery within Estonia included, to Latvia, Lithuania and Finland quoted with the price.{price}',
+  price_from='from €{p}', set_note='per set of 4, incl. VAT and delivery within Estonia', est_note='indicative price, exact quote after the fitment check',
   on_request='Price on request', cta='Get a quote for my car', wa='Ask on WhatsApp',
   wa_text='Hello, I am interested in {name} wheels. My car: ',
   fits='Fits', fits_note='These cars are already in our fitment guide. For other models we check fitment for free',
   know='Good to know', how='How ordering works', more='More {brand} models', all='Full catalogue',
   zoom='Click to enlarge', close='Close',
   steps=['You send the make, model and year of your car', 'We choose size, offset and finish and send a sketch', 'You pay a 50% deposit, the factory makes the wheels', 'You pay the balance and the wheels ship to you in Estonia, Latvia, Lithuania or Finland'],
-  bc=['Forged 6061-T6 aluminium billet, each wheel machined for your car: bolt pattern, centre bore and offset', 'Tested to the Japanese JWL and VIA strength standards', 'About 40 finishes, two can be combined', 'Made in 4-6 weeks, then delivered to Estonia, Latvia, Lithuania or Finland'],
-  brixton=['American brand, each set is built for a specific car', 'Production takes 7-10 weeks', 'We price it from your specification: size, width, finish', 'Delivery to Estonia, Latvia, Lithuania and Finland is included in the price'],
-  other=['Ordered through a European distributor', 'Lead time and exact price confirmed after the fitment check', 'Delivery to Estonia, Latvia, Lithuania and Finland is included in the price'],
+  bc=['Forged 6061-T6 aluminium billet, each wheel machined for your car: bolt pattern, centre bore and offset', 'Tested to the Japanese JWL and VIA strength standards', 'About 40 finishes, two can be combined', 'Made in 4-6 weeks. Delivery within Estonia is included, delivery to Latvia, Lithuania or Finland is quoted with the price'],
+  brixton=['American brand, each set is built for a specific car', 'Production takes 7-10 weeks', 'We price it from your specification: size, width, finish', 'Delivery within Estonia is included. We ship to Latvia, Lithuania and Finland too and quote delivery with the price'],
+  other=['Ordered through a European distributor', 'Lead time and exact price confirmed after the fitment check', 'Delivery within Estonia is included. We ship to Latvia, Lithuania and Finland too and quote delivery with the price'],
   pay='The fitment check is free: first a sketch and an exact price, then you decide',
   per_wheel='', mono='monoblock', two='two-piece',
   foot='BC Forged and Brixton Forged wheels made to order in Tallinn', city='Tallinn, Estonia',
   credits='Wheel and car photos: BC Forged, Brixton Forged and their distributors. Brand names belong to their owners',
-  ptable='Set price by diameter', col_d='Diameter', col_w='Width', col_p='Set of 4', ptable_note='Incl. VAT and delivery to Estonia, Latvia, Lithuania or Finland. Options are extra: polished lip, knurling. A machined centre cap is included', series='{s} series', filt_all='All', sizes_d='Sizes {a}-{b}″.',
-  brand_title='{b} wheels made to order in Tallinn: all models and prices | Nordvelg', brand_desc='All {b} models made to order with delivery to Estonia, Latvia, Lithuania and Finland. Fitment for your car, a sketch before you pay.', brand_h1='{b} wheels', all_brand='All {b} models: {n}', on_req_note='We price it for your car and specification',
+  ptable='Set price by diameter', col_d='Diameter', col_w='Width', col_p='Set of 4', ptable_note='Incl. VAT and delivery within Estonia, delivery to Latvia, Lithuania or Finland quoted with the price. Options are extra: polished lip, knurling. A machined centre cap is included', series='{s} series', filt_all='All', sizes_d='Sizes {a}-{b}″.',
+  brand_title='{b} wheels made to order in Tallinn: all models and prices | Nordvelg', brand_desc='All {b} models made to order, fitment for your car and a sketch before you pay. Delivery within Estonia included, to Latvia, Lithuania and Finland quoted with the price.', brand_h1='{b} wheels', all_brand='All {b} models: {n}', on_req_note='We price it for your car and specification',
   lang_name='Language', variants='Versions of this design', variants_note='One design in several versions. We will tell you which one suits your car during the fitment check'),
 }
-# Suomi (fi), lisätty 28.10.2026: Suomi on oma kohdemarkkina, vannesarjojen toimitus Suomeen sisältyy hintaan
+# Suomi (fi), lisätty 28.10.2026: Suomi on oma kohdemarkkina. Vannesarjan hintaan sisältyy toimitus vain Virossa (päätös 28.10.2026), toimituskulut Suomeen kerrotaan tarjouksessa
 T['fi'] = dict(
   catalog='Mallisto', home='Etusivu', pick='Auton mukaan', faq='UKK',
   cat_title='Taotut BC Forged- ja Brixton-vanteet tilauksesta | Nordvelg',
-  cat_desc='Taotut BC Forged- ja Brixton Forged -vanteet tilauksesta. Hinnat sisältävät ALV:n ja toimituksen Suomeen, Viroon, Latviaan ja Liettuaan. Tarkistamme sopivuuden autoosi.',
+  cat_desc='Taotut BC Forged- ja Brixton Forged -vanteet tilauksesta. Tarkistamme sopivuuden autoosi. Hinnat sisältävät ALV:n ja toimituksen Virossa. Toimitamme myös Suomeen, Latviaan ja Liettuaan, ja toimituskulut kerromme tarjouksessa.',
   cat_h1='Taottujen vanteiden mallisto', cat_sub='Poimintoja mallistosta. Jokainen sarja tehdään sinun autoosi, ja halkaisijan, leveyden, ET:n ja viimeistelyn valitset itse',
   title='{name}: taotut vanteet tilauksesta | Nordvelg',
-  desc='{name} -vanteet sinun autoosi: valitsemme koon ja ET:n, ja näet vanteet kuvassa autossasi ennen maksua. Toimitus Suomeen, Viroon, Latviaan tai Liettuaan.{price}',
-  price_from='alkaen {p} €', set_note='4 vanteen sarja, hinta sisältää ALV:n ja toimituksen Suomeen, Viroon, Latviaan tai Liettuaan', est_note='suuntaa-antava hinta, tarkan hinnan kerromme sopivuuden tarkistuksen jälkeen',
+  desc='{name} -vanteet sinun autoosi: valitsemme koon ja ET:n, ja näet vanteet kuvassa autossasi ennen maksua. Toimituskulut Suomeen kerromme tarjouksessa.{price}',
+  price_from='alkaen {p} €', set_note='4 vanteen sarja, hinta sisältää ALV:n ja toimituksen Virossa. Toimituskulut Suomeen kerromme tarjouksessa', est_note='suuntaa-antava hinta, tarkan hinnan kerromme sopivuuden tarkistuksen jälkeen',
   on_request='Hinta pyynnöstä', cta='Pyydä tarjous autooni', wa='Kysy WhatsAppissa',
   wa_text='Hei! Kysyisin tuotteesta {name}. Autoni: ',
   fits='Sopii autoihin', fits_note='Näihin autoihin olemme jo valinneet sopivat mitat. Muihin malleihin tarkistamme sopivuuden maksutta',
   know='Hyvä tietää', how='Näin tilaus etenee', more='Muita {brand} -malleja', all='Koko mallisto',
   zoom='Suurenna kuva klikkaamalla', close='Sulje',
   steps=['Kerrot autosi merkin, mallin ja vuosimallin', 'Valitsemme koon, ET:n ja viimeistelyn ja lähetämme kuvan vanteista autossasi', 'Maksat 50 % ennakkoa, ja tehdas valmistaa vanteet', 'Maksat loppusumman, ja vanteet toimitetaan sinulle Suomeen, Viroon, Latviaan tai Liettuaan'],
-  bc=['Taottu aihio on 6061-T6-alumiinia, ja jokainen vanne jyrsitään autosi mukaan: pulttijako, keskireikä ja ET', 'Testattu japanilaisten JWL- ja VIA-lujuusvaatimusten mukaan', 'Noin 40 viimeistelyä, ja kaksi niistä voi yhdistää', 'Valmistus kestää 4-6 viikkoa, sitten toimitus Suomeen, Viroon, Latviaan tai Liettuaan'],
-  brixton=['Yhdysvaltalainen merkki, jokainen sarja tehdään tiettyyn autoon', 'Valmistus kestää 7-10 viikkoa', 'Hinta lasketaan toiveidesi mukaan: koko, leveys ja viimeistely', 'Toimitus Suomeen, Viroon, Latviaan ja Liettuaan sisältyy hintaan'],
-  other=['Tilaamme eurooppalaisen jakelijan kautta', 'Toimitusajan ja tarkan hinnan vahvistamme, kun sopivuus autoosi on tarkistettu', 'Toimitus Suomeen, Viroon, Latviaan ja Liettuaan sisältyy hintaan'],
+  bc=['Taottu aihio on 6061-T6-alumiinia, ja jokainen vanne jyrsitään autosi mukaan: pulttijako, keskireikä ja ET', 'Testattu japanilaisten JWL- ja VIA-lujuusvaatimusten mukaan', 'Noin 40 viimeistelyä, ja kaksi niistä voi yhdistää', 'Valmistus kestää 4-6 viikkoa. Toimitus Virossa sisältyy hintaan, ja toimituskulut Suomeen, Latviaan ja Liettuaan kerromme tarjouksessa'],
+  brixton=['Yhdysvaltalainen merkki, jokainen sarja tehdään tiettyyn autoon', 'Valmistus kestää 7-10 viikkoa', 'Hinta lasketaan toiveidesi mukaan: koko, leveys ja viimeistely', 'Toimitus Virossa sisältyy hintaan. Toimitamme myös Suomeen, Latviaan ja Liettuaan, ja toimituskulut kerromme tarjouksessa'],
+  other=['Tilaamme eurooppalaisen jakelijan kautta', 'Toimitusajan ja tarkan hinnan vahvistamme, kun sopivuus autoosi on tarkistettu', 'Toimitus Virossa sisältyy hintaan. Toimitamme myös Suomeen, Latviaan ja Liettuaan, ja toimituskulut kerromme tarjouksessa'],
   pay='Sopivuuden tarkistus on maksuton: ensin näet kuvan ja tarkan hinnan, sitten päätät',
   per_wheel='', mono='yksiosainen', two='kaksiosainen',
   foot='Taotut BC Forged- ja Brixton Forged -vanteet tilauksesta, toimitus myös Suomeen', city='Tallinna, Viro',
   credits='Vanteiden ja autojen kuvat: BC Forged, Brixton Forged ja niiden jakelijat. Tuotemerkit kuuluvat omistajilleen',
-  ptable='Sarjan hinta halkaisijan mukaan', col_d='Halkaisija', col_w='Leveys', col_p='4 vanteen sarja', ptable_note='Sisältää ALV:n ja toimituksen Suomeen, Viroon, Latviaan tai Liettuaan. Lisävarusteet maksavat erikseen: kiillotettu lippa ja pyälletty olake. Jyrsityt keskikapselit kuuluvat sarjaan', series='Sarja {s}', filt_all='Kaikki', sizes_d='Koot {a}-{b}″.',
-  brand_title='{b} -vanteet tilauksesta: kaikki mallit ja hinnat | Nordvelg', brand_desc='Kaikki {b} -mallit tilauksesta, ja toimitus Suomeen, Viroon, Latviaan ja Liettuaan sisältyy hintaan. Tarkistamme sopivuuden ja näytämme vanteet kuvassa autossasi ennen maksua.', brand_h1='{b} -vanteet', all_brand='Kaikki {b} -mallit: {n}', on_req_note='Hinta lasketaan autosi ja toiveidesi mukaan',
+  ptable='Sarjan hinta halkaisijan mukaan', col_d='Halkaisija', col_w='Leveys', col_p='4 vanteen sarja', ptable_note='Sisältää ALV:n ja toimituksen Virossa. Toimituskulut Suomeen, Latviaan ja Liettuaan kerromme tarjouksessa. Lisävarusteet maksavat erikseen: kiillotettu lippa ja pyälletty olake. Jyrsityt keskikapselit kuuluvat sarjaan', series='Sarja {s}', filt_all='Kaikki', sizes_d='Koot {a}-{b}″.',
+  brand_title='{b} -vanteet tilauksesta: kaikki mallit ja hinnat | Nordvelg', brand_desc='Kaikki {b} -mallit tilauksesta. Tarkistamme sopivuuden ja näytämme vanteet kuvassa autossasi ennen maksua. Toimituskulut Suomeen kerromme tarjouksessa.', brand_h1='{b} -vanteet', all_brand='Kaikki {b} -mallit: {n}', on_req_note='Hinta lasketaan autosi ja toiveidesi mukaan',
   lang_name='Kieli', variants='Mallin versiot', variants_note='Sama muotoilu useana versiona. Kerromme sopivuuden tarkistuksessa, mikä niistä sopii autoosi')
 
 def fi_fix(s):
@@ -353,30 +353,36 @@ FONTCSS = None
 
 # Срок изготовления на заводе (дни) по бренду, для shippingDetails
 MAKE_DAYS = {'BC Forged': (28, 42), 'Brixton Forged': (49, 70)}
-# Куда доставка включена в цену. Диски: завод шлёт комплект в LV, LT и FI за ту же сумму, что в Таллинн.
-# iPE: включена только по Эстонии, в другие страны стоимость называем вместе с ценой.
+# Куда доставка включена в цену (решение от 28.10.2026). Диски: только по Эстонии. В Латвию, Литву и Финляндию
+# отправляем, но стоимость доставки называем вместе с ценой. iPE: доставка не включена нигде, даже по Эстонии.
 # Германию не добавлять: диски под заказ туда не продаём (нет TÜV).
-SHIP_WHEELS = ['EE', 'LV', 'LT', 'FI']
-SHIP_EXHAUST = ['EE']
+SHIP_WHEELS = ['EE']
+SHIP_EXHAUST = []
+# Куда продаём (для hasMerchantReturnPolicy.applicableCountry), независимо от того, включена ли доставка
+SELL_COUNTRIES = ['EE', 'LV', 'LT', 'FI']
 
 def offer(price, url, brand=None, countries=None):
-    """Offer для JSON-LD: доставка включена (по умолчанию диски: EE, LV, LT, FI; выхлоп передаёт SHIP_EXHAUST), возврата нет (товар под заказ по спецификации клиента)."""
-    countries = countries or SHIP_WHEELS
-    ship = {"@type": "OfferShippingDetails",
-            "shippingRate": {"@type": "MonetaryAmount", "value": 0, "currency": "EUR"},
-            "shippingDestination": [{"@type": "DefinedRegion", "addressCountry": c} for c in countries]}
-    if len(countries) == 1:
-        ship["shippingDestination"] = ship["shippingDestination"][0]
-    if brand in MAKE_DAYS:
-        a, b = MAKE_DAYS[brand]
-        ship["deliveryTime"] = {"@type": "ShippingDeliveryTime",
-            "handlingTime": {"@type": "QuantitativeValue", "minValue": a, "maxValue": b, "unitCode": "DAY"},
-            "transitTime": {"@type": "QuantitativeValue", "minValue": 2, "maxValue": 7, "unitCode": "DAY"}}
-    return {"@type": "Offer", "priceCurrency": "EUR", "price": price, "availability": "https://schema.org/PreOrder",
-            "url": url, "seller": {"@type": "Organization", "name": "Nordvelg", "url": SITE + "/"},
-            "shippingDetails": ship,
-            "hasMerchantReturnPolicy": {"@type": "MerchantReturnPolicy", "applicableCountry": countries if len(countries) > 1 else countries[0],
-                "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"}}
+    """Offer для JSON-LD. countries: где доставка включена в цену (по умолчанию диски, SHIP_WHEELS = EE).
+    Пустой список (выхлоп, SHIP_EXHAUST) = shippingDetails не выводим: стоимость доставки называем с ценой.
+    Возврата нет (товар под заказ по спецификации клиента)."""
+    countries = SHIP_WHEELS if countries is None else countries
+    o = {"@type": "Offer", "priceCurrency": "EUR", "price": price, "availability": "https://schema.org/PreOrder",
+         "url": url, "seller": {"@type": "Organization", "name": "Nordvelg", "url": SITE + "/"}}
+    if countries:
+        ship = {"@type": "OfferShippingDetails",
+                "shippingRate": {"@type": "MonetaryAmount", "value": 0, "currency": "EUR"},
+                "shippingDestination": [{"@type": "DefinedRegion", "addressCountry": c} for c in countries]}
+        if len(countries) == 1:
+            ship["shippingDestination"] = ship["shippingDestination"][0]
+        if brand in MAKE_DAYS:
+            a, b = MAKE_DAYS[brand]
+            ship["deliveryTime"] = {"@type": "ShippingDeliveryTime",
+                "handlingTime": {"@type": "QuantitativeValue", "minValue": a, "maxValue": b, "unitCode": "DAY"},
+                "transitTime": {"@type": "QuantitativeValue", "minValue": 2, "maxValue": 7, "unitCode": "DAY"}}
+        o["shippingDetails"] = ship
+    o["hasMerchantReturnPolicy"] = {"@type": "MerchantReturnPolicy", "applicableCountry": SELL_COUNTRIES,
+        "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"}
+    return o
 
 def head_common(lang, title, desc, url, alts, og_img):
     hl = ''.join(f'<link rel="alternate" hreflang="{l}" href="{u}">\n' for l, u in alts.items())
@@ -744,7 +750,7 @@ def intro(S, I, lang):
                 out.append(f"It includes the {join(I['subs'], lang)} lines.")
             out.append(f"Diameters run from {a} to {z}″" + (f" and widths from {wa} to {wb}J" if wa else '') + ", and every wheel is machined to your car's bolt pattern, centre bore and offset.")
             if p:
-                out.append(f"A set of four costs from {num(p, lang)} incl. VAT and delivery.")
+                out.append(f"A set of four costs from {num(p, lang)} incl. VAT and delivery within Estonia.")
         elif lang == 'et':
             out.append(f"{b} {s} seerias on {models_n(n, lang)}, " + ('kõik monoblokkveljed.' if mono else 'kõik kaheosalised veljed.') if n > 1 else
                        f"{b} {s} seerias on 1 mudel, " + ('monoblokkvelg.' if mono else 'kaheosaline velg.'))
@@ -752,7 +758,7 @@ def intro(S, I, lang):
                 out.append(f"Seeriasse kuuluvad alaseeriad {join(I['subs'], lang)}.")
             out.append(f"Läbimõõdud on {a}-{z}″" + (f" ja laiused {wa}-{wb}J" if wa else '') + ". Iga velg freesitakse teie auto poldimustri, tsentriava ja ET järgi.")
             if p:
-                out.append(f"Nelja velje komplekt maksab alates {num(p, lang)}, hinnas on käibemaks ja tarne.")
+                out.append(f"Nelja velje komplekt maksab alates {num(p, lang)}, hinnas on käibemaks ja tarne Eestis.")
         elif lang == 'ru':
             out.append(f"В серии {b} {s} {models_n(n, lang)}, " + ('все моноблоки.' if mono else 'все двухсоставные.') if n > 1 else
                        f"В серии {b} {s} одна модель, " + ('моноблок.' if mono else 'двухсоставная.'))
@@ -760,7 +766,7 @@ def intro(S, I, lang):
                 out.append(f"В неё входят линейки {join(I['subs'], lang)}.")
             out.append(f"Диаметры от {a} до {z}″" + (f", ширина от {wa} до {wb}J" if wa else '') + ". Каждый диск фрезеруют под разболтовку, центральное отверстие и вылет вашей машины.")
             if p:
-                out.append(f"Комплект из 4 дисков стоит от {num(p, lang)} с НДС и доставкой.")
+                out.append(f"Комплект из 4 дисков стоит от {num(p, lang)} с НДС и доставкой по Эстонии.")
         else:
             out.append(f"{b} {s} -sarjassa on {models_n(n, lang)}, ja " + ('kaikki ovat yksiosaisia.' if mono else 'kaikki ovat kaksiosaisia.') if n > 1 else
                        f"{b} {s} -sarjassa on 1 malli, joka on " + ('yksiosainen.' if mono else 'kaksiosainen.'))
@@ -768,7 +774,7 @@ def intro(S, I, lang):
                 out.append(f"Sarjaan kuuluvat alasarjat {join(I['subs'], lang)}.")
             out.append(f"Halkaisijat ovat {a}-{z}″" + (f" ja leveydet {wa}-{wb}J" if wa else '') + ". Jokainen vanne jyrsitään autosi pulttijaon, keskireiän ja ET:n mukaan.")
             if p:
-                out.append(f"4 vanteen sarja maksaa alkaen {num(p, lang)}, ja hinta sisältää ALV:n ja toimituksen.")
+                out.append(f"4 vanteen sarja maksaa alkaen {num(p, lang)}, ja hinta sisältää ALV:n. Toimituskulut Suomeen kerromme tarjouksessa.")
     else:
         names, vers = join(I['names'], lang), join(I['vers'], lang) if I['vers'] else ''
         if n == 1 and vers:  # одна модель в нескольких исполнениях
@@ -795,22 +801,22 @@ def intro(S, I, lang):
             if vers:
                 out.append(f"Versions: {vers}.")
             if p:
-                out.append(f"An indicative price for a set of four starts from {num(p, lang)} incl. VAT and delivery, and we confirm the exact price for your specification.")
+                out.append(f"An indicative price for a set of four starts from {num(p, lang)} incl. VAT and delivery within Estonia, and we confirm the exact price for your specification.")
         elif lang == 'et':
             if vers:
                 out.append(f"Versioonid: {vers}.")
             if p:
-                out.append(f"Nelja velje komplekti ligikaudne hind on alates {num(p, lang)}, hinnas on käibemaks ja tarne. Täpse hinna arvutame teie spetsifikatsiooni järgi.")
+                out.append(f"Nelja velje komplekti ligikaudne hind on alates {num(p, lang)}, hinnas on käibemaks ja tarne Eestis. Täpse hinna arvutame teie spetsifikatsiooni järgi.")
         elif lang == 'ru':
             if vers:
                 out.append(f"Исполнения: {vers}.")
             if p:
-                out.append(f"Ориентировочная цена комплекта из 4 дисков от {num(p, lang)} с НДС и доставкой, точную посчитаем по вашей спецификации.")
+                out.append(f"Ориентировочная цена комплекта из 4 дисков от {num(p, lang)} с НДС и доставкой по Эстонии, точную посчитаем по вашей спецификации.")
         else:
             if vers:
                 out.append(f"Versiot: {vers}.")
             if p:
-                out.append(f"4 vanteen sarjan suuntaa-antava hinta on alkaen {num(p, lang)}, ja hinta sisältää ALV:n ja toimituksen. Tarkan hinnan laskemme toiveidesi mukaan.")
+                out.append(f"4 vanteen sarjan suuntaa-antava hinta on alkaen {num(p, lang)}, ja hinta sisältää ALV:n. Tarkan hinnan laskemme toiveidesi mukaan, ja toimituskulut Suomeen kerromme samalla.")
     if I['own']:
         o, many = join(I['own'], lang), len(I['own']) > 1
         out.append({'en': f"{o} {'have their own pages' if many else 'has its own page'}.",
@@ -825,10 +831,10 @@ def series_desc(S, I, lang, h1):
     if S['b'] == 'BC Forged':
         rng = f"{I['ds'][0]}-{I['ds'][-1]}″"
         mono = I['typ'] == 'mono'
-        return {'en': f"{h1}: {n} {'monoblock' if mono else 'two-piece'} designs, {rng}, from {pr} per set incl. VAT and delivery. Fitment for your car, a sketch before you pay.",
-                'et': f"{h1}: {models_n(n, lang)}, {'monoblokkveljed' if mono else 'kaheosalised veljed'}, {rng}, komplekt alates {pr} koos käibemaksu ja tarnega. Valik teie auto järgi, eskiis enne makset.",
-                'ru': f"{h1}: {models_n(n, lang)}, {'моноблоки' if mono else 'двухсоставные'}, {rng}, комплект от {pr} с НДС и доставкой. Подбор под вашу машину, эскиз до оплаты.",
-                'fi': f"{h1}: {n} {'yksiosaista' if mono else 'kaksiosaista'} mallia, {rng}, sarja alkaen {pr} sis. ALV:n ja toimituksen. Tarkistamme sopivuuden ja näytämme kuvan ennen maksua."}[lang]
+        return {'en': f"{h1}: {n} {'monoblock' if mono else 'two-piece'} designs, {rng}, from {pr} per set incl. VAT and delivery within Estonia. Fitment for your car, a sketch before you pay.",
+                'et': f"{h1}: {models_n(n, lang)}, {'monoblokkveljed' if mono else 'kaheosalised veljed'}, {rng}, komplekt alates {pr} koos käibemaksu ja tarnega Eestis. Valik teie auto järgi, eskiis enne makset.",
+                'ru': f"{h1}: {models_n(n, lang)}, {'моноблоки' if mono else 'двухсоставные'}, {rng}, комплект от {pr} с НДС и доставкой по Эстонии. Подбор под вашу машину, эскиз до оплаты.",
+                'fi': f"{h1}: {n} {'yksiosaista' if mono else 'kaksiosaista'} mallia, {rng}, sarja alkaen {pr} sis. ALV:n, toimituskulut Suomeen erikseen. Tarkistamme sopivuuden ja näytämme kuvan ennen maksua."}[lang]
     for v in ([join(I['vers'], lang)] if len(I['vers']) > 1 else []) + ['']:  # список исполнений, только если описание не слишком длинное
         d = bx_desc(h1, n, v, pr, lang)
         if len(d) <= 165:
@@ -836,10 +842,10 @@ def series_desc(S, I, lang, h1):
     return d
 
 def bx_desc(h1, n, v, pr, lang):
-    return {'en': f"{h1}: {models_n(n, lang).replace('model', 'design')}" + (f" in {v} versions" if v else '') + f", indicative price from {pr} per set incl. VAT and delivery. A sketch before you pay.",
-            'et': f"{h1}: {models_n(n, lang)}" + (f", versioonid {v}" if v else '') + f", komplekt alates {pr} koos käibemaksu ja tarnega (ligikaudne hind). Eskiis enne makset.",
-            'ru': f"{h1}: {models_n(n, lang)}" + (f", исполнения {v}" if v else '') + f", комплект от {pr} с НДС и доставкой (ориентировочно). Эскиз до оплаты.",
-            'fi': f"{h1}: {models_n(n, lang)}" + (f", versiot {v}" if v else '') + f", sarja alkaen {pr} sis. ALV:n ja toimituksen (suuntaa-antava hinta). Näet kuvan ennen maksua."}[lang]
+    return {'en': f"{h1}: {models_n(n, lang).replace('model', 'design')}" + (f" in {v} versions" if v else '') + f", indicative price from {pr} per set incl. VAT and delivery within Estonia. A sketch before you pay.",
+            'et': f"{h1}: {models_n(n, lang)}" + (f", versioonid {v}" if v else '') + f", komplekt alates {pr} koos käibemaksu ja tarnega Eestis (ligikaudne hind). Eskiis enne makset.",
+            'ru': f"{h1}: {models_n(n, lang)}" + (f", исполнения {v}" if v else '') + f", комплект от {pr} с НДС и доставкой по Эстонии (ориентировочно). Эскиз до оплаты.",
+            'fi': f"{h1}: {models_n(n, lang)}" + (f", versiot {v}" if v else '') + f", sarja alkaen {pr} sis. ALV:n (suuntaa-antava hinta), toimituskulut Suomeen erikseen. Näet kuvan ennen maksua."}[lang]
 
 def series_card(S, wheels, lang):
     """Карточка серии для каталога и блока «Другие серии»."""
