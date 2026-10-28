@@ -1,0 +1,24 @@
+name: rehvo-feed-et
+# Эстонский фид Merchant Center для rehvo.ee из русского фида сайта.
+# Файл публикуется как https://jukamedia.com/rehvo/feed/google-feed-et.xml
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['rehvo/tools/build_feed_et.py', '.github/workflows/rehvo-feed-et.yml']
+  schedule:
+    - cron: '41 3 * * *'
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 rehvo/tools/build_feed_et.py
+      - run: |
+          git config user.name "rehvo-bot"; git config user.email "auppost@gmail.com"
+          git add rehvo/feed
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Rehvo: Estonian Merchant Center feed"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q && break; sleep 5; done
