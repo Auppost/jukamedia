@@ -95,6 +95,7 @@ def build(lang):
     s = S[lang]
     wheels, _ = W.collect(lang)
     wheels = {k: w for k, w in wheels.items() if w['imgs']}
+    W.layout(wheels)  # адреса моделей: отдельная страница или раздел серии (W.HREF)
     curated = json.load(open(os.path.join(ROOT, 'tools', f'fitment-{lang}.json')))
     items, idx = [], {}
 
@@ -105,7 +106,7 @@ def build(lang):
 
     def wheel(k, specific):
         w = wheels[k]
-        return add('w:' + k + (':s' if specific else ''), dict(u=f'wheels/{k}/', i=small(w['imgs'][0]), b=w['b'], n=w['n'],
+        return add('w:' + k + (':s' if specific else ''), dict(u='wheels/' + W.HREF[k], i=small(w['imgs'][0]), b=w['b'], n=w['n'],
                    s=(w['spec'][0] if w['spec'] else '') if not specific else (w['spec'][0] if w['spec'] else ''), p=w['p'], f=1 if specific else 0))
 
     general = [k for k, w in wheels.items() if w['featured'] and w['p']][:4]

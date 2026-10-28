@@ -52,7 +52,7 @@ T = {
   other=['Заказываем через европейского дистрибьютора', 'Срок и точную цену подтверждаем после подбора под вашу машину', 'Доставка в Эстонию, Латвию, Литву и Финляндию входит в цену'],
   pay='Подбор бесплатный: сначала эскиз и точная цена, потом решение',
   per_wheel='', mono='моноблок', two='двухсоставной',
-  foot='Кованые диски BC Forged, Brixton Forged и MV Forged под заказ в Таллинне', city='Таллинн, Эстония',
+  foot='Кованые диски BC Forged и Brixton Forged под заказ в Таллинне', city='Таллинн, Эстония',
   credits='Фото дисков и автомобилей: BC Forged, Brixton Forged и их дистрибьюторы. Названия брендов принадлежат их владельцам',
   ptable='Цена комплекта по диаметру', col_d='Диаметр', col_w='Ширина', col_p='Комплект из 4', ptable_note='С НДС и доставкой в Эстонию, Латвию, Литву или Финляндию. Опции оплачиваются отдельно: полированная полка, накатка. Фрезерованный центральный колпачок в комплекте', series='Серия {s}', filt_all='Все', sizes_d='Размеры {a}-{b}″.',
   brand_title='Диски {b} под заказ в Таллинне: все модели и цены | Nordvelg', brand_desc='Все модели {b} под заказ с доставкой в Эстонию, Латвию, Литву и Финляндию. Подбор под ваш автомобиль, эскиз до оплаты.', brand_h1='Диски {b}', all_brand='Все модели {b}: {n}', on_req_note='Цену считаем под вашу машину и спецификацию',
@@ -76,7 +76,7 @@ T = {
   other=['Tellime Euroopa turustaja kaudu', 'Tähtaja ja täpse hinna kinnitame pärast valikut teie auto järgi', 'Tarne Eestisse, Lätti, Leetu ja Soome on hinna sees'],
   pay='Valik on tasuta: kõigepealt eskiis ja täpne hind, siis otsus',
   per_wheel='', mono='monoblokk', two='kaheosaline',
-  foot='BC Forged, Brixton Forged ja MV Forged sepistatud veljed tellimusel Tallinnas', city='Tallinn, Eesti',
+  foot='BC Forged ja Brixton Forged sepistatud veljed tellimusel Tallinnas', city='Tallinn, Eesti',
   credits='Velgede ja autode fotod: BC Forged, Brixton Forged ja nende turustajad. Kaubamärgid kuuluvad nende omanikele',
   ptable='Komplekti hind läbimõõdu järgi', col_d='Läbimõõt', col_w='Laius', col_p='4 velje komplekt', ptable_note='Koos käibemaksu ja tarnega Eestisse, Lätti, Leetu või Soome. Lisavalikud eraldi: poleeritud äär, rihveldus. Freesitud rummukate on komplektis', series='Seeria {s}', filt_all='Kõik', sizes_d='Mõõdud {a}-{b}″.',
   brand_title='{b} veljed tellimusel Tallinnas: kõik mudelid ja hinnad | Nordvelg', brand_desc='Kõik {b} mudelid tellimusel tarnega Eestisse, Lätti, Leetu ja Soome. Valik teie auto järgi, eskiis enne makset.', brand_h1='{b} veljed', all_brand='Kõik {b} mudelid: {n}', on_req_note='Hinna arvutame teie auto ja spetsifikatsiooni järgi',
@@ -100,7 +100,7 @@ T = {
   other=['Ordered through a European distributor', 'Lead time and exact price confirmed after the fitment check', 'Delivery to Estonia, Latvia, Lithuania and Finland is included in the price'],
   pay='The fitment check is free: first a sketch and an exact price, then you decide',
   per_wheel='', mono='monoblock', two='two-piece',
-  foot='BC Forged, Brixton Forged and MV Forged wheels made to order in Tallinn', city='Tallinn, Estonia',
+  foot='BC Forged and Brixton Forged wheels made to order in Tallinn', city='Tallinn, Estonia',
   credits='Wheel and car photos: BC Forged, Brixton Forged and their distributors. Brand names belong to their owners',
   ptable='Set price by diameter', col_d='Diameter', col_w='Width', col_p='Set of 4', ptable_note='Incl. VAT and delivery to Estonia, Latvia, Lithuania or Finland. Options are extra: polished lip, knurling. A machined centre cap is included', series='{s} series', filt_all='All', sizes_d='Sizes {a}-{b}″.',
   brand_title='{b} wheels made to order in Tallinn: all models and prices | Nordvelg', brand_desc='All {b} models made to order with delivery to Estonia, Latvia, Lithuania and Finland. Fitment for your car, a sketch before you pay.', brand_h1='{b} wheels', all_brand='All {b} models: {n}', on_req_note='We price it for your car and specification',
@@ -126,7 +126,7 @@ T['fi'] = dict(
   other=['Tilaamme eurooppalaisen jakelijan kautta', 'Toimitusajan ja tarkan hinnan vahvistamme, kun sopivuus autoosi on tarkistettu', 'Toimitus Suomeen, Viroon, Latviaan ja Liettuaan sisältyy hintaan'],
   pay='Sopivuuden tarkistus on maksuton: ensin näet kuvan ja tarkan hinnan, sitten päätät',
   per_wheel='', mono='yksiosainen', two='kaksiosainen',
-  foot='Taotut BC Forged-, Brixton Forged- ja MV Forged -vanteet tilauksesta, toimitus myös Suomeen', city='Tallinna, Viro',
+  foot='Taotut BC Forged- ja Brixton Forged -vanteet tilauksesta, toimitus myös Suomeen', city='Tallinna, Viro',
   credits='Vanteiden ja autojen kuvat: BC Forged, Brixton Forged ja niiden jakelijat. Tuotemerkit kuuluvat omistajilleen',
   ptable='Sarjan hinta halkaisijan mukaan', col_d='Halkaisija', col_w='Leveys', col_p='4 vanteen sarja', ptable_note='Sisältää ALV:n ja toimituksen Suomeen, Viroon, Latviaan tai Liettuaan. Lisävarusteet maksavat erikseen: kiillotettu lippa ja pyälletty olake. Jyrsityt keskikapselit kuuluvat sarjaan', series='Sarja {s}', filt_all='Kaikki', sizes_d='Koot {a}-{b}″.',
   brand_title='{b} -vanteet tilauksesta: kaikki mallit ja hinnat | Nordvelg', brand_desc='Kaikki {b} -mallit tilauksesta, ja toimitus Suomeen, Viroon, Latviaan ja Liettuaan sisältyy hintaan. Tarkistamme sopivuuden ja näytämme vanteet kuvassa autossasi ennen maksua.', brand_h1='{b} -vanteet', all_brand='Kaikki {b} -mallit: {n}', on_req_note='Hinta lasketaan autosi ja toiveidesi mukaan',
@@ -446,10 +446,14 @@ def card(d, lang):
     w, h = dims(src)
     price = fmt(d['p'], lang) if d['p'] else t['on_request']
     spec = ''.join(f'<span>{esc(x)}</span>' for x in d['spec'][:2])
-    da = f' data-type="{d.get("typ", "")}" data-series="{esc(d.get("series") or "")}"'
-    return f'<a class="card"{da} href="/{LANGS[lang]}wheels/{k}/"><div class="stage"><img src="{src}" width="{w}" height="{h}" loading="lazy" decoding="async" alt="{esc(d["b"] + " " + d["n"])}"></div><span class="brand">{esc(d["b"])}</span><h3>{esc(d["n"])}</h3><div class="spec">{spec}</div><div class="price">{price}</div></a>'
+    ser = d['series'] if d.get('is_series') else (prefix(k, d) if d['b'] == 'BC Forged' else '')
+    da = f' data-type="{d.get("typ", "")}" data-series="{esc(ser or "")}"'
+    href = f'{k}/' if d.get('is_series') else HREF.get(k, f'{k}/')
+    return f'<a class="card"{da} href="/{LANGS[lang]}wheels/{href}"><div class="stage"><img src="{src}" width="{w}" height="{h}" loading="lazy" decoding="async" alt="{esc(d.get("alt") or d["b"] + " " + d["n"])}"></div><span class="brand">{esc(d["b"])}</span><h3>{esc(d["n"])}</h3><div class="spec">{spec}</div><div class="price">{price}</div></a>'
 
-def page(k, d, lang, all_wheels):
+def page(k, d, lang, all_wheels, series=None):
+    series = series or {}
+    S = series.get(GROUP_OF.get(k))
     t = T[lang]; name = f"{d['b']} {d['n']}"
     alts = {l: f"{SITE}/{LANGS[l]}wheels/{k}/" for l in LANGS}
     url = alts[lang]
@@ -471,12 +475,17 @@ def page(k, d, lang, all_wheels):
         prod["offers"] = offer(d['p'], url, d['b'])
     crumbs = {"@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Nordvelg", "item": f"{SITE}/{LANGS[lang]}"},
-        {"@type": "ListItem", "position": 2, "name": t['catalog'], "item": f"{SITE}/{LANGS[lang]}wheels/"},
-        {"@type": "ListItem", "position": 3, "name": name, "item": url}]}
+        {"@type": "ListItem", "position": 2, "name": t['catalog'], "item": f"{SITE}/{LANGS[lang]}wheels/"}]}
+    p = '/' + LANGS[lang]
+    sh1 = G[lang]['h1'].format(b=S['b'], s=S['s']) if S else None
+    scrumb = ''
+    if S:  # модель с отдельной страницей внутри серии: в крошках есть серия
+        crumbs["itemListElement"].append({"@type": "ListItem", "position": 3, "name": sh1, "item": f"{SITE}/{LANGS[lang]}wheels/{S['slug']}/"})
+        scrumb = f'<a href="{p}wheels/{S["slug"]}/">{esc(sh1)}</a><span>/</span>'
+    crumbs["itemListElement"].append({"@type": "ListItem", "position": len(crumbs["itemListElement"]) + 1, "name": name, "item": url})
     out += '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": ([prod] if d['p'] else []) + [crumbs]}, ensure_ascii=False, separators=(',', ':')) + '</script>\n</head>\n<body>\n'
     out += header(lang, alts)
-    p = '/' + LANGS[lang]
-    out += f'<main class="wrap">\n<nav class="crumbs" aria-label="breadcrumbs"><a href="{p}">Nordvelg</a><span>/</span><a href="{p}wheels/">{t["catalog"]}</a><span>/</span><span aria-current="page">{esc(name)}</span></nav>\n'
+    out += f'<main class="wrap">\n<nav class="crumbs" aria-label="breadcrumbs"><a href="{p}">Nordvelg</a><span>/</span><a href="{p}wheels/">{t["catalog"]}</a><span>/</span>{scrumb}<span aria-current="page">{esc(name)}</span></nav>\n'
     # gallery
     gal = ''
     for n, i in enumerate(imgs):
@@ -526,27 +535,33 @@ def page(k, d, lang, all_wheels):
     if d['cars']:
         out += f'<section class="fits"><h2>{t["fits"]}</h2><div class="chips">{"".join(f"<span>{esc(c)}</span>" for c in d["cars"][:40])}</div><p class="note">{t["fits_note"]}</p></section>\n'
     out += f'<section class="how"><h2>{t["how"]}</h2><ol>{"".join(f"<li>{x}</li>" for x in t["steps"])}</ol></section>\n'
-    rel = [w for kk, w in all_wheels.items() if kk != k and d.get('series') and w.get('series') == d.get('series')][:4]
-    rel += [w for kk, w in all_wheels.items() if kk != k and w['b'] == d['b'] and w not in rel and w['featured']][:4 - len(rel)]
-    rel += [w for kk, w in all_wheels.items() if kk != k and w['b'] == d['b'] and w not in rel][:4 - len(rel)]
+    # рядом: своя серия, другие отдельные страницы той же серии и бренда, затем другие серии бренда
+    own = [w for kk, w in all_wheels.items() if kk != k and HREF.get(kk) == f'{kk}/']
+    rel = [series_card(S, all_wheels, lang)] if S else []
+    rel += [w for w in own if S and GROUP_OF.get(w['key']) == S['slug']][:4 - len(rel)]
+    rel += [w for w in own if w['b'] == d['b'] and w not in rel and w['featured']][:4 - len(rel)]
+    others = sorted((x for x in series.values() if x['b'] == d['b'] and x is not S), key=lambda x: -len(x['models']))
+    rel += [series_card(x, all_wheels, lang) for x in others][:4 - len(rel)]
+    rel += [w for w in own if w['b'] == d['b'] and w not in rel][:4 - len(rel)]
     if len(rel) < 4:
-        rel += [w for kk, w in all_wheels.items() if kk != k and w['b'] != d['b'] and w['featured']][:4 - len(rel)]
+        rel += [w for w in own if w['b'] != d['b'] and w['featured']][:4 - len(rel)]
     out += f'<section class="rel"><div class="rh"><h2>{t["more"].format(brand=d["b"])}</h2><a href="{p}wheels/">{t["all"]}</a></div><div class="grid">{"".join(card(w, lang) for w in rel)}</div></section>\n</main>\n'
     out += f'<div class="lb" hidden><button type="button" class="x" aria-label="{t["close"]}">×</button></div>\n'
     out += footer(lang)
     out += f'<script src="/js/wheel.js?v={V("js/wheel.js")}" defer></script>\n</body>\n</html>\n'
     return fi_fix(out) if lang == 'fi' else out
 
-def catalog(lang, wheels, brand=None):
+def catalog(lang, wheels, brand=None, series=None):
     t = T[lang]
     sub = f"wheels/brand/{bslug(brand)}/" if brand else "wheels/"
     alts = {l: f"{SITE}/{LANGS[l]}{sub}" for l in LANGS}
-    sel = {k: w for k, w in wheels.items() if (brand is None or w['b'] == brand)}
+    # карточки: отдельные страницы моделей и страницы серий (модели серий внутри них)
+    sel = {e['key']: e for e in entries(wheels, series or {}, lang) if brand is None or e['b'] == brand}
     title = fit(t['brand_title'].format(b=brand) if brand else t['cat_title'])
     desc = t['brand_desc'].format(b=brand) if brand else t['cat_desc']
     h1 = t['brand_h1'].format(b=brand) if brand else t['cat_h1']
     out = head_common(lang, title, desc, alts[lang], alts, SITE + '/img/og-nordvelg.jpg')
-    items = [{"@type": "ListItem", "position": i + 1, "url": f"{SITE}/{LANGS[lang]}wheels/{k}/", "name": f"{w['b']} {w['n']}"} for i, (k, w) in enumerate(sel.items())]
+    items = [{"@type": "ListItem", "position": i + 1, "url": f"{SITE}/{LANGS[lang]}wheels/{k}/", "name": w.get('alt') or f"{w['b']} {w['n']}"} for i, (k, w) in enumerate(sel.items())]
     out += '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@type": "ItemList", "name": h1, "itemListElement": items[:500]}, ensure_ascii=False, separators=(',', ':')) + '</script>\n</head>\n<body>\n'
     out += header(lang, alts)
     p = '/' + LANGS[lang]
@@ -561,39 +576,455 @@ def catalog(lang, wheels, brand=None):
         bw = [w for w in sel.values() if w['b'] == b]
         filt = ''
         if brand and b == 'BC Forged':
-            series = sorted({w.get('series') for w in bw if w.get('series')})
-            opts = ''.join(f'<option value="{esc(x)}">{esc(t["series"].format(s=x))}</option>' for x in series)
+            sers = sorted({w['series'] if w.get('is_series') else prefix(w['key'], w) for w in bw})
+            opts = ''.join(f'<option value="{esc(x)}">{esc(G[lang]["card"].format(s=x))}</option>' for x in sers)
             filt = (f'<div class="filters" role="group"><button type="button" class="on" data-f="">{t["filt_all"]}</button>'
                     f'<button type="button" data-f="mono">{t["mono"]}</button><button type="button" data-f="two">{t["two"]}</button>'
-                    f'<select aria-label="{t["series"].format(s="")}"><option value="">{t["filt_all"]}</option>{opts}</select></div>')
+                    f'<select aria-label="{G[lang]["series_l"]}"><option value="">{t["filt_all"]}</option>{opts}</select></div>')
         show = bw if brand else bw[:8]
-        more = '' if brand else f'<a href="{p}wheels/brand/{bslug(b)}/">{t["all_brand"].format(b=b, n=len(bw))}</a>'
+        nb = brand_models(b, wheels)
+        more = '' if brand else f'<a href="{p}wheels/brand/{bslug(b)}/">{t["all_brand"].format(b=b, n=nb)}</a>'
         head = f'<h2>{esc(b)}</h2>' if brand else f'<div class="rh"><h2>{esc(b)}</h2>{more}</div>'
         out += f'<section class="rel" data-brand="{esc(b)}">{head}{filt}<div class="grid">{"".join(card(w, lang) for w in show)}</div>'
         if not brand and len(bw) > 8:
-            out += f'<p style="margin-top:18px"><a class="btn ghost" href="{p}wheels/brand/{bslug(b)}/">{t["all_brand"].format(b=b, n=len(bw))}</a></p>'
+            out += f'<p style="margin-top:18px"><a class="btn ghost" href="{p}wheels/brand/{bslug(b)}/">{t["all_brand"].format(b=b, n=nb)}</a></p>'
         out += '</section>\n'
     out += '</main>\n' + footer(lang) + f'<script src="/js/wheel.js?v={V("js/wheel.js")}" defer></script>\n</body>\n</html>\n'
     return fi_fix(out) if lang == 'fi' else out
 
+# ---- Серии и семейства (с 28.10.2026) --------------------------------------------------------------
+# Google не индексировал ~1 150 тонких страниц моделей. Отдельные страницы остались только у моделей с
+# авторским текстом (wheel_copy.json), приоритетных (PRIORITY) и моделей с главной; остальные модели BC Forged
+# собраны на странице серии (буквенный префикс: bc-forged-kl-series), модели Brixton на странице семейства
+# (brixton-forged-pf-series), у каждой модели свой раздел с id. Старые адреса: tools/redirects-wheels.json.
+G = {
+ 'en': dict(h1='{b} {s} series', card='{s} series', title='{h1}: forged wheels made to order | Nordvelg', short='{h1}: forged wheels',
+            nav='Models in the series', own='Models with their own page', vers='Versions', own_link='own page',
+            more='More {b} series', series_l='Series', mono='monoblock', two='two-piece', a='and'),
+ 'et': dict(h1='{b} {s} seeria', card='{s} seeria', title='{h1}: sepistatud veljed tellimusel | Nordvelg', short='{h1}: sepistatud veljed',
+            nav='Seeria mudelid', own='Mudelid, millel on oma leht', vers='Versioonid', own_link='oma leht',
+            more='Teised {b} seeriad', series_l='Seeria', mono='monoblokk', two='kaheosaline', a='ja'),
+ 'ru': dict(h1='Серия {b} {s}', card='Серия {s}', title='{h1}: кованые диски под заказ | Nordvelg', short='{h1}: кованые диски',
+            nav='Модели серии', own='Модели с отдельной страницей', vers='Исполнения', own_link='отдельная страница',
+            more='Другие серии {b}', series_l='Серия', mono='моноблок', two='двухсоставной', a='и'),
+ 'fi': dict(h1='{b} {s} -sarja', card='{s}-sarja', title='{h1}: taotut vanteet tilauksesta | Nordvelg', short='{h1}: taotut vanteet',
+            nav='Sarjan mallit', own='Mallit, joilla on oma sivu', vers='Versiot', own_link='oma sivu',
+            more='Muut {b} -sarjat', series_l='Sarja', mono='yksiosainen', two='kaksiosainen', a='ja'),
+}
+
+def ru_pl(n, one, few, many):
+    return one if n % 10 == 1 and n % 100 != 11 else few if 2 <= n % 10 <= 4 and not 12 <= n % 100 <= 14 else many
+
+def models_n(n, lang):
+    """«17 моделей» на нужном языке."""
+    return {'en': f'{n} model' + ('' if n == 1 else 's'), 'et': f'{n} mudel' + ('' if n == 1 else 'it'),
+            'ru': f'{n} ' + ru_pl(n, 'модель', 'модели', 'моделей'), 'fi': f'{n} malli' + ('' if n == 1 else 'a')}[lang]
+
+def join(xs, lang):
+    xs = list(xs)
+    return xs[0] if len(xs) == 1 else ', '.join(xs[:-1]) + f" {G[lang]['a']} " + xs[-1]
+
+def num(p, lang):
+    s = f'{p:,}'.replace(',', ' ' if lang != 'en' else ',')
+    return f'€{s}' if lang == 'en' else f'{s} €'
+
+def wnum(w, lang):
+    s = f'{float(w):g}'
+    return s.replace('.', ',') if lang == 'fi' else s
+
+BX_RX = re.compile(r'^([A-Z]+\d+(?:\.\d+)?[A-Z]?(?:-R(?!S))?)(?:[\s-]+(.*))?$')
+BX_ORDER = ['Duo Series', 'Targa Series', 'UltraSport+', 'RS', 'Carbon+', 'Circuit+', 'Monoblock', 'Magnesium+']
+
+def bx_split(n):
+    """«CM5-R ULTRASPORT+» -> ('CM5-R', 'UltraSport+'), «PF14-RS» -> ('PF14', 'RS'), «WR3 wheel UltraSport+ forged» -> ('WR3', 'UltraSport+')."""
+    m = BX_RX.match(n)
+    if not m:
+        return n, ''
+    v = (m.group(2) or '').strip()
+    v = re.sub(r'(?i)^(?:wheel\s+)?ultrasport\+(?:\s+forged)?', 'UltraSport+', v)
+    v = re.sub(r'^(Carbon\+|Circuit\+) Series$', r'\1', v)
+    return m.group(1), v
+
+def natkey(s):
+    return [int(x) if x.isdigit() else x for x in re.split(r'(\d+)', s)]
+
+def prefix(k, d):
+    """Серия BC Forged по буквам модели (EH, EH⁺ и EH-T вместе), семейство Brixton по буквам модели."""
+    if d['b'] == 'BC Forged':
+        return re.match(r'bc-forged-([a-z]+)', k).group(1).upper()
+    if d['b'] == 'Brixton Forged':
+        return re.match(r'[A-Z]+', bx_split(d['n'])[0]).group(0)
+    return None
+
+HREF = {}  # ключ модели -> адрес относительно wheels/ («bc-forged-kl01/» или «bc-forged-kl-series/#kl05»)
+GROUP_OF = {}  # ключ модели -> адрес серии, в которую она входит (для отдельных страниц тоже)
+
+def widths(ptabs):
+    ws = sorted({float(w) for pt in ptabs for _, wl, _ in (pt or []) for w in wl})
+    return (ws[0], ws[-1]) if ws else None
+
+def layout(wheels):
+    """Делит модели на отдельные страницы и серии. Возвращает (элементы каталога, серии); заполняет HREF и GROUP_OF."""
+    stand = set(COPY) | PRIORITY
+    groups = {}
+    for k, d in wheels.items():
+        pf = prefix(k, d)
+        if pf:
+            groups.setdefault((d['b'], pf), []).append(k)
+    series = {}
+    for (b, pf), ks in groups.items():
+        sl = f"{bslug(b)}-{pf.lower()}-series"
+        own = [k for k in ks if k in stand or wheels[k]['featured']]
+        rest = [k for k in ks if k not in own]
+        if b == 'Brixton Forged':
+            mods = {}
+            for k in rest:
+                mods.setdefault(bx_split(wheels[k]['n'])[0], []).append(k)
+            if len(rest) == 1 and len(mods) == 1 and not own:  # одиночная модель без вариантов: своя страница, серия не нужна
+                own, rest, mods = rest, [], {}
+        if not rest:
+            for k in ks:
+                HREF[k] = f'{k}/'
+            continue
+        S = dict(slug=sl, b=b, s=pf, own=sorted(own, key=lambda k: natkey(wheels[k]['n'])), models=[])
+        if b == 'BC Forged':
+            for k in sorted(rest, key=lambda k: natkey(wheels[k]['n'])):
+                d = wheels[k]
+                S['models'].append(dict(a=k[len('bc-forged-'):], n=d['n'], keys=[k], d=d))
+        else:
+            for mn in sorted(mods, key=natkey):
+                ks2 = sorted(mods[mn], key=lambda k: (BX_ORDER.index(bx_split(wheels[k]['n'])[1]) if bx_split(wheels[k]['n'])[1] in BX_ORDER else 99, wheels[k]['n']))
+                S['models'].append(dict(a=slug('', mn), n=mn, keys=ks2, d=None))
+        for m in S['models']:
+            for k in m['keys']:
+                HREF[k] = f"{sl}/#{m['a']}"
+                GROUP_OF[k] = sl
+        for k in own:
+            HREF[k] = f'{k}/'
+            GROUP_OF[k] = sl
+        series[sl] = S
+    for k in wheels:
+        HREF.setdefault(k, f'{k}/')
+    return series
+
+def series_info(S, wheels, lang):
+    """Факты для вступления и карточки серии: число моделей, конструкция, диаметры, ширины, цена «от»."""
+    ks = [k for m in S['models'] for k in m['keys']] + S['own']
+    ws = [wheels[k] for k in ks]
+    ds = sorted({x for w in ws for x in (w.get('sizes') or [])})
+    pt = [w.get('ptab') for w in ws] + [v.get('ptab') for w in ws for v in (w.get('variants') or [])]
+    ps = [w['p'] for w in ws if w.get('p')]
+    if S['b'] == 'Brixton Forged':
+        names = sorted({bx_split(w['n'])[0] for w in ws}, key=natkey)
+        vers = sorted({bx_split(w['n'])[1] for w in ws if bx_split(w['n'])[1]}, key=lambda v: (BX_ORDER.index(v) if v in BX_ORDER else 99, v))
+    else:
+        names = [m['n'] for m in S['models']] + [wheels[k]['n'] for k in S['own']]
+        vers = []
+    subs = []
+    if S['b'] == 'BC Forged':
+        for w in ws:
+            if w.get('series') and w['series'] not in subs:
+                subs.append(w['series'])
+    typs = {w.get('typ') for w in ws if w.get('typ')}
+    return dict(n=len(names), names=names, vers=vers, ds=ds, w=widths(pt), p=min(ps) if ps else None,
+                typ=typs.pop() if len(typs) == 1 else None, subs=sorted(subs, key=len) if len(subs) > 1 else [],
+                own=[wheels[k]['n'] for k in S['own']])
+
+def intro(S, I, lang):
+    """2-4 предложения из данных серии, без придуманных свойств."""
+    b, s, n, p = S['b'], S['s'], I['n'], I['p']
+    out = []
+    if b == 'BC Forged':
+        a, z = I['ds'][0], I['ds'][-1]
+        wa, wb = (wnum(I['w'][0], lang), wnum(I['w'][1], lang)) if I['w'] else (None, None)
+        mono = I['typ'] == 'mono'
+        if lang == 'en':
+            out.append(f"The {b} {s} series has {'one' if n == 1 else n} {'monoblock' if mono else 'two-piece'} design{'' if n == 1 else 's'}.")
+            if I['subs']:
+                out.append(f"It includes the {join(I['subs'], lang)} lines.")
+            out.append(f"Diameters run from {a} to {z}″" + (f" and widths from {wa} to {wb}J" if wa else '') + ", and every wheel is machined to your car's bolt pattern, centre bore and offset.")
+            if p:
+                out.append(f"A set of four costs from {num(p, lang)} incl. VAT and delivery.")
+        elif lang == 'et':
+            out.append(f"{b} {s} seerias on {models_n(n, lang)}, " + ('kõik monoblokkveljed.' if mono else 'kõik kaheosalised veljed.') if n > 1 else
+                       f"{b} {s} seerias on 1 mudel, " + ('monoblokkvelg.' if mono else 'kaheosaline velg.'))
+            if I['subs']:
+                out.append(f"Seeriasse kuuluvad alaseeriad {join(I['subs'], lang)}.")
+            out.append(f"Läbimõõdud on {a}-{z}″" + (f" ja laiused {wa}-{wb}J" if wa else '') + ". Iga velg freesitakse teie auto poldimustri, tsentriava ja ET järgi.")
+            if p:
+                out.append(f"Nelja velje komplekt maksab alates {num(p, lang)}, hinnas on käibemaks ja tarne.")
+        elif lang == 'ru':
+            out.append(f"В серии {b} {s} {models_n(n, lang)}, " + ('все моноблоки.' if mono else 'все двухсоставные.') if n > 1 else
+                       f"В серии {b} {s} одна модель, " + ('моноблок.' if mono else 'двухсоставная.'))
+            if I['subs']:
+                out.append(f"В неё входят линейки {join(I['subs'], lang)}.")
+            out.append(f"Диаметры от {a} до {z}″" + (f", ширина от {wa} до {wb}J" if wa else '') + ". Каждый диск фрезеруют под разболтовку, центральное отверстие и вылет вашей машины.")
+            if p:
+                out.append(f"Комплект из 4 дисков стоит от {num(p, lang)} с НДС и доставкой.")
+        else:
+            out.append(f"{b} {s} -sarjassa on {models_n(n, lang)}, ja " + ('kaikki ovat yksiosaisia.' if mono else 'kaikki ovat kaksiosaisia.') if n > 1 else
+                       f"{b} {s} -sarjassa on 1 malli, joka on " + ('yksiosainen.' if mono else 'kaksiosainen.'))
+            if I['subs']:
+                out.append(f"Sarjaan kuuluvat alasarjat {join(I['subs'], lang)}.")
+            out.append(f"Halkaisijat ovat {a}-{z}″" + (f" ja leveydet {wa}-{wb}J" if wa else '') + ". Jokainen vanne jyrsitään autosi pulttijaon, keskireiän ja ET:n mukaan.")
+            if p:
+                out.append(f"4 vanteen sarja maksaa alkaen {num(p, lang)}, ja hinta sisältää ALV:n ja toimituksen.")
+    else:
+        names, vers = join(I['names'], lang), join(I['vers'], lang) if I['vers'] else ''
+        if n == 1 and vers:  # одна модель в нескольких исполнениях
+            out.append({'en': f"The {b} {s} series is one design, {names}, available as {vers}.",
+                        'et': f"{b} {s} seerias on üks mudel, {names}, ja selle versioonid on {vers}.",
+                        'ru': f"В серии {b} {s} одна модель, {names}, в исполнениях {vers}.",
+                        'fi': f"{b} {s} -sarjassa on yksi malli, {names}, ja sen versiot ovat {vers}."}[lang])
+            names = vers = ''
+        if not names:
+            pass
+        elif lang == 'en':
+            out.append(f"The {b} {s} series has {models_n(n, lang).replace('model', 'design')}: {names}.")
+        elif lang == 'et':
+            out.append(f"{b} {s} seerias on {models_n(n, lang)}: {names}.")
+        elif lang == 'ru':
+            out.append(f"В серии {b} {s} {models_n(n, lang)}: {names}.")
+        else:
+            out.append(f"{b} {s} -sarjassa on {models_n(n, lang)}: {names}.")
+        if len(I['vers']) == 1 and vers:  # все модели в одном исполнении
+            out.append({'en': f"All of them come as {vers}.", 'et': f"Kõik mudelid on saadaval {vers} versioonis.",
+                        'ru': f"Все в исполнении {vers}.", 'fi': f"Kaikista malleista on saatavana versio {vers}."}[lang])
+            vers = ''
+        if lang == 'en':
+            if vers:
+                out.append(f"Versions: {vers}.")
+            if p:
+                out.append(f"An indicative price for a set of four starts from {num(p, lang)} incl. VAT and delivery, and we confirm the exact price for your specification.")
+        elif lang == 'et':
+            if vers:
+                out.append(f"Versioonid: {vers}.")
+            if p:
+                out.append(f"Nelja velje komplekti ligikaudne hind on alates {num(p, lang)}, hinnas on käibemaks ja tarne. Täpse hinna arvutame teie spetsifikatsiooni järgi.")
+        elif lang == 'ru':
+            if vers:
+                out.append(f"Исполнения: {vers}.")
+            if p:
+                out.append(f"Ориентировочная цена комплекта из 4 дисков от {num(p, lang)} с НДС и доставкой, точную посчитаем по вашей спецификации.")
+        else:
+            if vers:
+                out.append(f"Versiot: {vers}.")
+            if p:
+                out.append(f"4 vanteen sarjan suuntaa-antava hinta on alkaen {num(p, lang)}, ja hinta sisältää ALV:n ja toimituksen. Tarkan hinnan laskemme toiveidesi mukaan.")
+    if I['own']:
+        o, many = join(I['own'], lang), len(I['own']) > 1
+        out.append({'en': f"{o} {'have their own pages' if many else 'has its own page'}.",
+                    'et': f"{'Mudelitel' if many else 'Mudelil'} {o} on {'omad lehed' if many else 'oma leht'}.",
+                    'ru': f"У {o} есть {'отдельные страницы' if many else 'отдельная страница'}.",
+                    'fi': f"{'Malleilla' if many else 'Mallilla'} {o} on {'omat sivut' if many else 'oma sivu'}."}[lang])
+    return ' '.join(out)
+
+def series_desc(S, I, lang, h1):
+    n, p = I['n'], I['p']
+    pr = num(p, lang) if p else ''
+    if S['b'] == 'BC Forged':
+        rng = f"{I['ds'][0]}-{I['ds'][-1]}″"
+        mono = I['typ'] == 'mono'
+        return {'en': f"{h1}: {n} {'monoblock' if mono else 'two-piece'} designs, {rng}, from {pr} per set incl. VAT and delivery. Fitment for your car, a sketch before you pay.",
+                'et': f"{h1}: {models_n(n, lang)}, {'monoblokkveljed' if mono else 'kaheosalised veljed'}, {rng}, komplekt alates {pr} koos käibemaksu ja tarnega. Valik teie auto järgi, eskiis enne makset.",
+                'ru': f"{h1}: {models_n(n, lang)}, {'моноблоки' if mono else 'двухсоставные'}, {rng}, комплект от {pr} с НДС и доставкой. Подбор под вашу машину, эскиз до оплаты.",
+                'fi': f"{h1}: {n} {'yksiosaista' if mono else 'kaksiosaista'} mallia, {rng}, sarja alkaen {pr} sis. ALV:n ja toimituksen. Tarkistamme sopivuuden ja näytämme kuvan ennen maksua."}[lang]
+    for v in ([join(I['vers'], lang)] if len(I['vers']) > 1 else []) + ['']:  # список исполнений, только если описание не слишком длинное
+        d = bx_desc(h1, n, v, pr, lang)
+        if len(d) <= 165:
+            break
+    return d
+
+def bx_desc(h1, n, v, pr, lang):
+    return {'en': f"{h1}: {models_n(n, lang).replace('model', 'design')}" + (f" in {v} versions" if v else '') + f", indicative price from {pr} per set incl. VAT and delivery. A sketch before you pay.",
+            'et': f"{h1}: {models_n(n, lang)}" + (f", versioonid {v}" if v else '') + f", komplekt alates {pr} koos käibemaksu ja tarnega (ligikaudne hind). Eskiis enne makset.",
+            'ru': f"{h1}: {models_n(n, lang)}" + (f", исполнения {v}" if v else '') + f", комплект от {pr} с НДС и доставкой (ориентировочно). Эскиз до оплаты.",
+            'fi': f"{h1}: {models_n(n, lang)}" + (f", versiot {v}" if v else '') + f", sarja alkaen {pr} sis. ALV:n ja toimituksen (suuntaa-antava hinta). Näet kuvan ennen maksua."}[lang]
+
+def series_card(S, wheels, lang):
+    """Карточка серии для каталога и блока «Другие серии»."""
+    I = series_info(S, wheels, lang)
+    first = wheels[S['models'][0]['keys'][0]]
+    typ = I['typ'] or ''
+    spec = ([G[lang][typ]] if typ else []) + [models_n(I['n'], lang)]
+    return dict(key=S['slug'], b=S['b'], n=G[lang]['card'].format(s=S['s']), imgs=uniq_imgs(first['imgs'])[:1], spec=spec,
+                p=I['p'], typ=typ, series=S['s'], featured=False, cars=[], is_series=True, alt=G[lang]['h1'].format(b=S['b'], s=S['s']))
+
+SERIES_CSS = ('<style>.snav{padding-block:28px 8px}.snav h2{font-size:22px}.mdl{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:32px;'
+              'padding-block:36px;border-top:1px solid var(--steel)}.mimg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-content:start}'
+              '.mimg.one{grid-template-columns:minmax(0,1fr);max-width:460px}.mimg div{background:var(--white);border-radius:14px;aspect-ratio:1;padding:6%;display:grid;place-items:center}'
+              '.mimg img{width:100%;height:100%;object-fit:contain}.mtx h2{margin-top:4px}.mtx .price{font-family:var(--display);font-size:26px;font-weight:500;margin-top:20px;font-variant-numeric:tabular-nums}'
+              '.vl{list-style:none;margin-top:16px;max-width:520px}.vl li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--steel)}'
+              '.vl b{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}.vl a{color:var(--bronze);font-weight:600}.mtx .chips span{font-size:13px;padding:5px 11px}'
+              '.sfacts{padding-block:40px;border-top:1px solid var(--steel)}.sfacts .facts{max-width:760px}'
+              '@media (max-width:980px){.mdl{grid-template-columns:minmax(0,1fr);gap:18px}}</style>\n')
+
+def model_section(S, m, wheels, lang, url):
+    """Раздел модели на странице серии: фото, ключевые характеристики, цена «от», кнопки заявки. Возвращает (html, Product)."""
+    t = T[lang]; g = G[lang]; p = '/' + LANGS[lang]
+    ws = [wheels[k] for k in m['keys']]
+    name = f"{S['b']} {m['n']}"
+    imgs = uniq_imgs([i for w in ws for i in w['imgs'] if i])
+    imgs = imgs[:2] if len(imgs) == 3 else imgs[:4]
+    spec, rows = [], []
+    if S['b'] == 'BC Forged':
+        d = m['d']
+        if d.get('typ'):
+            spec.append(t[d['typ']])
+        if d.get('sizes'):
+            spec.append(f"{d['sizes'][0]}-{d['sizes'][-1]}″")
+        wr = widths([d.get('ptab')] + [v.get('ptab') for v in (d.get('variants') or [])])
+        if wr:
+            spec.append(f"{wnum(wr[0], lang)}-{wnum(wr[1], lang)}J")
+        if not spec:
+            spec = list(d['spec'][:2])
+        if len(d.get('variants') or []) > 1:
+            for v in d['variants']:
+                rng = f"{v['sizes'][0]}-{v['sizes'][-1]}″" if v.get('sizes') else ''
+                rows.append((esc(v['n']) + (f' <span class="spec" style="display:inline;margin:0">{rng}</span>' if rng else ''), fmt(v['p'], lang) if v.get('p') else t['on_request']))
+        price = d['p']
+    else:
+        for w in ws:
+            rows.append((esc(bx_split(w['n'])[1] or w['n']), fmt(w['p'], lang) if w.get('p') else t['on_request']))
+        for k in S['own']:  # отдельная страница той же модели (PF9 Carbon+)
+            mn, v = bx_split(wheels[k]['n'])
+            if mn == m['n']:
+                rows.append((esc(v or wheels[k]['n']), f'<a href="{p}wheels/{k}/">{g["own_link"]}</a>'))
+        ps = [w['p'] for w in ws if w.get('p')]
+        price = min(ps) if ps else None
+    cars = list(dict.fromkeys(c for w in ws for c in w['cars']))
+    q = urllib.parse.quote(name)
+    wa = 'https://wa.me/' + WA + '?text=' + urllib.parse.quote(t['wa_text'].format(name=name))
+    note = t['set_note'] if S['b'] == 'BC Forged' else t['est_note']
+    pic = ''.join(f'<div><img src="{i}" width="{dims(i)[0]}" height="{dims(i)[1]}" loading="lazy" decoding="async" alt="{esc(name)}"></div>' for i in imgs)
+    h = (f'<section class="mdl" id="{m["a"]}">\n<div class="mimg{" one" if len(imgs) == 1 else ""}">{pic}</div>\n<div class="mtx">'
+         f'<span class="brand">{esc(S["b"])}</span><h2>{esc(m["n"])}</h2>'
+         + (f'<div class="spec">{"".join(f"<span>{esc(x)}</span>" for x in spec)}</div>' if spec else '')
+         + (f'<ul class="vl" aria-label="{g["vers"]}">' + ''.join(f'<li><span>{a}</span><b>{b}</b></li>' for a, b in rows) + '</ul>' if rows else '')
+         + (f'<div class="price">{fmt(price, lang)}</div><p class="pnote">{note}</p>' if price else f'<div class="price">{t["on_request"]}</div><p class="pnote">{t["on_req_note"]}</p>')
+         + (f'<div class="chips" aria-label="{t["fits"]}">{"".join(f"<span>{esc(c)}</span>" for c in cars[:12])}</div>' if cars else '')
+         + f'<div class="ctas"><a class="btn" href="{p}?model={q}#quote">{t["cta"]}</a><a class="btn ghost" href="{wa}" target="_blank" rel="noopener noreferrer">{t["wa"]}</a></div>'
+         '</div>\n</section>\n')
+    prod = {"@type": "Product", "name": name, "brand": {"@type": "Brand", "name": S['b']}, "url": f"{url}#{m['a']}",
+            "image": [SITE + big(i) for i in imgs]}
+    if spec:
+        prod["description"] = f"{name}: {', '.join(spec)}"
+    if price:
+        prod["offers"] = offer(price, f"{url}#{m['a']}", S['b'])
+    return h, prod
+
+def series_page(S, wheels, series, lang):
+    t = T[lang]; g = G[lang]; p = '/' + LANGS[lang]
+    alts = {l: f"{SITE}/{LANGS[l]}wheels/{S['slug']}/" for l in LANGS}
+    url = alts[lang]
+    I = series_info(S, wheels, lang)
+    h1 = g['h1'].format(b=S['b'], s=S['s'])
+    title = fit(g['title'].format(h1=h1), g['short'].format(h1=h1))
+    desc = series_desc(S, I, lang, h1)
+    first = wheels[S['models'][0]['keys'][0]]
+    og = SITE + (big(uniq_imgs(first['imgs'])[0]) if first['imgs'] else '/img/og-nordvelg.jpg')
+    out = head_common(lang, title, desc, url, alts, og) + SERIES_CSS
+    secs, prods = '', []
+    for m in S['models']:
+        h, pr = model_section(S, m, wheels, lang, url)
+        secs += h; prods.append(pr)
+    brand_url = f"{SITE}/{LANGS[lang]}wheels/brand/{bslug(S['b'])}/"
+    crumbs = {"@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Nordvelg", "item": f"{SITE}/{LANGS[lang]}"},
+        {"@type": "ListItem", "position": 2, "name": t['catalog'], "item": f"{SITE}/{LANGS[lang]}wheels/"},
+        {"@type": "ListItem", "position": 3, "name": S['b'], "item": brand_url},
+        {"@type": "ListItem", "position": 4, "name": h1, "item": url}]}
+    il = {"@type": "ItemList", "name": h1, "url": url, "numberOfItems": len(prods),
+          "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": pr} for i, pr in enumerate(prods)]}
+    out += '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": [il, crumbs]}, ensure_ascii=False, separators=(',', ':')) + '</script>\n</head>\n<body>\n'
+    out += header(lang, alts)
+    out += (f'<main class="wrap">\n<nav class="crumbs" aria-label="breadcrumbs"><a href="{p}">Nordvelg</a><span>/</span><a href="{p}wheels/">{t["catalog"]}</a><span>/</span>'
+            f'<a href="{p}wheels/brand/{bslug(S["b"])}/">{esc(S["b"])}</a><span>/</span><span aria-current="page">{esc(h1)}</span></nav>\n'
+            f'<section class="cathead"><span class="brand">{esc(S["b"])}</span><h1>{esc(h1)}</h1><p>{esc(intro(S, I, lang))}</p></section>\n')
+    chips = [(f'#{m["a"]}', m['n']) for m in S['models']] + [(f'{p}wheels/{k}/', wheels[k]['n']) for k in S['own']]
+    chips.sort(key=lambda c: natkey(c[1]))
+    out += f'<nav class="snav" aria-label="{g["nav"]}"><h2>{g["nav"]}</h2><div class="chips">' + ''.join(f'<a href="{h}">{esc(n)}</a>' for h, n in chips) + '</div></nav>\n'
+    if S['own']:
+        out += f'<section class="rel"><h2>{g["own"]}</h2><div class="grid">{"".join(card(wheels[k], lang) for k in S["own"])}</div></section>\n'
+    out += secs
+    facts = t['bc'] if S['b'] == 'BC Forged' else t['brixton']
+    out += f'<section class="sfacts"><h2>{t["know"]}</h2><ul class="facts">{"".join(f"<li>{x}</li>" for x in facts)}</ul><p class="pay">{t["pay"]}</p></section>\n'
+    out += f'<section class="how"><h2>{t["how"]}</h2><ol>{"".join(f"<li>{x}</li>" for x in t["steps"])}</ol></section>\n'
+    other = [x for x in series.values() if x['b'] == S['b'] and x['slug'] != S['slug']]
+    other.sort(key=lambda x: -len(x['models']))
+    if other:
+        out += (f'<section class="rel"><div class="rh"><h2>{g["more"].format(b=S["b"])}</h2><a href="{p}wheels/brand/{bslug(S["b"])}/">{t["all_brand"].format(b=S["b"], n=brand_models(S["b"], wheels))}</a></div>'
+                f'<div class="grid">{"".join(card(series_card(x, wheels, lang), lang) for x in other[:4])}</div></section>\n')
+    out += '</main>\n' + footer(lang) + '</body>\n</html>\n'
+    return fi_fix(out) if lang == 'fi' else out
+
+def brand_models(b, wheels):
+    """Число моделей бренда: у BC каждая страница или раздел, у Brixton каждый дизайн (варианты Duo, Targa и т.д. вместе)."""
+    ws = [w for w in wheels.values() if w['b'] == b]
+    return len({bx_split(w['n'])[0] for w in ws}) if b == 'Brixton Forged' else len(ws)
+
+def entries(wheels, series, lang):
+    """Элементы каталога: приоритетные отдельные страницы, затем серии, затем остальные отдельные страницы."""
+    own = [k for k in wheels if HREF[k] == f'{k}/']
+    first = [wheels[k] for k in own if wheels[k]['featured']]
+    ser = [series_card(S, wheels, lang) for S in sorted(series.values(), key=lambda S: (-len(S['models']), S['s']))]
+    rest = [wheels[k] for k in own if not wheels[k]['featured']]
+    return first + ser + rest
+
+def redirects(pages_before):
+    """tools/redirects-wheels.json: старая папка модели -> новый адрес (одним переходом). Копится между запусками."""
+    path = os.path.join(ROOT, 'tools/redirects-wheels.json')
+    old = json.load(open(path)) if os.path.exists(path) else {}
+    merged = dict(MERGED)
+    mp = os.path.join(ROOT, 'tools/wheels-merged.json')
+    if os.path.exists(mp):
+        for a, b in json.load(open(mp)).items():
+            merged.setdefault(a, b)
+    live = {h.split('/')[0] for h in HREF.values()}
+    out = {}
+    for s in sorted(set(pages_before) | set(old) | set(merged)):
+        if s.startswith('brand/') or s in live:
+            continue
+        k = s
+        for _ in range(5):
+            k = merged.get(k, k)
+        if k in HREF:
+            out[s] = HREF[k]
+        elif s in old and old[s].split('/')[0] in live:
+            out[s] = old[s]
+        else:
+            b = 'brixton-forged' if s.startswith('brixton-') else 'ipe' if s.startswith('ipe-') else 'bc-forged'
+            out[s] = f'brand/{b}/'
+    json.dump(out, open(path, 'w'), indent=1, ensure_ascii=False)
+    return out
+
 def main():
     allpages = []
+    wj = os.path.join(ROOT, 'tools/wheels.json')
+    before = sorted({k for ks in json.load(open(wj)).values() for k in ks}) if os.path.exists(wj) else []
     for lang in LANGS:
         wheels, _ = collect(lang)
         # featured first, then by brand
         order = sorted(wheels.items(), key=lambda kv: (not kv[1]['featured'], kv[1]['b'] != 'BC Forged', kv[1]['b'], kv[1]['n']))
         wheels = dict((k, w) for k, w in order if w['imgs'])
+        series = layout(wheels)
         base = os.path.join(ROOT, LANGS[lang], 'wheels')
         os.makedirs(base, exist_ok=True)
-        open(os.path.join(base, 'index.html'), 'w').write(catalog(lang, wheels))
+        open(os.path.join(base, 'index.html'), 'w').write(catalog(lang, wheels, series=series))
         for b in sorted({w['b'] for w in wheels.values()}):
             os.makedirs(os.path.join(base, 'brand', bslug(b)), exist_ok=True)
-            open(os.path.join(base, 'brand', bslug(b), 'index.html'), 'w').write(catalog(lang, wheels, b))
-        for k, d in wheels.items():
+            open(os.path.join(base, 'brand', bslug(b), 'index.html'), 'w').write(catalog(lang, wheels, b, series))
+        own = [k for k in wheels if HREF[k] == f'{k}/']
+        for k in own:
             os.makedirs(os.path.join(base, k), exist_ok=True)
-            open(os.path.join(base, k, 'index.html'), 'w').write(page(k, d, lang, wheels))
-        allpages.append((lang, list(wheels.keys()) + ['brand/' + bslug(b) for b in sorted({w['b'] for w in wheels.values()})]))
-        print(lang, len(wheels), 'models')
+            open(os.path.join(base, k, 'index.html'), 'w').write(page(k, wheels[k], lang, wheels, series))
+        for sl, S in series.items():
+            os.makedirs(os.path.join(base, sl), exist_ok=True)
+            open(os.path.join(base, sl, 'index.html'), 'w').write(series_page(S, wheels, series, lang))
+        allpages.append((lang, own + sorted(series) + ['brand/' + bslug(b) for b in sorted({w['b'] for w in wheels.values()})]))
+        print(lang, len(wheels), 'models,', len(own), 'model pages,', len(series), 'series pages,',
+              sum(brand_models(b, wheels) for b in {w['b'] for w in wheels.values()}), 'designs')
+    assert all(sorted(ks) == sorted(allpages[0][1]) for _, ks in allpages), 'разные адреса в языковых версиях'
     for lang, ks in allpages:  # убрать страницы моделей, которых больше нет
         base = os.path.join(ROOT, LANGS[lang], 'wheels'); keep = set(ks)
         for root, dirs, files in os.walk(base, topdown=False):
@@ -605,6 +1036,7 @@ def main():
     json.dump({l: ks for l, ks in allpages}, open(os.path.join(ROOT, 'tools/wheels.json'), 'w'), indent=1)
     json.dump(dict(sorted(MERGED.items())), open(os.path.join(ROOT, 'tools/wheels-merged.json'), 'w'), indent=1)
     print('merged', len(MERGED))
+    print('redirects', len(redirects(before)))
 
 if __name__ == '__main__':
     main()
