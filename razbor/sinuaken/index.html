@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Разбор sinuaken.ee | Juka Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;600;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#0A2318;
+  --forest-2:#123A2A;
+  --mint:#3DFFA0;
+  --paper:#F1F5F1;
+  --ink:#0E1F17;
+  --muted:#5B6E64;
+  --line:#D5DFD8;
+  --red:#FF5A3C;
+  --amber:#F2B53A;
+  --white:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.6 Manrope,system-ui,sans-serif}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--mint);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* HERO */
+.hero{background:var(--forest);color:var(--white);padding:40px 0 88px;position:relative;overflow:hidden}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:64px;font-size:14px;color:#A9C2B5}
+.brand{font-family:Geologica,sans-serif;font-weight:700;color:var(--white);letter-spacing:.02em}
+.brand b{color:var(--mint)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
+.hero h1{font-family:Geologica,sans-serif;font-weight:800;font-size:clamp(34px,5.4vw,64px);line-height:1.04;letter-spacing:-.02em}
+.hero h1 span{display:block;color:#A9C2B5;font-weight:500;font-size:.42em;letter-spacing:0;margin-bottom:14px}
+.lead{margin-top:28px;max-width:34em;font-size:19px;color:#D6E5DC}
+.score{display:flex;align-items:baseline;gap:14px;margin-top:40px}
+.score strong{font-family:Geologica,sans-serif;font-size:72px;line-height:1;color:var(--red)}
+.score small{font-size:16px;color:#A9C2B5;max-width:16em;line-height:1.4}
+
+/* receipt */
+.receipt{background:var(--white);color:var(--ink);border-radius:6px;padding:28px 26px 22px;transform:rotate(1.4deg);box-shadow:0 30px 60px -20px rgba(0,0,0,.55);position:relative}
+.receipt:after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:linear-gradient(135deg,var(--white) 7px,transparent 0) 0 0/14px 10px repeat-x,linear-gradient(-135deg,var(--white) 7px,transparent 0) 0 0/14px 10px repeat-x}
+.receipt h2{font-family:Geologica,sans-serif;font-size:15px;font-weight:700;margin-bottom:4px}
+.receipt .sub{font-size:13px;color:var(--muted);margin-bottom:18px}
+.receipt ul{list-style:none;border-top:1px dashed var(--line)}
+.receipt li{display:grid;grid-template-columns:22px 1fr;gap:8px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14.5px;line-height:1.4}
+.receipt li i{font-style:normal;font-weight:700}
+.no i{color:var(--red)}
+.half i{color:var(--amber)}
+.yes i{color:#1C9E62}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;font-family:Geologica,sans-serif}
+.total span{font-size:13px;font-weight:500;color:var(--muted)}
+.total b{font-size:26px}
+
+/* SECTIONS */
+section{padding:72px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:280px 1fr;gap:40px;margin-bottom:32px}
+.sec-head h2{font-family:Geologica,sans-serif;font-weight:700;font-size:26px;line-height:1.15;letter-spacing:-.01em}
+.sec-head p{color:var(--muted);max-width:38em}
+
+.ads{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--white);border-radius:6px;overflow:hidden}
+.ads th{font-weight:600;text-align:left;color:var(--muted);font-size:13.5px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.ads td{padding:16px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+.ads tr:last-child td{border-bottom:0}
+.ads td.num{font-family:Geologica,sans-serif;font-weight:500;white-space:nowrap}
+.ads a{color:var(--forest-2);font-weight:600}
+.note{margin-top:14px;font-size:14px;color:var(--muted)}
+
+.finds{display:grid;gap:14px}
+.find{display:grid;grid-template-columns:120px 1fr;gap:24px;background:var(--white);border-left:5px solid var(--line);border-radius:4px;padding:22px 24px}
+.find.crit{border-left-color:var(--red)}
+.find.warn{border-left-color:var(--amber)}
+.tag{font-size:13px;font-weight:700;padding-top:3px}
+.crit .tag{color:var(--red)}
+.warn .tag{color:#B07D10}
+.find h3{font-family:Geologica,sans-serif;font-weight:500;font-size:18px;line-height:1.3;margin-bottom:8px}
+.find p{max-width:44em}
+.find .check{margin-top:10px;font-size:14.5px;color:var(--muted)}
+.find .check a{color:var(--forest-2);font-weight:600;word-break:break-word}
+
+/* END */
+.end{background:var(--forest);color:var(--white);padding:80px 0}
+.end h2{font-family:Geologica,sans-serif;font-weight:700;font-size:clamp(28px,4vw,44px);line-height:1.1;max-width:18em}
+.end p{margin-top:20px;max-width:36em;color:#D6E5DC;font-size:18px}
+.contacts{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:14px 22px;border-radius:40px;border:2px solid var(--mint)}
+.btn.main{background:var(--mint);color:var(--forest)}
+.btn.alt{color:var(--mint)}
+.foot{margin-top:56px;font-size:13.5px;color:#7F998B}
+
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .receipt{transform:rotate(.8deg)}
+  .sec-head{grid-template-columns:1fr;gap:12px}
+  .find{grid-template-columns:1fr;gap:6px}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .top{margin-bottom:44px}
+  .score strong{font-size:56px}
+  .ads thead{display:none}
+  .ads, .ads tbody, .ads tr, .ads td{display:block;width:100%}
+  .ads tr{border-bottom:1px solid var(--line);padding:6px 0}
+  .ads td{border:0;padding:4px 16px}
+  .ads td[data-label]:before{content:attr(data-label) ": ";color:var(--muted);font-family:Manrope,sans-serif;font-weight:500}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">JUKA <b>MEDIA</b></div>
+      <div>Разбор от 30 октября 2026</div>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1><span>Разбор сайта и рекламы</span>sinuaken.ee</h1>
+        <p class="lead">Посмотрели сайт целиком на компьютере и телефоне, все 38 страниц, рекламу в Google и её настройки. Ниже только то, что можно проверить самому по ссылкам.</p>
+        <div class="score"><strong>4/10</strong><small>Реклама работает почти вслепую, сайт теряет заявки</small></div>
+      </div>
+
+      <aside class="receipt" aria-label="Что сейчас входит в рекламу">
+        <h2>Что вы получаете за 500 € в месяц</h2>
+        <p class="sub">по тому, что видно снаружи</p>
+        <ul>
+          <li class="yes"><i>✓</i>Объявления крутятся полтора года без перерыва</li>
+          <li class="no"><i>✕</i>Google видит заявки только с одной формы из двух десятков</li>
+          <li class="no"><i>✕</i>Реклама деревянных окон ведёт на страницу без формы</li>
+          <li class="no"><i>✕</i>Москитные сетки рекламируются в конце октября</li>
+          <li class="no"><i>✕</i>Google Analytics не установлен</li>
+          <li class="no"><i>✕</i>Нет баннера куки, нарушение GDPR</li>
+          <li class="half"><i>!</i>В настройках остались куски чужого проекта</li>
+        </ul>
+        <div class="total"><span>Итого видно заявок</span><b>малая часть</b></div>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Ваша реклама в Google</h2>
+      <p>Данные из открытого Центра прозрачности рекламы Google. Аккаунт оформлен на Романа Осипенко, все 4 объявления показывались в последние дни. Показы Google считает по 1 августа 2026.</p>
+    </div>
+    <table class="ads">
+      <thead><tr><th>Объявление</th><th>Крутится с</th><th>Показов</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://adstransparency.google.com/advertiser/AR03827295024467410945/creative/CR02484100833650671617?region=EE" target="_blank" rel="noopener">«Окна с гарантией в Нарве»</a>, на русском, главное</td><td data-label="Крутится с">8 мая 2025</td><td class="num" data-label="Показов">300–350 тыс.</td></tr>
+        <tr><td><a href="https://adstransparency.google.com/advertiser/AR03827295024467410945/creative/CR09766993177155207169?region=EE" target="_blank" rel="noopener">«Puitaknad, Narva»</a>, на эстонском</td><td data-label="Крутится с">8 мая 2025</td><td class="num" data-label="Показов">90–100 тыс.</td></tr>
+        <tr><td>Москитные сетки</td><td data-label="Крутится с">9 мая 2025</td><td class="num" data-label="Показов">15–20 тыс.</td></tr>
+        <tr><td>Натяжные потолки</td><td data-label="Крутится с">14 января 2026</td><td class="num" data-label="Показов">7–8 тыс.</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Все объявления сразу: <a href="https://adstransparency.google.com/?region=EE&amp;domain=sinuaken.ee" target="_blank" rel="noopener">adstransparency.google.com, sinuaken.ee</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Где утекают деньги</h2>
+      <p>Самое дорогое. Вы платите за клики, а часть людей не может оставить заявку, или Google их заявки просто не видит.</p>
+    </div>
+    <div class="finds">
+      <article class="find crit"><div class="tag">Критично</div><div>
+        <h3>Google не видит почти все заявки с форм</h3>
+        <p>Заявка засчитывается рекламе, только когда человек после отправки попадает на страницу «спасибо». Так настроена одна форма, на эстонской главной. Русская главная, все страницы услуг, русская и английская версии отправляют заявку без перехода. Главное объявление у вас на русском, поэтому основная кампания не знает, какие клики приносят клиентов, и не может нормально подбирать, кому показываться.</p>
+        <p class="check">Проверить: отправьте тестовую заявку с <a href="https://sinuaken.ee/" target="_blank" rel="noopener">sinuaken.ee</a> и с <a href="https://sinuaken.ee/ru/" target="_blank" rel="noopener">sinuaken.ee/ru</a>. С эстонской перекинет на «спасибо», с русской останетесь на месте.</p>
+      </div></article>
+
+      <article class="find crit"><div class="tag">Критично</div><div>
+        <h3>На страницах деревянных окон нет формы заявки</h3>
+        <p>Ни на эстонской, ни на русской, ни на английской. При этом на деревянные окна идёт отдельное объявление, около 100 тысяч показов. Человек кликнул, вы заплатили, а оставить заявку негде.</p>
+        <p class="check">Проверить: <a href="https://sinuaken.ee/puitaknad/" target="_blank" rel="noopener">sinuaken.ee/puitaknad</a>, <a href="https://sinuaken.ee/ru/derevo-okna/" target="_blank" rel="noopener">sinuaken.ee/ru/derevo-okna</a></p>
+      </div></article>
+
+      <article class="find warn"><div class="tag">Важно</div><div>
+        <h3>Москитные сетки рекламируются в конце октября</h3>
+        <p>Последний показ 30 октября. Сейчас сетки никто не ищет, клики уходят впустую.</p>
+      </div></article>
+
+      <article class="find warn"><div class="tag">Важно</div><div>
+        <h3>На сайте нет Google Analytics</h3>
+        <p>В настройках стоят только теги рекламы. Никто не видит, сколько людей заходит, откуда и на какой странице они уходят.</p>
+      </div></article>
+
+      <article class="find warn"><div class="tag">Важно</div><div>
+        <h3>В настройках остались куски чужого проекта</h3>
+        <p>В Google Tag Manager есть конверсия на клик по ссылке alteg.io. Это сервис онлайн-записи для салонов красоты, на вашем сайте такой ссылки нет. Похоже, настройки скопировали с другого клиента и не почистили. В главном объявлении про окна вдобавок стоит фото двери.</p>
+      </div></article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Что видят люди в Google</h2>
+      <p>Это ваша визитка в поиске. Сейчас там висят страницы из шаблона, которые забыли удалить.</p>
+    </div>
+    <div class="finds">
+      <article class="find crit"><div class="tag">Критично</div><div>
+        <h3>Второй результат в Google это черновик с латинской рыбой</h3>
+        <p>По запросу site:sinuaken.ee сразу после главной показывается страница «Automaatmustand» с текстом «Your Business SEO Solution» и Lorem ipsum. Чуть ниже «Services» про плотницкие работы. Ещё открыты стандартная Sample Page от WordPress и английские шаблонные About и Contact.</p>
+        <p class="check">Проверить: <a href="https://www.google.com/search?q=site:sinuaken.ee" target="_blank" rel="noopener">поиск site:sinuaken.ee</a>, <a href="https://sinuaken.ee/automaatmustand/" target="_blank" rel="noopener">/automaatmustand</a>, <a href="https://sinuaken.ee/services/" target="_blank" rel="noopener">/services</a>, <a href="https://sinuaken.ee/sample-page/" target="_blank" rel="noopener">/sample-page</a></p>
+      </div></article>
+
+      <article class="find warn"><div class="tag">Важно</div><div>
+        <h3>Русская страница «спасибо» на эстонском</h3>
+        <p>Если её когда-то подключат к русской форме, человек увидит благодарность на эстонском.</p>
+        <p class="check">Проверить: <a href="https://sinuaken.ee/ru/thank-you/" target="_blank" rel="noopener">sinuaken.ee/ru/thank-you</a></p>
+      </div></article>
+
+      <article class="find"><div class="tag">Мелочи</div><div>
+        <h3>Техника для поиска</h3>
+        <p>Между тремя языками не связаны версии, Google хуже понимает, кому какую показывать. 10 из 23 картинок на главной без подписей. Фото по 2560 пикселей в тяжёлом формате, на мобильном интернете сайт грузится дольше нужного.</p>
+      </div></article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Закон</h2>
+      <p>Это не про красоту, это про риски и про данные для рекламы.</p>
+    </div>
+    <div class="finds">
+      <article class="find crit"><div class="tag">Критично</div><div>
+        <h3>Нет баннера куки и политики конфиденциальности</h3>
+        <p>Рекламная кука Google ставится сразу при заходе, без согласия. Это нарушение GDPR. Кроме того, без согласия посетителя Google сам урезает рекламе статистику и ремаркетинг. Форма собирает имя, телефон и почту без галочки согласия.</p>
+      </div></article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Дизайн и телефон</h2>
+      <p>Большая часть людей с рекламы приходит с телефона, поэтому мобильная версия решает.</p>
+    </div>
+    <div class="finds">
+      <article class="find crit"><div class="tag">Критично</div><div>
+        <h3>На телефоне главный заголовок рвётся посреди слова</h3>
+        <p>«RÕDUKLAASI», а на следующей строке одна «D». Это первое, что видит человек, кликнувший по рекламе.</p>
+      </div></article>
+
+      <article class="find warn"><div class="tag">Важно</div><div>
+        <h3>Вёрстка поехала</h3>
+        <p>Синий блок под первым экраном съехал относительно фото. Карточки услуг разной высоты, кнопки прыгают. В блоке про глухие окна серый фон закрывает пол-экрана и обрывается, фото вылезает за край. Три разных шрифта на одной странице.</p>
+      </div></article>
+
+      <article class="find warn"><div class="tag">Важно</div><div>
+        <h3>Главная страница в 26 экранов</h3>
+        <p>Все услуги описаны дважды: сначала карточками, потом длинными блоками почти тем же текстом. На телефоне до формы мало кто долистает. Плюс на телефоне запрещено увеличивать страницу пальцами.</p>
+      </div></article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Доверие</h2>
+      <p>Окна покупают раз в 20 лет и выбирают долго. Сайт должен снимать сомнения, а не добавлять.</p>
+    </div>
+    <div class="finds">
+      <article class="find warn"><div class="tag">Важно</div><div>
+        <h3>Цифры спорят друг с другом</h3>
+        <p>В тексте «20 лет и больше 3000 клиентов», в счётчиках ниже «25 лет и 2000 клиентов». В описании дверей Тарту записан в Ида-Вирумаа.</p>
+      </div></article>
+
+      <article class="find warn"><div class="tag">Важно</div><div>
+        <h3>Отзывы есть, но их не видно</h3>
+        <p>В Google у вас 4.8 при 21 отзыве, а на сайте ни одного. Нет и фото своих работ, только стоковые картинки: стеклянный мост над морем, японский дом, огромные комары.</p>
+      </div></article>
+
+      <article class="find warn"><div class="tag">Важно</div><div>
+        <h3>Нет WhatsApp и Viber</h3>
+        <p>В Нарве многим проще написать, чем звонить или заполнять форму.</p>
+      </div></article>
+
+      <article class="find"><div class="tag">Мелочи</div><div>
+        <h3>Опечатки и дубли</h3>
+        <p>В названии пакета «CLASSIC» первая буква русская. В блоге одна статья выведена дважды.</p>
+      </div></article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="end">
+  <div class="wrap">
+    <h2>Сайт можно привести в порядок, а рекламу сделать зрячей</h2>
+    <p>Готов обсудить, что из этого исправить в первую очередь и как может выглядеть ежемесячное обслуживание сайта и рекламы.</p>
+    <div class="contacts">
+      <a class="btn main" href="https://t.me/alekseipsk" target="_blank" rel="noopener">Написать в Telegram</a>
+      <a class="btn alt" href="https://wa.me/37257494989" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="foot">Juka Media, Таллинн, jukamedia.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
