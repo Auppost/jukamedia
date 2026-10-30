@@ -140,239 +140,125 @@ section{padding:72px 0;border-bottom:1px solid var(--line)}
   .cmp{min-width:560px}
 }
 
-body{font-size:18px}
-.calc{width:100%;border-collapse:collapse;background:var(--white);border-radius:12px;overflow:hidden;font-size:16.5px}
-.calc th,.calc td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line)}
-.calc th{font-family:Geologica,sans-serif;font-weight:600;font-size:16px;background:#E7EEE9}
-.calc td:not(:first-child),.calc th:not(:first-child){text-align:right;white-space:nowrap}
-.calc tr.you td{background:#E3FBEF;font-weight:700}
-.calc tr:last-child td{border-bottom:0}
-.calc-note{margin-top:14px;font-size:16px;color:var(--muted);max-width:52em}
-.together{border:2px solid var(--mint-ink)}
-.sum{margin-top:12px;font-size:16px}
-.sum b{font-family:Geologica,sans-serif}
-.plan li,.co li,.box li,.args p,.startsteps span{font-size:16.5px}
-.plain{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.plain div{background:var(--white);border-radius:12px;padding:22px 22px 20px}
-.plain h3{font-size:20px;font-weight:600;margin-bottom:8px}
-.plain p{font-size:16.5px;color:var(--ink)}
-.plain .pr{margin-top:12px;font-family:Geologica,sans-serif;font-weight:600;color:var(--mint-ink)}
-.faq{border-top:2px solid var(--ink)}
-.faq details{border-bottom:1px solid var(--line);padding:4px 0}
-.faq summary{cursor:pointer;list-style:none;padding:14px 34px 14px 0;font-family:Geologica,sans-serif;font-weight:600;font-size:19px;position:relative}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary:after{content:"+";position:absolute;right:6px;top:10px;font-size:26px;color:var(--mint-ink)}
-.faq details[open] summary:after{content:"–"}
-.faq p{padding:0 0 16px;max-width:46em;font-size:17px;color:var(--ink)}
-@media (max-width:900px){.plain{grid-template-columns:1fr}}
-@media (max-width:620px){.calc{font-size:15px}.calc th,.calc td{padding:10px 8px}}
+body{font-size:19px;line-height:1.6}
+.wrap{max-width:860px}
+.hero{padding:32px 0 56px}
+.top{margin-bottom:40px}
+.hero h1{font-size:clamp(32px,4.6vw,48px);max-width:none}
+section{padding:52px 0}
+h2.t{font-family:Geologica,sans-serif;font-weight:600;font-size:28px;margin-bottom:18px}
+.bad{list-style:none;background:var(--white);border-radius:12px;padding:6px 22px}
+.bad li{padding:14px 0 14px 28px;border-bottom:1px solid var(--line);position:relative}
+.bad li:last-child{border-bottom:0}
+.bad li:before{content:"";position:absolute;left:4px;top:24px;width:10px;height:10px;border-radius:50%;background:var(--red)}
+.opt{background:var(--white);border-radius:14px;padding:24px 26px;margin-bottom:14px;display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:start}
+.opt h3{font-family:Geologica,sans-serif;font-weight:600;font-size:23px}
+.opt p{grid-column:1/-1;color:var(--ink)}
+.opt .pr{text-align:right;font-family:Geologica,sans-serif;font-weight:800;font-size:28px;white-space:nowrap;line-height:1.1}
+.opt .pr small{display:block;font-weight:500;font-size:15px;color:var(--muted)}
+.opt.best{background:var(--forest);color:var(--white)}
+.opt.best p{color:#D6E5DC}
+.opt.best .pr small{color:var(--soft)}
+.opt .tag{grid-column:1/-1;margin:0 0 4px;justify-self:start}
+.simple{background:var(--white);border-radius:12px;padding:22px 26px}
+.simple p+p{margin-top:12px}
+.steps3{list-style:none;counter-reset:n}
+.steps3 li{counter-increment:n;padding:14px 0 14px 52px;position:relative;border-bottom:1px solid var(--line)}
+.steps3 li:before{content:counter(n);position:absolute;left:0;top:12px;width:34px;height:34px;border-radius:50%;background:var(--forest);color:var(--mint);display:grid;place-items:center;font-family:Geologica,sans-serif;font-weight:800}
+.cond{list-style:none;background:var(--white);border-radius:12px;padding:6px 22px}
+.cond li{padding:12px 0;border-bottom:1px solid var(--line)}
+.cond li:last-child{border-bottom:0}
+@media (max-width:620px){.opt{grid-template-columns:1fr}.opt .pr{text-align:left}}
 </style>
 </head>
 <body>
 <header class="hero">
   <div class="wrap">
-    <div class="top"><div class="brand">JUKA <b>MEDIA</b></div><div>Предложение для Alfa Aken, 30 октября 2026</div></div>
-    <h1>Чтобы из Google к вам приходило больше людей, которые хотят поставить окна</h1>
-    <p class="lead">Беру на себя рекламу в Google, сайт и то, как вас находят в интернете. Ниже три варианта, от простого к полному. Всё написано без сложных слов, а цены посчитаны под вашу фирму.</p>
-    <div class="for"><span>alfaaken.ee</span><span>Таллинн и окрестности</span></div>
+    <div class="top"><div class="brand">JUKA <b>MEDIA</b></div><div>для Alfa Aken</div></div>
+    <h1>Как получать больше заявок на окна из интернета</h1>
+    <p class="lead">Посмотрел ваш сайт и рекламу. Ниже что не так и что предлагаю.</p>
   </div>
 </header>
 <main>
 <section>
   <div class="wrap">
-    <div class="head">
-      <h2>Коротко, если нет времени читать</h2>
-      <p>Три варианта простыми словами. Подробности ниже.</p>
-    </div>
-    <div class="plain">
-      <div><h3>1. Только реклама</h3><p>Сайт не трогаем. Навожу порядок в вашей рекламе в Google, чтобы деньги не уходили впустую, и каждый месяц показываю, сколько людей обратилось и сколько стоил каждый.</p><p class="pr">490 € в месяц и настройка 490 € один раз</p></div>
-      <div><h3>2. Реклама и новый сайт</h3><p>Всё из первого варианта, плюс делаю новый удобный сайт, где человек сам выбирает окно и сразу видит цену. Слежу, чтобы вас находили в Google и без рекламы. <b>Советую этот.</b></p><p class="pr">690 € в месяц и сайт 2 090 € один раз</p></div>
-      <div><h3>3. Всё под ключ</h3><p>Вы вообще не думаете про интернет. Реклама в Google, Facebook и Instagram, сайт, картинки и ролики для рекламы, статьи, отчёты. Всё делаю я.</p><p class="pr">1 890 € в месяц и сайт 2 590 € один раз</p></div>
-    </div>
-    <p class="note">Все цены без налога с оборота 24%. Деньги, которые вы платите самому Google за показ рекламы, идут отдельно, напрямую Google, как и сейчас.</p>
+    <h2 class="t">Что сейчас не так</h2>
+    <ul class="bad"><li>Google видит не всех ваших посетителей и поэтому хуже настраивает рекламу</li><li>В форме заявки сломано поле для почты. Стоит проверить, доходят ли заявки</li><li>Текст на сайте почти такой же, как на другом оконном сайте. Google за это опускает в поиске</li><li>На первом экране нет ни телефона, ни кнопки «оставить заявку»</li></ul>
+    <div class="simple" style="margin-top:14px;background:#FFF6D6"><p><b>Вопрос к вам:</b> к вам приходят клиенты из Финляндии, Швеции и Норвегии? Если нет, эти языки на новом сайте не нужны, и он выйдет на 450 € дешевле.</p></div>
+    
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="head">
-      <h2>Что сейчас не так</h2>
-      <p>Я посмотрел ваш сайт и рекламу. Вы платите за рекламу, но часть денег уходит впустую, а часть людей, которые зашли на сайт, так и не звонят.</p>
+    <h2 class="t">Что предлагаю</h2>
+    <p style="margin-bottom:18px;color:var(--muted)">Сейчас вы платите человеку за рекламу около 500 € в месяц.</p>
+
+    <div class="opt">
+      <h3>1. Только реклама</h3>
+      <div class="pr">490 €<small>в месяц</small></div>
+      <p>Навожу порядок в рекламе в Google, чтобы деньги не уходили впустую. Каждый месяц показываю, сколько людей обратилось и сколько стоил каждый. Сайт не трогаем. В начале один раз 490 € за настройку.</p>
     </div>
-    <div class="co" style="max-width:780px">
-      <h3>Alfa Aken</h3>
-      <p class="site">alfaaken.ee, сайт на шести языках, реклама в Google</p>
-      <ul><li>Нет окошка о cookies, которое требует закон. Из-за этого Google видит не всех ваших посетителей и хуже настраивает рекламу</li><li>В форме заявки сломано поле для почты. Стоит проверить, доходят ли вообще заявки с сайта</li><li>Текст и цифры почти один в один как на другом оконном сайте. Google такое не любит и опускает оба сайта в поиске</li><li>Ошибки в русской и английской версиях. Шведская и норвежская показываются в Google с заголовками на эстонском</li><li>На первом экране сайта нет ни телефона, ни кнопки «оставить заявку»</li></ul>
-      <p class="ask"><b>Вопрос к вам:</b> приходят ли к вам клиенты из Финляндии, Швеции и Норвегии? Если нет, эти три языка можно не делать на новом сайте, и он выйдет на 450 € дешевле.</p>
-      
+
+    <div class="opt best">
+      <span class="tag">Советую</span>
+      <h3>2. Реклама и новый сайт</h3>
+      <div class="pr">690 €<small>в месяц</small></div>
+      <p>Всё то же самое, плюс новый удобный сайт: человек выбирает окно и сразу видит цену с установкой. Слежу, чтобы вас находили в Google и без рекламы. Сайт один раз 2 090 €.</p>
     </div>
+
+    <div class="opt">
+      <h3>3. Всё под ключ</h3>
+      <div class="pr">1 890 €<small>в месяц</small></div>
+      <p>Вы вообще не думаете про интернет. Реклама в Google, Facebook и Instagram, сайт, картинки и ролики для рекламы, отчёты. Всё делаю я. Сайт один раз 2 590 €.</p>
+    </div>
+    <p class="note">Цены без налога с оборота 24%. Деньги за показ рекламы вы, как и сейчас, платите самому Google.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="head">
-      <h2>Три варианта подробно</h2>
-      <p>Сейчас вы платите человеку за рекламу около 500 € в месяц. Цены ниже для случая, когда вы платите Google за рекламу от 1 000 до 2 500 € в месяц. Сейчас у вас около 2 000 €.</p>
-    </div>
-    <div class="plans">
-      <article class="plan">
-        <h3>1. Только реклама</h3>
-        <p class="who">Сайт оставляем как есть, наводим порядок в рекламе</p>
-        <div class="price">
-          <div class="big">490 € <small>в месяц</small></div>
-          <div class="row"><span>сейчас вы платите</span><span>500 € в месяц</span></div>
-          <div class="row"><span>настройка в начале, один раз</span><span>490 €</span></div>
-        </div>
-        <ul>
-          <li>Проверяю вашу рекламу в Google и убираю, на что деньги уходят зря</li>
-          <li>Настраиваю, чтобы было видно каждую заявку: кто позвонил, кто написал в WhatsApp, кто оставил заявку на сайте, и с какого объявления он пришёл</li>
-          <li>Ставлю на сайт окошко о cookies, которое требует закон. Без него Google не видит часть ваших посетителей</li>
-          <li>Отдельная реклама на русском и на эстонском, по городам</li>
-          <li>Каждый месяц короткий отчёт: сколько было обращений и сколько стоило каждое</li>
-        </ul>
-        <p class="fit"><b>Кому подходит:</b> если сайт пока трогать не хотите и сначала хотите понять, сколько вам на самом деле стоит один клиент.</p>
-        <div class="res"><b>Что будет через 2–3 месяца</b>Вы точно знаете, сколько людей приходит с рекламы и сколько стоит каждый. Лишние траты отключены.</div>
-      </article>
-
-      <article class="plan main">
-        <span class="tag">Советую этот</span>
-        <h3>2. Реклама и новый сайт</h3>
-        <p class="who">Реклама приводит людей, новый сайт превращает их в звонки</p>
-        <div class="price">
-          <div class="big">690 € <small>в месяц</small></div>
-          <div class="row"><span>сейчас вы платите</span><span>500 € в месяц</span></div>
-          <div class="row"><span>новый сайт, один раз</span><span>2 090 €</span></div>
-        </div>
-        <ul>
-          <li>Всё из первого варианта, настройка в начале бесплатно</li>
-          <li>Новый сайт на ваших языках: удобно с телефона, человек выбирает размер окна и сразу видит цену под ключ</li>
-          <li>Отдельные страницы для городов, где вы работаете, чтобы реклама вела прямо туда</li>
-          <li>Слежу, чтобы вас находили в Google без рекламы: раз в месяц полезная статья на сайт, ваша карточка на Google Картах с отзывами</li>
-          <li>Каждый месяц новые картинки для рекламы</li>
-          <li>Мелкие правки на сайте до 2 часов в месяц: поменять цену, фото, текст</li>
-        </ul>
-        <p class="fit"><b>Кому подходит:</b> если хочется больше звонков, не увеличивая деньги на рекламу.</p>
-        <div class="res"><b>Что будет через 2–3 месяца</b>Новый сайт работает, реклама ведёт на него, звонков с тех же денег больше. К весне, когда начнётся сезон, всё уже готово.</div>
-      </article>
-
-      <article class="plan">
-        <h3>3. Всё под ключ</h3>
-        <p class="who">Весь интернет на мне, вы занимаетесь окнами</p>
-        <div class="price">
-          <div class="big">1 890 € <small>в месяц</small></div>
-          <div class="row"><span>новый сайт, один раз</span><span>2 590 €</span></div>
-          <div class="row"><span>если оплатить полгода</span><span><b>сайт 1 590 €</b></span></div>
-        </div>
-        <ul>
-          <li>Реклама в Google</li>
-          <li>Реклама в Facebook и Instagram</li>
-          <li>Сайт: делаю новый и дальше слежу за ним и дорабатываю</li>
-          <li>Две статьи в месяц на сайт и карточка на Google Картах с отзывами</li>
-          <li>Каждый месяц картинки и короткий ролик для рекламы</li>
-          <li>Отдельные страницы под акции и сезонные скидки</li>
-        </ul>
-        <p class="fit"><b>Кому подходит:</b> если хотите отдать всё одному человеку и не думать об этом вообще.</p>
-        <div class="res"><b>Что будет через 2–3 месяца</b>Новый сайт работает, реклама идёт везде, где ищут ваших клиентов, и каждый месяц вы видите, сколько людей обратилось.</div>
-      </article>
-    </div>
-
-    <div class="addon together">
-      <h3>Как сэкономить</h3>
-      <div class="addon-rows">
-        <div><b>Подключаетесь вместе с SinuAken</b><span>обеим фирмам на 10% дешевле в месяц, пока работаем с обеими</span><em>−10%</em></div>
-        <div><b>Платите за полгода сразу</b><span>в вариантах 1 и 2 на 10% дешевле в месяц, в варианте 3 сайт за 1 590 € вместо 2 590 €</span><em>выгода</em></div>
-      </div>
-      <p class="sum">Например, вариант 2 вместе с SinuAken: <b>621 € в месяц</b> вместо 690 €.</p>
-    </div>
-
-    <div class="addon">
-      <h3>Если понадобится что-то сверх варианта</h3>
-      <div class="addon-rows">
-        <div><b>Набор картинок для рекламы</b><span>все нужные размеры, на русском и эстонском, из ваших фото</span><em>120 €</em></div>
-        <div><b>Короткий ролик для рекламы</b><span>15–30 секунд, из ваших фото и видео</span><em>150 €</em></div>
-      </div>
-      <p>Если у вас уже есть свои картинки и ролики, просто поставим их в рекламу.</p>
+    <h2 class="t">Почему советую второй</h2>
+    <div class="simple">
+      <p>Реклама приводит человека на сайт, а сайт решает, позвонит он или уйдёт. Сейчас многие уходят: с телефона неудобно, цену сразу не понять. Если чинить только рекламу, половина денег всё равно теряется на сайте.</p>
+      <p>Вы тратите на рекламу около 2 000 € в месяц. Если хотя бы десятая часть уходит впустую, это 200 € каждый месяц. Порядок в рекламе и удобный сайт быстро это окупают.</p>
+      <p>Зима для окон спокойное время. Сделаем сайт сейчас, и к весне, когда начнётся сезон, всё уже будет работать.</p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="head">
-      <h2>Почему у вас такая цена</h2>
-      <p>Правила одни для всех. Цена в месяц зависит от того, сколько вы тратите на рекламу в Google: чем больше денег крутится, тем больше работы и ответственности. Цена сайта зависит от того, на скольких языках он нужен.</p>
-    </div>
-    <div class="cmp-wrap">
-      <table class="calc">
-        <thead><tr><th>Сколько вы платите Google в месяц</th><th>Вариант 1</th><th>Вариант 2</th></tr></thead>
-        <tbody><tr class=""><td>до 1 000 €</td><td>390 €</td><td>590 €</td></tr><tr class="you"><td>от 1 000 до 2 500 € (это вы)</td><td>490 €</td><td>690 €</td></tr><tr><td>больше 2 500 €</td><td>договоримся</td><td>договоримся</td></tr></tbody>
-      </table>
-    </div>
-    <p class="calc-note">Сайт: 1 490 € в варианте 2 и 1 990 € в варианте 3. В эту цену входят два языка, эстонский и русский. Каждый следующий язык +150 €, это перевод и проверка текстов. У вас сайт на шести языках: эстонский, русский, английский, финский, шведский и норвежский. Четыре лишних языка добавляют 600 €. Если какие-то не нужны, сайт дешевле на 150 € за каждый.</p>
-    <p class="calc-note">Для сравнения: агентства в Эстонии берут за рекламу в Google 300–1 200 € в месяц, а сайт на двух языках с подбором окна и цены стоит у них от 1 500 до 2 900 €.</p>
-  </div>
-</section>
-
-<section class="why">
-  <div class="wrap">
-    <div class="head">
-      <h2>Почему советую второй вариант</h2>
-      <p>Четыре причины.</p>
-    </div>
-    <div class="args">
-      <div><h3>Реклама и сайт работают вместе</h3><p>Реклама приводит человека на сайт. А дальше сайт решает, позвонит он или уйдёт. Сейчас многие уходят: с телефона неудобно, цену сразу не понять, заявку оставить не везде можно. Если чинить только рекламу, половина денег всё равно теряется на сайте.</p></div>
-      <div><h3>Чуть больше, чем сейчас, а получаете намного больше</h3><p>Вы тратите на рекламу около 2 000 € в месяц. Если хотя бы десятая часть уходит впустую, это 200 € каждый месяц. Порядок в рекламе и удобный сайт окупают разницу быстро. А вместе с SinuAken на 10% дешевле.</p></div>
-      <div><h3>Ваша цена под ключ будет видна сразу</h3><p>Вы ставите окно вместе с монтажом, подоконником, откосами и вывозом старого. Многие конкуренты пишут цену только за окно, и она кажется дешевле. На новом сайте человек сам выберет окно и увидит полную цену, и сравнение будет в вашу пользу.</p></div>
-      <div><h3>К весне всё будет готово</h3><p>Зимой окна заказывают меньше, это спокойное время, чтобы сделать сайт и навести порядок. Весной, когда люди начнут массово искать окна, всё уже будет работать.</p></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="head">
-      <h2>Что будет, если выберете второй вариант</h2>
-      <p>По шагам. От вас нужно немного времени только в первые дни.</p>
-    </div>
-    <ol class="startsteps">
-      <li><b>День 1–2</b><span>Вы даёте мне доступ к рекламе и сайту, я подскажу, как это сделать за пять минут. Присылаете фото своих работ и пару отзывов клиентов.</span></li>
-      <li><b>День 3–5</b><span>Проверяю рекламу, убираю лишние траты, настраиваю, чтобы была видна каждая заявка.</span></li>
-      <li><b>Неделя 2</b><span>Перестраиваю рекламу по языкам и городам. Показываю вам первый вариант нового сайта.</span></li>
-      <li><b>Неделя 3–4</b><span>Вносим ваши правки и запускаем сайт. Реклама начинает вести на него.</span></li>
-      <li><b>Конец месяца</b><span>Первый отчёт: сколько было обращений, сколько стоило каждое, что поменяли и что делаем дальше.</span></li>
+    <h2 class="t">Как начнём</h2>
+    <ol class="steps3">
+      <li>Вы даёте доступ к рекламе и сайту и присылаете фото своих работ. Подскажу, как это сделать.</li>
+      <li>За первую неделю навожу порядок в рекламе, за 3–4 недели делаю и запускаю новый сайт. Адрес сайта не меняется, из Google вы не пропадёте.</li>
+      <li>В конце месяца первый отчёт: сколько было обращений и сколько стоило каждое.</li>
     </ol>
-    <div class="season"><b>Честно про сезон.</b> Ноябрь, декабрь и январь у окон спокойные. Поэтому сколько точно будет заявок, заранее не обещаю: это покажет первый месяц, когда всё начнёт считаться. Цель к третьему месяцу сделать так, чтобы один клиент из рекламы обходился на 20–30% дешевле, чем сейчас.</div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="head">
-      <h2>Частые вопросы</h2>
-      <p>Нажмите на вопрос, чтобы открыть ответ.</p>
-    </div>
-    <div class="faq">
-      <details><summary>Нам самим нужно что-то делать?</summary><p>Почти ничего. В начале дать доступ к рекламе и сайту, прислать фото работ и отзывы. Дальше раз в неделю коротко написать, кто из обратившихся дошёл до замера и договора. Это нужно, чтобы реклама училась приводить именно тех, кто заказывает.</p></details>
-      <details><summary>Что будет со старым сайтом? Не пропадём из Google?</summary><p>Адрес сайта остаётся тем же. Все старые ссылки будут вести на новые страницы, поэтому Google вас не потеряет. Первые пару недель позиции в поиске могут немного поплавать, это нормально. Реклама при этом работает с первого дня, на неё переезд не влияет.</p></details>
-      <details><summary>Почему за рекламу платить ещё и Google?</summary><p>Как и сейчас: Google берёт деньги за показ рекламы, это ваш бюджет, и платите вы его Google напрямую. Я получаю только за свою работу. К вашим деньгам на рекламу я доступа не имею и не трогаю их.</p></details>
-      <details><summary>А если не понравится?</summary><p>Минимальный срок 3 месяца, этого хватает, чтобы увидеть результат. Дальше можно отказаться, предупредив за 30 дней. Реклама, сайт и домен остаются вашими, всё оформлено на вас.</p></details>
-      <details><summary>Цена потом вырастет?</summary><p>Первые 6 месяцев цена в месяц не меняется. Если вы сами решите увеличить деньги на рекламу, цена изменится только по таблице выше.</p></details>
-      <details><summary>Как платить?</summary><p>По счёту от фирмы Juka Media OÜ, раз в месяц, в начале месяца. Если ваша фирма платит налог с оборота, эти 24% вы себе возвращаете. Сайт можно оплатить в два приёма: половину в начале, половину при запуске.</p></details>
-      <details><summary>Кто будет всё делать?</summary><p>Я, Алексей, лично. Больше 13 лет делаю сайты. Пишете мне напрямую в Telegram или WhatsApp, отвечаю в течение рабочего дня.</p></details>
-    </div>
+    <h2 class="t">Условия</h2>
+    <ul class="cond">
+      <li>Счёт от фирмы раз в месяц. Сайт можно оплатить в два приёма.</li>
+      <li>Минимум 3 месяца, дальше можно отказаться, предупредив за месяц.</li>
+      <li>Если подключаетесь вместе с SinuAken, обеим на 10% дешевле в месяц.</li>
+      <li>Реклама, сайт и домен остаются вашими.</li>
+    </ul>
   </div>
 </section>
 </main>
 <footer class="end">
   <div class="wrap">
-    <h2>Напишите, какой вариант вам ближе, и на этой же неделе начнём</h2>
-    <p>Если что-то непонятно, просто напишите вопрос, отвечу простыми словами.</p>
+    <h2>Напишите, какой вариант ближе, и начнём на этой неделе</h2>
+    <p>Если что-то непонятно, просто спросите.</p>
     <div class="btns">
-      <a class="btn main" href="https://t.me/alekseipsk">Написать в Telegram</a>
+      <a class="btn main" href="https://t.me/alekseipsk">Telegram</a>
       <a class="btn alt" href="https://wa.me/37257494989">WhatsApp</a>
     </div>
-    <p class="foot">Juka Media OÜ, Таллинн, jukamedia.com</p>
+    <p class="foot">Алексей Павлов, Juka Media OÜ, Таллинн</p>
   </div>
 </footer>
 </body>
