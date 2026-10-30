@@ -47,6 +47,10 @@ DESC_RU_EN = [
     ('разболтовка', 'bolt pattern'),
     ('цвет', 'colour'),
 ]
+TYPE_ET_EN = [('Rehvid', 'Tyres'), ('Veljed', 'Wheels')]
+# Сайт пишет «valmis 4-7 tööpäevaga»: тот же срок сборки отдаём Google,
+# чтобы in_stock не обещал отправку на следующий день.
+HANDLING_DAYS = ('4', '7')
 CYR = re.compile('[А-Яа-яЁё]')
 
 
@@ -87,7 +91,15 @@ def build(root, lang):
         title = it.find(f'{{{G}}}title')
         desc = it.find(f'{{{G}}}description')
         ok = nid not in seen
+        for tag, val in zip(('min_handling_time', 'max_handling_time'), HANDLING_DAYS):
+            el = it.find(f'{{{G}}}{tag}')
+            if el is None:
+                el = ET.SubElement(it, f'{{{G}}}{tag}')
+            el.text = val
         if lang == 'en':
+            pt = it.find(f'{{{G}}}product_type')
+            if pt is not None and pt.text:
+                pt.text = tr(pt.text, TYPE_ET_EN)
             link.text = re.sub(r'^https://rehvo\.ee/ru/product/', 'https://rehvo.ee/product/', link.text.strip())
             title.text = tr(title.text, TITLE_RU_EN)
             desc.text = tr(desc.text, DESC_RU_EN)
