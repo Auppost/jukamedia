@@ -339,7 +339,7 @@ function calc(){
   document.getElementById('v0').textContent=fe(v0);
   document.getElementById('v1').textContent=fe(v1);
   document.getElementById('gain').textContent=(profit>=0?'+':'')+fe(profit)+' прибыли в месяц';
-  document.getElementById('gainp').textContent='Это уже после оплаты моей работы ('+fe(fee)+'). Чтобы работа окупилась, достаточно примерно '+(one<=1?'одного':Math.ceil(one).toString())+' дополнительного заказа в месяц.';
+  document.getElementById('gainp').textContent='Это уже после оплаты моей работы ('+fe(fee)+'). Чтобы работа окупилась, достаточно '+['','одного дополнительного заказа','двух дополнительных заказов','трёх дополнительных заказов'][Math.min(3,Math.max(1,Math.ceil(one)))]+' в месяц.';
 }
 document.querySelectorAll('.inputs input').forEach(i=>i.addEventListener('input',calc));
 calc();
