@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Разбор alfaaken.ee | Juka Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;600;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#0A2318;
+  --forest-2:#123A2A;
+  --mint:#3DFFA0;
+  --paper:#F1F5F1;
+  --ink:#0E1F17;
+  --muted:#5B6E64;
+  --line:#D5DFD8;
+  --red:#FF5A3C;
+  --amber:#F2B53A;
+  --white:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.6 Manrope,system-ui,sans-serif}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--mint);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* HERO */
+.hero{background:var(--forest);color:var(--white);padding:40px 0 88px;position:relative;overflow:hidden}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:64px;font-size:14px;color:#A9C2B5}
+.brand{font-family:Geologica,sans-serif;font-weight:700;color:var(--white);letter-spacing:.02em}
+.brand b{color:var(--mint)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
+.hero h1{font-family:Geologica,sans-serif;font-weight:800;font-size:clamp(34px,5.4vw,64px);line-height:1.04;letter-spacing:-.02em}
+.hero h1 span{display:block;color:#A9C2B5;font-weight:500;font-size:.42em;letter-spacing:0;margin-bottom:14px}
+.lead{margin-top:28px;max-width:34em;font-size:19px;color:#D6E5DC}
+.score{display:flex;align-items:baseline;gap:14px;margin-top:40px}
+.score strong{font-family:Geologica,sans-serif;font-size:72px;line-height:1;color:var(--red)}
+.score small{font-size:16px;color:#A9C2B5;max-width:16em;line-height:1.4}
+
+/* receipt */
+.receipt{background:var(--white);color:var(--ink);border-radius:6px;padding:28px 26px 22px;transform:rotate(1.4deg);box-shadow:0 30px 60px -20px rgba(0,0,0,.55);position:relative}
+.receipt:after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:linear-gradient(135deg,var(--white) 7px,transparent 0) 0 0/14px 10px repeat-x,linear-gradient(-135deg,var(--white) 7px,transparent 0) 0 0/14px 10px repeat-x}
+.receipt h2{font-family:Geologica,sans-serif;font-size:15px;font-weight:700;margin-bottom:4px}
+.receipt .sub{font-size:13px;color:var(--muted);margin-bottom:18px}
+.receipt ul{list-style:none;border-top:1px dashed var(--line)}
+.receipt li{display:grid;grid-template-columns:22px 1fr;gap:8px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14.5px;line-height:1.4}
+.receipt li i{font-style:normal;font-weight:700}
+.no i{color:var(--red)}
+.half i{color:var(--amber)}
+.yes i{color:#1C9E62}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;font-family:Geologica,sans-serif}
+.total span{font-size:13px;font-weight:500;color:var(--muted)}
+.total b{font-size:26px}
+
+/* SECTIONS */
+section{padding:72px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:280px 1fr;gap:40px;margin-bottom:32px}
+.sec-head h2{font-family:Geologica,sans-serif;font-weight:700;font-size:26px;line-height:1.15;letter-spacing:-.01em}
+.sec-head p{color:var(--muted);max-width:38em}
+
+.ads{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--white);border-radius:6px;overflow:hidden}
+.ads th{font-weight:600;text-align:left;color:var(--muted);font-size:13.5px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.ads td{padding:16px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+.ads tr:last-child td{border-bottom:0}
+.ads td.num{font-family:Geologica,sans-serif;font-weight:500;white-space:nowrap}
+.ads a{color:var(--forest-2);font-weight:600}
+.note{margin-top:14px;font-size:14px;color:var(--muted)}
+
+.finds{display:grid;gap:14px}
+.find{display:grid;grid-template-columns:120px 1fr;gap:24px;background:var(--white);border-left:5px solid var(--line);border-radius:4px;padding:22px 24px}
+.find.crit{border-left-color:var(--red)}
+.find.warn{border-left-color:var(--amber)}
+.tag{font-size:13px;font-weight:700;padding-top:3px}
+.crit .tag{color:var(--red)}
+.warn .tag{color:#B07D10}
+.find h3{font-family:Geologica,sans-serif;font-weight:500;font-size:18px;line-height:1.3;margin-bottom:8px}
+.find p{max-width:44em}
+.find .check{margin-top:10px;font-size:14.5px;color:var(--muted)}
+.find .check a{color:var(--forest-2);font-weight:600;word-break:break-word}
+
+/* END */
+.end{background:var(--forest);color:var(--white);padding:80px 0}
+.end h2{font-family:Geologica,sans-serif;font-weight:700;font-size:clamp(28px,4vw,44px);line-height:1.1;max-width:18em}
+.end p{margin-top:20px;max-width:36em;color:#D6E5DC;font-size:18px}
+.contacts{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:14px 22px;border-radius:40px;border:2px solid var(--mint)}
+.btn.main{background:var(--mint);color:var(--forest)}
+.btn.alt{color:var(--mint)}
+.foot{margin-top:56px;font-size:13.5px;color:#7F998B}
+
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .receipt{transform:rotate(.8deg)}
+  .sec-head{grid-template-columns:1fr;gap:12px}
+  .find{grid-template-columns:1fr;gap:6px}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .top{margin-bottom:44px}
+  .score strong{font-size:56px}
+  .ads thead{display:none}
+  .ads, .ads tbody, .ads tr, .ads td{display:block;width:100%}
+  .ads tr{border-bottom:1px solid var(--line);padding:6px 0}
+  .ads td{border:0;padding:4px 16px}
+  .ads td[data-label]:before{content:attr(data-label) ": ";color:var(--muted);font-family:Manrope,sans-serif;font-weight:500}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<div class="top"><div class="brand">JUKA <b>MEDIA</b></div><div>Разбор от 30 октября 2026</div></div>
+<div class="hero-grid"><div>
+<h1><span>Разбор сайта и рекламы</span>alfaaken.ee</h1>
+<p class="lead">Прошли сайт целиком: 184 страницы на всех языках, формы, цены, заголовки, скорость. Посмотрели рекламу в Google и как вас видно в поиске по Таллинну и Нарве. Ниже только то, что можно проверить самому.</p>
+<div class="score"><strong>5/10</strong><small>Рейтинг и цены сильные, сайт и реклама их не дотягивают</small></div>
+</div>
+<aside class="receipt" aria-label="Коротко">
+<h2>Что работает за ~2 000 € в месяц</h2><p class="sub">по тому, что видно снаружи</p>
+<ul>
+<li class="yes"><i>✓</i>5.0 при 42 отзывах в Google, лучший рейтинг в выдаче</li>
+<li class="yes"><i>✓</i>Понятные цены «под ключ» прямо на сайте</li>
+<li class="yes"><i>✓</i>Сайт быстрый на компьютере</li>
+<li class="no"><i>✕</i>Русское объявление с ошибками в каждой строке</li>
+<li class="no"><i>✕</i>Блог и деревянные окна без формы заявки</li>
+<li class="no"><i>✕</i>Нет окошка cookies, реклама недополучает данные</li>
+<li class="half"><i>!</i>На русских страницах куски эстонского текста</li>
+</ul>
+<div class="total"><span>Потенциал</span><b>больше заявок</b></div>
+</aside></div></div></header>
+<main>
+<section><div class="wrap"><div class="sec-head"><h2>Ваша реклама в Google</h2><p>Данные из открытого Центра прозрачности рекламы Google. Аккаунт оформлен на Марию Куусемец, реклама идёт как минимум с марта 2023 года.</p></div><table class="ads"><thead><tr><th>Объявление</th><th>Язык</th><th>Показов</th></tr></thead><tbody>
+<tr><td>Главное текстовое объявление про окна</td><td data-label="Язык">эстонский</td><td class="num" data-label="Показов">500–600 тыс.</td></tr>
+<tr><td>«Пластииковые окна на закас», «Застекленение балконов»</td><td data-label="Язык">русский</td><td class="num" data-label="Показов">в показе</td></tr>
+</tbody></table>
+<p class="note">Все объявления сразу: <a href="https://adstransparency.google.com/?region=EE&amp;domain=alfaaken.ee" target="_blank" rel="noopener">adstransparency.google.com, alfaaken.ee</a></p></div></section>
+
+<section><div class="wrap"><div class="sec-head"><h2>Где утекают деньги</h2><p>Вы платите за каждый клик. Если человек пришёл и ему негде оставить заявку или его что-то отпугнуло, деньги ушли впустую.</p></div><div class="finds"><article class="find crit"><div class="tag">Критично</div><div><h3>Русское объявление с ошибками</h3><p>«Пластииковые окна на закас», «Застекленение балконов». Человек, который выбирает, кому доверить окна на 2–3 тысячи, видит ошибки ещё до сайта. Русскоязычный клиент в Таллинне и Нарве это половина рынка.</p></div></article>
+<article class="find crit"><div class="tag">Критично</div><div><h3>Блог и деревянные окна без формы заявки</h3><p>На всех языках статьи блога заканчиваются ничем: ни формы, ни кнопки. Страница деревянных окон тоже без формы и всего около 130 слов текста.</p><p>Это ровно те люди, которые уже интересуются и готовы спросить цену.</p></div></article>
+<article class="find warn"><div class="tag">Важно</div><div><h3>Окно cookies отсутствует</h3><p>Рекламная кука ставится без согласия, это нарушение GDPR. Кроме того, без согласия Google с 2024 года урезает рекламе данные о посетителях, и она хуже выбирает, кому показываться.</p></div></article>
+<article class="find warn"><div class="tag">Важно</div><div><h3>Форма заявки требует проверки</h3><p>В форме заявки неправильно работает поле почты. Стоит отправить тестовую заявку и убедиться, что она доходит и засчитывается рекламе.</p></div></article>
+</div></div></section>
+
+<section><div class="wrap"><div class="sec-head"><h2>Как вас видно в Google</h2><p>Проверили выдачу по главным запросам. Платные места у вас есть, бесплатных почти нет.</p></div><div class="finds"><article class="find crit"><div class="tag">Критично</div><div><h3>«Пластиковые окна таллинн»: только платно</h3><p>Вы есть в рекламе на карте, и у вас лучший рейтинг среди всех (5.0 против 4.2 у EU Aknad). Но в бесплатной выдаче окон вас нет, есть только страница ремонта окон. Каждый клиент из поиска стоит вам денег.</p><p class="check">Проверить: <a href="https://www.google.com/search?q=%D0%BF%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BE%D0%BA%D0%BD%D0%B0+%D1%82%D0%B0%D0%BB%D0%BB%D0%B8%D0%BD%D0%BD" target="_blank" rel="noopener">поиск в Google</a></p></div></article>
+<article class="find warn"><div class="tag">Важно</div><div><h3>«Plastaknad tallinn»: впереди Plasto, Arutech, AKNAD24</h3><p>На эстонском картина та же: реклама на карте есть, бесплатно выше вас стоят конкуренты.</p></div></article>
+<article class="find warn"><div class="tag">Важно</div><div><h3>По 8 главных заголовков на странице</h3><p>На страницах окон по 8 заголовков первого уровня, на балконах 7. Google не понимает, о чём страница главным образом, и хуже её показывает. Это одна из причин, почему окна не выходят в бесплатный поиск.</p></div></article>
+</div></div></section>
+
+<section><div class="wrap"><div class="sec-head"><h2>Сайт и доверие</h2><p>Окна покупают раз в 20 лет. Каждая мелочь на сайте либо добавляет доверия, либо отнимает.</p></div><div class="finds"><article class="find warn"><div class="tag">Важно</div><div><h3>На русской странице балконов текст на эстонском</h3><p>«Hinna sees on rõdu...» посреди русской страницы. Русскоязычный человек решает, что сайт делали не для него.</p></div></article>
+<article class="find warn"><div class="tag">Важно</div><div><h3>Шесть языков, но не все живые</h3><p>Финский, шведский и норвежский стоит оставить, только если оттуда реально приходят клиенты. Иначе это страницы, которые надо поддерживать и переводить, а заявок они не дают.</p></div></article>
+<article class="find "><div class="tag">Мелочи</div><div><h3>Скорость</h3><p>На компьютере главная грузится примерно за 1,6 секунды, это хорошо. Страница весит 1,6 МБ и делает 42 запроса, на телефоне с мобильным интернетом можно быстрее.</p></div></article>
+</div></div></section>
+
+</main>
+<footer class="end"><div class="wrap">
+<h2>У вас лучший рейтинг и честные цены. Осталось, чтобы сайт и реклама это продавали</h2>
+<p>Готов показать, что исправить в первую очередь и как может выглядеть ежемесячная работа с сайтом и рекламой.</p>
+<div class="contacts"><a class="btn main" href="https://jukamedia.com/predlozhenie/alfaaken/">Посмотреть предложение</a>
+<a class="btn alt" href="https://wa.me/37257494989" target="_blank" rel="noopener">WhatsApp</a></div>
+<p class="foot">Juka Media, Таллинн, jukamedia.com</p>
+</div></footer>
+</body></html>
