@@ -203,7 +203,7 @@ p.sub{color:var(--muted);margin-bottom:20px}
     <div class="top"><div class="brand">JUKA <b>MEDIA</b></div><div>для SinuAken</div></div>
     <h1>Больше заказов окон с тех же денег на рекламу</h1>
     <p class="lead">Вы платите за рекламу, но большая часть заявок для неё невидима, а часть людей уходит с сайта, не позвонив. Ниже где именно, сколько это стоит и как вернуть.</p>
-    <a class="cta1" href="#calc">Посчитать, сколько вы недополучаете</a>
+    <a class="cta1" href="#offer">Что предлагаю</a>
   </div>
 </header>
 <main>
@@ -216,39 +216,20 @@ p.sub{color:var(--muted);margin-bottom:20px}
   </div>
 </section>
 
-<section id="calc">
+<section>
   <div class="wrap">
-    <h2 class="t">Сколько это стоит вам в месяц</h2>
-    <p class="sub">Подставьте свои цифры. Пока стоят средние для оконных компаний.</p>
-    <div class="calc">
-      <div class="inputs">
-        <label>Сколько платите Google за рекламу в месяц, €<input id="budget" type="number" inputmode="numeric" value="600"></label>
-        <label>Средний заказ, €<input id="check" type="number" inputmode="numeric" value="1500"></label>
-        <label>Сколько из ста обратившихся заказывают<input id="close" type="number" inputmode="numeric" value="20"></label>
-        <label>Ваша прибыль с заказа, %<input id="margin" type="number" inputmode="numeric" value="30"></label>
-      </div>
-      <div class="res2">
-        <div class="col"><h3>Сейчас</h3>
-          <div class="r"><span>Обращений в месяц</span><b id="l0"></b></div>
-          <div class="r"><span>Заказов</span><b id="o0"></b></div>
-          <div class="r"><span>Выручка</span><b id="v0"></b></div>
-        </div>
-        <div class="col after"><h3>С новым сайтом и порядком в рекламе</h3>
-          <div class="r"><span>Обращений в месяц</span><b id="l1"></b></div>
-          <div class="r"><span>Заказов</span><b id="o1"></b></div>
-          <div class="r"><span>Выручка</span><b id="v1"></b></div>
-        </div>
-      </div>
-      <div class="gain">
-        <div class="big" id="gain"></div>
-        <p id="gainp"></p>
-      </div>
-      <p class="small">Как считаем: цена клика около 1 €, обычный сайт оконной фирмы превращает в обращение 1–2 человека из ста, удобный сайт с выбором окна и цены 3–4. Мы берём осторожно: было 1,5, станет 3, и ещё минус 10% лишних трат в рекламе. Это пример, а не обещание. Точные цифры покажет первый месяц, когда всё начнёт считаться.</p>
-    </div>
+    <h2 class="t">Как вы увидите результат</h2>
+    <p class="sub">Ваших внутренних цифр я не знаю, поэтому не рисую красивых прогнозов. Вместо этого через месяц у вас будут точные цифры.</p>
+    <ul class="bad">
+      <li><b>Каждая заявка считается</b><span>Звонок, WhatsApp, форма на сайте. Видно, с какого объявления пришёл человек.</span></li>
+      <li><b>Видно, сколько стоит одна заявка</b><span>Сколько денег на рекламу ушло и сколько людей обратилось. Можно сравнить с тем, что было.</span></li>
+      <li><b>Раз в месяц короткий отчёт</b><span>Простым языком: что сделано, сколько заявок, что меняем дальше. Без графиков ради графиков.</span></li>
+    </ul>
+    <p class="small">Моя работа в месяц стоит меньше одного среднего заказа окон. Если за месяц с рекламы не прибавится хотя бы один заказ, это будет видно в отчёте, и вы вправе уйти.</p>
   </div>
 </section>
 
-<section>
+<section id="offer">
   <div class="wrap">
     <h2 class="t">Что предлагаю</h2>
     <p class="sub">Сейчас вы платите человеку за рекламу около 500 € в месяц.</p>
@@ -319,30 +300,5 @@ p.sub{color:var(--muted);margin-bottom:20px}
     <p class="foot">Алексей Павлов, Juka Media OÜ, Таллинн</p>
   </div>
 </footer>
-<script>
-const f=n=>Math.round(n).toLocaleString('ru-RU');
-const fe=n=>f(n)+' €';
-const fee=590;
-function calc(){
-  const g=id=>Math.max(0,parseFloat(document.getElementById(id).value)||0);
-  const b=g('budget'),ch=g('check'),cl=g('close')/100,m=g('margin')/100,cpc=1;
-  const clicks0=b/cpc, clicks1=clicks0*1.1;
-  const l0=clicks0*0.015, l1=clicks1*0.03;
-  const o0=l0*cl, o1=l1*cl;
-  const v0=o0*ch, v1=o1*ch;
-  const profit=(v1-v0)*m-fee;
-  const one=fee/Math.max(1,ch*m);
-  document.getElementById('l0').textContent=f(l0);
-  document.getElementById('l1').textContent=f(l1);
-  document.getElementById('o0').textContent=o0.toFixed(1).replace('.',',');
-  document.getElementById('o1').textContent=o1.toFixed(1).replace('.',',');
-  document.getElementById('v0').textContent=fe(v0);
-  document.getElementById('v1').textContent=fe(v1);
-  document.getElementById('gain').textContent=(profit>=0?'+':'')+fe(profit)+' прибыли в месяц';
-  document.getElementById('gainp').textContent='Это уже после оплаты моей работы ('+fe(fee)+'). Чтобы работа окупилась, достаточно '+['','одного дополнительного заказа','двух дополнительных заказов','трёх дополнительных заказов'][Math.min(3,Math.max(1,Math.ceil(one)))]+' в месяц.';
-}
-document.querySelectorAll('.inputs input').forEach(i=>i.addEventListener('input',calc));
-calc();
-</script>
 </body>
 </html>
