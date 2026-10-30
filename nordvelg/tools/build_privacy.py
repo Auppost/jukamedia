@@ -9,7 +9,7 @@ P = {
  'ru': dict(title='Политика конфиденциальности | Nordvelg', h1='Политика конфиденциальности', desc='Как Nordvelg обрабатывает данные из заявок.', body='''
 <p>Здесь коротко и честно о том, какие данные вы нам передаёте через сайт nordvelg.com и что мы с ними делаем.</p>
 <h2>Кто обрабатывает данные</h2>
-<p>Juka Media OÜ, регистрационный код 17495980, Таллинн, Эстония. Связь по вопросам данных: <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>.</p>
+<p>OÜ Juka Media, регистрационный код 17495980, Таллинн, Эстония. Связь по вопросам данных: <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>.</p>
 <h2>Какие данные мы получаем</h2>
 <p>Только то, что вы сами указали в форме расчёта: имя, телефон или e-mail, марка, модель и год машины, пожелания по дискам и комментарий. Сайт не ставит рекламных cookies и не ведёт аналитику посетителей.</p>
 <h2>Как данные к нам попадают</h2>
@@ -30,12 +30,12 @@ P = {
  'et': dict(title='Privaatsuspoliitika | Nordvelg', h1='Privaatsuspoliitika', desc='Kuidas Nordvelg päringute andmeid töötleb.', body='''
 <p>Lühidalt ja ausalt sellest, milliseid andmeid te meile nordvelg.com kaudu edastate ja mida me nendega teeme.</p>
 <h2>Vastutav töötleja</h2>
-<p>Juka Media OÜ, registrikood 17495980, Tallinn, Eesti. Andmetega seotud küsimused: <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>.</p>
+<p>OÜ Juka Media, registrikood 17495980, Tallinn, Eesti. Andmetega seotud küsimused: <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>.</p>
 <h2>Milliseid andmeid saame</h2>
 <p>Ainult need, mille te ise hinnapäringu vormis sisestate: nimi, telefon või e-post, auto mark, mudel ja aasta, soovid velgede kohta ja kommentaar. Sait ei kasuta reklaamiküpsiseid ega külastajate analüütikat.</p>
 <h2>Kuidas andmed meieni jõuavad</h2>
 <ul>
-<li>Kui vajutate „Saada Telegrami“ või „Saada WhatsAppi“, avaneb päringu tekst valitud sõnumirakenduses. Seal kehtivad selle rakenduse reeglid.</li>
+<li>Kui vajutate „Saada Telegrami kaudu“ või „Saada WhatsAppi kaudu“, avaneb päringu tekst valitud sõnumirakenduses. Seal kehtivad selle rakenduse reeglid.</li>
 <li>Samal hetkel saadetakse päringu koopia meie e-postile teenuse Formspree (Formspree, Inc., USA) kaudu, et päring ei kaoks. Andmete edastamine USA-sse toimub ELi tüüptingimuste alusel.</li>
 </ul>
 <h2>YouTube’i videod</h2>
@@ -51,7 +51,7 @@ P = {
  'en': dict(title='Privacy Policy | Nordvelg', h1='Privacy policy', desc='How Nordvelg handles the data in quote requests.', body='''
 <p>A short, plain account of what data you send us through nordvelg.com and what we do with it.</p>
 <h2>Who processes the data</h2>
-<p>Juka Media OÜ, registry code 17495980, Tallinn, Estonia. Data questions: <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>.</p>
+<p>OÜ Juka Media, registry code 17495980, Tallinn, Estonia. Data questions: <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>.</p>
 <h2>What we receive</h2>
 <p>Only what you enter in the quote form: name, phone or e-mail, your car's make, model and year, wheel preferences and a comment. The site uses no advertising cookies and no visitor analytics.</p>
 <h2>How it reaches us</h2>
@@ -73,7 +73,7 @@ P = {
 P['fi'] = dict(title='Tietosuojaseloste | Nordvelg', h1='Tietosuojaseloste', desc='Miten Nordvelg käsittelee tarjouspyyntöjen tietoja.', body='''
 <p>Lyhyesti ja suoraan: mitä tietoja lähetät meille nordvelg.com-sivuston kautta ja mitä niillä teemme.</p>
 <h2>Rekisterinpitäjä</h2>
-<p>Juka Media OÜ, rekisterikoodi 17495980, Tallinna, Viro. Tietosuojaa koskevat kysymykset: <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>.</p>
+<p>OÜ Juka Media, rekisterikoodi 17495980, Tallinna, Viro. Tietosuojaa koskevat kysymykset: <a href="mailto:info@jukamedia.com">info@jukamedia.com</a>.</p>
 <h2>Mitä tietoja saamme</h2>
 <p>Vain sen, minkä itse kirjoitat tarjouslomakkeeseen: nimen, puhelinnumeron tai sähköpostin, auton merkin, mallin ja vuosimallin, toiveesi vanteista sekä mahdolliset lisätiedot. Sivusto ei käytä mainosevästeitä eikä kävijäanalytiikkaa.</p>
 <h2>Miten tiedot tulevat meille</h2>

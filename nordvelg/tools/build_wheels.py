@@ -442,7 +442,7 @@ def footer(lang):
     return f'''<footer><div class="wrap foot">
 <div><a class="mark" href="/{LANGS[lang]}">Nordvelg</a><p>{t['foot']}</p></div>
 <div><a href="https://t.me/alekseipsk" target="_blank" rel="noopener noreferrer">Telegram @alekseipsk</a><br><a href="https://wa.me/{WA}" target="_blank" rel="noopener noreferrer">WhatsApp +372 5749 4989</a></div>
-<div>Juka Media OÜ<br>{t['city']}</div>
+<div>OÜ Juka Media<br>reg. 17495980, KMKR EE103041500<br>{t['city']}</div>
 </div><div class="wrap credits">{t['credits']}. <a href="/{LANGS[lang]}privacy/">{PRIV[lang]}</a></div></footer>
 '''
 
@@ -496,7 +496,7 @@ def page(k, d, lang, all_wheels, series=None):
     gal = ''
     for n, i in enumerate(imgs):
         w, h = dims(i)
-        gal += f'<button type="button" class="shot{" on" if n == 0 else ""}" data-big="{big(i)}" aria-label="{t["zoom"]}"><img src="{i}" width="{w}" height="{h}" alt="{esc(name)}" {"fetchpriority=\"high\"" if n == 0 else "loading=\"lazy\""} decoding="async"></button>'
+        gal += f'<button type="button" class="shot{" on" if n == 0 else ""}" data-big="{big(i)}" aria-label="{t["zoom"]}"><img src="{i}" width="{w}" height="{h}" alt="{esc(name) if n == 0 else esc(name) + f" ({n + 1}/{len(imgs)})"}" {"fetchpriority=\"high\"" if n == 0 else "loading=\"lazy\""} decoding="async"></button>'
     thumbs = ''
     if len(imgs) > 1:
         thumbs = '<div class="thumbs">' + ''.join(f'<button type="button" data-i="{n}" aria-label="{n+1}"{" class=\"on\"" if n == 0 else ""}><img src="{i}" alt="" loading="lazy" decoding="async"></button>' for n, i in enumerate(imgs)) + '</div>'
@@ -512,8 +512,7 @@ def page(k, d, lang, all_wheels, series=None):
     out += f'''<section class="prod">
 <div class="gallery"><div class="main">{gal}</div>{thumbs}<p class="hint">{t['zoom']}</p></div>
 <div class="info">
-<div class="brand">{esc(d['b'])}</div>
-<h1>{esc(d['n'])}</h1>
+<h1><span class="brand">{esc(d['b'])}</span> {esc(d['n'])}</h1>
 <div class="spec">{spec}</div>
 {price}
 <div class="ctas"><a class="btn" href="{p}?model={q}#quote">{t['cta']}</a><a class="btn ghost" href="{wa}" target="_blank" rel="noopener noreferrer">{t['wa']}</a></div>
