@@ -207,7 +207,8 @@ p.sub{color:var(--muted);margin-bottom:20px}
 .blk ul{list-style:none}
 .blk li{padding:7px 0 7px 26px;position:relative;font-size:17px}
 .blk li:before{content:"✓";position:absolute;left:0;color:var(--mint-ink);font-weight:800}
-.plans{display:grid;gap:14px}
+.plans{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
+.plan{display:block}
 .plan{background:var(--white);border-radius:16px;padding:24px 26px;border:2px solid transparent}
 .plan.rec{background:var(--forest);color:#fff}
 .plan .tag{margin-bottom:10px;display:inline-block}
@@ -219,7 +220,7 @@ p.sub{color:var(--muted);margin-bottom:20px}
 .plan.rec .pay div{background:#123528}
 .pay small{display:block;font-size:14px;color:var(--muted)}
 .plan.rec .pay small{color:#A9C7B7}
-.pay b{font-family:Geologica,sans-serif;font-size:30px;font-weight:800;line-height:1.15}
+.pay b{display:block;white-space:nowrap;font-family:Geologica,sans-serif;font-size:30px;font-weight:800;line-height:1.15}
 .pay span{display:block;font-size:14px;color:var(--muted)}
 .plan.rec .pay span{color:#A9C7B7}
 .bill{list-style:none;margin-top:16px;border-top:1px solid #2E5A45}
