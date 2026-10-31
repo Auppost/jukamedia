@@ -441,7 +441,7 @@ def footer(lang):
     t = T[lang]
     return f'''<footer><div class="wrap foot">
 <div><a class="mark" href="/{LANGS[lang]}">Nordvelg</a><p>{t['foot']}</p></div>
-<div><a href="https://t.me/alekseipsk" target="_blank" rel="noopener noreferrer">Telegram @alekseipsk</a><br><a href="https://wa.me/{WA}" target="_blank" rel="noopener noreferrer">WhatsApp +372 5749 4989</a></div>
+<div><a href="https://t.me/+37257494989" target="_blank" rel="noopener noreferrer">Telegram +372 5749 4989</a><br><a href="https://wa.me/{WA}" target="_blank" rel="noopener noreferrer">WhatsApp +372 5749 4989</a></div>
 <div>OÜ Juka Media<br>reg. 17495980, KMKR EE103041500<br>{t['city']}</div>
 </div><div class="wrap credits">{t['credits']}. <a href="/{LANGS[lang]}privacy/">{PRIV[lang]}</a></div></footer>
 '''

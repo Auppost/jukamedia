@@ -535,7 +535,7 @@ footer a:hover{color:#fff}
   <div class="wrap">
     <div class="foot">
       <div><a class="mark" href="#top">Nordvelg</a><p style="margin-top:12px;max-width:34ch">Made-to-order BC Forged and Brixton Forged wheels in Tallinn</p></div>
-      <div><a href="https://t.me/alekseipsk" target="_blank" rel="noopener noreferrer">Telegram @alekseipsk</a><br><a href="https://wa.me/37257494989" target="_blank" rel="noopener noreferrer">WhatsApp +372 5749 4989</a></div>
+      <div><a href="https://t.me/+37257494989" target="_blank" rel="noopener noreferrer">Telegram +372 5749 4989</a><br><a href="https://wa.me/37257494989" target="_blank" rel="noopener noreferrer">WhatsApp +372 5749 4989</a></div>
       <div>OÜ Juka Media<br>reg. 17495980, KMKR EE103041500<br>Tallinn, Estonia</div>
     </div>
     <div class="foot-end">Wheel and car photos: BC Forged, Brixton Forged and their distributors. Brand names belong to their owners. <a href="/privacy/">Privacy policy</a></div>
@@ -615,12 +615,12 @@ function text(){
 }
 function upd(){
   var t=text();$("sum").textContent=t;
-  $("sendTg").href="https://t.me/alekseipsk?text="+encodeURIComponent(t);
+  $("sendTg").href="https://t.me/+37257494989";
   $("sendWa").href="https://wa.me/37257494989?text="+encodeURIComponent(t);
 }
 ["fName","fContact","fNote","fMake","fModel","fYear","fColor","fWheel"].forEach(function(id){$(id).addEventListener("input",upd);});
 var leadSent="";function lead(ch){var t=text();if(!t||t===leadSent)return;leadSent=t;try{fetch("https://formspree.io/f/xaqgrrde",{method:"POST",keepalive:true,headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify({_subject:"Nordvelg: request ("+ch+")",message:t,channel:ch,lang:document.documentElement.lang,page:location.href})}).catch(function(){});}catch(e){}if(window.gtag)try{gtag("event","generate_lead",{method:ch});}catch(e){}}
-$("sendTg").addEventListener("click",function(){lead("Telegram");});
+$("sendTg").addEventListener("click",function(){lead("Telegram");try{navigator.clipboard&&navigator.clipboard.writeText(text());}catch(e){}});
 $("sendWa").addEventListener("click",function(){lead("WhatsApp");});
 $("next").addEventListener("click",function(){go(step+1);});
 $("prev").addEventListener("click",function(){go(step-1);});
