@@ -392,14 +392,14 @@ def head_common(lang, title, desc, url, alts, og_img):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title>
-<meta name="description" content="{esc(desc)}">
+<meta name="description" content="{esc(fit_desc(desc))}">
 <link rel="canonical" href="{url}">
 {hl}<link rel="alternate" hreflang="x-default" href="{alts['en']}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nordvelg">
 <meta property="og:url" content="{url}">
 <meta property="og:title" content="{esc(title)}">
-<meta property="og:description" content="{esc(desc)}">
+<meta property="og:description" content="{esc(fit_desc(desc))}">
 <meta property="og:image" content="{og_img}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#E9EAEC">
@@ -410,6 +410,22 @@ def head_common(lang, title, desc, url, alts, og_img):
 <link rel="preload" href="/fonts/geologica-{'cyrillic' if lang=='ru' else 'latin'}-shrp-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/css/wheel.css?v={V('css/wheel.css')}">
 '''
+
+DESC_MAX = 158  # Google обрезает сниппет примерно на 155-160 знаках
+
+def fit_desc(desc, n=DESC_MAX):
+    """Укорачивает meta description: первое предложение и предложение с ценой оставляем,
+    остальные (доставка, эскиз, подбор) убираем с конца, пока текст не влезет. Слова не режем."""
+    if len(desc) <= n:
+        return desc
+    parts = re.split(r'(?<=[.!?])\s+(?=[A-ZА-ЯЁÄÖÜÕŠŽ0-9])', desc)
+    keep = [True] * len(parts)
+    for i in range(len(parts) - 1, 0, -1):
+        if len(' '.join(x for x, k in zip(parts, keep) if k)) <= n:
+            break
+        if not re.search(r'\d.*€|€\s?\d', parts[i]):
+            keep[i] = False
+    return ' '.join(x for x, k in zip(parts, keep) if k)
 
 def fit(t, short=None, n=65):
     """Укорачивает title: убираем бренд сайта, потом длинное уточнение. Текст не обрезаем, чтобы заголовки оставались уникальными."""

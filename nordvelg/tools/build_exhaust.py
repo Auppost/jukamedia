@@ -109,6 +109,7 @@ T = {
             make_title='Выхлоп iPE для {m}: все системы и цены | Nordvelg', make_desc='Выхлопные системы iPE для {m} под заказ, только версии с катализатором. Цены с НДС, доставку посчитаем вместе с ценой.', make_h1='Выхлоп iPE для {m}',
             h1='Выхлопные системы iPE для {car}', title='Выхлоп iPE для {car}: цены в Таллинне | Nordvelg', short='Выхлоп iPE для {car}',
             desc='Выхлоп iPE для {car}: {types}, материал: {mats}. Цены с НДС, доставку посчитаем вместе с ценой.{price}',
+            desc_s='Выхлоп iPE для {car}: {types}, материал: {mats}. Цены с НДС.{price}', desc_m='Выхлоп iPE для {car}: {types}. Цены с НДС.{price}',
             sys='{t} iPE для {car}', sys_desc='{t} iPE для {car}, материал: {mat}.',
             intro='Для этой машины есть: {types}. Материал: {mats}.', intro_v='Звук на клапанах (тихо в городе, громко по кнопке): {types}.', conj='и', mat_or='или',
             mat_ti='титан', mat_ss='нержавеющая сталь', finishes='Отделка насадок', all='Все системы iPE', more='Другие выхлопы iPE для {m}', all_make='Все модели {m}: {n}',
@@ -123,6 +124,7 @@ T = {
             make_title='iPE väljalase {m} autodele: kõik süsteemid ja hinnad | Nordvelg', make_desc='iPE väljalaskesüsteemid {m} autodele tellimusel, ainult katalüsaatoriga versioonid. Hinnad koos käibemaksuga, tarne hinna ütleme koos pakkumisega.', make_h1='iPE väljalaskesüsteemid {m} autodele',
             h1='iPE väljalaskesüsteemid: {car}', title='iPE väljalaskesüsteemid: {car}, hinnad | Nordvelg', short='iPE väljalase: {car}',
             desc='iPE {types} autole {car}, materjal: {mats}. Hinnad koos käibemaksuga, tarne hinna ütleme koos pakkumisega.{price}',
+            desc_s='iPE {types} autole {car}, materjal: {mats}. Hinnad koos käibemaksuga.{price}', desc_m='iPE {types} autole {car}. Hinnad koos käibemaksuga.{price}',
             sys='{t} iPE autole {car}', sys_desc='{t} iPE autole {car}, materjal: {mat}.',
             intro='Sellele autole on iPE-lt saadaval: {types}. Materjal: {mats}.', intro_v='Klappidega heli (linnas vaikne, nupuvajutusega vali): {types}.', conj='ja', mat_or='või',
             mat_ti='titaan', mat_ss='roostevaba teras', finishes='Otsikute viimistlus', all='Kõik iPE süsteemid', more='Teised iPE süsteemid: {m}', all_make='Kõik {m} mudelid: {n}',
@@ -137,6 +139,7 @@ T = {
             make_title='iPE exhaust for {m}: all systems and prices | Nordvelg', make_desc='iPE exhaust systems for {m} made to order, catted versions only. Prices incl. VAT, delivery quoted with the price.', make_h1='iPE exhaust for {m}',
             h1='iPE exhaust systems for {car}', title='iPE exhaust for {car}: prices in Tallinn | Nordvelg', short='iPE exhaust for {car}',
             desc='iPE {types} for {car}, in {mats}. Prices incl. VAT, delivery quoted with the price.{price}',
+            desc_s='iPE {types} for {car}, in {mats}. Prices incl. VAT.{price}', desc_m='iPE {types} for {car}. Prices incl. VAT.{price}',
             sys='iPE {t} for {car}', sys_desc='iPE {t} for {car}, {mat}.',
             intro='Available for this car: {types}. Material: {mats}.', intro_v='Valve-controlled sound (quiet in town, loud at the press of a button): {types}.', conj='and', mat_or='or',
             mat_ti='titanium', mat_ss='stainless steel', finishes='Tip finishes', all='All iPE systems', more='More iPE exhausts for {m}', all_make='All {m} models: {n}',
@@ -169,6 +172,7 @@ T['fi'] = dict(sec='iPE-pakoputkistot', cat_title='iPE-pakoputkistot tilauksesta
             make_title='iPE-pakoputkistot {ma}: hinnat | Nordvelg', make_desc='iPE-pakoputkistot {ma} tilauksesta, vain katalysaattorilliset versiot. Hinnat sisältävät ALV:n, toimituskulut kerromme tarjouksessa.', make_h1='iPE-pakoputkistot {ma}',
             h1='{car}: iPE-pakoputkistot', title='{car}: iPE-pakoputkistot ja hinnat | Nordvelg', short='{car}: iPE-pakoputkistot',
             desc='{car}: iPE:n {types}, materiaalina {mats}. Hinnat sisältävät ALV:n, toimituskulut kerromme tarjouksessa.{price}',
+            desc_s='{car}: iPE:n {types}, materiaalina {mats}. Hinnat sisältävät ALV:n.{price}', desc_m='{car}: iPE:n {types}. Hinnat sisältävät ALV:n.{price}',
             sys='{car}: iPE:n {t}', sys_desc='iPE:n {t} malliin {car}, materiaalina {mat}.',
             intro='Tähän autoon on saatavilla: {types}. Materiaali: {mats}.', intro_v='Venttiiliohjattu ääni (kaupungissa hiljainen, napista lisää ääntä): {types}.', conj='ja', mat_or='tai',
             mat_ti='titaani', mat_ss='ruostumaton teräs', finishes='Pakoputken päätteiden viimeistely', all='Kaikki iPE-pakoputkistot', more='Muut iPE-pakoputkistot {ma}', all_make='{m}: kaikki mallit ({n})',
@@ -522,7 +526,13 @@ def page(c, lang):
     ms = mats(items, lang)
     pr = W.fmt(c['p'], lang) if c['p'] else ''
     types_d = join(tn, lang)
-    desc = t['desc'].format(types=types_d, car=c['car'], mats=ms, price=(' ' + pr[:1].upper() + pr[1:] + '.') if pr else '')
+    price_d = (' ' + pr[:1].upper() + pr[1:] + '.') if pr else ''
+    # Полный текст, если влезает в сниппет; иначе без фразы о доставке, потом короче список типов, потом без материала
+    cands = [t['desc'].format(types=types_d, car=c['car'], mats=ms, price=price_d)]
+    for k in ('desc_s', 'desc_m'):
+        for n in range(len(tn), 0, -1):
+            cands.append(t[k].format(types=join(tn[:n], lang), car=c['car'], mats=ms, price=price_d))
+    desc = next((x for x in cands if len(x) <= W.DESC_MAX), cands[-1])
     og = SITE + W.big(c['imgs'][0])
     out = W.head_common(lang, title, desc, url, alts, og)
     graph = []
