@@ -220,7 +220,7 @@
     });
     // balcony block: wall under window part
     if (state.type==='balc') {
-      const wx = F + innerW*0.58 + mull/2, ww = innerW*0.42 - mull/2, wy = F + innerH*0.62 + 8;
+      const wx = F, ww = innerW*0.58 - mull/2, wy = F + innerH*0.62 + 8;
       out += `<rect x="${wx}" y="${wy}" width="${ww}" height="${F+innerH-wy}" fill="${fill}" stroke="${col.edge}" stroke-width="3"/>`;
     }
     const tint = state.glass==='3' ? ['#9FC7DC','#DDEEF5'] : ['#A9D0E4','#E8F4FA'];
