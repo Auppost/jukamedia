@@ -326,7 +326,7 @@ footer a:hover{color:#fff}
       <a class="w mid" href="/wheels/brixton-forged-fde11/" data-model="Brixton Forged FDE11"><div class="stage"><img width="960" height="768" decoding="async" loading="lazy" src="/img/brixton-forged-fde11-monoblock-wheel-5-lug-960.webp" alt="Brixton Forged FDE11"></div><span class="brand">Brixton Forged</span><h3>FDE11</h3><div class="spec"><span>monoblock</span><span>made to fit</span></div></a>
       <a class="w mid" href="/wheels/brixton-forged-pf9-carbon/" data-model="Brixton Forged PF9 Carbon+"><div class="stage"><img width="800" height="800" decoding="async" loading="lazy" src="/img/brixton-forged-pf9-2p-carbon-series1-800.webp" alt="Brixton Forged PF9 Carbon+"></div><span class="brand">Brixton Forged</span><h3>PF9 Carbon+</h3><div class="spec"><span>forged centre</span><span>carbon barrel</span></div></a>
     </div>
-    <div class="cat-foot"><span>Tap a model to open its page</span><span>MV Forged and AL13 on request</span></div><span class="allrow"><a class="allcat" href="/wheels/">Full catalogue: 361 models</a><a class="allcat alt" href="/exhaust/">iPE exhaust systems: 419</a></span>
+    <div class="cat-foot"><span>Tap a model to open its page</span></div><span class="allrow"><a class="allcat" href="/wheels/">Full catalogue: 361 models</a><a class="allcat alt" href="/exhaust/">iPE exhaust systems: 419</a></span>
   </div>
 </section>
 
@@ -476,7 +476,7 @@ footer a:hover{color:#fff}
 
       <fieldset class="fs" data-s="2" style="border:0">
         <h3>Which style suits you</h3><p class="hint">Pick several or skip this step</p>
-        <div class="q"><span>Brand</span><div class="chips" data-k="brand" data-multi><button type="button" class="chip">BC Forged</button><button type="button" class="chip">Brixton Forged</button><button type="button" class="chip">MV Forged or AL13</button><button type="button" class="chip">Other brand</button><button type="button" class="chip">Recommend one</button></div></div>
+        <div class="q"><span>Brand</span><div class="chips" data-k="brand" data-multi><button type="button" class="chip">BC Forged</button><button type="button" class="chip">Brixton Forged</button><button type="button" class="chip">Other brand</button><button type="button" class="chip">Recommend one</button></div></div>
         <div class="q"><span>Construction</span><div class="chips" data-k="build" data-multi><button type="button" class="chip">Monoblock</button><button type="button" class="chip">Two-piece</button><button type="button" class="chip">Three-piece</button><button type="button" class="chip">Not sure yet</button></div></div>
         <div class="q"><span>Finish</span><div class="chips" data-k="finish" data-multi><button type="button" class="chip">Brushed</button><button type="button" class="chip">Graphite</button><button type="button" class="chip">Black</button><button type="button" class="chip">Bronze</button><button type="button" class="chip">Gold</button><button type="button" class="chip">Body colour</button></div></div>
         <div class="q"><span>Model from the catalogue</span><input id="fWheel" placeholder="For example, BC Forged KL52" aria-label="Wheel model" maxlength="60" autocomplete="off"></div>
@@ -484,7 +484,7 @@ footer a:hover{color:#fff}
 
       <fieldset class="fs" data-s="3" style="border:0">
         <h3>Size and timing</h3><p class="hint">A rough idea is fine, we will work out the details</p>
-        <div class="q"><span>Diameter</span><div class="chips" data-k="size"><button type="button" class="chip">19″</button><button type="button" class="chip">20″</button><button type="button" class="chip">21″</button><button type="button" class="chip">22″</button><button type="button" class="chip">23″ or more</button><button type="button" class="chip">Same as now</button></div></div>
+        <div class="q"><span>Diameter</span><div class="chips" data-k="size"><button type="button" class="chip">18″</button><button type="button" class="chip">19″</button><button type="button" class="chip">20″</button><button type="button" class="chip">21″</button><button type="button" class="chip">22″</button><button type="button" class="chip">23″ or more</button><button type="button" class="chip">Same as now</button></div></div>
         <div class="q"><span>Front and rear width</span><div class="chips" data-k="setup"><button type="button" class="chip">Same</button><button type="button" class="chip">Wider at the rear</button><button type="button" class="chip">Same as factory</button></div></div>
         <div class="q"><span>Budget per set</span><div class="chips" data-k="budget"><button type="button" class="chip">up to €5,000</button><button type="button" class="chip">€5,000-7,000</button><button type="button" class="chip">€7,000-10,000</button><button type="button" class="chip">over €10,000</button></div></div>
         <div class="q"><span>When do you want to order</span><div class="chips" data-k="when"><button type="button" class="chip">Now</button><button type="button" class="chip">Within a month</button><button type="button" class="chip">By spring</button><button type="button" class="chip">Just looking</button></div></div>
@@ -622,7 +622,8 @@ function upd(){
 var leadSent="";function lead(ch){var t=text();if(!t||t===leadSent)return;leadSent=t;try{fetch("https://formspree.io/f/xaqgrrde",{method:"POST",keepalive:true,headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify({_subject:"Nordvelg: request ("+ch+")",message:t,channel:ch,lang:document.documentElement.lang,page:location.href})}).catch(function(){});}catch(e){}if(window.gtag)try{gtag("event","generate_lead",{method:ch});}catch(e){}}
 $("sendTg").addEventListener("click",function(){lead("Telegram");try{navigator.clipboard&&navigator.clipboard.writeText(text());}catch(e){}});
 $("sendWa").addEventListener("click",function(){lead("WhatsApp");});
-$("next").addEventListener("click",function(){go(step+1);});
+$("next").addEventListener("click",function(){var mk=$("fMake");if(step===1&&!mk.value){mk.setCustomValidity("Choose the make of your car, we need it to work out the price");mk.reportValidity();mk.focus();return;}go(step+1);});
+$("fMake").addEventListener("change",function(){this.setCustomValidity("");});
 $("prev").addEventListener("click",function(){go(step-1);});
 $("form").addEventListener("submit",function(e){e.preventDefault();});
 $("pick").addEventListener("submit",function(e){

@@ -76,7 +76,7 @@ footer a{color:#fff}
 .credits{font-size:12px;color:#8a8f96;margin-top:28px}
 a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:3px}
 @media (max-width:980px){.prod{grid-template-columns:minmax(0,1fr);gap:28px}.info{position:static}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.how ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:640px){.top .in{flex-wrap:wrap;row-gap:4px;height:auto;padding-top:12px}.top nav:not(.lang){order:3;width:100%;overflow-x:auto;gap:18px;font-size:14px;white-space:nowrap;scrollbar-width:none;padding:2px 0 10px}.top nav:not(.lang)::-webkit-scrollbar{display:none}.top .in{gap:12px}.wrap{padding-inline:16px}.grid{gap:10px}.how ol{grid-template-columns:1fr}footer .foot{grid-template-columns:1fr}.ctas .btn{flex:1 1 100%}}
+@media (max-width:640px){.top .in{flex-wrap:wrap;row-gap:4px;height:auto;padding-top:12px}.top nav:not(.lang){order:3;width:100%;flex-wrap:wrap;gap:6px 16px;font-size:14px;white-space:nowrap;padding:2px 0 10px}.top .in{gap:12px}.wrap{padding-inline:16px}.grid{gap:10px}.how ol{grid-template-columns:1fr}footer .foot{grid-template-columns:1fr}.ctas .btn{flex:1 1 100%}}
 @media (prefers-reduced-motion:reduce){.card{transition:none}}
 section{scroll-margin-top:80px}.ptab{padding-block:40px;border-top:1px solid var(--steel)}
 .tw{overflow-x:auto;margin-top:18px}

@@ -326,7 +326,7 @@ footer a:hover{color:#fff}
       <a class="w mid" href="/ru/wheels/brixton-forged-fde11/" data-model="Brixton Forged FDE11"><div class="stage"><img width="960" height="768" decoding="async" loading="lazy" src="/img/brixton-forged-fde11-monoblock-wheel-5-lug-960.webp" alt="Brixton Forged FDE11"></div><span class="brand">Brixton Forged</span><h3>FDE11</h3><div class="spec"><span>моноблок</span><span>под машину</span></div></a>
       <a class="w mid" href="/ru/wheels/brixton-forged-pf9-carbon/" data-model="Brixton Forged PF9 Carbon+"><div class="stage"><img width="800" height="800" decoding="async" loading="lazy" src="/img/brixton-forged-pf9-2p-carbon-series1-800.webp" alt="Brixton Forged PF9 Carbon+"></div><span class="brand">Brixton Forged</span><h3>PF9 Carbon+</h3><div class="spec"><span>кованый центр</span><span>карбоновый обод</span></div></a>
     </div>
-    <div class="cat-foot"><span>Нажмите на модель, чтобы открыть её карточку</span><span>MV Forged и AL13 по запросу</span></div><span class="allrow"><a class="allcat" href="/ru/wheels/">Весь каталог: 361 модель</a><a class="allcat alt" href="/ru/exhaust/">Выхлопные системы iPE: 419</a></span>
+    <div class="cat-foot"><span>Нажмите на модель, чтобы открыть её карточку</span></div><span class="allrow"><a class="allcat" href="/ru/wheels/">Весь каталог: 361 модель</a><a class="allcat alt" href="/ru/exhaust/">Выхлопные системы iPE: 419</a></span>
   </div>
 </section>
 
@@ -476,7 +476,7 @@ footer a:hover{color:#fff}
 
       <fieldset class="fs" data-s="2" style="border:0">
         <h3>Какой стиль ближе</h3><p class="hint">Можно выбрать несколько или пропустить</p>
-        <div class="q"><span>Бренд</span><div class="chips" data-k="brand" data-multi><button type="button" class="chip">BC Forged</button><button type="button" class="chip">Brixton Forged</button><button type="button" class="chip">MV Forged или AL13</button><button type="button" class="chip">Другой бренд</button><button type="button" class="chip">Посоветуйте</button></div></div>
+        <div class="q"><span>Бренд</span><div class="chips" data-k="brand" data-multi><button type="button" class="chip">BC Forged</button><button type="button" class="chip">Brixton Forged</button><button type="button" class="chip">Другой бренд</button><button type="button" class="chip">Посоветуйте</button></div></div>
         <div class="q"><span>Конструкция</span><div class="chips" data-k="build" data-multi><button type="button" class="chip">Моноблок</button><button type="button" class="chip">Двухсоставной</button><button type="button" class="chip">Трёхсоставной</button><button type="button" class="chip">Пока не знаю</button></div></div>
         <div class="q"><span>Отделка</span><div class="chips" data-k="finish" data-multi><button type="button" class="chip">Брашинг</button><button type="button" class="chip">Графит</button><button type="button" class="chip">Чёрный</button><button type="button" class="chip">Бронза</button><button type="button" class="chip">Золото</button><button type="button" class="chip">В цвет кузова</button></div></div>
         <div class="q"><span>Модель из каталога</span><input id="fWheel" placeholder="Например, BC Forged KL52" aria-label="Модель дисков" maxlength="60" autocomplete="off"></div>
@@ -484,7 +484,7 @@ footer a:hover{color:#fff}
 
       <fieldset class="fs" data-s="3" style="border:0">
         <h3>Размер и сроки</h3><p class="hint">Можно примерно, точнее посчитаем сами</p>
-        <div class="q"><span>Диаметр</span><div class="chips" data-k="size"><button type="button" class="chip">19″</button><button type="button" class="chip">20″</button><button type="button" class="chip">21″</button><button type="button" class="chip">22″</button><button type="button" class="chip">23″ и больше</button><button type="button" class="chip">Как сейчас</button></div></div>
+        <div class="q"><span>Диаметр</span><div class="chips" data-k="size"><button type="button" class="chip">18″</button><button type="button" class="chip">19″</button><button type="button" class="chip">20″</button><button type="button" class="chip">21″</button><button type="button" class="chip">22″</button><button type="button" class="chip">23″ и больше</button><button type="button" class="chip">Как сейчас</button></div></div>
         <div class="q"><span>Ширина спереди и сзади</span><div class="chips" data-k="setup"><button type="button" class="chip">Одинаковая</button><button type="button" class="chip">Сзади шире</button><button type="button" class="chip">Как с завода</button></div></div>
         <div class="q"><span>Бюджет за комплект</span><div class="chips" data-k="budget"><button type="button" class="chip">до 5 000 €</button><button type="button" class="chip">5 000-7 000 €</button><button type="button" class="chip">7 000-10 000 €</button><button type="button" class="chip">больше 10 000 €</button></div></div>
         <div class="q"><span>Когда хотите заказать</span><div class="chips" data-k="when"><button type="button" class="chip">Сейчас</button><button type="button" class="chip">В течение месяца</button><button type="button" class="chip">К весне</button><button type="button" class="chip">Пока присматриваюсь</button></div></div>
@@ -622,7 +622,8 @@ function upd(){
 var leadSent="";function lead(ch){var t=text();if(!t||t===leadSent)return;leadSent=t;try{fetch("https://formspree.io/f/xaqgrrde",{method:"POST",keepalive:true,headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify({_subject:"Nordvelg: заявка ("+ch+")",message:t,channel:ch,lang:document.documentElement.lang,page:location.href})}).catch(function(){});}catch(e){}if(window.gtag)try{gtag("event","generate_lead",{method:ch});}catch(e){}}
 $("sendTg").addEventListener("click",function(){lead("Telegram");try{navigator.clipboard&&navigator.clipboard.writeText(text());}catch(e){}});
 $("sendWa").addEventListener("click",function(){lead("WhatsApp");});
-$("next").addEventListener("click",function(){go(step+1);});
+$("next").addEventListener("click",function(){var mk=$("fMake");if(step===1&&!mk.value){mk.setCustomValidity("Выберите марку машины, без неё мы не посчитаем цену");mk.reportValidity();mk.focus();return;}go(step+1);});
+$("fMake").addEventListener("change",function(){this.setCustomValidity("");});
 $("prev").addEventListener("click",function(){go(step-1);});
 $("form").addEventListener("submit",function(e){e.preventDefault();});
 $("pick").addEventListener("submit",function(e){

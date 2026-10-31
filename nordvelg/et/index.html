@@ -326,7 +326,7 @@ footer a:hover{color:#fff}
       <a class="w mid" href="/et/wheels/brixton-forged-fde11/" data-model="Brixton Forged FDE11"><div class="stage"><img width="960" height="768" decoding="async" loading="lazy" src="/img/brixton-forged-fde11-monoblock-wheel-5-lug-960.webp" alt="Brixton Forged FDE11"></div><span class="brand">Brixton Forged</span><h3>FDE11</h3><div class="spec"><span>monoblokk</span><span>konkreetse auto jaoks</span></div></a>
       <a class="w mid" href="/et/wheels/brixton-forged-pf9-carbon/" data-model="Brixton Forged PF9 Carbon+"><div class="stage"><img width="800" height="800" decoding="async" loading="lazy" src="/img/brixton-forged-pf9-2p-carbon-series1-800.webp" alt="Brixton Forged PF9 Carbon+"></div><span class="brand">Brixton Forged</span><h3>PF9 Carbon+</h3><div class="spec"><span>sepistatud keskosa</span><span>süsinikkiust veljevõru</span></div></a>
     </div>
-    <div class="cat-foot"><span>Klõpsake mudelil, et avada selle leht</span><span>MV Forged ja AL13 päringu peale</span></div><span class="allrow"><a class="allcat" href="/et/wheels/">Kogu kataloog: 361 mudelit</a><a class="allcat alt" href="/et/exhaust/">iPE väljalaskesüsteemid: 419</a></span>
+    <div class="cat-foot"><span>Klõpsake mudelil, et avada selle leht</span></div><span class="allrow"><a class="allcat" href="/et/wheels/">Kogu kataloog: 361 mudelit</a><a class="allcat alt" href="/et/exhaust/">iPE väljalaskesüsteemid: 419</a></span>
   </div>
 </section>
 
@@ -476,7 +476,7 @@ footer a:hover{color:#fff}
 
       <fieldset class="fs" data-s="2" style="border:0">
         <h3>Milline stiil meeldib</h3><p class="hint">Võite valida mitu või selle sammu vahele jätta</p>
-        <div class="q"><span>Bränd</span><div class="chips" data-k="brand" data-multi><button type="button" class="chip">BC Forged</button><button type="button" class="chip">Brixton Forged</button><button type="button" class="chip">MV Forged või AL13</button><button type="button" class="chip">Muu bränd</button><button type="button" class="chip">Soovitage</button></div></div>
+        <div class="q"><span>Bränd</span><div class="chips" data-k="brand" data-multi><button type="button" class="chip">BC Forged</button><button type="button" class="chip">Brixton Forged</button><button type="button" class="chip">Muu bränd</button><button type="button" class="chip">Soovitage</button></div></div>
         <div class="q"><span>Konstruktsioon</span><div class="chips" data-k="build" data-multi><button type="button" class="chip">Monoblokk</button><button type="button" class="chip">Kaheosaline</button><button type="button" class="chip">Kolmeosaline</button><button type="button" class="chip">Ei tea veel</button></div></div>
         <div class="q"><span>Viimistlus</span><div class="chips" data-k="finish" data-multi><button type="button" class="chip">Harjatud</button><button type="button" class="chip">Grafiit</button><button type="button" class="chip">Must</button><button type="button" class="chip">Pronks</button><button type="button" class="chip">Kuld</button><button type="button" class="chip">Kere värvi</button></div></div>
         <div class="q"><span>Mudel kataloogist</span><input id="fWheel" placeholder="Näiteks BC Forged KL52" aria-label="Velgede mudel" maxlength="60" autocomplete="off"></div>
@@ -484,7 +484,7 @@ footer a:hover{color:#fff}
 
       <fieldset class="fs" data-s="3" style="border:0">
         <h3>Mõõt ja aeg</h3><p class="hint">Piisab ligikaudsest, täpsemalt arvutame ise</p>
-        <div class="q"><span>Läbimõõt</span><div class="chips" data-k="size"><button type="button" class="chip">19″</button><button type="button" class="chip">20″</button><button type="button" class="chip">21″</button><button type="button" class="chip">22″</button><button type="button" class="chip">23″ ja suurem</button><button type="button" class="chip">Nagu praegu</button></div></div>
+        <div class="q"><span>Läbimõõt</span><div class="chips" data-k="size"><button type="button" class="chip">18″</button><button type="button" class="chip">19″</button><button type="button" class="chip">20″</button><button type="button" class="chip">21″</button><button type="button" class="chip">22″</button><button type="button" class="chip">23″ ja suurem</button><button type="button" class="chip">Nagu praegu</button></div></div>
         <div class="q"><span>Laius ees ja taga</span><div class="chips" data-k="setup"><button type="button" class="chip">Ühesugune</button><button type="button" class="chip">Taga laiem</button><button type="button" class="chip">Nagu tehasest</button></div></div>
         <div class="q"><span>Eelarve komplektile</span><div class="chips" data-k="budget"><button type="button" class="chip">kuni 5 000 €</button><button type="button" class="chip">5 000-7 000 €</button><button type="button" class="chip">7 000-10 000 €</button><button type="button" class="chip">üle 10 000 €</button></div></div>
         <div class="q"><span>Millal soovite tellida</span><div class="chips" data-k="when"><button type="button" class="chip">Kohe</button><button type="button" class="chip">Kuu aja jooksul</button><button type="button" class="chip">Kevadeks</button><button type="button" class="chip">Alles vaatan ringi</button></div></div>
@@ -622,7 +622,8 @@ function upd(){
 var leadSent="";function lead(ch){var t=text();if(!t||t===leadSent)return;leadSent=t;try{fetch("https://formspree.io/f/xaqgrrde",{method:"POST",keepalive:true,headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify({_subject:"Nordvelg: päring ("+ch+")",message:t,channel:ch,lang:document.documentElement.lang,page:location.href})}).catch(function(){});}catch(e){}if(window.gtag)try{gtag("event","generate_lead",{method:ch});}catch(e){}}
 $("sendTg").addEventListener("click",function(){lead("Telegram");try{navigator.clipboard&&navigator.clipboard.writeText(text());}catch(e){}});
 $("sendWa").addEventListener("click",function(){lead("WhatsApp");});
-$("next").addEventListener("click",function(){go(step+1);});
+$("next").addEventListener("click",function(){var mk=$("fMake");if(step===1&&!mk.value){mk.setCustomValidity("Valige auto mark, ilma selleta me hinda ei arvuta");mk.reportValidity();mk.focus();return;}go(step+1);});
+$("fMake").addEventListener("change",function(){this.setCustomValidity("");});
 $("prev").addEventListener("click",function(){go(step-1);});
 $("form").addEventListener("submit",function(e){e.preventDefault();});
 $("pick").addEventListener("submit",function(e){
