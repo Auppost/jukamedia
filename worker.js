@@ -39,6 +39,12 @@ const SYSTEM_PROMPT = `Ты — Juka, AI-консультант веб-студ�
 // Удалённые и переехавшие страницы. Ключи — в нормализованном виде
 // (без /en, без index.html и .html); слэш на конце при поиске не важен.
 const LEGACY = {
+  // 31.10.2026 концепт сайта SinuAken снят, будет переделан заново
+  '/sinuaken/': '/',
+  '/sinuaken/okna/': '/',
+  '/sinuaken/narva/': '/',
+  '/sinuaken/v1/': '/',
+  '/sinuaken/v1/okna': '/',
   '/ecommerce-990/': '/ru/ecommerce-990/',
   '/blog/skolko-stoit-sait': '/ru/blog/skolko-stoit-sait',
   '/blog/reklama-v-google': '/ru/blog/reklama-v-google',
